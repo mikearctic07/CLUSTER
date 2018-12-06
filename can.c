@@ -66,3 +66,7 @@ void CAN_transmit(int id,int dlc, int word1, int word2){
 	/* SRR=1 Tx frame (not req'd for std ID) */
 	/* RTR = 0: data, not remote tx request frame*/
 }
+
+uint32_t CAN_id2Val(uint16_t id) {
+	return((id*MSG_BUF_SIZE) << ID_POSITION );
+}
