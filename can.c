@@ -53,3 +53,16 @@ void CAN_init(void){
 	while ((CAN0->MCR && CAN_MCR_NOTRDY_MASK) >> CAN_MCR_NOTRDY_SHIFT)  {}
 	/* Good practice: wait for NOTRDY to clear (module ready)  */
 }
+
+void CAN_transmit(int id,int dlc, int word1, int word2){
+	CAN0->IFLAG1 = 0x00000001;       /* Clear CAN 0 MB 0 flag without clearing others*/
+	CAN0->RAMn[ 0*MSG_BUF_SIZE + 2] = word1; /* MB0 word 2: data word 0  */
+	CAN0->RAMn[ 0*MSG_BUF_SIZE + 3] = word2; /* MB0 word 3: data word 1 */
+	CAN0->RAMn[ 0*MSG_BUF_SIZE + 1] = CAN_id2Val(id); /* MB0 word 1: Tx msg with STD ID 0x555 */
+	CAN0->RAMn[ 0*MSG_BUF_SIZE + 0] = 0x0C400000 | dlc <<CAN_WMBn_CS_DLC_SHIFT; /* MB0 word 0: */
+	/* EDL,BRS,ESI=0: CANFD not used */
+	/* CODE=0xC: Activate msg buf to transmit */
+	/* IDE=0: Standard ID */
+	/* SRR=1 Tx frame (not req'd for std ID) */
+	/* RTR = 0: data, not remote tx request frame*/
+}
