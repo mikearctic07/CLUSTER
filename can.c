@@ -105,6 +105,21 @@ void CAN_receive(void){
 
 }
 
+void CAN_speed(input * info){
+	PTD-> PSOR |= 1<<16;
+}
+
+void CAN_odo(input * info){
+	PTD-> PCOR |= 1<<16;
+}
+
+void CAN_tnk(input * info){
+	PTD-> PSOR |= 1<<0;
+}
+void CAN_ind(input * info){
+	PTD-> PCOR |= 1<<0;
+}
+
 void CAN_tarea(input * info){
 	switch(info->idCommand){
 	case 1:
