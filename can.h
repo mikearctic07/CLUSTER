@@ -12,4 +12,11 @@
 #define BYTE2	8
 #define BYTE	0XFF
 
+typedef struct {
+	uint8_t idCommand;
+	uint8_t numParams;
+	uint8_t param0;
+	uint8_t param1;
+} input;
+
 
