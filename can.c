@@ -104,3 +104,23 @@ void CAN_receive(void){
 
 
 }
+
+void CAN_tarea(input * info){
+	switch(info->idCommand){
+	case 1:
+		CAN_speed(info);
+		break;
+	case 2:
+		CAN_odo(info);
+		break;
+	case 3:
+		CAN_tnk(info);
+		break;
+	case 4:
+		CAN_ind(info);
+		break;
+	default:
+		break;
+	}
+}
+
