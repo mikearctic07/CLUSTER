@@ -19,4 +19,13 @@ typedef struct {
 	uint8_t param1;
 } input;
 
+void CAN_init(void);
+void CAN_transmit(int id,int dlc, int word1, int word2);
+void CAN_receive(void);
+uint32_t CAN_id2Val(uint16_t id);
+void CAN_tarea(input * info);
+void CAN_speed(input * info);
+void CAN_odo(input * info);
+void CAN_tnk(input * info);
+void CAN_ind(input * info);
 
