@@ -70,3 +70,37 @@ void CAN_transmit(int id,int dlc, int word1, int word2){
 uint32_t CAN_id2Val(uint16_t id) {
 	return((id*MSG_BUF_SIZE) << ID_POSITION );
 }
+
+void CAN_receive(void){
+	//	uint8_t tarea=0;
+	//	uint8_t j;
+	uint32_t dummy;
+
+	input info;
+
+	if(CAN0->IFLAG1 & 1 << 4){
+		RxCODE   = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 0] & 0x07000000) >> 24;  /* Read CODE field */
+		RxID     = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 1] & CAN_WMBn_ID_ID_MASK)  >> CAN_WMBn_ID_ID_SHIFT ;
+		RxLENGTH = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 0] & CAN_WMBn_CS_DLC_MASK) >> CAN_WMBn_CS_DLC_SHIFT;
+		//	  for (j=0; j<2; j++) {  /* Read two words of data (8 bytes) */
+		//	    RxDATA[j] = CAN0->RAMn[ 4*MSG_BUF_SIZE + 2 + j];
+		info.idCommand = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 2 + 0] & (BYTE << BYTE0)) >> BYTE0;
+		info.numParams = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 2 + 0] & (BYTE << BYTE1)) >> BYTE1;
+		info.param0 = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 2 + 0] & (BYTE << BYTE2)) >> BYTE2;
+		info.param1 = (CAN0->RAMn[ 4*MSG_BUF_SIZE + 2 + 0] & BYTE);
+
+		//	  }
+		RxTIMESTAMP = (CAN0->RAMn[ 0*MSG_BUF_SIZE + 0] & 0x000FFFF);
+		dummy = CAN0->TIMER;             /* Read TIMER to unlock message buffers */
+		CAN0->IFLAG1 = 0x00000010;       /* Clear CAN 0 MB 4 flag without clearing others*/
+
+		CAN_tarea(&info);
+	}
+
+	if(CAN0->IFLAG1 & 1<<3){
+		CAN0->IFLAG1 = 0x00000008;
+		CAN_transmit(ID_SEND,8,0xFFFFFFFF,0xFFFFFFFF);
+	}
+
+
+}
