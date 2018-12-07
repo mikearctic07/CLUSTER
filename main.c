@@ -1,15 +1,51 @@
-#include "S32K144.h" /* include peripheral declarations S32K144 */
-//#include "FlexCAN.h"
-#include "clocks_and_modes.h"
-#include "can.h"
+/* Including needed modules to compile this module/procedure */
+#include "Cpu.h"
+#include "clockMan1.h"
+#include "pin_mux.h"
+#include "FreeRTOS.h"
+#if CPU_INIT_CONFIG
+  #include "Init_Config.h"
+#endif
 
-void WDOG_disable (void){
-  WDOG->CNT=0xD928C520; 	/* Unlock watchdog */
-  WDOG->TOVAL=0x0000FFFF;	/* Maximum timeout value */
-  WDOG->CS = 0x00002100;    /* Disable watchdog */
-}
+volatile int exit_code = 0;
 
-int main(void) {
-    for (;;) {  
+#include <stdint.h>
+#include <stdbool.h>
+
+extern void rtos_start(void);
+#define PEX_RTOS_START rtos_start
+
+
+int main(void)
+{
+  /* Write your local variable definition here */
+
+  /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
+  #ifdef PEX_RTOS_INIT
+    PEX_RTOS_INIT();                   /* Initialization of the selected RTOS. Macro is defined by the RTOS component. */
+  #endif
+  /*** End of Processor Expert internal initialization.                    ***/
+
+    /* All of the code is in rtos.c file */
+
+  #ifdef PEX_RTOS_INIT
+    PEX_RTOS_INIT();
+  #endif
+
+
+
+
+
+  #ifdef PEX_RTOS_START
+    PEX_RTOS_START();
+  #endif
+
+  for(;;) {
+    if(exit_code != 0) {
+      break;
     }
+  }
+  return exit_code;
+
 }
+
