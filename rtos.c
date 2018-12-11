@@ -88,7 +88,7 @@
 
 /* The rate at which data is sent to the queue, specified in milliseconds, and
 converted to ticks using the portTICK_PERIOD_MS constant. */
-#define mainQUEUE_SEND_FREQUENCY_MS			( 500 / portTICK_PERIOD_MS )
+#define mainQUEUE_SEND_FREQUENCY_MS			( 200 / portTICK_PERIOD_MS )
 
 /* The LED will remain on until the button has not been pushed for a full
 5000ms. */
@@ -113,6 +113,18 @@ an interrupt on this port. */
 /* A block time of zero simply means "don't block". */
 #define mainDONT_BLOCK						( 0UL )
 
+/*Speed display shall refresh every 50ms */
+#define SPD_TIMER_PERIOD_MS	(50 / portTICK_PERIOD_MS)
+#define	SPD_PRIORITY		( tskIDLE_PRIORITY + 1 )
+
+/*Tank display shall refresh every 100ms */
+#define TNK_TIMER_PERIOD_MS	(100 / portTICK_PERIOD_MS)
+#define	TNK_PRIORITY		( tskIDLE_PRIORITY + 1 )
+
+/*Odometer display shall refresh every 200ms */
+#define OD_TIMER_PERIOD_MS	(200 / portTICK_PERIOD_MS)
+#define	OD_PRIORITY		( tskIDLE_PRIORITY + 1 )
+
 /*-----------------------------------------------------------*/
 
 /*
@@ -125,6 +137,10 @@ static void prvSetupHardware( void );
  */
 static void prvQueueReceiveTask( void *pvParameters );
 static void prvQueueSendTask( void *pvParameters );
+
+static void speedTask( void *pvParameters );
+static void tnkTask( void *pvParameters );
+static void odTask( void *pvParameters );
 
 /*
  * The LED timer callback function.  This does nothing but switch off the
@@ -156,19 +172,23 @@ void rtos_start( void )
 		/* Start the two tasks as described in the comments at the top of this
 		file. */
 
-		xTaskCreate( prvQueueReceiveTask, "RX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY, NULL );
-		xTaskCreate( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL );
+//		xTaskCreate( prvQueueReceiveTask, "RX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY, NULL );
+//		xTaskCreate( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL );
+
+//		xTaskCreate( speedTask, "SPD", configMINIMAL_STACK_SIZE, NULL, SPD_PRIORITY, NULL );
+		xTaskCreate( tnkTask, "TNK", configMINIMAL_STACK_SIZE, NULL, TNK_PRIORITY, NULL );
+//		xTaskCreate( odTask, "OD", configMINIMAL_STACK_SIZE, NULL, OD_PRIORITY, NULL );
 
 
 		/* Create the software timer that is responsible for turning off the LED
 		if the button is not pushed within 5000ms, as described at the top of
 		this file. */
-		//xButtonLEDTimer = xTimerCreate( "ButtonLEDTimer", 			/* A text name, purely to help debugging. */
-		//						mainBUTTON_LED_TIMER_PERIOD_MS,	/* The timer period, in this case 5000ms (5s). */
-		//							pdFALSE,						/* This is a one shot timer, so xAutoReload is set to pdFALSE. */
-		//							( void * ) 0,					/* The ID is not used, so can be set to anything. */
-		//							prvButtonLEDTimerCallback		/* The callback function that switches the LED off. */
-		//						);
+//		xButtonLEDTimer = xTimerCreate( "ButtonLEDTimer", 			/* A text name, purely to help debugging. */
+//									mainBUTTON_LED_TIMER_PERIOD_MS,	/* The timer period, in this case 5000ms (5s). */
+//									pdFALSE,						/* This is a one shot timer, so xAutoReload is set to pdFALSE. */
+//									( void * ) 0,					/* The ID is not used, so can be set to anything. */
+//									prvButtonLEDTimerCallback		/* The callback function that switches the LED off. */
+//								);
 
 		/* Start the tasks and timer running. */
 		vTaskStartScheduler();
@@ -181,6 +201,73 @@ void rtos_start( void )
 	for more details. */
 	for( ;; );
 }
+
+/*-----------------------------------------------------------*/
+
+static void speedTask( void *pvParameters )
+{
+	TickType_t xNextWakeTime;
+	/* Casting pvParameters to void because it is unused */
+	(void)pvParameters;
+
+	/* Initialise xNextWakeTime - this only needs to be done once. */
+	xNextWakeTime = xTaskGetTickCount();
+
+	for( ;; )
+	{
+		/* Place this task in the blocked state until it is time to run again.
+		The block time is specified in ticks, the constant used converts ticks
+		to ms.  While in the Blocked state this task will not consume any CPU
+		time. */
+		vTaskDelayUntil( &xNextWakeTime, SPD_TIMER_PERIOD_MS );
+//		Red led toogle
+		PTD-> PTOR |= 1<<15;
+	}
+}
+
+static void tnkTask( void *pvParameters )
+{
+	TickType_t xNextWakeTime;
+	/* Casting pvParameters to void because it is unused */
+	(void)pvParameters;
+
+	/* Initialise xNextWakeTime - this only needs to be done once. */
+	xNextWakeTime = xTaskGetTickCount();
+
+	for( ;; )
+	{
+		/* Place this task in the blocked state until it is time to run again.
+		The block time is specified in ticks, the constant used converts ticks
+		to ms.  While in the Blocked state this task will not consume any CPU
+		time. */
+		vTaskDelayUntil( &xNextWakeTime, TNK_TIMER_PERIOD_MS );
+//		blue led toogle
+		PTD-> PTOR |= 1 << 0;
+	}
+}
+
+static void odTask( void *pvParameters )
+{
+	TickType_t xNextWakeTime;
+	/* Casting pvParameters to void because it is unused */
+	(void)pvParameters;
+
+	/* Initialise xNextWakeTime - this only needs to be done once. */
+	xNextWakeTime = xTaskGetTickCount();
+
+	for( ;; )
+	{
+		/* Place this task in the blocked state until it is time to run again.
+		The block time is specified in ticks, the constant used converts ticks
+		to ms.  While in the Blocked state this task will not consume any CPU
+		time. */
+		vTaskDelayUntil( &xNextWakeTime, OD_TIMER_PERIOD_MS );
+//		Green led toggle
+		PTD-> PTOR |= 1<<16;
+	}
+}
+
+
 /*-----------------------------------------------------------*/
 
 static void prvButtonLEDTimerCallback( TimerHandle_t xTimer )
@@ -211,15 +298,12 @@ void vPort_C_ISRHandler( void )
 	/* Clear the interrupt before leaving. */
 	PINS_DRV_ClearPortIntFlagCmd(BTN_PORT);
 
-
-	PINS_DRV_SetPins(LED_GPIO, (1 << LED1));
 	/* If calling xTimerResetFromISR() caused a task (in this case the timer
 	service/daemon task) to unblock, and the unblocked task has a priority
 	higher than or equal to the task that was interrupted, then
 	xHigherPriorityTaskWoken will now be set to pdTRUE, and calling
 	portEND_SWITCHING_ISR() will ensure the unblocked task runs next. */
 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
-
 }
 /*-----------------------------------------------------------*/
 
@@ -242,9 +326,10 @@ const unsigned long ulValueToSend = 100UL;
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, mainQUEUE_SEND_FREQUENCY_MS );
 
-
-
-
+		/* Send to the queue - causing the queue receive task to unblock and
+		toggle an LED.  0 is used as the block time so the sending operation
+		will not block - it shouldn't need to block as the queue should always
+		be empty at this point in the code. */
 		xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
 	}
 }
@@ -256,7 +341,7 @@ unsigned long ulReceivedValue;
 
 	/* Casting pvParameters to void because it is unused */
 	(void)pvParameters;
-	uint32_t rx_msg_count = 0;
+
 	for( ;; )
 	{
 		/* Wait until something arrives in the queue - this task will block
@@ -264,26 +349,11 @@ unsigned long ulReceivedValue;
 		FreeRTOSConfig.h. */
 		xQueueReceive( xQueue, &ulReceivedValue, portMAX_DELAY );
 
-		if ((CAN0->IFLAG1 >> 4) & 1)
-		{  /* If CAN 0 MB 4 flag is set (received msg), read MB4 */
-	      FLEXCAN0_receive_msg ();      /* Read message */
-	      rx_msg_count++;               /* Increment receive msg counter */
-
-	      if (rx_msg_count == 10000)
-	      {   /* If 1000 messages have been received, */
-	        rx_msg_count = 0;           /*   and reset message counter */
-	        PINS_DRV_TogglePins(LED_GPIO, (1 << LED1));
-	        FLEXCAN0_transmit_msg ();     /* Transmit message using MB0 */
-	      }
-
-
-	    }
-
 		/*  To get here something must have been received from the queue, but
 		is it the expected value?  If it is, toggle the LED. */
 		if( ulReceivedValue == 100UL )
 		{
-		    PINS_DRV_TogglePins(LED_GPIO, (1 << LED1));
+		    PINS_DRV_TogglePins(LED_GPIO, (1 << LED2));
 		}
 	}
 }
@@ -303,13 +373,13 @@ static void prvSetupHardware( void )
     boardSetup();
 
 	/* Change LED1, LED2 to outputs. */
-	PINS_DRV_SetPinsDirection(LED_GPIO,  (1 << LED1) | (1 << LED2));
+	PINS_DRV_SetPinsDirection(LED_GPIO,  (1 << LED1) | (1 << LED2) | (1 << LED0));
 
 	/* Change BTN1 to input */
 	PINS_DRV_SetPinsDirection(BTN_GPIO, ~(1 << BTN_PIN));
 
 	/* Start with LEDs off. */
-	PINS_DRV_SetPins(LED_GPIO, (1 << LED1) | (1 << LED2));
+	PINS_DRV_SetPins(LED_GPIO, (1 << LED1) | (1 << LED2) | (1 << LED0));
 
 	/* Install Button interrupt handler */
     INT_SYS_InstallHandler(BTN_PORT_IRQn, vPort_C_ISRHandler, (isr_t *)NULL);
