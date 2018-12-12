@@ -5,7 +5,7 @@ uint32_t  RxID;                /* Received message ID */
 uint32_t  RxLENGTH;            /* Recieved message number of data bytes */
 uint32_t  RxTIMESTAMP;         /* Received message time */
 
-void CAN_init(void){
+void CAN_Init(void){
 #define MSG_BUF_SIZE  4    /* Msg Buffer Size. (CAN 2.0AB: 2 hdr +  2 data= 4 words) */
 	uint32_t   i=0;
 

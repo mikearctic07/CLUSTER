@@ -17,13 +17,13 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.CAN_init,"ax",%progbits
+	.section	.text.CAN_Init,"ax",%progbits
 	.align	2
-	.global	CAN_init
+	.global	CAN_Init
 	.thumb
 	.thumb_func
-	.type	CAN_init, %function
-CAN_init:
+	.type	CAN_Init, %function
+CAN_Init:
 .LFB0:
 	.file 1 "../Sources/can.c"
 	.loc 1 8 0
@@ -126,7 +126,7 @@ CAN_init:
 	.word	157024256
 	.cfi_endproc
 .LFE0:
-	.size	CAN_init, .-CAN_init
+	.size	CAN_Init, .-CAN_Init
 	.section	.text.CAN_transmit,"ax",%progbits
 	.align	2
 	.global	CAN_transmit
@@ -32515,8 +32515,8 @@ CAN_receive:
 	.ascii	"LPSPI_CFGR0_CIRFIFO(x) (((uint32_t)(((uint32_t)(x))"
 	.ascii	"<<LPSPI_CFGR0_CIRFIFO_SHIFT))&LPSPI_CFGR0_CIRFIFO_M"
 	.ascii	"ASK)\000"
-.LASF858:
-	.ascii	"AIPS_OPACR_WP0_WIDTH 1u\000"
+.LASF9219:
+	.ascii	"CAN_Init\000"
 .LASF4680:
 	.ascii	"LPIT_VERID_MINOR_MASK 0xFF0000u\000"
 .LASF71:
@@ -37757,8 +37757,6 @@ CAN_receive:
 	.ascii	"S32_SCB_CPUID_REVISION_MASK 0xFu\000"
 .LASF4452:
 	.ascii	"LPI2C_SCR_FILTDZ_SHIFT 5u\000"
-.LASF9219:
-	.ascii	"CAN_init\000"
 .LASF1883:
 	.ascii	"DMA_CR_CLM_SHIFT 6u\000"
 .LASF1337:
@@ -42144,6 +42142,9 @@ CAN_receive:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
+.LASF9234:
+	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
+	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF2887:
 	.ascii	"FLEXIO_TIMCTL_TRGSRC_SHIFT 22u\000"
 .LASF2349:
@@ -46193,9 +46194,6 @@ CAN_receive:
 	.ascii	"RCM_SRS_POR_MASK 0x80u\000"
 .LASF5513:
 	.ascii	"LPUART_MATCH_MA2_SHIFT 16u\000"
-.LASF9234:
-	.ascii	"C:\\\\Users\\\\rbn\\\\workspaceS32DS.ARM.2018.R1\\\\"
-	.ascii	"clusterRtosFinal\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF8578:
 	.ascii	"SCG_SIRCCSR_SIRCLPEN_WIDTH 1u\000"
 .LASF8275:
@@ -49257,6 +49255,8 @@ CAN_receive:
 	.ascii	"DMAMUX_CHCFG_ENBL_WIDTH 1u\000"
 .LASF541:
 	.ascii	"ADC_R_D_MASK 0xFFFu\000"
+.LASF858:
+	.ascii	"AIPS_OPACR_WP0_WIDTH 1u\000"
 .LASF4909:
 	.ascii	"LPSPI_IER_TDIE_SHIFT 0u\000"
 .LASF5845:

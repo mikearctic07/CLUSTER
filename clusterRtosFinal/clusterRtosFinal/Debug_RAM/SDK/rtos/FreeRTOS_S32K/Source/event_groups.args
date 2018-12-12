@@ -2,8 +2,8 @@
 -DCPU_S32K144HFT0VLLT
 -DS32K
 -DDEV_ERROR_DETECT
--I"C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources"
--I"C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code"
+-I"C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources"
+-I"C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code"
 -I"C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include"
 -I"C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup"
 -I"C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144"

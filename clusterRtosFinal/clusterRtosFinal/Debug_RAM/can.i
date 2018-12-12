@@ -1,5 +1,5 @@
 # 1 "../Sources/can.c"
-# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -11301,7 +11301,7 @@ typedef struct {
  uint8_t param1;
 } input;
 
-void CAN_init(void);
+void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
 void CAN_receive(char * speed,char * tnk,char * od,char * ind);
 uint32_t CAN_id2Val(uint16_t id);
@@ -11317,7 +11317,7 @@ uint32_t RxID;
 uint32_t RxLENGTH;
 uint32_t RxTIMESTAMP;
 
-void CAN_init(void){
+void CAN_Init(void){
 #define MSG_BUF_SIZE 4
  uint32_t i=0;
 

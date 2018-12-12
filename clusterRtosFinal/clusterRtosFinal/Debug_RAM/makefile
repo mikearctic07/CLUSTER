@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 25
+#Progress monitor hint: 29
 first : all
 -include ../makefile.init
 
@@ -78,14 +78,14 @@ all: warning-messages explicit-dependencies clusterRtosFinal.elf secondary-outpu
 # Tool invocations
 clusterRtosFinal.elf: $(OBJS) C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/linker/gcc/S32K144_64_ram.ld $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Executing target #26 $@'
+	@echo 'Executing target #30 $@'
 	@echo 'Invoking: Standard S32DS C Linker'
 	arm-none-eabi-gcc -o "clusterRtosFinal.elf" "@clusterRtosFinal.args"  $(USER_OBJS_QUOTED) 
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 clusterRtosFinal.siz: $(EXECUTABLES)
-	@echo 'Executing target #27 $@'
+	@echo 'Executing target #31 $@'
 	@echo 'Invoking: Standard S32DS Print Size'
 	arm-none-eabi-size --format=berkeley $(EXECUTABLES)
 	@echo 'Finished building: $@'

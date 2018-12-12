@@ -1,5 +1,5 @@
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/src/clock/clock_manager.c"
-# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L

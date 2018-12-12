@@ -22,7 +22,7 @@ typedef struct {
 	uint8_t param1;
 } input;
 
-void CAN_init(void);
+void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
 void CAN_receive(char * speed,char * tnk,char * od,char * ind);
 uint32_t CAN_id2Val(uint16_t id);

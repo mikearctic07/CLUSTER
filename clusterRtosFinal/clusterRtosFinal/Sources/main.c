@@ -50,9 +50,7 @@
 #include "clockMan1.h"
 #include "pin_mux.h"
 #include "FreeRTOS.h"
-#include "clocks_and_modes.h"
-#include "can.h"
-#include "BoardDefines.h"
+#include "cluster.h"
 
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
@@ -80,24 +78,9 @@ extern void rtos_start(void);
 int main(void)
 {
   /* Write your local variable definition here */
-	WDOG_disable();
-	SOSC_init_8MHz();       /* Initialize system oscillator for 8 MHz xtal */
-	SPLL_init_160MHz();     /* Initialize SPLL to 160 MHz with 8 MHz SOSC */
-	NormalRUNmode_80MHz();
 
-	PCC->PCCn[PCC_PORTD_INDEX ]|=PCC_PCCn_CGC_MASK;   /* Enable clock for PORTD */
-	  PORTD->PCR[16] =  0x00000100;     /* Port D16: MUX = GPIO (to green LED) */
-	  PTD->PDDR |= 1<<16;               /* Port D16: Data direction = output */
-	  PORTD->PCR[0] =  0x00000100;     /* Port D16: MUX = GPIO (to red LED) */
-	  PTD->PDDR |= 1<<0;               /* Port D16: Data direction = output */
-	  PORTD->PCR[15] =  0x00000100;     /* Port D16: MUX = GPIO (to red LED) */
-	 	  PTD->PDDR |= 1<<15;               /* Port D16: Data direction = output */
+  CLUSTER_Initialize();
 
-	PCC->PCCn[PCC_PORTE_INDEX] |= PCC_PCCn_CGC_MASK; /* Enable clock for PORTE */
-	PORTE->PCR[4] |= PORT_PCR_MUX(5); /* Port E4: MUX = ALT5, CAN0_RX */
-	PORTE->PCR[5] |= PORT_PCR_MUX(5); /* Port E5: MUX = ALT5, CAN0_TX */
-
-	CAN_init();
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   #ifdef PEX_RTOS_INIT
     PEX_RTOS_INIT();                 /* Initialization of the selected RTOS. Macro is defined by the RTOS component. */
