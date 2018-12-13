@@ -81,17 +81,6 @@ int main(void)
 
   CLUSTER_Initialize();
 
-//  int speedFlag = 1;
-//  char tnkFlag = 1;
-//  char odFlag = 1;
-//  char indFlag = 1;
-
-  PTD-> PSOR |= 1<<0;
-  PTD-> PSOR |= 1<<15;
-  PTD-> PSOR |= 1<<16;
-//  for(;;){
-//	  CAN_receive(&speedFlag,&tnkFlag, &odFlag, &indFlag);
-//  }
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   #ifdef PEX_RTOS_INIT

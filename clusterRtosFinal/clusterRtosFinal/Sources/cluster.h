@@ -28,6 +28,10 @@
 #include "can.h"
 #endif /* CAN_H */
 
+#ifndef EEEPROM_H
+#include "eeeprom.h"
+#endif /* EEEPROM_H */
+
 void CLUSTER_Initialize(void);
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);

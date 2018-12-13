@@ -1,5 +1,6 @@
 #include "can.h"
 #include "stdio.h"
+#include "eeeprom.h"
 
 uint32_t  RxCODE;              /* Received message buffer code */
 uint32_t  RxID;                /* Received message ID */
@@ -108,7 +109,8 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 			break;
 		case 3:
 			//		CAN_tnk(info);
-			*tnk = (info.param0 << 8)+info.param1;
+			EEEPROM_Write_Data(((info.param0 << 8)+info.param1), TANK_LEVEL);
+			*tnk = EEEPROM_Read_Data(TANK_LEVEL);
 			break;
 		case 4:
 			if(info.param0 == 1 && info.param1 == 1){

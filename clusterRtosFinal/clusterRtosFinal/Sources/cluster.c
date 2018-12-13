@@ -22,9 +22,9 @@ void CLUSTER_Initialize(void)
   PORTE->PCR[4] |= PORT_PCR_MUX(5); /* Port E4: MUX = ALT5, CAN0_RX */
   PORTE->PCR[5] |= PORT_PCR_MUX(5); /* Port E5: MUX = ALT5, CAN0_TX */
 
-//  GPIO_Init_As_Input(RESET_TRIP_ODOMETER);
-//  GPIO_Init_As_Input(IGNITION_BUTTON);
-//  GPIO_Init_As_Input(MILLES_OR_KILOMETERS);
+  GPIO_Init_As_Input(RESET_TRIP_ODOMETER);
+  GPIO_Init_As_Input(IGNITION_BUTTON);
+  GPIO_Init_As_Input(MILLES_OR_KILOMETERS);
 
   GPIO_Init_As_Output(VELOCIMETER_UNITS_D0);
   GPIO_Init_As_Output(VELOCIMETER_UNITS_D1);
@@ -62,6 +62,7 @@ void CLUSTER_Initialize(void)
   GPIO_Init_As_Output(IGNITION_STATE);
 
   CAN_Init();
+  EEEPROM_Init();
 }
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue)

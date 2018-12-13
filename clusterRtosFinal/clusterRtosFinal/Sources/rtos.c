@@ -54,7 +54,7 @@ static void prvSetupHardware( void );
  */
 
 int speedFlag = 0;
-int tnkFlag = 555;
+int tnkFlag = 500;//EEEPROM_Read_Data(TANK_LEVEL);
 char odFlag = 1;
 char indFlag = 1;
 int tnkCounter = 1;

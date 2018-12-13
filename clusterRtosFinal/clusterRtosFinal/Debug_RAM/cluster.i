@@ -11514,6 +11514,37 @@ void CAN_ind(input * info);
 # 29 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
+
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/eeeprom.h" 1
+
+
+
+
+
+
+
+# 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/eeeprom.h" 2
+
+
+#define EEEPROM_H_ 
+
+#define EEE_SUCCESS 0
+#define EEE_ALREADY_ENABLED -1
+
+#define USER_DATA_SIZE 32u
+#define DISABLE_INTERRUPTS() __asm volatile ("cpsid i" : : : "memory");
+
+#define ODOMETER 1
+#define TRIP_ODOMETER 2
+#define TANK_LEVEL 3
+
+int EEEPROM_Init();
+int EEEPROM_Write_Data(int data, int target);
+int EEEPROM_Read_Data(int target);
+# 33 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+
+
 void CLUSTER_Initialize(void);
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
@@ -11540,9 +11571,9 @@ void CLUSTER_Initialize(void)
   ((PORT_Type *)(0x4004D000u))->PCR[4] |= (((uint32_t)(((uint32_t)(5))<<8u))&0x700u);
   ((PORT_Type *)(0x4004D000u))->PCR[5] |= (((uint32_t)(((uint32_t)(5))<<8u))&0x700u);
 
-
-
-
+  GPIO_Init_As_Input(32);
+  GPIO_Init_As_Input(31);
+  GPIO_Init_As_Input(34);
 
   GPIO_Init_As_Output(15);
   GPIO_Init_As_Output(16);
@@ -11580,6 +11611,7 @@ void CLUSTER_Initialize(void)
   GPIO_Init_As_Output(33);
 
   CAN_Init();
+  EEEPROM_Init();
 }
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue)

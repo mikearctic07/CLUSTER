@@ -12934,6 +12934,34 @@ int __swbuf_r (struct _reent *, int, FILE *);
 
 
 # 3 "../Sources/can.c" 2
+# 1 "../Sources/eeeprom.h" 1
+
+
+
+
+
+
+
+# 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
+# 9 "../Sources/eeeprom.h" 2
+
+
+#define EEEPROM_H_ 
+
+#define EEE_SUCCESS 0
+#define EEE_ALREADY_ENABLED -1
+
+#define USER_DATA_SIZE 32u
+#define DISABLE_INTERRUPTS() __asm volatile ("cpsid i" : : : "memory");
+
+#define ODOMETER 1
+#define TRIP_ODOMETER 2
+#define TANK_LEVEL 3
+
+int EEEPROM_Init();
+int EEEPROM_Write_Data(int data, int target);
+int EEEPROM_Read_Data(int target);
+# 4 "../Sources/can.c" 2
 
 uint32_t RxCODE;
 uint32_t RxID;
@@ -12951,7 +12979,7 @@ void CAN_Init(void){
  while (!((((CAN_Type *)(0x40024000u))->MCR & 0x1000000u) >> 24u)) {}
 
  ((CAN_Type *)(0x40024000u))->CTRL1 = 0x00DB0006;
-# 29 "../Sources/can.c"
+# 30 "../Sources/can.c"
  for(i=0; i<128; i++ ) {
   ((CAN_Type *)(0x40024000u))->RAMn[i] = 0;
  }
@@ -12960,7 +12988,7 @@ void CAN_Init(void){
  }
  ((CAN_Type *)(0x40024000u))->RXMGMASK = 0x1FFFFFFF;
  ((CAN_Type *)(0x40024000u))->RAMn[ 4*4 + 0] = 0x04000000;
-# 47 "../Sources/can.c"
+# 48 "../Sources/can.c"
  ((CAN_Type *)(0x40024000u))->RAMn[4*4 + 1] = 0x14440000;
  ((CAN_Type *)(0x40024000u))->RAMn[ 3*4 + 0] = 0x04000000;
  ((CAN_Type *)(0x40024000u))->RAMn[3*4 + 1] = 0x95C0000;
@@ -13025,7 +13053,8 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
    break;
   case 3:
 
-   *tnk = (info.param0 << 8)+info.param1;
+   EEEPROM_Write_Data(((info.param0 << 8)+info.param1), 3);
+   *tnk = EEEPROM_Read_Data(3);
    break;
   case 4:
    if(info.param0 == 1 && info.param1 == 1){

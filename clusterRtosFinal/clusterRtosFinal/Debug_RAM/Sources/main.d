@@ -27,7 +27,8 @@ Sources/main.o: ../Sources/main.c \
  ../Sources/gpio.h \
  C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h \
- ../Sources/LCD_DOS.h ../Sources/can.h ../Sources/FlexCAN.h
+ ../Sources/LCD_DOS.h ../Sources/can.h ../Sources/FlexCAN.h \
+ ../Sources/eeeprom.h
 
 C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h:
 
@@ -94,3 +95,5 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K14
 ../Sources/can.h:
 
 ../Sources/FlexCAN.h:
+
+../Sources/eeeprom.h:
