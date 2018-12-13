@@ -22,9 +22,9 @@ void CLUSTER_Initialize(void)
   PORTE->PCR[4] |= PORT_PCR_MUX(5); /* Port E4: MUX = ALT5, CAN0_RX */
   PORTE->PCR[5] |= PORT_PCR_MUX(5); /* Port E5: MUX = ALT5, CAN0_TX */
 
-  GPIO_Init_As_Input(RESET_TRIP_ODOMETER);
-  GPIO_Init_As_Input(IGNITION_BUTTON);
-  GPIO_Init_As_Input(MILLES_OR_KILOMETERS);
+//  GPIO_Init_As_Input(RESET_TRIP_ODOMETER);
+//  GPIO_Init_As_Input(IGNITION_BUTTON);
+//  GPIO_Init_As_Input(MILLES_OR_KILOMETERS);
 
   GPIO_Init_As_Output(VELOCIMETER_UNITS_D0);
   GPIO_Init_As_Output(VELOCIMETER_UNITS_D1);
@@ -83,6 +83,9 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount)
 		if(*ptrTankLevelValue < GAS_TANK_LEVEL_1_4)
 		{
 			GPIO_Set_Off_Output(GAS_TANK_LVL_1);
+			GPIO_Set_Off_Output(GAS_TANK_LVL_2);
+			GPIO_Set_Off_Output(GAS_TANK_LVL_3);
+			GPIO_Set_Off_Output(GAS_TANK_LVL_4);
 		}
 		else
 		{
@@ -90,6 +93,8 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount)
 			if(*ptrTankLevelValue < GAS_TANK_LEVEL_1_2)
 			{
 				GPIO_Set_Off_Output(GAS_TANK_LVL_2);
+				GPIO_Set_Off_Output(GAS_TANK_LVL_3);
+				GPIO_Set_Off_Output(GAS_TANK_LVL_4);
 			}
 			else
 			{
@@ -97,6 +102,7 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount)
 				if(*ptrTankLevelValue < GAS_TANK_LEVEL_3_4)
 				{
 					GPIO_Set_Off_Output(GAS_TANK_LVL_3);
+					GPIO_Set_Off_Output(GAS_TANK_LVL_4);
 				}
 				else
 				{

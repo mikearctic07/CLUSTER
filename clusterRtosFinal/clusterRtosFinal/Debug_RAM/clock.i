@@ -1,5 +1,5 @@
 # 1 "../Sources/clock.c"
-# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -372,8 +372,8 @@
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/clock.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/clock.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/clock.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/clock.h"
 #define CLOCK_H_ 
 
 void CLOCK_SOSC_Init_8MHz(void);

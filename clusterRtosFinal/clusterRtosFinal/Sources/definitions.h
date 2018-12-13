@@ -48,18 +48,18 @@
 #define GAS_TANK_LVL_3              9
 #define GAS_TANK_LVL_4             10
 
-#define VELOCIMETER_HUNDREDS_D0    11
-#define VELOCIMETER_HUNDREDS_D1    12
-#define VELOCIMETER_HUNDREDS_D2    13
-#define VELOCIMETER_HUNDREDS_D3    14
+#define VELOCIMETER_TENS_D0    11
+#define VELOCIMETER_TENS_D1    12
+#define VELOCIMETER_TENS_D2    13
+#define VELOCIMETER_TENS_D3    14
 #define VELOCIMETER_UNITS_D0       15
 #define VELOCIMETER_UNITS_D1       16
 #define VELOCIMETER_UNITS_D2       17
 #define VELOCIMETER_UNITS_D3       18
-#define VELOCIMETER_TENS_D0        19
-#define VELOCIMETER_TENS_D1        20
-#define VELOCIMETER_TENS_D2        21
-#define VELOCIMETER_TENS_D3        22
+#define VELOCIMETER_HUNDREDS_D0        19
+#define VELOCIMETER_HUNDREDS_D1        20
+#define VELOCIMETER_HUNDREDS_D2        21
+#define VELOCIMETER_HUNDREDS_D3        22
 
 #define ODOMETER_LCD_RS            23
 #define ODOMETER_LCD_RW            24

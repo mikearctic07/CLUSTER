@@ -849,7 +849,7 @@
         <ReadOnly>false</ReadOnly>
         <ListItemCount>1</ListItemCount>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
         <ItemsTypeState>CPUs\S32K144_100\CPU_ClockSettingsItem.item</ItemsTypeState>
       </ItemState>
       <ItemState>
@@ -868,7 +868,7 @@
         <ItemSymbol>PeripheralClocksCount0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>5</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralClocksGrp0</ItemSymbol>
@@ -998,7 +998,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral31_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral11_CLK_Grp0</ItemSymbol>
@@ -1036,7 +1036,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral11_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral1_CLK_Grp0</ItemSymbol>
@@ -1074,7 +1074,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral1_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral26_CLK_Grp0</ItemSymbol>
@@ -1112,7 +1112,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral26_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral2_CLK_Grp0</ItemSymbol>
@@ -1150,7 +1150,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral2_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral3_CLK_Grp0</ItemSymbol>
@@ -1188,7 +1188,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral3_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral6_CLK_Grp0</ItemSymbol>
@@ -1226,7 +1226,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral6_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral25_CLK_Grp0</ItemSymbol>
@@ -1307,7 +1307,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral0_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral14_CLK_Grp0</ItemSymbol>
@@ -1914,7 +1914,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral12_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral10_CLK_Grp0</ItemSymbol>
@@ -1952,7 +1952,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral10_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral20_CLK_Grp0</ItemSymbol>
@@ -1965,8 +1965,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral20_CLOCK_NAME0</ItemSymbol>
@@ -1990,7 +1990,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral20_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral21_CLK_Grp0</ItemSymbol>
@@ -2003,8 +2003,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral21_CLOCK_NAME0</ItemSymbol>
@@ -2028,7 +2028,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral21_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral22_CLK_Grp0</ItemSymbol>
@@ -2041,8 +2041,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral22_CLOCK_NAME0</ItemSymbol>
@@ -2066,7 +2066,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral22_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral23_CLK_Grp0</ItemSymbol>
@@ -2079,8 +2079,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral23_CLOCK_NAME0</ItemSymbol>
@@ -2104,7 +2104,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral23_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral24_CLK_Grp0</ItemSymbol>
@@ -2117,8 +2117,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>true</Value>
-        <Expanded>true</Expanded>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral24_CLOCK_NAME0</ItemSymbol>
@@ -2142,7 +2142,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral24_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral18_CLK_Grp0</ItemSymbol>
@@ -2180,7 +2180,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral18_FUNC_CLK0</ItemSymbol>
-        <Value>0 Hz</Value>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>FunctionalClocksGrp0</ItemSymbol>
@@ -2274,35 +2274,35 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRCDIV1_CLK0</ItemSymbol>
-        <Value>8 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRCDIV1_CLK0</ItemSymbol>
-        <Value>48 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSCDIV1_CLK0</ItemSymbol>
-        <Value>8 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLDIV1_CLK0</ItemSymbol>
-        <Value>112 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRCDIV2_CLK0</ItemSymbol>
-        <Value>8 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRCDIV2_CLK0</ItemSymbol>
-        <Value>48 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSCDIV2_CLK0</ItemSymbol>
-        <Value>8 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLDIV2_CLK0</ItemSymbol>
-        <Value>112 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>InterfaceClocksGrp0</ItemSymbol>
@@ -2327,7 +2327,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_SCS_CLK0</ItemSymbol>
-        <Value>48 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_SCS0</ItemSymbol>
@@ -2340,7 +2340,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_SCS_CLK0</ItemSymbol>
-        <Value>8 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_SCS0</ItemSymbol>
@@ -2353,7 +2353,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_SCS_CLK0</ItemSymbol>
-        <Value>112 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SCS_CLKDescription0</ItemSymbol>
@@ -2376,7 +2376,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_DIVCORE_CLK0</ItemSymbol>
-        <Value>48 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVCORE0</ItemSymbol>
@@ -2389,7 +2389,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVCORE_CLK0</ItemSymbol>
-        <Value>4 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVCORE0</ItemSymbol>
@@ -2402,7 +2402,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVCORE_CLK0</ItemSymbol>
-        <Value>112 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SYS_CLKDescription0</ItemSymbol>
@@ -2425,7 +2425,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_DIVBUS_CLK0</ItemSymbol>
-        <Value>24 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVBUS0</ItemSymbol>
@@ -2438,7 +2438,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVBUS_CLK0</ItemSymbol>
-        <Value>4 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVBUS0</ItemSymbol>
@@ -2451,7 +2451,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVBUS_CLK0</ItemSymbol>
-        <Value>56 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>BUS_CLKDescription0</ItemSymbol>
@@ -2474,7 +2474,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_DIVSLOW_CLK0</ItemSymbol>
-        <Value>24 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVSLOW0</ItemSymbol>
@@ -2487,7 +2487,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_DIVSLOW_CLK0</ItemSymbol>
-        <Value>1 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVSLOW0</ItemSymbol>
@@ -2500,7 +2500,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_DIVSLOW_CLK0</ItemSymbol>
-        <Value>28 MHz</Value>
+        <Value>0 Hz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SLOW_CLKDescription0</ItemSymbol>
@@ -2691,7 +2691,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLFrequency0</ItemSymbol>
-        <Value>/ 2 = 112 MHz</Value>
+        <Value>90 MHz</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLMonitor0</ItemSymbol>
@@ -2760,8 +2760,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
         <Expanded>true</Expanded>
-        <Index>0</Index>
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRC_CLKEnableDetail0</ItemSymbol>
@@ -2840,8 +2840,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
         <Expanded>true</Expanded>
-        <Index>0</Index>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRC_CLKEnableDetail0</ItemSymbol>
@@ -3002,8 +3002,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
         <Expanded>true</Expanded>
-        <Index>0</Index>
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSC_CLKEnableDetail0</ItemSymbol>
@@ -3178,8 +3178,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
         <Expanded>true</Expanded>
-        <Index>0</Index>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLL_CLKEnableDetail0</ItemSymbol>
@@ -3295,7 +3295,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLOutputLabel0</ItemSymbol>
-        <Value>SPLL Output: 112 MHz</Value>
+        <Value>SPLL Output:</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CLKOUTGrp0</ItemSymbol>
@@ -3983,15 +3983,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRC_CLOCK0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRC_CLOCK_DIV1_0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SIRC_CLOCK_DIV2_0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRCClockValuesGrp0</ItemSymbol>
@@ -4001,15 +4001,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRC_CLOCK0</ItemSymbol>
-        <Value>48000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRC_CLOCK_DIV1_0</ItemSymbol>
-        <Value>48000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FIRC_CLOCK_DIV2_0</ItemSymbol>
-        <Value>48000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RTCClockValuesGrp0</ItemSymbol>
@@ -4029,15 +4029,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSC_CLOCK0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSC_CLOCK_DIV1_0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SOSC_CLOCK_DIV2_0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLLClockValuesGrp0</ItemSymbol>
@@ -4047,15 +4047,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLL_CLOCK0</ItemSymbol>
-        <Value>112000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLL_CLOCK_DIV1_0</ItemSymbol>
-        <Value>112000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SPLL_CLOCK_DIV2_0</ItemSymbol>
-        <Value>112000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RunModeClockValuesGrp0</ItemSymbol>
@@ -4065,15 +4065,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_CORE_CLOCK0</ItemSymbol>
-        <Value>48000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_BUS_CLOCK0</ItemSymbol>
-        <Value>24000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RUN_SLOW_CLOCK0</ItemSymbol>
-        <Value>24000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPRModeClockValuesGrp0</ItemSymbol>
@@ -4083,15 +4083,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_CORE_CLOCK0</ItemSymbol>
-        <Value>4000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_BUS_CLOCK0</ItemSymbol>
-        <Value>4000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>VLPR_SLOW_CLOCK0</ItemSymbol>
-        <Value>1000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUNModeClockValuesGrp0</ItemSymbol>
@@ -4101,15 +4101,15 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_CORE_CLOCK0</ItemSymbol>
-        <Value>112000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_BUS_CLOCK0</ItemSymbol>
-        <Value>56000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>HSRUN_SLOW_CLOCK0</ItemSymbol>
-        <Value>28000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CLKOUTClockValuesGrp0</ItemSymbol>
@@ -4129,23 +4129,23 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>LPO_1KHz_CLOCK0</ItemSymbol>
-        <Value>1000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPO_32KHz_CLOCK0</ItemSymbol>
-        <Value>32000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPO_128KHz_CLOCK0</ItemSymbol>
-        <Value>128000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPO_CLOCK0</ItemSymbol>
-        <Value>128000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RTCCLKSEL_CLOCK0</ItemSymbol>
-        <Value>8000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>TCLKClockValuesGrp0</ItemSymbol>
@@ -4173,7 +4173,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>TRACE_CLOCK0</ItemSymbol>
-        <Value>48000000</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralInterfaceClocksGrp0</ItemSymbol>
@@ -4183,131 +4183,131 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ADC_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ADC_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CMP_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CRC_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>DMAMUX_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>EWM_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FlexCAN_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FlexCAN_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FlexCAN_2_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FLEXIO_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFC_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTM_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTM_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTM_2_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTM_3_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPI2C_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPIT_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPSPI_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPSPI_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPSPI_2_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPTMR_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPUART_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPUART_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LPUART_2_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PDB_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PDB_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORT_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'on'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORT_1_CLOCK_GATE_0</ItemSymbol>
-        <Value>'on'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORT_2_CLOCK_GATE_0</ItemSymbol>
-        <Value>'on'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORT_3_CLOCK_GATE_0</ItemSymbol>
-        <Value>'on'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PORT_4_CLOCK_GATE_0</ItemSymbol>
-        <Value>'on'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RTC_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>off</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralFunctionalClocksGrp0</ItemSymbol>
@@ -4476,7 +4476,7 @@
         <ItemSymbol>ProjectComponentsCount</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>4</Value>
+        <Value>0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralMaxIdValue</ItemSymbol>

@@ -53,10 +53,11 @@ static void prvSetupHardware( void );
  * The tasks as described in the comments at the top of this file.
  */
 
-char speedFlag = 1;
-char tnkFlag = 1;
+int speedFlag = 0;
+int tnkFlag = 555;
 char odFlag = 1;
 char indFlag = 1;
+int tnkCounter = 1;
 
 static void canTask( void *pvParameters );
 static void speedTask( void *pvParameters );
@@ -141,11 +142,8 @@ static void speedTask( void *pvParameters )
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, SPD_TIMER_PERIOD_MS );
 		//		Red led toogle
-		if(speedFlag == 1){
-			PTD-> PSOR |= 1<<15;
-		}else{
-			PTD-> PCOR |= 1<<15;
-		}
+
+		CLUSTER_Display_Velocimeter_Value( &speedFlag);
 
 	}
 }
@@ -167,11 +165,7 @@ static void tnkTask( void *pvParameters )
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, TNK_TIMER_PERIOD_MS );
 		//		blue led toogle
-		if(tnkFlag == 1){
-			PTD-> PSOR |= 1<<0;
-		}else{
-			PTD-> PCOR |= 1<<0;
-		}
+		CLUSTER_Display_Gas_Tank_Level(&tnkFlag, &tnkCounter);
 
 	}
 }

@@ -1,4 +1,5 @@
 #include "can.h"
+#include "stdio.h"
 
 uint32_t  RxCODE;              /* Received message buffer code */
 uint32_t  RxID;                /* Received message ID */
@@ -71,10 +72,10 @@ uint32_t CAN_id2Val(uint16_t id) {
 	return((id*MSG_BUF_SIZE) << ID_POSITION );
 }
 
-void CAN_receive(char * speed,char * tnk,char * od,char * ind){
+void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 	//	uint8_t tarea=0;
 	//	uint8_t j;
-	uint32_t dummy;
+//	uint32_t dummy;
 
 	input info;
 
@@ -91,10 +92,44 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
 
 		//	  }
 		RxTIMESTAMP = (CAN0->RAMn[ 0*MSG_BUF_SIZE + 0] & 0x000FFFF);
-		dummy = CAN0->TIMER;             /* Read TIMER to unlock message buffers */
+//		dummy = CAN0->TIMER;             /* Read TIMER to unlock message buffers */
 		CAN0->IFLAG1 = 0x00000010;       /* Clear CAN 0 MB 4 flag without clearing others*/
 
-		CAN_tarea(&info,speed,tnk,od,ind);
+		//		CAN_tarea(&info,speed,tnk,od,ind);
+		switch(info.idCommand){
+		printf("%d\n",info.idCommand);
+		case 1:
+			//		CAN_speed(info);
+			*speed = (info.param0 << 8)+info.param1;
+			break;
+		case 2:
+			//		CAN_odo(info);
+			*od ^= 1;
+			break;
+		case 3:
+			//		CAN_tnk(info);
+			*tnk = (info.param0 << 8)+info.param1;
+			break;
+		case 4:
+			if(info.param0 == 1 && info.param1 == 1){
+				PTD-> PCOR |= 1<<0;
+			}else{
+				PTD-> PSOR |= 1<<0;
+			}
+			if(info.param0 == 2 && info.param1 == 1){
+							PTD-> PCOR |= 1<<15;
+						}else{
+							PTD-> PSOR |= 1<<15;
+						}
+			if(info.param0 == 3 && info.param1 == 1){
+							PTD-> PCOR |= 1<<16;
+						}else{
+							PTD-> PSOR |= 1<<16;
+						}
+			break;
+		default:
+				break;
+		}
 	}
 
 	if(CAN0->IFLAG1 & 1<<3){
@@ -120,26 +155,7 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
 //	PTD-> PCOR |= 1<<0;
 //}
 
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind){
-	switch(info->idCommand){
-	case 1:
-//		CAN_speed(info);
-		*speed ^= 1;
-		break;
-	case 2:
-//		CAN_odo(info);
-		*od ^= 1;
-		break;
-	case 3:
-//		CAN_tnk(info);
-		*tnk ^= 1;
-		break;
-	case 4:
-//		CAN_ind(info);
-		*ind ^= 1;
-		break;
-	default:
-		break;
-	}
-}
+//void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind){
+//
+//}
 

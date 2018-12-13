@@ -1,5 +1,5 @@
 # 1 "../Sources/can.c"
-# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -11303,14 +11303,1637 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(int * speed,int * tnk,char * od,char * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
+
 void CAN_speed(input * info);
 void CAN_odo(input * info);
 void CAN_tnk(input * info);
 void CAN_ind(input * info);
 # 2 "../Sources/can.c" 2
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 1 3
+# 27 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define _STDIO_H_ 
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 13 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 3
+#define _ANSIDECL_H_ 
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\newlib.h" 1 3
+
+
+
+
+
+
+
+#define __NEWLIB_H__ 1
+
+
+
+
+
+#define _NEWLIB_VERSION "2.2.0"
+
+
+
+
+
+
+#define _WANT_IO_LONG_LONG 1
+
+
+#define _WANT_REGISTER_FINI 1
+# 40 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\newlib.h" 3
+#define _MB_LEN_MAX 1
+# 50 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\newlib.h" 3
+#define HAVE_INITFINI_ARRAY 1
+
+
+
+#define _ATEXIT_DYNAMIC_ALLOC 1
+
+
+#define _HAVE_LONG_DOUBLE 1
+
+
+#define _HAVE_CC_INHIBIT_LOOP_TO_LIBCALL 1
+
+
+#define _LDBL_EQ_DBL 1
+
+
+#define _FVWRITE_IN_STREAMIO 1
+
+
+#define _FSEEK_OPTIMIZATION 1
+
+
+#define _WIDE_ORIENT 1
+
+
+#define _UNBUF_STREAM_OPT 1
+# 16 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\config.h" 1 3
+
+#define __SYS_CONFIG_H__ 
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 60 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\ieeefp.h" 3
+#define __IEEE_LITTLE_ENDIAN 
+# 5 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 220 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\config.h" 3
+#define _POINTER_INT long
+
+
+
+
+
+#undef __RAND_MAX
+
+
+
+#define __RAND_MAX 0x7fffffff
+# 248 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\config.h" 3
+#define __EXPORT 
+
+
+
+#define __IMPORT 
+
+
+
+
+
+
+#define _READ_WRITE_RETURN_TYPE int
+
+
+
+
+
+#define _READ_WRITE_BUFSIZE_TYPE int
+# 17 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 2 3
+
+
+
+
+
+
+#define _HAVE_STDC 
+# 44 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 3
+#define _BEGIN_STD_C 
+#define _END_STD_C 
+#define _NOTHROW 
+
+
+
+#define _PTR void *
+#define _AND ,
+#define _NOARGS void
+#define _CONST const
+#define _VOLATILE volatile
+#define _SIGNED signed
+#define _DOTS , ...
+#define _VOID void
+
+
+
+
+
+
+#define _EXFUN_NOTHROW(name,proto) name proto _NOTHROW
+#define _EXFUN(name,proto) name proto
+#define _EXPARM(name,proto) (* name) proto
+#define _EXFNPTR(name,proto) (* name) proto
+
+#define _DEFUN(name,arglist,args) name(args)
+#define _DEFUN_VOID(name) name(_NOARGS)
+#define _CAST_VOID (void)
+
+#define _LONG_DOUBLE long double
+
+
+#define _PARAMS(paramlist) paramlist
+# 101 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 3
+#define _ATTRIBUTE(attrs) __attribute__ (attrs)
+# 127 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 3
+#define _ELIDABLE_INLINE static __inline__
+
+
+
+#define _NOINLINE __attribute__ ((__noinline__))
+#define _NOINLINE_STATIC _NOINLINE static
+# 30 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+
+#define _FSTDIO 
+
+#define __need_size_t 
+#define __need_NULL 
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 41 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define _SYS_CDEFS_H_ 
+
+
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
+# 184 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#define __size_t__ 
+#define __SIZE_T__ 
+#define _SIZE_T 
+#define _SYS_SIZE_T_H 
+#define _T_SIZE_ 
+#define _T_SIZE 
+#define __SIZE_T 
+#define _SIZE_T_ 
+#define _BSD_SIZE_T_ 
+#define _SIZE_T_DEFINED_ 
+#define _SIZE_T_DEFINED 
+#define _BSD_SIZE_T_DEFINED_ 
+#define _SIZE_T_DECLARED 
+#define ___int_size_t_h 
+#define _GCC_SIZE_T 
+#define _SIZET_ 
+
+
+
+
+
+
+#define __size_t 
+
+
+
+
+
+typedef unsigned int size_t;
+# 234 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_size_t
+# 397 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef NULL
+
+
+
+
+#define NULL ((void *)0)
+
+
+
+
+
+#undef __need_NULL
+# 46 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+
+#define __PMT(args) args
+#define __DOTS , ...
+#define __THROW 
+
+
+#define __ASMNAME(cname) __XSTRING (__USER_LABEL_PREFIX__) cname
+
+
+#define __ptr_t void *
+#define __long_double_t long double
+
+#define __attribute_malloc__ 
+#define __attribute_pure__ 
+#define __attribute_format_strfmon__(a,b) 
+#define __flexarr [0]
+
+
+#define __bounded 
+#define __unbounded 
+#define __ptrvalue 
+
+
+
+
+
+
+
+#define __has_extension __has_feature
+
+
+#define __has_feature(x) 0
+
+
+
+
+
+#define __has_builtin(x) 0
+
+
+
+
+
+
+#define __BEGIN_DECLS 
+#define __END_DECLS 
+# 103 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __GNUCLIKE_ASM 3
+#define __GNUCLIKE_MATH_BUILTIN_CONSTANTS 
+
+
+
+#define __GNUCLIKE___TYPEOF 1
+#define __GNUCLIKE___OFFSETOF 1
+#define __GNUCLIKE___SECTION 1
+
+
+#define __GNUCLIKE_CTOR_SECTION_HANDLING 1
+
+
+#define __GNUCLIKE_BUILTIN_CONSTANT_P 1
+
+
+
+
+
+
+#define __GNUCLIKE_BUILTIN_VARARGS 1
+#define __GNUCLIKE_BUILTIN_STDARG 1
+#define __GNUCLIKE_BUILTIN_VAALIST 1
+
+
+
+#define __GNUC_VA_LIST_COMPATIBILITY 1
+
+
+
+
+
+
+#define __compiler_membar() __asm __volatile(" " : : : "memory")
+
+
+
+#define __GNUCLIKE_BUILTIN_NEXT_ARG 1
+#define __GNUCLIKE_MATH_BUILTIN_RELOPS 
+
+
+#define __GNUCLIKE_BUILTIN_MEMCPY 1
+
+
+#define __CC_SUPPORTS_INLINE 1
+#define __CC_SUPPORTS___INLINE 1
+#define __CC_SUPPORTS___INLINE__ 1
+
+#define __CC_SUPPORTS___FUNC__ 1
+#define __CC_SUPPORTS_WARNING 1
+
+#define __CC_SUPPORTS_VARADIC_XXX 1
+
+#define __CC_SUPPORTS_DYNAMIC_ARRAY_INIT 1
+# 173 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __P(protos) protos
+#define __CONCAT1(x,y) x ## y
+#define __CONCAT(x,y) __CONCAT1(x,y)
+#define __STRING(x) #x
+#define __XSTRING(x) __STRING(x)
+
+#define __const const
+#define __signed signed
+#define __volatile volatile
+# 246 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __dead2 __attribute__((__noreturn__))
+#define __pure2 __attribute__((__const__))
+#define __unused __attribute__((__unused__))
+#define __used __attribute__((__used__))
+#define __packed __attribute__((__packed__))
+#define __aligned(x) __attribute__((__aligned__(x)))
+#define __section(x) __attribute__((__section__(x)))
+# 281 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define _Alignas(x) __aligned(x)
+
+
+
+
+
+
+#define _Alignof(x) __alignof(x)
+
+
+
+
+
+
+
+#define _Atomic(T) struct { T volatile __val; }
+
+
+
+
+
+#define _Noreturn __dead2
+# 326 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define _Thread_local __thread
+# 345 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __generic(expr,t,yes,no) __builtin_choose_expr( __builtin_types_compatible_p(__typeof(expr), t), yes, no)
+
+
+
+
+
+#define __malloc_like __attribute__((__malloc__))
+#define __pure __attribute__((__pure__))
+
+
+
+
+
+
+#define __always_inline __attribute__((__always_inline__))
+
+
+
+
+
+#define __noinline __attribute__ ((__noinline__))
+
+
+
+
+
+#define __nonnull(x) __attribute__((__nonnull__(x)))
+
+
+
+
+
+#define __fastcall __attribute__((__fastcall__))
+
+
+
+
+
+#define __returns_twice __attribute__((__returns_twice__))
+# 403 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __restrict restrict
+# 436 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __predict_true(exp) __builtin_expect((exp), 1)
+#define __predict_false(exp) __builtin_expect((exp), 0)
+
+
+
+
+
+
+#define __hidden __attribute__((__visibility__("hidden")))
+#define __exported __attribute__((__visibility__("default")))
+
+
+
+
+
+#define __offsetof(type,field) offsetof(type, field)
+#define __rangeof(type,start,end) (__offsetof(type, end) - __offsetof(type, start))
+# 462 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __containerof(x,s,m) ({ const volatile __typeof__(((s *)0)->m) *__x = (x); __DEQUALIFY(s *, (const volatile char *)__x - __offsetof(s, m));})
+# 484 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __printflike(fmtarg,firstvararg) __attribute__((__format__ (__printf__, fmtarg, firstvararg)))
+
+#define __scanflike(fmtarg,firstvararg) __attribute__((__format__ (__scanf__, fmtarg, firstvararg)))
+
+#define __format_arg(fmtarg) __attribute__((__format_arg__ (fmtarg)))
+#define __strfmonlike(fmtarg,firstvararg) __attribute__((__format__ (__strfmon__, fmtarg, firstvararg)))
+
+#define __strftimelike(fmtarg,firstvararg) __attribute__((__format__ (__strftime__, fmtarg, firstvararg)))
+# 501 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __printf0like(fmtarg,firstvararg) 
+
+
+
+
+#define __strong_reference(sym,aliassym) extern __typeof (sym) aliassym __attribute__ ((__alias__ (#sym)))
+
+
+
+
+#define __weak_reference(sym,alias) __asm__(".weak " #alias); __asm__(".equ " #alias ", " #sym)
+
+
+#define __warn_references(sym,msg) __asm__(".section .gnu.warning." #sym); __asm__(".asciz \"" msg "\""); __asm__(".previous")
+
+
+
+#define __sym_compat(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@" #verid)
+
+#define __sym_default(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@@" #verid)
+# 555 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __FBSDID(s) struct __hack
+
+
+
+#define __RCSID(s) struct __hack
+
+
+
+#define __RCSID_SOURCE(s) struct __hack
+
+
+
+#define __SCCSID(s) struct __hack
+
+
+
+#define __COPYRIGHT(s) struct __hack
+
+
+
+#define __DECONST(type,var) ((type)(__uintptr_t)(const void *)(var))
+
+
+
+#define __DEVOLATILE(type,var) ((type)(__uintptr_t)(volatile void *)(var))
+
+
+
+#define __DEQUALIFY(type,var) ((type)(__uintptr_t)(const volatile void *)(var))
+# 705 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+#define __POSIX_VISIBLE 200809
+#define __XSI_VISIBLE 700
+#define __BSD_VISIBLE 1
+#define __ISO_C_VISIBLE 2011
+# 36 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
+# 39 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#define _STDDEF_H 
+#define _STDDEF_H_ 
+
+#define _ANSI_STDDEF_H 
+# 136 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#define _PTRDIFF_T 
+#define _T_PTRDIFF_ 
+#define _T_PTRDIFF 
+#define __PTRDIFF_T 
+#define _PTRDIFF_T_ 
+#define _BSD_PTRDIFF_T_ 
+#define ___int_ptrdiff_t_h 
+#define _GCC_PTRDIFF_T 
+
+
+
+typedef int ptrdiff_t;
+# 158 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_ptrdiff_t
+# 234 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_size_t
+# 263 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#define __wchar_t__ 
+#define __WCHAR_T__ 
+#define _WCHAR_T 
+#define _T_WCHAR_ 
+#define _T_WCHAR 
+#define __WCHAR_T 
+#define _WCHAR_T_ 
+#define _BSD_WCHAR_T_ 
+#define _WCHAR_T_DEFINED_ 
+#define _WCHAR_T_DEFINED 
+#define _WCHAR_T_H 
+#define ___int_wchar_t_h 
+#define __INT_WCHAR_T_H 
+#define _GCC_WCHAR_T 
+#define _WCHAR_T_DECLARED 
+# 290 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef _BSD_WCHAR_T_
+# 324 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+typedef unsigned int wchar_t;
+# 343 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_wchar_t
+# 397 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef NULL
+
+
+
+
+#define NULL ((void *)0)
+
+
+
+
+
+#undef __need_NULL
+
+
+
+
+#define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
+# 37 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+
+#define __need___va_list 
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdarg.h" 1 3 4
+# 34 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdarg.h" 3 4
+#undef __need___va_list
+
+
+
+
+#define __GNUC_VA_LIST 
+typedef __builtin_va_list __gnuc_va_list;
+# 40 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+
+
+
+
+
+
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 11 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _SYS_REENT_H_ 
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
+# 15 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 10 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 3
+#define _SYS__TYPES_H 
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\_types.h" 1 3
+
+
+
+
+
+#define _MACHINE__TYPES_H 
+# 13 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+
+#define __SYS_LOCK_H__ 
+
+
+
+typedef int _LOCK_T;
+typedef int _LOCK_RECURSIVE_T;
+
+
+
+#define __LOCK_INIT(class,lock) static int lock = 0;
+#define __LOCK_INIT_RECURSIVE(class,lock) static int lock = 0;
+#define __lock_init(lock) (_CAST_VOID 0)
+#define __lock_init_recursive(lock) (_CAST_VOID 0)
+#define __lock_close(lock) (_CAST_VOID 0)
+#define __lock_close_recursive(lock) (_CAST_VOID 0)
+#define __lock_acquire(lock) (_CAST_VOID 0)
+#define __lock_acquire_recursive(lock) (_CAST_VOID 0)
+#define __lock_try_acquire(lock) (_CAST_VOID 0)
+#define __lock_try_acquire_recursive(lock) (_CAST_VOID 0)
+#define __lock_release(lock) (_CAST_VOID 0)
+#define __lock_release_recursive(lock) (_CAST_VOID 0)
+# 14 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+
+
+typedef long _off_t;
+
+
+
+typedef short __dev_t;
+
+
+
+typedef unsigned short __uid_t;
+
+
+typedef unsigned short __gid_t;
+
+
+
+__extension__ typedef long long _off64_t;
+
+
+
+
+
+
+
+typedef long _fpos_t;
+# 54 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 3
+#define unsigned signed
+typedef signed int _ssize_t;
+#undef unsigned
+# 66 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 3
+#define __need_wint_t 
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
+# 158 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_ptrdiff_t
+# 234 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_size_t
+# 343 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef __need_wchar_t
+
+
+
+
+#define _WINT_T 
+
+
+
+
+typedef unsigned int wint_t;
+
+#undef __need_wint_t
+# 397 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 3 4
+#undef NULL
+
+
+
+
+#define NULL ((void *)0)
+
+
+
+
+
+#undef __need_NULL
+
+
+
+
+#define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
+# 68 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+
+
+
+typedef struct
+{
+  int __count;
+  union
+  {
+    wint_t __wch;
+    unsigned char __wchb[4];
+  } __value;
+} _mbstate_t;
+
+
+
+typedef _LOCK_RECURSIVE_T _flock_t;
+
+
+
+
+typedef void *_iconv_t;
+# 16 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+
+#define _NULL 0
+
+
+
+#define __Long long
+typedef unsigned long __ULong;
+# 38 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+struct _reent;
+
+
+
+
+
+
+struct _Bigint
+{
+  struct _Bigint *_next;
+  int _k, _maxwds, _sign, _wds;
+  __ULong _x[1];
+};
+
+
+struct __tm
+{
+  int __tm_sec;
+  int __tm_min;
+  int __tm_hour;
+  int __tm_mday;
+  int __tm_mon;
+  int __tm_year;
+  int __tm_wday;
+  int __tm_yday;
+  int __tm_isdst;
+};
+
+
+
+
+
+#define _ATEXIT_SIZE 32
+
+struct _on_exit_args {
+ void * _fnargs[32];
+ void * _dso_handle[32];
+
+ __ULong _fntypes;
+
+
+ __ULong _is_cxa;
+};
+# 91 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+struct _atexit {
+ struct _atexit *_next;
+ int _ind;
+
+ void (*_fns[32])(void);
+        struct _on_exit_args _on_exit_args;
+};
+#define _ATEXIT_INIT {_NULL, 0, {_NULL}, {{_NULL}, {_NULL}, 0, 0}}
+
+
+
+
+
+#define _REENT_INIT_ATEXIT _NULL, _ATEXIT_INIT,
+# 115 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+struct __sbuf {
+ unsigned char *_base;
+ int _size;
+};
+# 176 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _REENT_SMALL_CHECK_INIT(ptr) 
+
+
+struct __sFILE {
+  unsigned char *_p;
+  int _r;
+  int _w;
+  short _flags;
+  short _file;
+  struct __sbuf _bf;
+  int _lbfsize;
+
+
+
+
+
+
+  void * _cookie;
+
+  int (* _read) (struct _reent *, void *, char *, int)
+                                          ;
+  int (* _write) (struct _reent *, void *, const char *, int)
+
+                                   ;
+  _fpos_t (* _seek) (struct _reent *, void *, _fpos_t, int);
+  int (* _close) (struct _reent *, void *);
+
+
+  struct __sbuf _ub;
+  unsigned char *_up;
+  int _ur;
+
+
+  unsigned char _ubuf[3];
+  unsigned char _nbuf[1];
+
+
+  struct __sbuf _lb;
+
+
+  int _blksize;
+  _off_t _offset;
+
+
+  struct _reent *_data;
+
+
+
+  _flock_t _lock;
+
+  _mbstate_t _mbstate;
+  int _flags2;
+};
+# 285 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+typedef struct __sFILE __FILE;
+
+
+
+struct _glue
+{
+  struct _glue *_next;
+  int _niobs;
+  __FILE *_iobs;
+};
+# 310 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _RAND48_SEED_0 (0x330e)
+#define _RAND48_SEED_1 (0xabcd)
+#define _RAND48_SEED_2 (0x1234)
+#define _RAND48_MULT_0 (0xe66d)
+#define _RAND48_MULT_1 (0xdeec)
+#define _RAND48_MULT_2 (0x0005)
+#define _RAND48_ADD (0x000b)
+struct _rand48 {
+  unsigned short _seed[3];
+  unsigned short _mult[3];
+  unsigned short _add;
+
+
+
+
+};
+
+
+#define _REENT_EMERGENCY_SIZE 25
+#define _REENT_ASCTIME_SIZE 26
+#define _REENT_SIGNAL_SIZE 24
+# 569 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+struct _reent
+{
+  int _errno;
+
+
+
+
+  __FILE *_stdin, *_stdout, *_stderr;
+
+  int _inc;
+  char _emergency[25];
+
+  int _current_category;
+  const char *_current_locale;
+
+  int __sdidinit;
+
+  void (* __cleanup) (struct _reent *);
+
+
+  struct _Bigint *_result;
+  int _result_k;
+  struct _Bigint *_p5s;
+  struct _Bigint **_freelist;
+
+
+  int _cvtlen;
+  char *_cvtbuf;
+
+  union
+    {
+      struct
+        {
+          unsigned int _unused_rand;
+          char * _strtok_last;
+          char _asctime_buf[26];
+          struct __tm _localtime_buf;
+          int _gamma_signgam;
+          __extension__ unsigned long long _rand_next;
+          struct _rand48 _r48;
+          _mbstate_t _mblen_state;
+          _mbstate_t _mbtowc_state;
+          _mbstate_t _wctomb_state;
+          char _l64a_buf[8];
+          char _signal_buf[24];
+          int _getdate_err;
+          _mbstate_t _mbrlen_state;
+          _mbstate_t _mbrtowc_state;
+          _mbstate_t _mbsrtowcs_state;
+          _mbstate_t _wcrtomb_state;
+          _mbstate_t _wcsrtombs_state;
+   int _h_errno;
+        } _reent;
+
+
+
+      struct
+        {
+#define _N_LISTS 30
+          unsigned char * _nextf[30];
+          unsigned int _nmalloc[30];
+        } _unused;
+    } _new;
+
+
+
+  struct _atexit *_atexit;
+  struct _atexit _atexit0;
+
+
+
+  void (**(_sig_func))(int);
+
+
+
+
+  struct _glue __sglue;
+  __FILE __sf[3];
+};
+
+#define _REENT_INIT(var) { 0, &(var).__sf[0], &(var).__sf[1], &(var).__sf[2], 0, "", 0, "C", 0, _NULL, _NULL, 0, _NULL, _NULL, 0, _NULL, { { 0, _NULL, "", {0, 0, 0, 0, 0, 0, 0, 0, 0}, 0, 1, { {_RAND48_SEED_0, _RAND48_SEED_1, _RAND48_SEED_2}, {_RAND48_MULT_0, _RAND48_MULT_1, _RAND48_MULT_2}, _RAND48_ADD }, {0, {0}}, {0, {0}}, {0, {0}}, "", "", 0, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}} } }, _REENT_INIT_ATEXIT _NULL, {_NULL, 0, _NULL} }
+# 697 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _REENT_INIT_PTR(var) { memset((var), 0, sizeof(*(var))); (var)->_stdin = &(var)->__sf[0]; (var)->_stdout = &(var)->__sf[1]; (var)->_stderr = &(var)->__sf[2]; (var)->_current_locale = "C"; (var)->_new._reent._rand_next = 1; (var)->_new._reent._r48._seed[0] = _RAND48_SEED_0; (var)->_new._reent._r48._seed[1] = _RAND48_SEED_1; (var)->_new._reent._r48._seed[2] = _RAND48_SEED_2; (var)->_new._reent._r48._mult[0] = _RAND48_MULT_0; (var)->_new._reent._r48._mult[1] = _RAND48_MULT_1; (var)->_new._reent._r48._mult[2] = _RAND48_MULT_2; (var)->_new._reent._r48._add = _RAND48_ADD; }
+# 713 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _REENT_CHECK_RAND48(ptr) 
+#define _REENT_CHECK_MP(ptr) 
+#define _REENT_CHECK_TM(ptr) 
+#define _REENT_CHECK_ASCTIME_BUF(ptr) 
+#define _REENT_CHECK_EMERGENCY(ptr) 
+#define _REENT_CHECK_MISC(ptr) 
+#define _REENT_CHECK_SIGNAL_BUF(ptr) 
+
+#define _REENT_SIGNGAM(ptr) ((ptr)->_new._reent._gamma_signgam)
+#define _REENT_RAND_NEXT(ptr) ((ptr)->_new._reent._rand_next)
+#define _REENT_RAND48_SEED(ptr) ((ptr)->_new._reent._r48._seed)
+#define _REENT_RAND48_MULT(ptr) ((ptr)->_new._reent._r48._mult)
+#define _REENT_RAND48_ADD(ptr) ((ptr)->_new._reent._r48._add)
+#define _REENT_MP_RESULT(ptr) ((ptr)->_result)
+#define _REENT_MP_RESULT_K(ptr) ((ptr)->_result_k)
+#define _REENT_MP_P5S(ptr) ((ptr)->_p5s)
+#define _REENT_MP_FREELIST(ptr) ((ptr)->_freelist)
+#define _REENT_ASCTIME_BUF(ptr) ((ptr)->_new._reent._asctime_buf)
+#define _REENT_TM(ptr) (&(ptr)->_new._reent._localtime_buf)
+#define _REENT_EMERGENCY(ptr) ((ptr)->_emergency)
+#define _REENT_STRTOK_LAST(ptr) ((ptr)->_new._reent._strtok_last)
+#define _REENT_MBLEN_STATE(ptr) ((ptr)->_new._reent._mblen_state)
+#define _REENT_MBTOWC_STATE(ptr) ((ptr)->_new._reent._mbtowc_state)
+#define _REENT_WCTOMB_STATE(ptr) ((ptr)->_new._reent._wctomb_state)
+#define _REENT_MBRLEN_STATE(ptr) ((ptr)->_new._reent._mbrlen_state)
+#define _REENT_MBRTOWC_STATE(ptr) ((ptr)->_new._reent._mbrtowc_state)
+#define _REENT_MBSRTOWCS_STATE(ptr) ((ptr)->_new._reent._mbsrtowcs_state)
+#define _REENT_WCRTOMB_STATE(ptr) ((ptr)->_new._reent._wcrtomb_state)
+#define _REENT_WCSRTOMBS_STATE(ptr) ((ptr)->_new._reent._wcsrtombs_state)
+#define _REENT_L64A_BUF(ptr) ((ptr)->_new._reent._l64a_buf)
+#define _REENT_SIGNAL_BUF(ptr) ((ptr)->_new._reent._signal_buf)
+#define _REENT_GETDATE_ERR_P(ptr) (&((ptr)->_new._reent._getdate_err))
+
+
+
+
+
+
+#define _Kmax (sizeof (size_t) << 3)
+
+
+
+
+
+
+
+#define __ATTRIBUTE_IMPURE_PTR__ 
+
+
+extern struct _reent *_impure_ptr ;
+extern struct _reent *const _global_impure_ptr ;
+
+void _reclaim_reent (struct _reent *);
+# 775 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\reent.h" 3
+#define _REENT _impure_ptr
+
+
+#define _GLOBAL_REENT _global_impure_ptr
+
+
+
+
+
+#define _GLOBAL_ATEXIT (_GLOBAL_REENT->_atexit)
+# 48 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 1 3
+# 24 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#define __INTTYPES_DEFINED__ 
+# 61 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#define _SYS_TYPES_H 
+# 71 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
+# 72 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\types.h" 1 3
+
+#define _MACHTYPES_H_ 
+# 13 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\types.h" 3
+#define _CLOCK_T_ unsigned long
+#define _TIME_T_ long
+#define _CLOCKID_T_ unsigned long
+#define _TIMER_T_ unsigned long
+
+
+typedef long int __off_t;
+typedef int __pid_t;
+
+__extension__ typedef long long int __loff_t;
+
+
+
+
+
+typedef long __suseconds_t;
+# 73 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 82 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#define _ST_INT32 __attribute__ ((__mode__ (__SI__)))
+
+
+
+
+
+
+#define physadr physadr_t
+#define quad quad_t
+
+
+
+
+typedef unsigned char u_char;
+#define __u_char_defined 
+
+
+typedef unsigned short u_short;
+#define __u_short_defined 
+
+
+typedef unsigned int u_int;
+#define __u_int_defined 
+
+
+typedef unsigned long u_long;
+#define __u_long_defined 
+
+#define _BSDTYPES_DEFINED 
+
+
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+
+
+typedef unsigned long clock_t;
+#define __clock_t_defined 
+
+
+
+typedef long time_t;
+#define __time_t_defined 
+
+
+
+typedef long daddr_t;
+#define __daddr_t_defined 
+
+
+typedef char * caddr_t;
+#define __caddr_t_defined 
+
+
+
+
+
+
+
+typedef unsigned short ino_t;
+# 171 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+typedef _off_t off_t;
+typedef __dev_t dev_t;
+typedef __uid_t uid_t;
+typedef __gid_t gid_t;
+
+
+
+
+
+typedef int pid_t;
+
+
+
+
+
+
+
+typedef long key_t;
+
+typedef _ssize_t ssize_t;
+# 204 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+typedef unsigned int mode_t __attribute__ ((__mode__ (__SI__)));
+
+
+
+
+typedef unsigned short nlink_t;
+# 219 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#define _SYS_TYPES_FD_SET 
+#define NBBY 8
+
+
+
+
+
+
+
+#define FD_SETSIZE 64
+
+
+typedef long fd_mask;
+#define NFDBITS (sizeof (fd_mask) * NBBY)
+
+#define howmany(x,y) (((x)+((y)-1))/(y))
+
+
+
+
+typedef struct _types_fd_set {
+ fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
+} _types_fd_set;
+
+#define fd_set _types_fd_set
+
+#define FD_SET(n,p) ((p)->fds_bits[(n)/NFDBITS] |= (1L << ((n) % NFDBITS)))
+#define FD_CLR(n,p) ((p)->fds_bits[(n)/NFDBITS] &= ~(1L << ((n) % NFDBITS)))
+#define FD_ISSET(n,p) ((p)->fds_bits[(n)/NFDBITS] & (1L << ((n) % NFDBITS)))
+#define FD_ZERO(p) (__extension__ (void)({ size_t __i; char *__tmp = (char *)p; for (__i = 0; __i < sizeof (*(p)); ++__i) *__tmp++ = 0; }))
+# 257 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#undef __MS_types__
+#undef _ST_INT32
+
+
+
+typedef unsigned long clockid_t;
+#define __clockid_t_defined 
+
+
+
+typedef unsigned long timer_t;
+#define __timer_t_defined 
+
+
+typedef unsigned long useconds_t;
+
+
+typedef __suseconds_t suseconds_t;
+#define _SUSECONDS_T_DECLARED 
+
+
+typedef __int64_t sbintime_t;
+# 512 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\types.h" 3
+#undef __need_inttypes
+# 49 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+
+
+
+
+typedef __FILE FILE;
+#define __FILE_defined 
+
+
+
+
+
+typedef _fpos_t fpos_t;
+
+
+
+
+
+# 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\stdio.h" 1 3
+
+#define _NEWLIB_STDIO_H 
+# 13 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\stdio.h" 3
+#define _flockfile(fp) (((fp)->_flags & __SSTR) ? 0 : __lock_acquire_recursive((fp)->_lock))
+
+
+
+
+
+
+
+#define _funlockfile(fp) (((fp)->_flags & __SSTR) ? 0 : __lock_release_recursive((fp)->_lock))
+# 67 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 2 3
+
+#define __SLBF 0x0001
+#define __SNBF 0x0002
+#define __SRD 0x0004
+#define __SWR 0x0008
+
+#define __SRW 0x0010
+#define __SEOF 0x0020
+#define __SERR 0x0040
+#define __SMBF 0x0080
+#define __SAPP 0x0100
+#define __SSTR 0x0200
+#define __SOPT 0x0400
+#define __SNPT 0x0800
+#define __SOFF 0x1000
+#define __SORD 0x2000
+
+
+
+#define __SL64 0x8000
+
+
+#define __SNLK 0x0001
+#define __SWID 0x2000
+# 101 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define _IOFBF 0
+#define _IOLBF 1
+#define _IONBF 2
+
+#define EOF (-1)
+
+
+
+
+#define BUFSIZ 1024
+
+
+
+
+
+#define FOPEN_MAX 20
+
+
+
+
+
+#define FILENAME_MAX 1024
+
+
+
+
+
+#define L_tmpnam FILENAME_MAX
+
+
+
+
+
+
+
+#define SEEK_SET 0
+
+
+#define SEEK_CUR 1
+
+
+#define SEEK_END 2
+
+
+#define TMP_MAX 26
+
+#define stdin (_REENT->_stdin)
+#define stdout (_REENT->_stdout)
+#define stderr (_REENT->_stderr)
+
+#define _stdin_r(x) ((x)->_stdin)
+#define _stdout_r(x) ((x)->_stdout)
+#define _stderr_r(x) ((x)->_stderr)
+
+
+
+
+
+
+
+#define __VALIST __gnuc_va_list
+
+
+
+
+
+FILE * tmpfile (void);
+char * tmpnam (char *);
+
+char * tempnam (const char *, const char *);
+
+int fclose (FILE *);
+int fflush (FILE *);
+FILE * freopen (const char *restrict, const char *restrict, FILE *restrict);
+void setbuf (FILE *restrict, char *restrict);
+int setvbuf (FILE *restrict, char *restrict, int, size_t);
+int fprintf (FILE *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int fscanf (FILE *restrict, const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+int printf (const char *restrict, ...) __attribute__ ((__format__ (__printf__, 1, 2)))
+                                                            ;
+int scanf (const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 1, 2)))
+                                                           ;
+int sscanf (const char *restrict, const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+int vfprintf (FILE *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int vprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)))
+                                                            ;
+int vsprintf (char *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int fgetc (FILE *);
+char * fgets (char *restrict, int, FILE *restrict);
+int fputc (int, FILE *);
+int fputs (const char *restrict, FILE *restrict);
+int getc (FILE *);
+int getchar (void);
+char * gets (char *);
+int putc (int, FILE *);
+int putchar (int);
+int puts (const char *);
+int ungetc (int, FILE *);
+size_t fread (void * restrict, size_t _size, size_t _n, FILE *restrict);
+size_t fwrite (const void * restrict , size_t _size, size_t _n, FILE *);
+
+
+
+int fgetpos (FILE *restrict, fpos_t *restrict);
+
+int fseek (FILE *, long, int);
+
+
+
+int fsetpos (FILE *, const fpos_t *);
+
+long ftell ( FILE *);
+void rewind (FILE *);
+void clearerr (FILE *);
+int feof (FILE *);
+int ferror (FILE *);
+void perror (const char *);
+
+FILE * fopen (const char *restrict _name, const char *restrict _type);
+int sprintf (char *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int remove (const char *);
+int rename (const char *, const char *);
+# 247 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+int asiprintf (char **, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+char * asniprintf (char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+char * asnprintf (char *restrict, size_t *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int asprintf (char **restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+
+int diprintf (int, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+
+int fiprintf (FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int fiscanf (FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+int iprintf (const char *, ...) __attribute__ ((__format__ (__printf__, 1, 2)))
+                                                            ;
+int iscanf (const char *, ...) __attribute__ ((__format__ (__scanf__, 1, 2)))
+                                                           ;
+int siprintf (char *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int siscanf (const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+int snprintf (char *restrict, size_t, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int sniprintf (char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int vasiprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+char * vasniprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+char * vasnprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int vasprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int vdiprintf (int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int vfiprintf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int vfiscanf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+int vfscanf (FILE *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+int viprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)))
+                                                            ;
+int viscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)))
+                                                           ;
+int vscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)))
+                                                           ;
+int vsiprintf (char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int vsiscanf (const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+int vsniprintf (char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int vsnprintf (char *restrict, size_t, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int vsscanf (const char *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+# 360 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+int _asiprintf_r (struct _reent *, char **, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+char * _asniprintf_r (struct _reent *, char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
+                                                            ;
+char * _asnprintf_r (struct _reent *, char *restrict, size_t *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
+                                                            ;
+int _asprintf_r (struct _reent *, char **restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _diprintf_r (struct _reent *, int, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _dprintf_r (struct _reent *, int, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _fclose_r (struct _reent *, FILE *);
+int _fcloseall_r (struct _reent *);
+FILE * _fdopen_r (struct _reent *, int, const char *);
+int _fflush_r (struct _reent *, FILE *);
+int _fgetc_r (struct _reent *, FILE *);
+int _fgetc_unlocked_r (struct _reent *, FILE *);
+char * _fgets_r (struct _reent *, char *restrict, int, FILE *restrict);
+char * _fgets_unlocked_r (struct _reent *, char *restrict, int, FILE *restrict);
+
+
+
+
+int _fgetpos_r (struct _reent *, FILE *, fpos_t *);
+int _fsetpos_r (struct _reent *, FILE *, const fpos_t *);
+
+int _fiprintf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _fiscanf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
+                                                           ;
+FILE * _fmemopen_r (struct _reent *, void *restrict, size_t, const char *restrict);
+FILE * _fopen_r (struct _reent *, const char *restrict, const char *restrict);
+FILE * _freopen_r (struct _reent *, const char *restrict, const char *restrict, FILE *restrict);
+int _fprintf_r (struct _reent *, FILE *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _fpurge_r (struct _reent *, FILE *);
+int _fputc_r (struct _reent *, int, FILE *);
+int _fputc_unlocked_r (struct _reent *, int, FILE *);
+int _fputs_r (struct _reent *, const char *restrict, FILE *restrict);
+int _fputs_unlocked_r (struct _reent *, const char *restrict, FILE *restrict);
+size_t _fread_r (struct _reent *, void * restrict, size_t _size, size_t _n, FILE *restrict);
+size_t _fread_unlocked_r (struct _reent *, void * restrict, size_t _size, size_t _n, FILE *restrict);
+int _fscanf_r (struct _reent *, FILE *restrict, const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
+                                                           ;
+int _fseek_r (struct _reent *, FILE *, long, int);
+int _fseeko_r (struct _reent *, FILE *, _off_t, int);
+long _ftell_r (struct _reent *, FILE *);
+_off_t _ftello_r (struct _reent *, FILE *);
+void _rewind_r (struct _reent *, FILE *);
+size_t _fwrite_r (struct _reent *, const void * restrict, size_t _size, size_t _n, FILE *restrict);
+size_t _fwrite_unlocked_r (struct _reent *, const void * restrict, size_t _size, size_t _n, FILE *restrict);
+int _getc_r (struct _reent *, FILE *);
+int _getc_unlocked_r (struct _reent *, FILE *);
+int _getchar_r (struct _reent *);
+int _getchar_unlocked_r (struct _reent *);
+char * _gets_r (struct _reent *, char *);
+int _iprintf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int _iscanf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+FILE * _open_memstream_r (struct _reent *, char **, size_t *);
+void _perror_r (struct _reent *, const char *);
+int _printf_r (struct _reent *, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
+                                                            ;
+int _putc_r (struct _reent *, int, FILE *);
+int _putc_unlocked_r (struct _reent *, int, FILE *);
+int _putchar_unlocked_r (struct _reent *, int);
+int _putchar_r (struct _reent *, int);
+int _puts_r (struct _reent *, const char *);
+int _remove_r (struct _reent *, const char *);
+int _rename_r (struct _reent *, const char *_old, const char *_new)
+                                          ;
+int _scanf_r (struct _reent *, const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
+                                                           ;
+int _siprintf_r (struct _reent *, char *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _siscanf_r (struct _reent *, const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
+                                                           ;
+int _sniprintf_r (struct _reent *, char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
+                                                            ;
+int _snprintf_r (struct _reent *, char *restrict, size_t, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
+                                                            ;
+int _sprintf_r (struct _reent *, char *restrict, const char *restrict, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
+                                                            ;
+int _sscanf_r (struct _reent *, const char *restrict, const char *restrict, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
+                                                           ;
+char * _tempnam_r (struct _reent *, const char *, const char *);
+FILE * _tmpfile_r (struct _reent *);
+char * _tmpnam_r (struct _reent *, char *);
+int _ungetc_r (struct _reent *, int, FILE *);
+int _vasiprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+char * _vasniprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
+                                                            ;
+char * _vasnprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
+                                                            ;
+int _vasprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vdiprintf_r (struct _reent *, int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vdprintf_r (struct _reent *, int, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vfiprintf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vfiscanf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
+                                                           ;
+int _vfprintf_r (struct _reent *, FILE *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vfscanf_r (struct _reent *, FILE *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
+                                                           ;
+int _viprintf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int _viscanf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+int _vprintf_r (struct _reent *, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
+                                                            ;
+int _vscanf_r (struct _reent *, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
+                                                           ;
+int _vsiprintf_r (struct _reent *, char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vsiscanf_r (struct _reent *, const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
+                                                           ;
+int _vsniprintf_r (struct _reent *, char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
+                                                            ;
+int _vsnprintf_r (struct _reent *, char *restrict, size_t, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
+                                                            ;
+int _vsprintf_r (struct _reent *, char *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
+                                                            ;
+int _vsscanf_r (struct _reent *, const char *restrict, const char *restrict, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
+                                                           ;
+
+
+
+int fpurge (FILE *);
+ssize_t __getdelim (char **, size_t *, int, FILE *);
+ssize_t __getline (char **, size_t *, FILE *);
+
+
+void clearerr_unlocked (FILE *);
+int feof_unlocked (FILE *);
+int ferror_unlocked (FILE *);
+int fileno_unlocked (FILE *);
+int fflush_unlocked (FILE *);
+int fgetc_unlocked (FILE *);
+int fputc_unlocked (int, FILE *);
+size_t fread_unlocked (void * restrict, size_t _size, size_t _n, FILE *restrict);
+size_t fwrite_unlocked (const void * restrict , size_t _size, size_t _n, FILE *);
+# 541 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+int __srget_r (struct _reent *, FILE *);
+int __swbuf_r (struct _reent *, int, FILE *);
+# 616 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define __sgetc_raw_r(__ptr,__f) (--(__f)->_r < 0 ? __srget_r(__ptr, __f) : (int)(*(__f)->_p++))
+# 645 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define __sgetc_r(__ptr,__p) __sgetc_raw_r(__ptr, __p)
+# 661 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define __sputc_raw_r(__ptr,__c,__p) (--(__p)->_w < 0 ? (__p)->_w >= (__p)->_lbfsize ? (*(__p)->_p = (__c)), *(__p)->_p != '\n' ? (int)*(__p)->_p++ : __swbuf_r(__ptr, '\n', __p) : __swbuf_r(__ptr, (int)(__c), __p) : (*(__p)->_p = (__c), (int)*(__p)->_p++))
+# 675 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define __sputc_r(__ptr,__c,__p) __sputc_raw_r(__ptr, __c, __p)
+
+
+
+#define __sfeof(p) ((int)(((p)->_flags & __SEOF) != 0))
+#define __sferror(p) ((int)(((p)->_flags & __SERR) != 0))
+#define __sclearerr(p) ((void)((p)->_flags &= ~(__SERR|__SEOF)))
+#define __sfileno(p) ((p)->_file)
+
+
+#define feof(p) __sfeof(p)
+#define ferror(p) __sferror(p)
+#define clearerr(p) __sclearerr(p)
+
+
+#define feof_unlocked(p) __sfeof(p)
+#define ferror_unlocked(p) __sferror(p)
+#define clearerr_unlocked(p) __sclearerr(p)
+# 702 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define getc(fp) __sgetc_r(_REENT, fp)
+#define putc(x,fp) __sputc_r(_REENT, x, fp)
+# 720 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
+#define getchar() getc(stdin)
+#define putchar(x) putc(x, stdout)
+
+
+
+
+
+
+
+# 3 "../Sources/can.c" 2
 
 uint32_t RxCODE;
 uint32_t RxID;
@@ -11328,7 +12951,7 @@ void CAN_Init(void){
  while (!((((CAN_Type *)(0x40024000u))->MCR & 0x1000000u) >> 24u)) {}
 
  ((CAN_Type *)(0x40024000u))->CTRL1 = 0x00DB0006;
-# 28 "../Sources/can.c"
+# 29 "../Sources/can.c"
  for(i=0; i<128; i++ ) {
   ((CAN_Type *)(0x40024000u))->RAMn[i] = 0;
  }
@@ -11337,7 +12960,7 @@ void CAN_Init(void){
  }
  ((CAN_Type *)(0x40024000u))->RXMGMASK = 0x1FFFFFFF;
  ((CAN_Type *)(0x40024000u))->RAMn[ 4*4 + 0] = 0x04000000;
-# 46 "../Sources/can.c"
+# 47 "../Sources/can.c"
  ((CAN_Type *)(0x40024000u))->RAMn[4*4 + 1] = 0x14440000;
  ((CAN_Type *)(0x40024000u))->RAMn[ 3*4 + 0] = 0x04000000;
  ((CAN_Type *)(0x40024000u))->RAMn[3*4 + 1] = 0x95C0000;
@@ -11366,10 +12989,10 @@ uint32_t CAN_id2Val(uint16_t id) {
  return((id*4) << 16 );
 }
 
-void CAN_receive(char * speed,char * tnk,char * od,char * ind){
+void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 
 
- uint32_t dummy;
+
 
  input info;
 
@@ -11386,10 +13009,44 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
 
 
   RxTIMESTAMP = (((CAN_Type *)(0x40024000u))->RAMn[ 0*4 + 0] & 0x000FFFF);
-  dummy = ((CAN_Type *)(0x40024000u))->TIMER;
+
   ((CAN_Type *)(0x40024000u))->IFLAG1 = 0x00000010;
 
-  CAN_tarea(&info,speed,tnk,od,ind);
+
+  switch(info.idCommand){
+  printf("%d\n",info.idCommand);
+  case 1:
+
+   *speed = (info.param0 << 8)+info.param1;
+   break;
+  case 2:
+
+   *od ^= 1;
+   break;
+  case 3:
+
+   *tnk = (info.param0 << 8)+info.param1;
+   break;
+  case 4:
+   if(info.param0 == 1 && info.param1 == 1){
+    ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<0;
+   }else{
+    ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<0;
+   }
+   if(info.param0 == 2 && info.param1 == 1){
+       ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<15;
+      }else{
+       ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<15;
+      }
+   if(info.param0 == 3 && info.param1 == 1){
+       ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<16;
+      }else{
+       ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<16;
+      }
+   break;
+  default:
+    break;
+  }
  }
 
  if(((CAN_Type *)(0x40024000u))->IFLAG1 & 1<<3){
@@ -11398,27 +13055,4 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
  }
 
 
-}
-# 123 "../Sources/can.c"
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind){
- switch(info->idCommand){
- case 1:
-
-  *speed ^= 1;
-  break;
- case 2:
-
-  *od ^= 1;
-  break;
- case 3:
-
-  *tnk ^= 1;
-  break;
- case 4:
-
-  *ind ^= 1;
-  break;
- default:
-  break;
- }
 }

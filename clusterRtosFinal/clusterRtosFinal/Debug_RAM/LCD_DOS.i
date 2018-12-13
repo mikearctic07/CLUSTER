@@ -1,5 +1,5 @@
 # 1 "../Sources/LCD_DOS.c"
-# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -372,7 +372,7 @@
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 1
 
 
 
@@ -380,13 +380,13 @@
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h"
 #define CLUSTER_H_ 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
 #define DEFINITIONS_H_ 
 
 
@@ -429,18 +429,18 @@
 #define GAS_TANK_LVL_3 9
 #define GAS_TANK_LVL_4 10
 
-#define VELOCIMETER_HUNDREDS_D0 11
-#define VELOCIMETER_HUNDREDS_D1 12
-#define VELOCIMETER_HUNDREDS_D2 13
-#define VELOCIMETER_HUNDREDS_D3 14
+#define VELOCIMETER_TENS_D0 11
+#define VELOCIMETER_TENS_D1 12
+#define VELOCIMETER_TENS_D2 13
+#define VELOCIMETER_TENS_D3 14
 #define VELOCIMETER_UNITS_D0 15
 #define VELOCIMETER_UNITS_D1 16
 #define VELOCIMETER_UNITS_D2 17
 #define VELOCIMETER_UNITS_D3 18
-#define VELOCIMETER_TENS_D0 19
-#define VELOCIMETER_TENS_D1 20
-#define VELOCIMETER_TENS_D2 21
-#define VELOCIMETER_TENS_D3 22
+#define VELOCIMETER_HUNDREDS_D0 19
+#define VELOCIMETER_HUNDREDS_D1 20
+#define VELOCIMETER_HUNDREDS_D2 21
+#define VELOCIMETER_HUNDREDS_D3 22
 
 #define ODOMETER_LCD_RS 23
 #define ODOMETER_LCD_RW 24
@@ -488,12 +488,12 @@
 
 #define LCD_CTRL_BUS_MASK ((1<<LCD_RS)|(1<<LCD_RW)|(1<<LCD_EN))
 #define LCD_DATA_BUS_MASK ((1<<LCD_D4)|(1<<LCD_D5)|(1<<LCD_D6)|(1<<LCD_D7))
-# 13 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+# 13 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/clock.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/clock.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/clock.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/clock.h"
 #define CLOCK_H_ 
 
 void CLOCK_SOSC_Init_8MHz(void);
@@ -503,12 +503,12 @@ void CLOCK_SPLL_Init_160MHz(void);
 void CLOCK_Setup_80MHz(void);
 
 void CLOCK_Disable_Watchdog(void);
-# 17 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+# 17 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h"
 #define GPIO_H_ 
 
 # 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdint.h" 1 3 4
@@ -967,9 +967,9 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define _GCC_WRAP_STDINT_H 
-# 12 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
-# 13 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
+# 12 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
+# 13 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
 # 182 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h"
 #define S32K144_H_ 
@@ -11410,7 +11410,7 @@ typedef struct {
 #define WDOG_WIN_WINHIGH_SHIFT 8u
 #define WDOG_WIN_WINHIGH_WIDTH 8u
 #define WDOG_WIN_WINHIGH(x) (((uint32_t)(((uint32_t)(x))<<WDOG_WIN_WINHIGH_SHIFT))&WDOG_WIN_WINHIGH_MASK)
-# 14 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
+# 14 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/gpio.h" 2
 typedef char char_t;
 
 void GPIO_Clock_Set_Up(uint8_t portIndex);
@@ -11440,11 +11440,11 @@ int GPIO_Get_Port_Pin(int value);
 char GPIO_Get_Port_Char(int value);
 
 void GPIO_Clear_Port_Outputs(char port);
-# 21 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+# 21 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 1
 
 
 
@@ -11452,8 +11452,8 @@ void GPIO_Clear_Port_Outputs(char port);
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 1
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 2
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 1
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 2
 
 
 #define LCD_DOS_H_ 
@@ -11465,14 +11465,14 @@ void sendNibble(char nibble);
 void Lcd_CmdWrite(char cmd);
 
 void Lcd_DataWrite(char dat);
-# 25 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+# 25 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 1
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
-# 2 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/FlexCAN.h" 1
+# 2 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 2
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/FlexCAN.h" 1
 
 
 
@@ -11487,7 +11487,7 @@ void Lcd_DataWrite(char dat);
 void FLEXCAN0_init (void);
 void FLEXCAN0_transmit_msg (void);
 void FLEXCAN0_receive_msg (void);
-# 3 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 2
+# 3 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/can.h" 2
 
 
 #define CAN_H_ 
@@ -11512,14 +11512,14 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(int * speed,int * tnk,char * od,char * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
+
 void CAN_speed(input * info);
 void CAN_odo(input * info);
 void CAN_tnk(input * info);
 void CAN_ind(input * info);
-# 29 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
+# 29 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
 void CLUSTER_Initialize(void);
@@ -11531,7 +11531,7 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
 
 void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
-# 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 2
+# 9 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 2
 # 9 "../Sources/LCD_DOS.c" 2
 
 void delay(int cnt)
