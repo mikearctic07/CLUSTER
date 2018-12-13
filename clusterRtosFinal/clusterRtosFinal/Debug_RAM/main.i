@@ -1,5 +1,5 @@
 # 1 "../Sources/main.c"
-# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -366,8 +366,8 @@
 #define DEV_ERROR_DETECT 1
 # 1 "../Sources/main.c"
 # 49 "../Sources/main.c"
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
-# 51 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
+# 51 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
 #define Cpu_H 
 
 
@@ -12464,7 +12464,7 @@ static inline void DevAssert(volatile _Bool x)
 }
 #define DEV_ASSERT(x) DevAssert(x)
 # 179 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/device_registers.h" 2
-# 59 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 59 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h" 1
 # 20 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h"
@@ -13414,7 +13414,7 @@ clock_manager_callback_user_config_t* CLOCK_SYS_GetErrorCallback(void);
 # 254 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h"
 status_t CLOCK_SYS_GetFreq(clock_names_t clockName,
                            uint32_t *frequency);
-# 61 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 61 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/interrupt_manager.h" 1
 # 19 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/interrupt_manager.h"
 #define INTERRUPT_MANAGER_H 
@@ -13462,7 +13462,7 @@ void INT_SYS_SetPending(IRQn_Type irqNumber);
 uint32_t INT_SYS_GetPending(IRQn_Type irqNumber);
 # 210 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/interrupt_manager.h"
 uint32_t INT_SYS_GetActive(IRQn_Type irqNumber);
-# 62 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 62 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h" 1
 # 29 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h"
 #define SYSTEM_S32K144_H_ 
@@ -13501,11 +13501,11 @@ void SystemCoreClockUpdate(void);
 
 
 void SystemSoftwareReset(void);
-# 63 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 63 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
-# 54 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
+# 54 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
 #define clockMan1_H 
 
 
@@ -13513,9 +13513,9 @@ void SystemSoftwareReset(void);
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
-# 62 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 2
-# 84 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
+# 62 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 2
+# 84 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
 extern clock_manager_user_config_t clockMan1_InitConfig0;
 
 
@@ -13536,9 +13536,9 @@ extern peripheral_clock_config_t peripheralClockConfig0[];
 
 
 extern clock_manager_callback_user_config_t *g_clockManCallbacksArr[];
-# 66 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
-# 1567 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
+# 66 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
+# 1567 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
 #define pin_mux_H 
 
 
@@ -13864,14 +13864,14 @@ void PINS_DRV_TogglePins(GPIO_Type * const base,
                          pins_channel_type_t pins);
 # 1134 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h"
 pins_channel_type_t PINS_DRV_ReadPins(const GPIO_Type * const base);
-# 1571 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 2
+# 1571 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 2
 
 
 #define NUM_OF_CONFIGURED_PINS 89
 
 
 extern pin_settings_config_t g_pin_mux_InitConfigArr[89];
-# 67 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 67 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h" 1
 # 71 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h"
 #define INC_FREERTOS_H 
@@ -13882,10 +13882,10 @@ extern pin_settings_config_t g_pin_mux_InitConfigArr[89];
 # 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h" 1 3 4
 # 77 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h" 2
 # 98 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h"
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h" 1
-# 72 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h" 1
+# 72 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
 #define FREERTOS_CONFIG_H 
-# 86 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 86 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
 #define configUSE_PREEMPTION 1
 #define configUSE_IDLE_HOOK 1
 #define configUSE_TICK_HOOK 1
@@ -13940,7 +13940,7 @@ extern pin_settings_config_t g_pin_mux_InitConfigArr[89];
 
 
 #define configUSE_STATS_FORMATTING_FUNCTIONS 1
-# 151 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 151 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
  void vMainConfigureTimerForRunTimeStats( void );
  unsigned long ulMainGetRunTimeCounterValue( void );
 
@@ -14728,11 +14728,11 @@ void vPortEndScheduler( void ) ;
 #define pdTASK_CODE TaskFunction_t
 #define xListItem ListItem_t
 #define xList List_t
-# 68 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 68 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 # 50 "../Sources/main.c" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
 # 51 "../Sources/main.c" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
 # 52 "../Sources/main.c" 2
 
 # 1 "../Sources/cluster.h" 1
@@ -14784,18 +14784,18 @@ void vPortEndScheduler( void ) ;
 #define GAS_TANK_LVL_3 9
 #define GAS_TANK_LVL_4 10
 
-#define VELOCIMETER_HUNDREDS_D0 11
-#define VELOCIMETER_HUNDREDS_D1 12
-#define VELOCIMETER_HUNDREDS_D2 13
-#define VELOCIMETER_HUNDREDS_D3 14
+#define VELOCIMETER_TENS_D0 11
+#define VELOCIMETER_TENS_D1 12
+#define VELOCIMETER_TENS_D2 13
+#define VELOCIMETER_TENS_D3 14
 #define VELOCIMETER_UNITS_D0 15
 #define VELOCIMETER_UNITS_D1 16
 #define VELOCIMETER_UNITS_D2 17
 #define VELOCIMETER_UNITS_D3 18
-#define VELOCIMETER_TENS_D0 19
-#define VELOCIMETER_TENS_D1 20
-#define VELOCIMETER_TENS_D2 21
-#define VELOCIMETER_TENS_D3 22
+#define VELOCIMETER_HUNDREDS_D0 19
+#define VELOCIMETER_HUNDREDS_D1 20
+#define VELOCIMETER_HUNDREDS_D2 21
+#define VELOCIMETER_HUNDREDS_D3 22
 
 #define ODOMETER_LCD_RS 23
 #define ODOMETER_LCD_RW 24
@@ -14867,7 +14867,7 @@ void CLOCK_Disable_Watchdog(void);
 #define GPIO_H_ 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
 # 13 "../Sources/gpio.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
 # 14 "../Sources/gpio.h" 2
@@ -14974,9 +14974,50 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
+<<<<<<< HEAD
 void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
+=======
+void CAN_receive(int * speed,int * tnk,char * od,char * ind);
+uint32_t CAN_id2Val(uint16_t id);
+
+void CAN_speed(input * info);
+void CAN_odo(input * info);
+void CAN_tnk(input * info);
+void CAN_ind(input * info);
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 # 29 "../Sources/cluster.h" 2
+
+
+
+# 1 "../Sources/eeeprom.h" 1
+
+
+
+
+
+
+
+# 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
+# 9 "../Sources/eeeprom.h" 2
+
+
+#define EEEPROM_H_ 
+
+#define EEE_SUCCESS 0
+#define EEE_ALREADY_ENABLED -1
+
+#define USER_DATA_SIZE 32u
+#define DISABLE_INTERRUPTS() __asm volatile ("cpsid i" : : : "memory");
+
+#define ODOMETER 1
+#define TRIP_ODOMETER 2
+#define TANK_LEVEL 3
+
+int EEEPROM_Init();
+int EEEPROM_Write_Data(int data, int target);
+int EEEPROM_Read_Data(int target);
+# 33 "../Sources/cluster.h" 2
 
 
 void CLUSTER_Initialize(void);
@@ -15010,6 +15051,7 @@ int main(void)
 
 
   CLUSTER_Initialize();
+<<<<<<< HEAD
 
   uint8_t speedValue = 0;
   uint8_t tankLevel = 0;
@@ -15024,6 +15066,10 @@ int main(void)
   while(GPIO_Read_Input(31) == 0);
 # 106 "../Sources/main.c"
  rtos_start();
+=======
+# 96 "../Sources/main.c"
+    rtos_start();
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 
 
 

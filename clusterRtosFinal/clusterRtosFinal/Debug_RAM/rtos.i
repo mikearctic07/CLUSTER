@@ -1,5 +1,5 @@
 # 1 "../Sources/rtos.c"
-# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -932,10 +932,10 @@ typedef __uint_least64_t uint_least64_t;
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h" 1
-# 72 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h" 1
+# 72 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
 #define FREERTOS_CONFIG_H 
-# 86 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 86 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
 #define configUSE_PREEMPTION 1
 #define configUSE_IDLE_HOOK 1
 #define configUSE_TICK_HOOK 1
@@ -990,7 +990,7 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define configUSE_STATS_FORMATTING_FUNCTIONS 1
-# 151 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+# 151 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
  void vMainConfigureTimerForRunTimeStats( void );
  unsigned long ulMainGetRunTimeCounterValue( void );
 
@@ -15045,8 +15045,8 @@ clock_manager_callback_user_config_t* CLOCK_SYS_GetErrorCallback(void);
 status_t CLOCK_SYS_GetFreq(clock_names_t clockName,
                            uint32_t *frequency);
 # 11 "../Sources/rtos.c" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
-# 54 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
+# 54 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
 #define clockMan1_H 
 
 
@@ -15054,10 +15054,10 @@ status_t CLOCK_SYS_GetFreq(clock_names_t clockName,
 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
-# 51 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 1
+# 51 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
 #define Cpu_H 
-# 62 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
+# 62 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h" 1
 # 29 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h"
 #define SYSTEM_S32K144_H_ 
@@ -15096,13 +15096,13 @@ void SystemCoreClockUpdate(void);
 
 
 void SystemSoftwareReset(void);
-# 63 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 63 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
-# 66 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
-# 1567 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 1
+# 66 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
+# 1567 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
 #define pin_mux_H 
 
 
@@ -15336,16 +15336,16 @@ void PINS_DRV_TogglePins(GPIO_Type * const base,
                          pins_channel_type_t pins);
 # 1134 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h"
 pins_channel_type_t PINS_DRV_ReadPins(const GPIO_Type * const base);
-# 1571 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 2
+# 1571 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 2
 
 
 #define NUM_OF_CONFIGURED_PINS 89
 
 
 extern pin_settings_config_t g_pin_mux_InitConfigArr[89];
-# 67 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
-# 62 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 2
-# 84 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+# 67 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h" 2
+# 62 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h" 2
+# 84 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
 extern clock_manager_user_config_t clockMan1_InitConfig0;
 
 
@@ -15367,7 +15367,7 @@ extern peripheral_clock_config_t peripheralClockConfig0[];
 
 extern clock_manager_callback_user_config_t *g_clockManCallbacksArr[];
 # 12 "../Sources/rtos.c" 2
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h" 1
 # 13 "../Sources/rtos.c" 2
 # 1 "../Sources/cluster.h" 1
 # 9 "../Sources/cluster.h"
@@ -15418,18 +15418,18 @@ extern clock_manager_callback_user_config_t *g_clockManCallbacksArr[];
 #define GAS_TANK_LVL_3 9
 #define GAS_TANK_LVL_4 10
 
-#define VELOCIMETER_HUNDREDS_D0 11
-#define VELOCIMETER_HUNDREDS_D1 12
-#define VELOCIMETER_HUNDREDS_D2 13
-#define VELOCIMETER_HUNDREDS_D3 14
+#define VELOCIMETER_TENS_D0 11
+#define VELOCIMETER_TENS_D1 12
+#define VELOCIMETER_TENS_D2 13
+#define VELOCIMETER_TENS_D3 14
 #define VELOCIMETER_UNITS_D0 15
 #define VELOCIMETER_UNITS_D1 16
 #define VELOCIMETER_UNITS_D2 17
 #define VELOCIMETER_UNITS_D3 18
-#define VELOCIMETER_TENS_D0 19
-#define VELOCIMETER_TENS_D1 20
-#define VELOCIMETER_TENS_D2 21
-#define VELOCIMETER_TENS_D3 22
+#define VELOCIMETER_HUNDREDS_D0 19
+#define VELOCIMETER_HUNDREDS_D1 20
+#define VELOCIMETER_HUNDREDS_D2 21
+#define VELOCIMETER_HUNDREDS_D3 22
 
 #define ODOMETER_LCD_RS 23
 #define ODOMETER_LCD_RW 24
@@ -15501,7 +15501,7 @@ void CLOCK_Disable_Watchdog(void);
 #define GPIO_H_ 
 
 
-# 1 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
+# 1 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h" 1
 # 13 "../Sources/gpio.h" 2
 # 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
 # 14 "../Sources/gpio.h" 2
@@ -15608,9 +15608,50 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
+<<<<<<< HEAD
 void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
+=======
+void CAN_receive(int * speed,int * tnk,char * od,char * ind);
+uint32_t CAN_id2Val(uint16_t id);
+
+void CAN_speed(input * info);
+void CAN_odo(input * info);
+void CAN_tnk(input * info);
+void CAN_ind(input * info);
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 # 29 "../Sources/cluster.h" 2
+
+
+
+# 1 "../Sources/eeeprom.h" 1
+
+
+
+
+
+
+
+# 1 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h" 1
+# 9 "../Sources/eeeprom.h" 2
+
+
+#define EEEPROM_H_ 
+
+#define EEE_SUCCESS 0
+#define EEE_ALREADY_ENABLED -1
+
+#define USER_DATA_SIZE 32u
+#define DISABLE_INTERRUPTS() __asm volatile ("cpsid i" : : : "memory");
+
+#define ODOMETER 1
+#define TRIP_ODOMETER 2
+#define TANK_LEVEL 3
+
+int EEEPROM_Init();
+int EEEPROM_Write_Data(int data, int target);
+int EEEPROM_Read_Data(int target);
+# 33 "../Sources/cluster.h" 2
 
 
 void CLUSTER_Initialize(void);
@@ -15667,6 +15708,7 @@ static void prvSetupHardware( void );
 
 
 
+<<<<<<< HEAD
 uint8_t speedValue = 0;
 uint8_t tankLevel = 0;
 uint16_t odometerValue = 0;
@@ -15679,12 +15721,23 @@ uint16_t pastOdometerValue = 0;
 uint16_t pastTripOdometerValue = 0;
 
 
+=======
+int speedFlag = 0;
+int tnkFlag = 500;
+char odFlag = 1;
+char indFlag = 1;
+int tnkCounter = 1;
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 
 static void canTask( void *pvParameters );
 static void speedTask( void *pvParameters );
 static void tnkTask( void *pvParameters );
 static void odTask( void *pvParameters );
+<<<<<<< HEAD
 # 84 "../Sources/rtos.c"
+=======
+# 76 "../Sources/rtos.c"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 static QueueHandle_t xQueue = ((void *)0);
 
 
@@ -15711,7 +15764,11 @@ void rtos_start( void )
   xTaskGenericCreate( ( speedTask ), ( "SPD" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
   xTaskGenericCreate( ( tnkTask ), ( "TNK" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
   xTaskGenericCreate( ( odTask ), ( "OD" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
+<<<<<<< HEAD
 # 122 "../Sources/rtos.c"
+=======
+# 115 "../Sources/rtos.c"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
   vTaskStartScheduler();
  }
 
@@ -15742,11 +15799,17 @@ static void speedTask( void *pvParameters )
 
   vTaskDelayUntil( &xNextWakeTime, (83 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
+<<<<<<< HEAD
   if(speedValue != pastSpeedValue)
   {
    CLUSTER_Display_Velocimeter_Value(&speedValue);
    pastSpeedValue = speedValue;
   }
+=======
+
+  CLUSTER_Display_Velocimeter_Value( &speedFlag);
+
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
  }
 }
 
@@ -15767,11 +15830,15 @@ static void tnkTask( void *pvParameters )
 
   vTaskDelayUntil( &xNextWakeTime, (166 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
+<<<<<<< HEAD
   if(tankLevel == 1){
    ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<0;
   }else{
    ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<0;
   }
+=======
+  CLUSTER_Display_Gas_Tank_Level(&tnkFlag, &tnkCounter);
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 
  }
 }
@@ -15822,10 +15889,17 @@ static void canTask( void *pvParameters )
   CAN_receive(&speedValue, &tankLevel, &odometerValue, &tripOdometerValue, &indFlag);
  }
 }
+<<<<<<< HEAD
 # 245 "../Sources/rtos.c"
 static void prvSetupHardware( void )
 {
 # 275 "../Sources/rtos.c"
+=======
+# 231 "../Sources/rtos.c"
+static void prvSetupHardware( void )
+{
+# 261 "../Sources/rtos.c"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 }
 
 

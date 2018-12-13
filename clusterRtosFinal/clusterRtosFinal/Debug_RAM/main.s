@@ -38,6 +38,7 @@ main:
 	.loc 1 82 0
 	bl	CLUSTER_Initialize
 .LVL0:
+<<<<<<< HEAD
 	.loc 1 84 0
 	movs	r3, #0
 	strb	r3, [sp, #15]
@@ -61,6 +62,26 @@ main:
 .LVL1:
 	.loc 1 92 0 discriminator 1
 	b	.L2
+=======
+	.loc 1 96 0
+	bl	rtos_start
+.LVL1:
+	.loc 1 101 0
+	ldr	r2, .L5
+.L2:
+	ldr	r3, [r2]
+	cmp	r3, #0
+	beq	.L2
+	.loc 1 105 0
+	ldr	r3, .L5
+	ldr	r0, [r3]
+	.loc 1 107 0
+	pop	{r3, pc}
+.L6:
+	.align	2
+.L5:
+	.word	.LANCHOR0
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.cfi_endproc
 .LFE5:
 	.size	main, .-main
@@ -96,19 +117,24 @@ exit_code:
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x6
+<<<<<<< HEAD
 	.4byte	.LASF9989
 	.uleb128 0x3
 	.4byte	.LASF9992
 	.byte	0x2
 	.byte	0x1d
 	.4byte	0x3b
+=======
+	.4byte	.LASF9996
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x8
-	.4byte	.LASF9990
+	.4byte	.LASF9997
 	.uleb128 0x2
 	.byte	0x2
 	.byte	0x5
+<<<<<<< HEAD
 	.4byte	.LASF9991
 	.uleb128 0x3
 	.4byte	.LASF9993
@@ -136,12 +162,37 @@ exit_code:
 	.byte	0x7
 	.4byte	.LASF9998
 	.uleb128 0x4
+=======
+	.4byte	.LASF9998
+	.uleb128 0x2
+	.byte	0x2
+	.byte	0x7
+	.4byte	.LASF9999
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x5
+	.4byte	.LASF10000
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x7
+	.4byte	.LASF10001
+	.uleb128 0x2
+	.byte	0x8
+	.byte	0x5
+	.4byte	.LASF10002
+	.uleb128 0x2
+	.byte	0x8
+	.byte	0x7
+	.4byte	.LASF10003
+	.uleb128 0x3
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x4
 	.byte	0x5
 	.ascii	"int\000"
 	.uleb128 0x2
 	.byte	0x4
 	.byte	0x7
+<<<<<<< HEAD
 	.4byte	.LASF9999
 	.uleb128 0x3
 	.4byte	.LASF10000
@@ -158,9 +209,18 @@ exit_code:
 	.byte	0x7
 	.4byte	.LASF10002
 	.uleb128 0x5
+=======
+	.4byte	.LASF10004
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x7
+	.4byte	.LASF10005
+	.uleb128 0x4
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x1
 	.byte	0x4
 	.2byte	0x2f1
+<<<<<<< HEAD
 	.4byte	0x278
 	.uleb128 0x6
 	.4byte	.LASF10003
@@ -383,20 +443,252 @@ exit_code:
 	.sleb128 78
 	.uleb128 0x6
 	.4byte	.LASF10076
+=======
+	.4byte	0x24c
+	.uleb128 0x5
+	.4byte	.LASF10006
+	.sleb128 0
+	.uleb128 0x5
+	.4byte	.LASF10007
+	.sleb128 1
+	.uleb128 0x5
+	.4byte	.LASF10008
+	.sleb128 2
+	.uleb128 0x5
+	.4byte	.LASF10009
+	.sleb128 3
+	.uleb128 0x5
+	.4byte	.LASF10010
+	.sleb128 4
+	.uleb128 0x5
+	.4byte	.LASF10011
+	.sleb128 5
+	.uleb128 0x5
+	.4byte	.LASF10012
+	.sleb128 6
+	.uleb128 0x5
+	.4byte	.LASF10013
+	.sleb128 7
+	.uleb128 0x5
+	.4byte	.LASF10014
+	.sleb128 8
+	.uleb128 0x5
+	.4byte	.LASF10015
+	.sleb128 9
+	.uleb128 0x5
+	.4byte	.LASF10016
+	.sleb128 10
+	.uleb128 0x5
+	.4byte	.LASF10017
+	.sleb128 11
+	.uleb128 0x5
+	.4byte	.LASF10018
+	.sleb128 12
+	.uleb128 0x5
+	.4byte	.LASF10019
+	.sleb128 13
+	.uleb128 0x5
+	.4byte	.LASF10020
+	.sleb128 14
+	.uleb128 0x5
+	.4byte	.LASF10021
+	.sleb128 15
+	.uleb128 0x5
+	.4byte	.LASF10022
+	.sleb128 16
+	.uleb128 0x5
+	.4byte	.LASF10023
+	.sleb128 17
+	.uleb128 0x5
+	.4byte	.LASF10024
+	.sleb128 18
+	.uleb128 0x5
+	.4byte	.LASF10025
+	.sleb128 21
+	.uleb128 0x5
+	.4byte	.LASF10026
+	.sleb128 22
+	.uleb128 0x5
+	.4byte	.LASF10027
+	.sleb128 23
+	.uleb128 0x5
+	.4byte	.LASF10028
+	.sleb128 24
+	.uleb128 0x5
+	.4byte	.LASF10029
+	.sleb128 25
+	.uleb128 0x5
+	.4byte	.LASF10030
+	.sleb128 26
+	.uleb128 0x5
+	.4byte	.LASF10031
+	.sleb128 27
+	.uleb128 0x5
+	.4byte	.LASF10032
+	.sleb128 28
+	.uleb128 0x5
+	.4byte	.LASF10033
+	.sleb128 29
+	.uleb128 0x5
+	.4byte	.LASF10034
+	.sleb128 30
+	.uleb128 0x5
+	.4byte	.LASF10035
+	.sleb128 31
+	.uleb128 0x5
+	.4byte	.LASF10036
+	.sleb128 32
+	.uleb128 0x5
+	.4byte	.LASF10037
+	.sleb128 33
+	.uleb128 0x5
+	.4byte	.LASF10038
+	.sleb128 34
+	.uleb128 0x5
+	.4byte	.LASF10039
+	.sleb128 35
+	.uleb128 0x5
+	.4byte	.LASF10040
+	.sleb128 36
+	.uleb128 0x5
+	.4byte	.LASF10041
+	.sleb128 41
+	.uleb128 0x5
+	.4byte	.LASF10042
+	.sleb128 42
+	.uleb128 0x5
+	.4byte	.LASF10043
+	.sleb128 43
+	.uleb128 0x5
+	.4byte	.LASF10044
+	.sleb128 44
+	.uleb128 0x5
+	.4byte	.LASF10045
+	.sleb128 45
+	.uleb128 0x5
+	.4byte	.LASF10046
+	.sleb128 46
+	.uleb128 0x5
+	.4byte	.LASF10047
+	.sleb128 47
+	.uleb128 0x5
+	.4byte	.LASF10048
+	.sleb128 48
+	.uleb128 0x5
+	.4byte	.LASF10049
+	.sleb128 49
+	.uleb128 0x5
+	.4byte	.LASF10050
+	.sleb128 50
+	.uleb128 0x5
+	.4byte	.LASF10051
+	.sleb128 51
+	.uleb128 0x5
+	.4byte	.LASF10052
+	.sleb128 52
+	.uleb128 0x5
+	.4byte	.LASF10053
+	.sleb128 53
+	.uleb128 0x5
+	.4byte	.LASF10054
+	.sleb128 54
+	.uleb128 0x5
+	.4byte	.LASF10055
+	.sleb128 55
+	.uleb128 0x5
+	.4byte	.LASF10056
+	.sleb128 56
+	.uleb128 0x5
+	.4byte	.LASF10057
+	.sleb128 57
+	.uleb128 0x5
+	.4byte	.LASF10058
+	.sleb128 58
+	.uleb128 0x5
+	.4byte	.LASF10059
+	.sleb128 59
+	.uleb128 0x5
+	.4byte	.LASF10060
+	.sleb128 60
+	.uleb128 0x5
+	.4byte	.LASF10061
+	.sleb128 61
+	.uleb128 0x5
+	.4byte	.LASF10062
+	.sleb128 62
+	.uleb128 0x5
+	.4byte	.LASF10063
+	.sleb128 63
+	.uleb128 0x5
+	.4byte	.LASF10064
+	.sleb128 64
+	.uleb128 0x5
+	.4byte	.LASF10065
+	.sleb128 65
+	.uleb128 0x5
+	.4byte	.LASF10066
+	.sleb128 66
+	.uleb128 0x5
+	.4byte	.LASF10067
+	.sleb128 67
+	.uleb128 0x5
+	.4byte	.LASF10068
+	.sleb128 68
+	.uleb128 0x5
+	.4byte	.LASF10069
+	.sleb128 69
+	.uleb128 0x5
+	.4byte	.LASF10070
+	.sleb128 70
+	.uleb128 0x5
+	.4byte	.LASF10071
+	.sleb128 71
+	.uleb128 0x5
+	.4byte	.LASF10072
+	.sleb128 72
+	.uleb128 0x5
+	.4byte	.LASF10073
+	.sleb128 73
+	.uleb128 0x5
+	.4byte	.LASF10074
+	.sleb128 74
+	.uleb128 0x5
+	.4byte	.LASF10075
+	.sleb128 75
+	.uleb128 0x5
+	.4byte	.LASF10076
+	.sleb128 76
+	.uleb128 0x5
+	.4byte	.LASF10077
+	.sleb128 77
+	.uleb128 0x5
+	.4byte	.LASF10078
+	.sleb128 78
+	.uleb128 0x5
+	.4byte	.LASF10079
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.sleb128 79
 	.byte	0
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x2
+<<<<<<< HEAD
 	.4byte	.LASF10077
 	.uleb128 0x7
 	.byte	0x4
 	.4byte	0x85
+=======
+	.4byte	.LASF10080
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x6
 	.4byte	.LASF409
+<<<<<<< HEAD
 	.uleb128 0x8
+=======
+	.uleb128 0x6
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.LASF10086
 	.byte	0x1
 	.byte	0x4e
@@ -484,8 +776,12 @@ exit_code:
 	.byte	0x91
 	.sleb128 -15
 	.byte	0
+<<<<<<< HEAD
 	.byte	0
 	.uleb128 0xd
+=======
+	.uleb128 0x8
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.LASF10087
 	.byte	0x1
 	.byte	0x3b
@@ -493,6 +789,7 @@ exit_code:
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	exit_code
+<<<<<<< HEAD
 	.uleb128 0xe
 	.4byte	0x77
 	.uleb128 0xf
@@ -518,6 +815,18 @@ exit_code:
 	.uleb128 0x7
 	.byte	0x4
 	.4byte	0x90
+=======
+	.uleb128 0x9
+	.4byte	0x61
+	.uleb128 0xa
+	.4byte	.LASF10081
+	.byte	0x2
+	.byte	0x23
+	.uleb128 0xa
+	.4byte	.LASF10082
+	.byte	0x1
+	.byte	0x41
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0
 	.section	.debug_abbrev,"",%progbits
 .Ldebug_abbrev0:
@@ -1857,7 +2166,11 @@ exit_code:
 	.byte	0x5
 	.uleb128 0x4
 	.4byte	.LASF361
+<<<<<<< HEAD
 	.file 7 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
+=======
+	.file 4 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x3
 	.uleb128 0x31
 	.uleb128 0x7
@@ -1999,7 +2312,11 @@ exit_code:
 	.byte	0x7
 	.4byte	.Ldebug_macro13
 	.byte	0x4
+<<<<<<< HEAD
 	.file 22 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+=======
+	.file 21 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x3
 	.uleb128 0x41
 	.uleb128 0x16
@@ -2013,7 +2330,11 @@ exit_code:
 	.byte	0x7
 	.4byte	.Ldebug_macro14
 	.byte	0x4
+<<<<<<< HEAD
 	.file 23 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
+=======
+	.file 22 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x3
 	.uleb128 0x42
 	.uleb128 0x17
@@ -2050,7 +2371,11 @@ exit_code:
 	.uleb128 0x4c
 	.uleb128 0x19
 	.byte	0x4
+<<<<<<< HEAD
 	.file 27 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+=======
+	.file 26 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x3
 	.uleb128 0x62
 	.uleb128 0x1b
@@ -2136,7 +2461,11 @@ exit_code:
 	.byte	0x5
 	.uleb128 0x9
 	.4byte	.LASF9973
+<<<<<<< HEAD
 	.file 36 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
+=======
+	.file 35 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x3
 	.uleb128 0xc
 	.uleb128 0x24
@@ -2175,10 +2504,21 @@ exit_code:
 	.byte	0x7
 	.4byte	.Ldebug_macro24
 	.byte	0x4
+	.file 39 "../Sources/eeeprom.h"
+	.byte	0x3
+	.uleb128 0x20
+	.uleb128 0x27
+	.byte	0x3
+	.uleb128 0x8
+	.uleb128 0x7
+	.byte	0x4
+	.byte	0x7
+	.4byte	.Ldebug_macro25
+	.byte	0x4
 	.byte	0x4
 	.byte	0x5
 	.uleb128 0x42
-	.4byte	.LASF9988
+	.4byte	.LASF9995
 	.byte	0x4
 	.byte	0
 	.section	.debug_macro,"G",%progbits,wm4.device_registers.h.28.5f158ec6559b3636dff84b94830a157f,comdat
@@ -30849,7 +31189,7 @@ exit_code:
 	.uleb128 0x317
 	.4byte	.LASF9892
 	.byte	0
-	.section	.debug_macro,"G",%progbits,wm4.definitions.h.9.d11c29c463b74171ba161014bb109bd8,comdat
+	.section	.debug_macro,"G",%progbits,wm4.definitions.h.9.32f316f3ffbf85fe5d0af1dd0d0a41b4,comdat
 .Ldebug_macro22:
 	.2byte	0x4
 	.byte	0
@@ -31137,6 +31477,35 @@ exit_code:
 	.uleb128 0x10
 	.4byte	.LASF9987
 	.byte	0
+	.section	.debug_macro,"G",%progbits,wm4.eeeprom.h.11.ec4de05b6144f81232b528f9c13bbd65,comdat
+.Ldebug_macro25:
+	.2byte	0x4
+	.byte	0
+	.byte	0x5
+	.uleb128 0xb
+	.4byte	.LASF9988
+	.byte	0x5
+	.uleb128 0xd
+	.4byte	.LASF9989
+	.byte	0x5
+	.uleb128 0xe
+	.4byte	.LASF9990
+	.byte	0x5
+	.uleb128 0x10
+	.4byte	.LASF9991
+	.byte	0x5
+	.uleb128 0x11
+	.4byte	.LASF369
+	.byte	0x5
+	.uleb128 0x13
+	.4byte	.LASF9992
+	.byte	0x5
+	.uleb128 0x14
+	.4byte	.LASF9993
+	.byte	0x5
+	.uleb128 0x15
+	.4byte	.LASF9994
+	.byte	0
 	.section	.debug_line,"",%progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",%progbits,1
@@ -31323,8 +31692,6 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI168_SHIFT 0u\000"
 .LASF7164:
 	.ascii	"S32_NVIC_IP_PRI33_MASK 0xFFu\000"
-.LASF9928:
-	.ascii	"VELOCIMETER_HUNDREDS_D0 11\000"
 .LASF3901:
 	.ascii	"FTM_PWMLOAD_CH2SEL_SHIFT 2u\000"
 .LASF2805:
@@ -31362,7 +31729,11 @@ exit_code:
 	.ascii	"CR_MDIS_SHIFT))&CAN_MCR_MDIS_MASK)\000"
 .LASF4661:
 	.ascii	"LPI2C_SASR_RADDR_SHIFT 0u\000"
+<<<<<<< HEAD
 .LASF10058:
+=======
+.LASF10061:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FTM1_CLK\000"
 .LASF1254:
 	.ascii	"CAN_CTRL2_ERRMSK_FAST_WIDTH 1u\000"
@@ -32002,6 +32373,8 @@ exit_code:
 	.ascii	"CAN_Error_IRQS_CH_COUNT (1u)\000"
 .LASF7209:
 	.ascii	"S32_NVIC_IP_PRI44_SHIFT 0u\000"
+.LASF9993:
+	.ascii	"TRIP_ODOMETER 2\000"
 .LASF2742:
 	.ascii	"FLEXIO_SHIFTCTL_COUNT 4u\000"
 .LASF1056:
@@ -32089,9 +32462,15 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI206_SHIFT 0u\000"
 .LASF70:
 	.ascii	"__SHRT_MAX__ 32767\000"
+.LASF9929:
+	.ascii	"VELOCIMETER_TENS_D1 12\000"
 .LASF3513:
 	.ascii	"FTM_COMBINE_MCOMBINE3_SHIFT 31u\000"
+<<<<<<< HEAD
 .LASF10065:
+=======
+.LASF10068:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPI2C0_CLK\000"
 .LASF2144:
 	.ascii	"DMA_CDNE_CDNE_SHIFT 0u\000"
@@ -32280,7 +32659,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI226_WIDTH 8u\000"
 .LASF7388:
 	.ascii	"S32_NVIC_IP_PRI89_MASK 0xFFu\000"
+<<<<<<< HEAD
 .LASF10075:
+=======
+.LASF10078:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PCC_END_OF_CLOCKS\000"
 .LASF8741:
 	.ascii	"SIM_CHIPCTL_ADC_SUPPLYEN(x) (((uint32_t)(((uint32_t"
@@ -33270,8 +33653,6 @@ exit_code:
 	.ascii	"CLOCK_MANAGER_H \000"
 .LASF48:
 	.ascii	"__INT_LEAST8_TYPE__ signed char\000"
-.LASF9931:
-	.ascii	"VELOCIMETER_HUNDREDS_D3 14\000"
 .LASF9695:
 	.ascii	"pdFREERTOS_ERRNO_EIO 5\000"
 .LASF218:
@@ -33440,7 +33821,11 @@ exit_code:
 	.ascii	"LPI2C_MSR_SDF_WIDTH 1u\000"
 .LASF2705:
 	.ascii	"EWM_BASE_ADDRS { EWM_BASE }\000"
+<<<<<<< HEAD
 .LASF10041:
+=======
+.LASF10044:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"EWM0_CLK\000"
 .LASF3787:
 	.ascii	"FTM_SYNCONF_SWINVC(x) (((uint32_t)(((uint32_t)(x))<"
@@ -33669,7 +34054,11 @@ exit_code:
 	.ascii	"SIM_SDID_DERIVATE_SHIFT))&SIM_SDID_DERIVATE_MASK)\000"
 .LASF6220:
 	.ascii	"MSCM_CP0MASTER_PPMN_MASK 0x3Fu\000"
+<<<<<<< HEAD
 .LASF10055:
+=======
+.LASF10058:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FTFC0_CLK\000"
 .LASF2327:
 	.ascii	"DMA_HRS_HRS2_MASK 0x4u\000"
@@ -33895,7 +34284,11 @@ exit_code:
 	.ascii	"DMA_CEEI_CAEE_SHIFT 6u\000"
 .LASF2539:
 	.ascii	"DMA_TCD_CITER_ELINKYES_LINKCH_MASK 0x1E00u\000"
+<<<<<<< HEAD
 .LASF10022:
+=======
+.LASF10025:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_FTM0_CLOCKSEL\000"
 .LASF8201:
 	.ascii	"S32_SCB_SHCSR_MEMFAULTPENDED_MASK 0x2000u\000"
@@ -33984,6 +34377,8 @@ exit_code:
 	.ascii	"__FLT_MAX_EXP__ 128\000"
 .LASF6302:
 	.ascii	"MSCM_OCMDR_OCM2_WIDTH 4u\000"
+.LASF9936:
+	.ascii	"VELOCIMETER_HUNDREDS_D0 19\000"
 .LASF2235:
 	.ascii	"DMA_INT_INT11_MASK 0x800u\000"
 .LASF5171:
@@ -34215,7 +34610,11 @@ exit_code:
 .LASF9849:
 	.ascii	"tracePEND_FUNC_CALL(xFunctionToPend,pvParameter1,ul"
 	.ascii	"Parameter2,ret) \000"
+<<<<<<< HEAD
 .LASF10003:
+=======
+.LASF10006:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CORE_CLK\000"
 .LASF2140:
 	.ascii	"DMA_SERQ_NOP_SHIFT 7u\000"
@@ -34899,7 +35298,11 @@ exit_code:
 	.ascii	"LPI2C_SSR_SBF_MASK 0x1000000u\000"
 .LASF5198:
 	.ascii	"LPUART_IRQS_ARR_COUNT (1u)\000"
+<<<<<<< HEAD
 .LASF10059:
+=======
+.LASF10062:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FTM2_CLK\000"
 .LASF3481:
 	.ascii	"FTM_COMBINE_MCOMBINE2_SHIFT 23u\000"
@@ -34964,7 +35367,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI97_SHIFT 0u\000"
 .LASF9591:
 	.ascii	"_SIZE_T_ \000"
+<<<<<<< HEAD
 .LASF10069:
+=======
+.LASF10072:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPSPI2_CLK\000"
 .LASF2278:
 	.ascii	"DMA_ERR_ERR5(x) (((uint32_t)(((uint32_t)(x))<<DMA_E"
@@ -35021,7 +35428,11 @@ exit_code:
 	.ascii	"FEATURE_FLEXIO_DMA_REQ_3 EDMA_REQ_FLEXIO_SHIFTER3\000"
 .LASF6497:
 	.ascii	"PDB_POnDLY_PODLY_DLY1_WIDTH 16u\000"
+<<<<<<< HEAD
 .LASF9999:
+=======
+.LASF10004:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"unsigned int\000"
 .LASF9315:
 	.ascii	"FEATURE_LPUART_HAS_ADDRESS_MATCHING (1)\000"
@@ -35110,7 +35521,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI239_MASK 0xFFu\000"
 .LASF3741:
 	.ascii	"FTM_FLTPOL_FLT1POL_SHIFT 1u\000"
+<<<<<<< HEAD
 .LASF10027:
+=======
+.LASF10030:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_RTCCLK_CLK\000"
 .LASF419:
 	.ascii	"__INT8 \"hh\"\000"
@@ -35152,8 +35567,6 @@ exit_code:
 	.ascii	"CMP_C2_NSAM_WIDTH 2u\000"
 .LASF5143:
 	.ascii	"LPTMR_CSR_TMS_WIDTH 1u\000"
-.LASF9937:
-	.ascii	"VELOCIMETER_TENS_D1 20\000"
 .LASF7827:
 	.ascii	"S32_NVIC_IP_PRI198(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI198_SHIFT))&S32_NVIC_IP_PRI198_MASK)\000"
@@ -35679,7 +36092,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI6_WIDTH 8u\000"
 .LASF4695:
 	.ascii	"LPIT_IRQS_CH_COUNT (4u)\000"
+<<<<<<< HEAD
 .LASF10040:
+=======
+.LASF10043:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"DMAMUX0_CLK\000"
 .LASF3110:
 	.ascii	"FTM_SC_PS_WIDTH 3u\000"
@@ -35710,7 +36127,11 @@ exit_code:
 	.ascii	"S32_NVIC_IABR_ACTIVE_MASK 0xFFFFFFFFu\000"
 .LASF3500:
 	.ascii	"FTM_COMBINE_DTEN3_MASK 0x10000000u\000"
+<<<<<<< HEAD
 .LASF10076:
+=======
+.LASF10079:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CLOCK_NAME_COUNT\000"
 .LASF4474:
 	.ascii	"LPI2C_SCR_FILTDZ_WIDTH 1u\000"
@@ -35720,7 +36141,11 @@ exit_code:
 	.ascii	"LPSPI_SR_MBF_SHIFT 24u\000"
 .LASF4923:
 	.ascii	"LPSPI_SR_DMF_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10017:
+=======
+.LASF10020:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SOSCDIV1_CLK\000"
 .LASF5782:
 	.ascii	"MCM_LMDR_LMSZ_MASK 0xF000000u\000"
@@ -35901,7 +36326,11 @@ exit_code:
 	.ascii	"CAN_ESR1_CRCERR_MASK 0x1000u\000"
 .LASF1017:
 	.ascii	"CAN_CTRL1_TWRNMSK_SHIFT 11u\000"
+<<<<<<< HEAD
 .LASF10066:
+=======
+.LASF10069:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPIT0_CLK\000"
 .LASF3325:
 	.ascii	"FTM_OUTINIT_CH0OI_SHIFT 0u\000"
@@ -35940,7 +36369,11 @@ exit_code:
 	.ascii	"FTM_OUTMASK_CH3OM_MASK 0x8u\000"
 .LASF7982:
 	.ascii	"S32_NVIC_IP_PRI237_WIDTH 8u\000"
+<<<<<<< HEAD
 .LASF10062:
+=======
+.LASF10065:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"ADC0_CLK\000"
 .LASF2588:
 	.ascii	"DMA_TCD_CSR_BWC_SHIFT 14u\000"
@@ -36601,7 +37034,11 @@ exit_code:
 	.ascii	"DMA_EARS_EDREQ_8_WIDTH 1u\000"
 .LASF3704:
 	.ascii	"FTM_QDCTRL_PHAPOL_MASK 0x20u\000"
+<<<<<<< HEAD
 .LASF10042:
+=======
+.LASF10045:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PORTA_CLK\000"
 .LASF1277:
 	.ascii	"CAN_RXFGMASK_FGM_SHIFT 0u\000"
@@ -36653,8 +37090,6 @@ exit_code:
 .LASF2974:
 	.ascii	"FTFC_FSTAT_ACCERR(x) (((uint8_t)(((uint8_t)(x))<<FT"
 	.ascii	"FC_FSTAT_ACCERR_SHIFT))&FTFC_FSTAT_ACCERR_MASK)\000"
-.LASF9930:
-	.ascii	"VELOCIMETER_HUNDREDS_D2 13\000"
 .LASF277:
 	.ascii	"__TQ_FBIT__ 127\000"
 .LASF8250:
@@ -36702,7 +37137,11 @@ exit_code:
 	.ascii	"S_OPACR_TP4_SHIFT))&AIPS_OPACR_TP4_MASK)\000"
 .LASF8633:
 	.ascii	"SCG_FIRCCSR_LK_MASK 0x800000u\000"
+<<<<<<< HEAD
 .LASF10054:
+=======
+.LASF10057:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PCC_END_OF_SYS_CLOCKS\000"
 .LASF488:
 	.ascii	"SIG_ATOMIC_MAX (__STDINT_EXP(INT_MAX))\000"
@@ -36834,7 +37273,7 @@ exit_code:
 	.ascii	"CAN_ESR1_BOFFDONEINT_MASK 0x80000u\000"
 .LASF6896:
 	.ascii	"RTC_TSR_TSR_WIDTH 32u\000"
-.LASF9990:
+.LASF9997:
 	.ascii	"unsigned char\000"
 .LASF1963:
 	.ascii	"DMA_ES_VLD_MASK 0x80000000u\000"
@@ -36951,7 +37390,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI78_MASK 0xFFu\000"
 .LASF3989:
 	.ascii	"FTM_PAIR3DEADTIME_DTVALEX_SHIFT 16u\000"
+<<<<<<< HEAD
 .LASF10010:
+=======
+.LASF10013:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SPLL_CLK\000"
 .LASF6767:
 	.ascii	"RCM_SRS_JTAG(x) (((uint32_t)(((uint32_t)(x))<<RCM_S"
@@ -37028,6 +37471,8 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI14_SHIFT 0u\000"
 .LASF8183:
 	.ascii	"S32_SCB_SHCSR_SVCALLACT_WIDTH 1u\000"
+.LASF9989:
+	.ascii	"EEE_SUCCESS 0\000"
 .LASF3694:
 	.ascii	"FTM_QDCTRL_QUADIR_WIDTH 1u\000"
 .LASF1902:
@@ -37287,10 +37732,12 @@ exit_code:
 .LASF1043:
 	.ascii	"CAN_CTRL1_PSEG1(x) (((uint32_t)(((uint32_t)(x))<<CA"
 	.ascii	"N_CTRL1_PSEG1_SHIFT))&CAN_CTRL1_PSEG1_MASK)\000"
+<<<<<<< HEAD
 .LASF10004:
+=======
+.LASF10007:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"BUS_CLK\000"
-.LASF9929:
-	.ascii	"VELOCIMETER_HUNDREDS_D1 12\000"
 .LASF9641:
 	.ascii	"configUSE_RECURSIVE_MUTEXES 1\000"
 .LASF9273:
@@ -37768,6 +38215,11 @@ exit_code:
 	.ascii	"SIM_SDID_SUBSERIES(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<SIM_SDID_SUBSERIES_SHIFT))&SIM_SDID_SUBSERIES_MASK"
 	.ascii	")\000"
+<<<<<<< HEAD
+=======
+.LASF10082:
+	.ascii	"rtos_start\000"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF9655:
 	.ascii	"INCLUDE_vTaskDelayUntil 1\000"
 .LASF6800:
@@ -37803,7 +38255,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI204_WIDTH 8u\000"
 .LASF2912:
 	.ascii	"FLEXIO_TIMCTL_TRGPOL_SHIFT 23u\000"
+<<<<<<< HEAD
 .LASF10074:
+=======
+.LASF10077:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PCC_END_OF_ASYNCH_DIV2_CLOCKS\000"
 .LASF6854:
 	.ascii	"RCM_SRIE_WDOG_WIDTH 1u\000"
@@ -38015,6 +38471,8 @@ exit_code:
 	.ascii	"FTM_OUTINIT_CH5OI_MASK 0x20u\000"
 .LASF7298:
 	.ascii	"S32_NVIC_IP_PRI66_WIDTH 8u\000"
+.LASF9939:
+	.ascii	"VELOCIMETER_HUNDREDS_D3 22\000"
 .LASF7659:
 	.ascii	"S32_NVIC_IP_PRI156(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI156_SHIFT))&S32_NVIC_IP_PRI156_MASK)\000"
@@ -38358,7 +38816,11 @@ exit_code:
 	.ascii	"TM_CONF_GTBEOUT_SHIFT))&FTM_CONF_GTBEOUT_MASK)\000"
 .LASF1101:
 	.ascii	"CAN_ESR1_TX_SHIFT 6u\000"
+<<<<<<< HEAD
 .LASF10060:
+=======
+.LASF10063:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FTM3_CLK\000"
 .LASF2425:
 	.ascii	"DMA_EARS_EDREQ_10_WIDTH 1u\000"
@@ -38378,7 +38840,11 @@ exit_code:
 	.ascii	"MSCM_OCMDR_OCM0_SHIFT 0u\000"
 .LASF6489:
 	.ascii	"PDB_POEN_POEN_WIDTH 8u\000"
+<<<<<<< HEAD
 .LASF9996:
+=======
+.LASF10001:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"long unsigned int\000"
 .LASF4992:
 	.ascii	"LPSPI_CFGR1_MASTER(x) (((uint32_t)(((uint32_t)(x))<"
@@ -38956,7 +39422,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI235_SHIFT 0u\000"
 .LASF6168:
 	.ascii	"MSCM_CPxCFG2_TMUSZ_MASK 0xFF00u\000"
+<<<<<<< HEAD
 .LASF10048:
+=======
+.LASF10051:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PCC_END_OF_BUS_CLOCKS\000"
 .LASF7188:
 	.ascii	"S32_NVIC_IP_PRI39_MASK 0xFFu\000"
@@ -39195,9 +39665,15 @@ exit_code:
 	.ascii	"U_RGDAAC_M6RE_SHIFT))&MPU_RGDAAC_M6RE_MASK)\000"
 .LASF3542:
 	.ascii	"FTM_EXTTRIG_CH5TRIG_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10056:
 	.ascii	"PCC_END_OF_SLOW_CLOCKS\000"
 .LASF10018:
+=======
+.LASF10059:
+	.ascii	"PCC_END_OF_SLOW_CLOCKS\000"
+.LASF10021:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SOSCDIV2_CLK\000"
 .LASF452:
 	.ascii	"UINT_LEAST8_MAX (__UINT_LEAST8_MAX__)\000"
@@ -39435,7 +39911,11 @@ exit_code:
 	.ascii	"_T_PTRDIFF_ \000"
 .LASF8714:
 	.ascii	"SIM_CHIPCTL_CLKOUTSEL_MASK 0xF0u\000"
+<<<<<<< HEAD
 .LASF10063:
+=======
+.LASF10066:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"ADC1_CLK\000"
 .LASF8978:
 	.ascii	"SMC_VERID_MINOR(x) (((uint32_t)(((uint32_t)(x))<<SM"
@@ -39503,7 +39983,11 @@ exit_code:
 	.ascii	"WDOG_CS_ULK_WIDTH 1u\000"
 .LASF7094:
 	.ascii	"S32_NVIC_IP_PRI15_WIDTH 8u\000"
+<<<<<<< HEAD
 .LASF10068:
+=======
+.LASF10071:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPSPI1_CLK\000"
 .LASF8550:
 	.ascii	"SCG_SOSCCSR_SOSCCMRE_SHIFT 17u\000"
@@ -39573,7 +40057,11 @@ exit_code:
 	.ascii	"DMA_INT_INT2_SHIFT 2u\000"
 .LASF9623:
 	.ascii	"NUM_OF_CONFIGURED_PINS 89\000"
+<<<<<<< HEAD
 .LASF10052:
+=======
+.LASF10055:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PDB0_CLK\000"
 .LASF6255:
 	.ascii	"MSCM_CP0CFG2_TMUSZ(x) (((uint32_t)(((uint32_t)(x))<"
@@ -39674,6 +40162,8 @@ exit_code:
 	.ascii	"2_MASK)\000"
 .LASF1886:
 	.ascii	"DMA_ERROR_IRQS { DMA_Error_IRQn }\000"
+.LASF9937:
+	.ascii	"VELOCIMETER_HUNDREDS_D1 20\000"
 .LASF4875:
 	.ascii	"LPSPI_CR_RST_WIDTH 1u\000"
 .LASF7802:
@@ -39913,7 +40403,11 @@ exit_code:
 	.ascii	"S32_NVIC_ISER_SETENA_MASK 0xFFFFFFFFu\000"
 .LASF1981:
 	.ascii	"DMA_ERQ_ERQ3_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10053:
+=======
+.LASF10056:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PDB1_CLK\000"
 .LASF4006:
 	.ascii	"GPIO_PDOR_PDO_SHIFT 0u\000"
@@ -40049,7 +40543,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI53_WIDTH 8u\000"
 .LASF6317:
 	.ascii	"MSCM_OCMDR_OCMW_SHIFT 17u\000"
+<<<<<<< HEAD
 .LASF10043:
+=======
+.LASF10046:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PORTB_CLK\000"
 .LASF110:
 	.ascii	"__INT_FAST8_MAX__ 2147483647\000"
@@ -40595,7 +41093,11 @@ exit_code:
 	.ascii	"ALIB_NOREF_MASK)\000"
 .LASF4612:
 	.ascii	"LPI2C_SCFGR1_SAEN_MASK 0x200u\000"
+<<<<<<< HEAD
 .LASF10073:
+=======
+.LASF10076:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPUART2_CLK\000"
 .LASF4589:
 	.ascii	"LPI2C_SDER_AVDE_SHIFT 2u\000"
@@ -40934,7 +41436,11 @@ exit_code:
 	.ascii	"CAN_ESR2_LPTM_SHIFT 16u\000"
 .LASF160:
 	.ascii	"__DECIMAL_DIG__ 17\000"
+<<<<<<< HEAD
 .LASF10035:
+=======
+.LASF10038:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_MPU_CLK\000"
 .LASF4777:
 	.ascii	"LPIT_SETTEN_SET_T_EN_3_MASK 0x8u\000"
@@ -41263,7 +41769,11 @@ exit_code:
 	.ascii	"MSCM_CPxCFG0_DCSZ_MASK 0xFF00u\000"
 .LASF8507:
 	.ascii	"SCG_VCCR_DIVSLOW_WIDTH 4u\000"
+<<<<<<< HEAD
 .LASF10064:
+=======
+.LASF10067:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FLEXIO0_CLK\000"
 .LASF6006:
 	.ascii	"MPU_RGD_WORD2_M4RE_MASK 0x2000000u\000"
@@ -41620,7 +42130,11 @@ exit_code:
 .LASF6183:
 	.ascii	"MSCM_CPxCFG3_SIMD(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"MSCM_CPxCFG3_SIMD_SHIFT))&MSCM_CPxCFG3_SIMD_MASK)\000"
+<<<<<<< HEAD
 .LASF10034:
+=======
+.LASF10037:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_DMA_CLK\000"
 .LASF5385:
 	.ascii	"LPUART_CTRL_LOOPS_MASK 0x80u\000"
@@ -41730,7 +42244,11 @@ exit_code:
 	.ascii	"AIPS_OPACR_WP3_MASK 0x20000u\000"
 .LASF2300:
 	.ascii	"DMA_ERR_ERR11_SHIFT 11u\000"
+<<<<<<< HEAD
 .LASF10057:
+=======
+.LASF10060:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FTM0_CLK\000"
 .LASF9059:
 	.ascii	"TRGMUX_TRGMUXn_SEL1_WIDTH 6u\000"
@@ -41980,7 +42498,11 @@ exit_code:
 	.ascii	"LPUART_MODIR_TNP_MASK 0x30000u\000"
 .LASF3478:
 	.ascii	"FTM_COMBINE_FAULTEN2_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10025:
+=======
+.LASF10028:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_FTM3_CLOCKSEL\000"
 .LASF8341:
 	.ascii	"S32_SCB_AFSR_AUXFAULT_MASK 0xFFFFFFFFu\000"
@@ -42207,7 +42729,11 @@ exit_code:
 	.ascii	"CAN_WU_MTC_WTOF_MASK 0x20000u\000"
 .LASF7000:
 	.ascii	"S32_NVIC_ISPR_COUNT 8u\000"
+<<<<<<< HEAD
 .LASF10039:
+=======
+.LASF10042:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CRC0_CLK\000"
 .LASF5813:
 	.ascii	"MCM_LMDR2_WY(x) (((uint32_t)(((uint32_t)(x))<<MCM_L"
@@ -42415,6 +42941,8 @@ exit_code:
 	.ascii	"S_OPACR_WP5_SHIFT))&AIPS_OPACR_WP5_MASK)\000"
 .LASF7989:
 	.ascii	"S32_NVIC_IP_PRI239_SHIFT 0u\000"
+.LASF9931:
+	.ascii	"VELOCIMETER_TENS_D3 14\000"
 .LASF5816:
 	.ascii	"MCM_LMDR2_LMSZ_WIDTH 4u\000"
 .LASF666:
@@ -43165,6 +43693,8 @@ exit_code:
 	.ascii	"CAN_CTRL1_PRESDIV_WIDTH 8u\000"
 .LASF8190:
 	.ascii	"S32_SCB_SHCSR_PENDSVACT_SHIFT 10u\000"
+.LASF9990:
+	.ascii	"EEE_ALREADY_ENABLED -1\000"
 .LASF4443:
 	.ascii	"LPI2C_MFSR_RXCOUNT(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<LPI2C_MFSR_RXCOUNT_SHIFT))&LPI2C_MFSR_RXCOUNT_MASK"
@@ -43221,6 +43751,8 @@ exit_code:
 .LASF4764:
 	.ascii	"LPIT_MIER_TIE3(x) (((uint32_t)(((uint32_t)(x))<<LPI"
 	.ascii	"T_MIER_TIE3_SHIFT))&LPIT_MIER_TIE3_MASK)\000"
+.LASF9991:
+	.ascii	"USER_DATA_SIZE 32u\000"
 .LASF5730:
 	.ascii	"MCM_ISCR_FOFCE_MASK 0x4000000u\000"
 .LASF3386:
@@ -43249,7 +43781,7 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI21_SHIFT 0u\000"
 .LASF8856:
 	.ascii	"SIM_FTMOPT1_FTM0_OUTSEL_WIDTH 8u\000"
-.LASF9991:
+.LASF9998:
 	.ascii	"short int\000"
 .LASF2888:
 	.ascii	"FLEXIO_SHIFTBUFBBS_SHIFTBUFBBS_SHIFT 0u\000"
@@ -43341,6 +43873,8 @@ exit_code:
 	.ascii	"LPI2C_SIER_RDIE_MASK 0x2u\000"
 .LASF2869:
 	.ascii	"FLEXIO_SHIFTCFG_SSTOP_WIDTH 2u\000"
+.LASF9930:
+	.ascii	"VELOCIMETER_TENS_D2 13\000"
 .LASF9946:
 	.ascii	"ODOMETER_LCD_D7 29\000"
 .LASF1423:
@@ -43431,8 +43965,6 @@ exit_code:
 .LASF4708:
 	.ascii	"LPIT_VERID_MAJOR(x) (((uint32_t)(((uint32_t)(x))<<L"
 	.ascii	"PIT_VERID_MAJOR_SHIFT))&LPIT_VERID_MAJOR_MASK)\000"
-.LASF9938:
-	.ascii	"VELOCIMETER_TENS_D2 21\000"
 .LASF7395:
 	.ascii	"S32_NVIC_IP_PRI90(x) (((uint8_t)(((uint8_t)(x))<<S3"
 	.ascii	"2_NVIC_IP_PRI90_SHIFT))&S32_NVIC_IP_PRI90_MASK)\000"
@@ -43584,7 +44116,11 @@ exit_code:
 	.ascii	"MCM_CPCR_FMC_PF_IDLE_WIDTH 1u\000"
 .LASF4180:
 	.ascii	"LMEM_PCCRMR_R1_WIDTH 2u\000"
+<<<<<<< HEAD
 .LASF10071:
+=======
+.LASF10074:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPUART0_CLK\000"
 .LASF1568:
 	.ascii	"CMP_INSTANCE_COUNT (1u)\000"
@@ -43632,7 +44168,11 @@ exit_code:
 .LASF4483:
 	.ascii	"LPI2C_SSR_RDF(x) (((uint32_t)(((uint32_t)(x))<<LPI2"
 	.ascii	"C_SSR_RDF_SHIFT))&LPI2C_SSR_RDF_MASK)\000"
+<<<<<<< HEAD
 .LASF10044:
+=======
+.LASF10047:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PORTC_CLK\000"
 .LASF9372:
 	.ascii	"FEATURE_WDOG_UNLOCK16_FIRST_VALUE (0xC520U)\000"
@@ -43656,8 +44196,6 @@ exit_code:
 	.ascii	"LPUART_BAUD_M10_WIDTH 1u\000"
 .LASF4398:
 	.ascii	"LPI2C_MCCR0_CLKLO_WIDTH 6u\000"
-.LASF9602:
-	.ascii	"__wchar_t__ \000"
 .LASF7414:
 	.ascii	"S32_NVIC_IP_PRI95_WIDTH 8u\000"
 .LASF6640:
@@ -44073,7 +44611,11 @@ exit_code:
 	.ascii	"LPSPI_CFGR1_MATCFG_MASK 0x70000u\000"
 .LASF479:
 	.ascii	"UINT_FAST32_MAX (__UINT_FAST32_MAX__)\000"
+<<<<<<< HEAD
 .LASF10015:
+=======
+.LASF10018:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FIRCDIV1_CLK\000"
 .LASF907:
 	.ascii	"CAN_Wake_Up_IRQS { CAN0_Wake_Up_IRQn, NotAvail_IRQn"
@@ -44373,7 +44915,11 @@ exit_code:
 .LASF2422:
 	.ascii	"DMA_EARS_EDREQ_9(x) (((uint32_t)(((uint32_t)(x))<<D"
 	.ascii	"MA_EARS_EDREQ_9_SHIFT))&DMA_EARS_EDREQ_9_MASK)\000"
+<<<<<<< HEAD
 .LASF10047:
+=======
+.LASF10050:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RTC0_CLK\000"
 .LASF2252:
 	.ascii	"DMA_INT_INT15_SHIFT 15u\000"
@@ -44581,7 +45127,11 @@ exit_code:
 	.ascii	"DMA_TCD_CSR_DREQ_WIDTH 1u\000"
 .LASF6349:
 	.ascii	"PCC_CRC_INDEX 50\000"
+<<<<<<< HEAD
 .LASF10031:
+=======
+.LASF10034:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_LPO_128K_CLK\000"
 .LASF2737:
 	.ascii	"EWM_CMPH_COMPAREH(x) (((uint8_t)(((uint8_t)(x))<<EW"
@@ -44686,7 +45236,11 @@ exit_code:
 	.ascii	"DMA_INT_INT8_WIDTH 1u\000"
 .LASF8698:
 	.ascii	"SCG_SPLLCFG_PREDIV_SHIFT 8u\000"
+<<<<<<< HEAD
 .LASF9994:
+=======
+.LASF9999:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"short unsigned int\000"
 .LASF4261:
 	.ascii	"LPI2C_MSR_ALF_SHIFT 11u\000"
@@ -44918,9 +45472,14 @@ exit_code:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
+<<<<<<< HEAD
 .LASF10085:
 	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
 	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
+=======
+.LASF9602:
+	.ascii	"__wchar_t__ \000"
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF2908:
 	.ascii	"FLEXIO_TIMCTL_TRGSRC_SHIFT 22u\000"
 .LASF9464:
@@ -45506,7 +46065,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI163_WIDTH 8u\000"
 .LASF3946:
 	.ascii	"FTM_PAIR0DEADTIME_DTVAL_WIDTH 6u\000"
+<<<<<<< HEAD
 .LASF10020:
+=======
+.LASF10023:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SPLLDIV2_CLK\000"
 .LASF8699:
 	.ascii	"SCG_SPLLCFG_PREDIV_WIDTH 3u\000"
@@ -45673,7 +46236,11 @@ exit_code:
 	.ascii	"FTM_SWOCTRL_CH6OCV(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<FTM_SWOCTRL_CH6OCV_SHIFT))&FTM_SWOCTRL_CH6OCV_MASK"
 	.ascii	")\000"
+<<<<<<< HEAD
 .LASF10029:
+=======
+.LASF10032:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_LPO_1K_CLK\000"
 .LASF1377:
 	.ascii	"CAN_FLT_ID1_FLT_IDE_SHIFT 30u\000"
@@ -46017,7 +46584,11 @@ exit_code:
 	.ascii	"DMA_ES_ECX_WIDTH 1u\000"
 .LASF6629:
 	.ascii	"PORT_GPCHR_GPWE_SHIFT 16u\000"
+<<<<<<< HEAD
 .LASF10033:
+=======
+.LASF10036:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_ERM_CLK\000"
 .LASF9898:
 	.ascii	"PRT_D 'D'\000"
@@ -46943,7 +47514,11 @@ exit_code:
 	.ascii	"LMEM_PCCCR_ENCACHE_MASK 0x1u\000"
 .LASF3446:
 	.ascii	"FTM_COMBINE_FAULTEN1_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10024:
+=======
+.LASF10027:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_FTM2_CLOCKSEL\000"
 .LASF5025:
 	.ascii	"LPSPI_DMR0_MATCH0_MASK 0xFFFFFFFFu\000"
@@ -46972,7 +47547,11 @@ exit_code:
 	.ascii	"WDOG_TOVAL_TOVALLOW_SHIFT 0u\000"
 .LASF2761:
 	.ascii	"FLEXIO_VERID_FEATURE_WIDTH 16u\000"
+<<<<<<< HEAD
 .LASF10038:
+=======
+.LASF10041:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CMP0_CLK\000"
 .LASF6269:
 	.ascii	"MSCM_CP0CFG3_JAZ_SHIFT 2u\000"
@@ -46995,7 +47574,11 @@ exit_code:
 	.ascii	"ONE\000"
 .LASF9897:
 	.ascii	"PRT_C 'C'\000"
+<<<<<<< HEAD
 .LASF10002:
+=======
+.LASF10005:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"sizetype\000"
 .LASF720:
 	.ascii	"AIPS_MPRA_MPL2(x) (((uint32_t)(((uint32_t)(x))<<AIP"
@@ -47086,7 +47669,11 @@ exit_code:
 	.ascii	"LPIT_MSR_TIF1_MASK 0x2u\000"
 .LASF2749:
 	.ascii	"FLEXIO_TIMCFG_COUNT 4u\000"
+<<<<<<< HEAD
 .LASF10088:
+=======
+.LASF10081:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CLUSTER_Initialize\000"
 .LASF9079:
 	.ascii	"WDOG_IRQS_CH_COUNT (1u)\000"
@@ -47111,7 +47698,11 @@ exit_code:
 .LASF7899:
 	.ascii	"S32_NVIC_IP_PRI216(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI216_SHIFT))&S32_NVIC_IP_PRI216_MASK)\000"
+<<<<<<< HEAD
 .LASF10072:
+=======
+.LASF10075:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPUART1_CLK\000"
 .LASF7418:
 	.ascii	"S32_NVIC_IP_PRI96_WIDTH 8u\000"
@@ -47139,7 +47730,11 @@ exit_code:
 	.ascii	"LPUART_MODIR_TXCTSSRC_SHIFT 5u\000"
 .LASF3969:
 	.ascii	"FTM_PAIR2DEADTIME_DTVAL_SHIFT 0u\000"
+<<<<<<< HEAD
 .LASF10049:
+=======
+.LASF10052:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FlexCAN0_CLK\000"
 .LASF3699:
 	.ascii	"FTM_QDCTRL_QUADMODE(x) (((uint32_t)(((uint32_t)(x))"
@@ -47161,7 +47756,11 @@ exit_code:
 	.ascii	"RCM_SRIE_SW_WIDTH 1u\000"
 .LASF9249:
 	.ascii	"FEATURE_FLS_DF_SECTION_CMD_ADDRESS_ALIGMENT (8u)\000"
+<<<<<<< HEAD
 .LASF10045:
+=======
+.LASF10048:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PORTD_CLK\000"
 .LASF2829:
 	.ascii	"FLEXIO_SHIFTEIEN_SEIE_WIDTH 4u\000"
@@ -47519,7 +48118,11 @@ exit_code:
 	.ascii	"S32_SysTick_BASE_ADDRS { S32_SysTick_BASE }\000"
 .LASF5261:
 	.ascii	"LPUART_BAUD_RDMAE_MASK 0x200000u\000"
+<<<<<<< HEAD
 .LASF10011:
+=======
+.LASF10014:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RTC_CLKIN_CLK\000"
 .LASF6319:
 	.ascii	"MSCM_OCMDR_OCMW(x) (((uint32_t)(((uint32_t)(x))<<MS"
@@ -47575,7 +48178,11 @@ exit_code:
 	.ascii	"MPU_RGD_WORD2_M4RE(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<MPU_RGD_WORD2_M4RE_SHIFT))&MPU_RGD_WORD2_M4RE_MASK"
 	.ascii	")\000"
+<<<<<<< HEAD
 .LASF10016:
+=======
+.LASF10019:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FIRCDIV2_CLK\000"
 .LASF3340:
 	.ascii	"FTM_OUTINIT_CH4OI_MASK 0x10u\000"
@@ -47594,7 +48201,11 @@ exit_code:
 	.ascii	"FTM_FLTCTRL_FSTATE_WIDTH 1u\000"
 .LASF2308:
 	.ascii	"DMA_ERR_ERR13_SHIFT 13u\000"
+<<<<<<< HEAD
 .LASF10037:
+=======
+.LASF10040:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_END_OF_CLOCKS\000"
 .LASF7280:
 	.ascii	"S32_NVIC_IP_PRI62_MASK 0xFFu\000"
@@ -48012,6 +48623,8 @@ exit_code:
 .LASF3575:
 	.ascii	"FTM_POL_POL1(x) (((uint32_t)(((uint32_t)(x))<<FTM_P"
 	.ascii	"OL_POL1_SHIFT))&FTM_POL_POL1_MASK)\000"
+.LASF9938:
+	.ascii	"VELOCIMETER_HUNDREDS_D2 21\000"
 .LASF1892:
 	.ascii	"DMA_CR_ERCA_SHIFT 2u\000"
 .LASF8321:
@@ -48143,7 +48756,11 @@ exit_code:
 	.ascii	"2_NVIC_IP_PRI76_SHIFT))&S32_NVIC_IP_PRI76_MASK)\000"
 .LASF2668:
 	.ascii	"ERM_CR0_ENCIE1_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10061:
+=======
+.LASF10064:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"PCC_END_OF_ASYNCH_DIV1_CLOCKS\000"
 .LASF3584:
 	.ascii	"FTM_POL_POL4_MASK 0x10u\000"
@@ -48321,7 +48938,11 @@ exit_code:
 	.ascii	"LPUART_STAT_TDRE_WIDTH 1u\000"
 .LASF2389:
 	.ascii	"DMA_EARS_EDREQ_1_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10005:
+=======
+.LASF10008:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SLOW_CLK\000"
 .LASF1993:
 	.ascii	"DMA_ERQ_ERQ6_WIDTH 1u\000"
@@ -48516,7 +49137,11 @@ exit_code:
 	.ascii	"RCM_VERID_MAJOR_SHIFT 24u\000"
 .LASF1490:
 	.ascii	"CAN_WMBn_D03_Data_byte_2_WIDTH 8u\000"
+<<<<<<< HEAD
 .LASF10070:
+=======
+.LASF10073:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPTMR0_CLK\000"
 .LASF6430:
 	.ascii	"PDB_SC_TRGSEL(x) (((uint32_t)(((uint32_t)(x))<<PDB_"
@@ -48531,6 +49156,8 @@ exit_code:
 	.ascii	"FTM_QDCTRL_QUADIR_SHIFT 2u\000"
 .LASF3124:
 	.ascii	"FTM_SC_RF_MASK 0x80u\000"
+.LASF9994:
+	.ascii	"TANK_LEVEL 3\000"
 .LASF1385:
 	.ascii	"CAN_FLT_DLC_FLT_DLC_LO_SHIFT 16u\000"
 .LASF3829:
@@ -48777,6 +49404,8 @@ exit_code:
 	.ascii	"ask))))| ((uint32_t)(value)))))\000"
 .LASF7528:
 	.ascii	"S32_NVIC_IP_PRI124_MASK 0xFFu\000"
+.LASF9988:
+	.ascii	"EEEPROM_H_ \000"
 .LASF9070:
 	.ascii	"TRGMUX_TRGMUXn_LK_SHIFT 31u\000"
 .LASF1081:
@@ -48858,7 +49487,11 @@ exit_code:
 	.ascii	"FTM_OUTMASK_CH2OM_SHIFT))&FTM_OUTMASK_CH2OM_MASK)\000"
 .LASF2897:
 	.ascii	"FLEXIO_TIMCTL_PINPOL_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF9998:
+=======
+.LASF10003:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"long long unsigned int\000"
 .LASF3712:
 	.ascii	"FTM_QDCTRL_PHAFLTREN_MASK 0x80u\000"
@@ -48941,7 +49574,11 @@ exit_code:
 	.ascii	"32_NVIC_IP_PRI181_SHIFT))&S32_NVIC_IP_PRI181_MASK)\000"
 .LASF2124:
 	.ascii	"DMA_CERQ_CAER_SHIFT 6u\000"
+<<<<<<< HEAD
 .LASF10077:
+=======
+.LASF10080:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"_Bool\000"
 .LASF4946:
 	.ascii	"LPSPI_IER_TCIE_SHIFT 10u\000"
@@ -48978,7 +49615,11 @@ exit_code:
 	.ascii	"LPUART_CTRL_PE_MASK 0x2u\000"
 .LASF5138:
 	.ascii	"LPTMR_CSR_TEN_SHIFT 0u\000"
+<<<<<<< HEAD
 .LASF10009:
+=======
+.LASF10012:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SOSC_CLK\000"
 .LASF3882:
 	.ascii	"FTM_SWOCTRL_CH5OCV_WIDTH 1u\000"
@@ -49338,6 +49979,9 @@ exit_code:
 	.ascii	"RCM_SRS_POR_MASK 0x80u\000"
 .LASF5534:
 	.ascii	"LPUART_MATCH_MA2_SHIFT 16u\000"
+.LASF10085:
+	.ascii	"C:\\\\Users\\\\rbn\\\\workspaceS32DS.ARM.2018.R1\\\\"
+	.ascii	"clusterRtosFinal\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF8599:
 	.ascii	"SCG_SIRCCSR_SIRCLPEN_WIDTH 1u\000"
 .LASF8296:
@@ -49346,6 +49990,8 @@ exit_code:
 	.ascii	"ALIGNED_MASK)\000"
 .LASF6857:
 	.ascii	"RCM_SRIE_PIN_SHIFT 6u\000"
+.LASF9992:
+	.ascii	"ODOMETER 1\000"
 .LASF7417:
 	.ascii	"S32_NVIC_IP_PRI96_SHIFT 0u\000"
 .LASF1813:
@@ -49790,8 +50436,6 @@ exit_code:
 	.ascii	"FEATURE_CAN_HAS_PRETENDED_NETWORKING (1)\000"
 .LASF3150:
 	.ascii	"FTM_SC_PWMEN3_WIDTH 1u\000"
-.LASF9936:
-	.ascii	"VELOCIMETER_TENS_D0 19\000"
 .LASF9778:
 	.ascii	"configNUM_THREAD_LOCAL_STORAGE_POINTERS 0\000"
 .LASF3284:
@@ -50030,7 +50674,7 @@ exit_code:
 	.ascii	"configUSE_NEWLIB_REENTRANT 0\000"
 .LASF6701:
 	.ascii	"RCM_PARAM_EWDOG_SHIFT 5u\000"
-.LASF9988:
+.LASF9995:
 	.ascii	"PEX_RTOS_START rtos_start\000"
 .LASF4778:
 	.ascii	"LPIT_SETTEN_SET_T_EN_3_SHIFT 3u\000"
@@ -50088,7 +50732,11 @@ exit_code:
 	.ascii	"S32_SCB_SHPR3_PRI_14(x) (((uint32_t)(((uint32_t)(x)"
 	.ascii	")<<S32_SCB_SHPR3_PRI_14_SHIFT))&S32_SCB_SHPR3_PRI_1"
 	.ascii	"4_MASK)\000"
+<<<<<<< HEAD
 .LASF10008:
+=======
+.LASF10011:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FIRC_CLK\000"
 .LASF5784:
 	.ascii	"MCM_LMDR_LMSZ_WIDTH 4u\000"
@@ -50205,6 +50853,8 @@ exit_code:
 	.ascii	"ADC_CLP0_CLP0_MASK 0xFFu\000"
 .LASF5671:
 	.ascii	"MCM_CPCR_FMC_PF_IDLE_SHIFT 4u\000"
+.LASF9928:
+	.ascii	"VELOCIMETER_TENS_D0 11\000"
 .LASF1827:
 	.ascii	"CRC_CTRL_FXOR_WIDTH 1u\000"
 .LASF8198:
@@ -50612,7 +51262,11 @@ exit_code:
 	.ascii	"DMA_EEI_EEI3_WIDTH 1u\000"
 .LASF1566:
 	.ascii	"CAN_FDCRC_FD_MBCRC_WIDTH 7u\000"
+<<<<<<< HEAD
 .LASF10050:
+=======
+.LASF10053:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FlexCAN1_CLK\000"
 .LASF894:
 	.ascii	"CAN2 ((CAN_Type *)CAN2_BASE)\000"
@@ -50647,11 +51301,19 @@ exit_code:
 .LASF8704:
 	.ascii	"SCG_SPLLCFG_MULT(x) (((uint32_t)(((uint32_t)(x))<<S"
 	.ascii	"CG_SPLLCFG_MULT_SHIFT))&SCG_SPLLCFG_MULT_MASK)\000"
+<<<<<<< HEAD
 .LASF10046:
 	.ascii	"PORTE_CLK\000"
 .LASF2863:
 	.ascii	"FLEXIO_SHIFTCFG_SSTART_MASK 0x3u\000"
 .LASF10014:
+=======
+.LASF10049:
+	.ascii	"PORTE_CLK\000"
+.LASF2863:
+	.ascii	"FLEXIO_SHIFTCFG_SSTART_MASK 0x3u\000"
+.LASF10017:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIRCDIV2_CLK\000"
 .LASF927:
 	.ascii	"CAN_MCR_AEN(x) (((uint32_t)(((uint32_t)(x))<<CAN_MC"
@@ -50693,7 +51355,11 @@ exit_code:
 	.ascii	"FLEXIO_CTRL_SWRST_SHIFT))&FLEXIO_CTRL_SWRST_MASK)\000"
 .LASF691:
 	.ascii	"ADC_CLP2_OFS_CLP2_OFS_SHIFT 0u\000"
+<<<<<<< HEAD
 .LASF10028:
+=======
+.LASF10031:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_LPO_CLK\000"
 .LASF3549:
 	.ascii	"FTM_EXTTRIG_CH1TRIG_SHIFT 5u\000"
@@ -50742,7 +51408,11 @@ exit_code:
 .LASF4185:
 	.ascii	"LMEM_PCCRMR_R0(x) (((uint32_t)(((uint32_t)(x))<<LME"
 	.ascii	"M_PCCRMR_R0_SHIFT))&LMEM_PCCRMR_R0_MASK)\000"
+<<<<<<< HEAD
 .LASF10013:
+=======
+.LASF10016:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIRCDIV1_CLK\000"
 .LASF1847:
 	.ascii	"CSE_PRAM_RAMn_DATA_32_BYTE_2_MASK 0xFF00u\000"
@@ -50842,7 +51512,11 @@ exit_code:
 	.ascii	"PSPI_CFGR0_HREN_SHIFT))&LPSPI_CFGR0_HREN_MASK)\000"
 .LASF3369:
 	.ascii	"FTM_OUTMASK_CH3OM_SHIFT 3u\000"
+<<<<<<< HEAD
 .LASF10026:
+=======
+.LASF10029:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_CLKOUTSELL\000"
 .LASF9573:
 	.ascii	"_STDDEF_H_ \000"
@@ -51084,7 +51758,11 @@ exit_code:
 	.ascii	"PIN_11 11\000"
 .LASF3995:
 	.ascii	"PTB_BASE (0x400FF040u)\000"
+<<<<<<< HEAD
 .LASF10019:
+=======
+.LASF10022:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SPLLDIV1_CLK\000"
 .LASF3879:
 	.ascii	"FTM_SWOCTRL_CH4OCV(x) (((uint32_t)(((uint32_t)(x))<"
@@ -51482,7 +52160,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI184_MASK 0xFFu\000"
 .LASF4711:
 	.ascii	"LPIT_PARAM_CHANNEL_WIDTH 8u\000"
+<<<<<<< HEAD
 .LASF10012:
+=======
+.LASF10015:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SCG_CLKOUT_CLK\000"
 .LASF7295:
 	.ascii	"S32_NVIC_IP_PRI65(x) (((uint8_t)(((uint8_t)(x))<<S3"
@@ -51645,7 +52327,7 @@ exit_code:
 	.ascii	"LPI2C_MIER_SDIE_WIDTH 1u\000"
 .LASF4533:
 	.ascii	"LPI2C_SIER_TDIE_SHIFT 0u\000"
-.LASF9989:
+.LASF9996:
 	.ascii	"signed char\000"
 .LASF3662:
 	.ascii	"FTM_FLTCTRL_FFLTR0EN_WIDTH 1u\000"
@@ -51750,8 +52432,6 @@ exit_code:
 .LASF5160:
 	.ascii	"LPTMR_CSR_TIE(x) (((uint32_t)(((uint32_t)(x))<<LPTM"
 	.ascii	"R_CSR_TIE_SHIFT))&LPTMR_CSR_TIE_MASK)\000"
-.LASF9939:
-	.ascii	"VELOCIMETER_TENS_D3 22\000"
 .LASF523:
 	.ascii	"ADC1_BASE (0x40027000u)\000"
 .LASF3993:
@@ -51919,7 +52599,11 @@ exit_code:
 	.ascii	"FTM_COMBINE_DECAP2_MASK 0x80000u\000"
 .LASF3414:
 	.ascii	"FTM_COMBINE_FAULTEN0_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10023:
+=======
+.LASF10026:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_FTM1_CLOCKSEL\000"
 .LASF334:
 	.ascii	"__ARM_FEATURE_CLZ 1\000"
@@ -51966,7 +52650,11 @@ exit_code:
 .LASF3151:
 	.ascii	"FTM_SC_PWMEN3(x) (((uint32_t)(((uint32_t)(x))<<FTM_"
 	.ascii	"SC_PWMEN3_SHIFT))&FTM_SC_PWMEN3_MASK)\000"
+<<<<<<< HEAD
 .LASF9995:
+=======
+.LASF10000:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"long int\000"
 .LASF9563:
 	.ascii	"CPU_XTAL_CLK_HZ 8000000u\000"
@@ -52767,7 +53455,11 @@ exit_code:
 	.ascii	"FEATURE_CSEC_PAGE_5_OFFSET (0x50U)\000"
 .LASF8319:
 	.ascii	"S32_SCB_DFSR_BKPT_WIDTH 1u\000"
+<<<<<<< HEAD
 .LASF10030:
+=======
+.LASF10033:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_LPO_32K_CLK\000"
 .LASF7803:
 	.ascii	"S32_NVIC_IP_PRI192(x) (((uint8_t)(((uint8_t)(x))<<S"
@@ -52779,7 +53471,11 @@ exit_code:
 .LASF6631:
 	.ascii	"PORT_GPCHR_GPWE(x) (((uint32_t)(((uint32_t)(x))<<PO"
 	.ascii	"RT_GPCHR_GPWE_SHIFT))&PORT_GPCHR_GPWE_MASK)\000"
+<<<<<<< HEAD
 .LASF10006:
+=======
+.LASF10009:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CLKOUT_CLK\000"
 .LASF468:
 	.ascii	"INT_LEAST64_MIN (-__INT_LEAST64_MAX__ - 1)\000"
@@ -53025,7 +53721,11 @@ exit_code:
 	.ascii	"S32_NVIC_IP_PRI201_MASK 0xFFu\000"
 .LASF6728:
 	.ascii	"RCM_PARAM_ESACKERR_MASK 0x2000u\000"
+<<<<<<< HEAD
 .LASF10007:
+=======
+.LASF10010:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIRC_CLK\000"
 .LASF3017:
 	.ascii	"FTFC_FSEC_MEEN_WIDTH 2u\000"
@@ -53376,7 +54076,11 @@ exit_code:
 .LASF7351:
 	.ascii	"S32_NVIC_IP_PRI79(x) (((uint8_t)(((uint8_t)(x))<<S3"
 	.ascii	"2_NVIC_IP_PRI79_SHIFT))&S32_NVIC_IP_PRI79_MASK)\000"
+<<<<<<< HEAD
 .LASF10067:
+=======
+.LASF10070:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"LPSPI0_CLK\000"
 .LASF7240:
 	.ascii	"S32_NVIC_IP_PRI52_MASK 0xFFu\000"
@@ -53423,7 +54127,11 @@ exit_code:
 	.ascii	"DMA_TCD_ATTR_DSIZE_SHIFT 0u\000"
 .LASF31:
 	.ascii	"__SIZE_TYPE__ unsigned int\000"
+<<<<<<< HEAD
 .LASF10036:
+=======
+.LASF10039:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_MSCM_CLK\000"
 .LASF5094:
 	.ascii	"LPSPI_TCR_LSBF_SHIFT 23u\000"
@@ -53765,7 +54473,11 @@ exit_code:
 	.ascii	"LPI2C_MCCR0_SETHOLD_WIDTH 6u\000"
 .LASF2151:
 	.ascii	"DMA_CDNE_NOP_MASK 0x80u\000"
+<<<<<<< HEAD
 .LASF10032:
+=======
+.LASF10035:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SIM_EIM_CLK\000"
 .LASF2034:
 	.ascii	"DMA_EEI_EEI0(x) (((uint32_t)(((uint32_t)(x))<<DMA_E"
@@ -54091,7 +54803,11 @@ exit_code:
 	.ascii	"M_MASK)\000"
 .LASF190:
 	.ascii	"__SFRACT_IBIT__ 0\000"
+<<<<<<< HEAD
 .LASF9997:
+=======
+.LASF10002:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"long long int\000"
 .LASF5285:
 	.ascii	"LPUART_STAT_MA2F_MASK 0x4000u\000"
@@ -54166,7 +54882,11 @@ exit_code:
 	.ascii	"CR_HALT_SHIFT))&CAN_MCR_HALT_MASK)\000"
 .LASF4644:
 	.ascii	"LPI2C_SCFGR2_FILTSCL_MASK 0xF0000u\000"
+<<<<<<< HEAD
 .LASF10021:
+=======
+.LASF10024:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"SCG_END_OF_CLOCKS\000"
 .LASF8033:
 	.ascii	"S32_SCB_CPUID_IMPLEMENTER_MASK 0xFF000000u\000"
@@ -54242,7 +54962,11 @@ exit_code:
 	.ascii	"PDB1 ((PDB_Type *)PDB1_BASE)\000"
 .LASF2035:
 	.ascii	"DMA_EEI_EEI1_MASK 0x2u\000"
+<<<<<<< HEAD
 .LASF10051:
+=======
+.LASF10054:
+>>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"FlexCAN2_CLK\000"
 .LASF6473:
 	.ascii	"PDB_C1_BB_WIDTH 8u\000"
