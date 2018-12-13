@@ -17,13 +17,13 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.section	.text.delay,"ax",%progbits
+	.section	.text.LCD_Delay,"ax",%progbits
 	.align	2
-	.global	delay
+	.global	LCD_Delay
 	.thumb
 	.thumb_func
-	.type	delay, %function
-delay:
+	.type	LCD_Delay, %function
+LCD_Delay:
 .LFB0:
 	.file 1 "../Sources/LCD_DOS.c"
 	.loc 1 11 0
@@ -48,14 +48,14 @@ delay:
 	bx	lr
 	.cfi_endproc
 .LFE0:
-	.size	delay, .-delay
-	.section	.text.sendNibble,"ax",%progbits
+	.size	LCD_Delay, .-LCD_Delay
+	.section	.text.LCD_Send_Nibble,"ax",%progbits
 	.align	2
-	.global	sendNibble
+	.global	LCD_Send_Nibble
 	.thumb
 	.thumb_func
-	.type	sendNibble, %function
-sendNibble:
+	.type	LCD_Send_Nibble, %function
+LCD_Send_Nibble:
 .LFB1:
 	.loc 1 19 0 is_stmt 1
 	.cfi_startproc
@@ -97,106 +97,100 @@ sendNibble:
 	.word	1074786496
 	.cfi_endproc
 .LFE1:
-	.size	sendNibble, .-sendNibble
-	.section	.text.Lcd_CmdWrite,"ax",%progbits
+	.size	LCD_Send_Nibble, .-LCD_Send_Nibble
+	.section	.text.LCD_Init,"ax",%progbits
 	.align	2
-	.global	Lcd_CmdWrite
+	.global	LCD_Init
 	.thumb
 	.thumb_func
-	.type	Lcd_CmdWrite, %function
-Lcd_CmdWrite:
+	.type	LCD_Init, %function
+LCD_Init:
 .LFB2:
-	.loc 1 31 0
+	.loc 1 28 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
-.LVL6:
-	push	{r3, r4, r5, lr}
-	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	.cfi_offset 4, -12
-	.cfi_offset 5, -8
+	push	{r4, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset 4, -8
 	.cfi_offset 14, -4
-	mov	r5, r0
+	.loc 1 29 0
+	ldr	r2, .L10
+	ldr	r3, [r2, #20]
+	orr	r3, r3, #28
+	str	r3, [r2, #20]
+	.loc 1 30 0
+	ldr	r4, .L10+4
+	ldr	r3, [r4, #20]
+	orr	r3, r3, #28
+	str	r3, [r4, #20]
+	.loc 1 32 0
+	movs	r0, #0
+	bl	LCD_Send_Nibble
+.LVL6:
 	.loc 1 33 0
-	ubfx	r0, r0, #4, #4
-.LVL7:
-	bl	sendNibble
-.LVL8:
-	.loc 1 34 0
-	ldr	r4, .L10
 	ldr	r3, [r4]
 	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 34 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
 	str	r3, [r4]
 	.loc 1 35 0
 	ldr	r3, [r4]
-	bic	r3, r3, #8
-	str	r3, [r4]
-	.loc 1 36 0
-	ldr	r3, [r4]
 	orr	r3, r3, #16
 	str	r3, [r4]
-	.loc 1 38 0
+	.loc 1 37 0
 	ldr	r3, [r4]
 	bic	r3, r3, #16
 	str	r3, [r4]
-	.loc 1 42 0
-	and	r0, r5, #15
-	bl	sendNibble
-.LVL9:
-	.loc 1 43 0
+	.loc 1 39 0
+	movs	r0, #2
+	bl	LCD_Send_Nibble
+.LVL7:
+	.loc 1 40 0
 	ldr	r3, [r4]
 	bic	r3, r3, #4
 	str	r3, [r4]
-	.loc 1 44 0
+	.loc 1 41 0
 	ldr	r3, [r4]
 	bic	r3, r3, #8
 	str	r3, [r4]
-	.loc 1 45 0
+	.loc 1 42 0
 	ldr	r3, [r4]
 	orr	r3, r3, #16
 	str	r3, [r4]
-	.loc 1 47 0
+	.loc 1 44 0
 	ldr	r3, [r4]
 	bic	r3, r3, #16
 	str	r3, [r4]
-	pop	{r3, r4, r5, pc}
-.L11:
-	.align	2
-.L10:
-	.word	1074786368
-	.cfi_endproc
-.LFE2:
-	.size	Lcd_CmdWrite, .-Lcd_CmdWrite
-	.section	.text.Lcd_DataWrite,"ax",%progbits
-	.align	2
-	.global	Lcd_DataWrite
-	.thumb
-	.thumb_func
-	.type	Lcd_DataWrite, %function
-Lcd_DataWrite:
-.LFB3:
-	.loc 1 53 0
-	.cfi_startproc
-	@ args = 0, pretend = 0, frame = 0
-	@ frame_needed = 0, uses_anonymous_args = 0
-.LVL10:
-	push	{r3, r4, r5, lr}
-	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	.cfi_offset 4, -12
-	.cfi_offset 5, -8
-	.cfi_offset 14, -4
-	mov	r5, r0
-	.loc 1 54 0
-	ubfx	r0, r0, #4, #4
-.LVL11:
-	bl	sendNibble
-.LVL12:
-	.loc 1 55 0
-	ldr	r4, .L14
+	.loc 1 47 0
+	movs	r0, #2
+	bl	LCD_Send_Nibble
+.LVL8:
+	.loc 1 48 0
 	ldr	r3, [r4]
-	orr	r3, r3, #4
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 49 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 50 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 52 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 54 0
+	movs	r0, #8
+	bl	LCD_Send_Nibble
+.LVL9:
+	.loc 1 55 0
+	ldr	r3, [r4]
+	bic	r3, r3, #4
 	str	r3, [r4]
 	.loc 1 56 0
 	ldr	r3, [r4]
@@ -210,23 +204,154 @@ Lcd_DataWrite:
 	ldr	r3, [r4]
 	bic	r3, r3, #16
 	str	r3, [r4]
+	.loc 1 62 0
+	movs	r0, #0
+	bl	LCD_Send_Nibble
+.LVL10:
 	.loc 1 63 0
-	and	r0, r5, #15
-	bl	sendNibble
-.LVL13:
-	.loc 1 64 0
 	ldr	r3, [r4]
-	orr	r3, r3, #4
+	bic	r3, r3, #4
 	str	r3, [r4]
-	.loc 1 65 0
+	.loc 1 64 0
 	ldr	r3, [r4]
 	bic	r3, r3, #8
 	str	r3, [r4]
-	.loc 1 66 0
+	.loc 1 65 0
 	ldr	r3, [r4]
 	orr	r3, r3, #16
 	str	r3, [r4]
-	.loc 1 68 0
+	.loc 1 67 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 69 0
+	movs	r0, #14
+	bl	LCD_Send_Nibble
+.LVL11:
+	.loc 1 70 0
+	ldr	r3, [r4]
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 71 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 72 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 74 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 77 0
+	movs	r0, #0
+	bl	LCD_Send_Nibble
+.LVL12:
+	.loc 1 78 0
+	ldr	r3, [r4]
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 79 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 80 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 82 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 84 0
+	movs	r0, #1
+	bl	LCD_Send_Nibble
+.LVL13:
+	.loc 1 85 0
+	ldr	r3, [r4]
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 86 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 87 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 89 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	pop	{r4, pc}
+.L11:
+	.align	2
+.L10:
+	.word	1074786496
+	.word	1074786368
+	.cfi_endproc
+.LFE2:
+	.size	LCD_Init, .-LCD_Init
+	.section	.text.LCD_Command_Write,"ax",%progbits
+	.align	2
+	.global	LCD_Command_Write
+	.thumb
+	.thumb_func
+	.type	LCD_Command_Write, %function
+LCD_Command_Write:
+.LFB3:
+	.loc 1 96 0
+	.cfi_startproc
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 0, uses_anonymous_args = 0
+.LVL14:
+	push	{r3, r4, r5, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	.cfi_offset 4, -12
+	.cfi_offset 5, -8
+	.cfi_offset 14, -4
+	mov	r5, r0
+	.loc 1 97 0
+	ubfx	r0, r0, #4, #4
+.LVL15:
+	bl	LCD_Send_Nibble
+.LVL16:
+	.loc 1 98 0
+	ldr	r4, .L14
+	ldr	r3, [r4]
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 99 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 100 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 102 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 106 0
+	and	r0, r5, #15
+	bl	LCD_Send_Nibble
+.LVL17:
+	.loc 1 107 0
+	ldr	r3, [r4]
+	bic	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 108 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 109 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 111 0
 	ldr	r3, [r4]
 	bic	r3, r3, #16
 	str	r3, [r4]
@@ -237,7 +362,77 @@ Lcd_DataWrite:
 	.word	1074786368
 	.cfi_endproc
 .LFE3:
-	.size	Lcd_DataWrite, .-Lcd_DataWrite
+	.size	LCD_Command_Write, .-LCD_Command_Write
+	.section	.text.LCD_Data_Write,"ax",%progbits
+	.align	2
+	.global	LCD_Data_Write
+	.thumb
+	.thumb_func
+	.type	LCD_Data_Write, %function
+LCD_Data_Write:
+.LFB4:
+	.loc 1 117 0
+	.cfi_startproc
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 0, uses_anonymous_args = 0
+.LVL18:
+	push	{r3, r4, r5, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	.cfi_offset 4, -12
+	.cfi_offset 5, -8
+	.cfi_offset 14, -4
+	mov	r5, r0
+	.loc 1 118 0
+	ubfx	r0, r0, #4, #4
+.LVL19:
+	bl	LCD_Send_Nibble
+.LVL20:
+	.loc 1 119 0
+	ldr	r4, .L18
+	ldr	r3, [r4]
+	orr	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 120 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 121 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 123 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 127 0
+	and	r0, r5, #15
+	bl	LCD_Send_Nibble
+.LVL21:
+	.loc 1 128 0
+	ldr	r3, [r4]
+	orr	r3, r3, #4
+	str	r3, [r4]
+	.loc 1 129 0
+	ldr	r3, [r4]
+	bic	r3, r3, #8
+	str	r3, [r4]
+	.loc 1 130 0
+	ldr	r3, [r4]
+	orr	r3, r3, #16
+	str	r3, [r4]
+	.loc 1 132 0
+	ldr	r3, [r4]
+	bic	r3, r3, #16
+	str	r3, [r4]
+	pop	{r3, r4, r5, pc}
+.L19:
+	.align	2
+.L18:
+	.word	1074786368
+	.cfi_endproc
+.LFE4:
+	.size	LCD_Data_Write, .-LCD_Data_Write
 	.text
 .Letext0:
 	.file 2 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\machine\\_default_types.h"
@@ -245,15 +440,15 @@ Lcd_DataWrite:
 	.file 4 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h"
 	.section	.debug_info,"",%progbits
 .Ldebug_info0:
-	.4byte	0x1f8
+	.4byte	0x2a2
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-	.4byte	.LASF9259
-	.byte	0x1
-	.4byte	.LASF9260
 	.4byte	.LASF9261
+	.byte	0x1
+	.4byte	.LASF9262
+	.4byte	.LASF9263
 	.4byte	.Ldebug_ranges0+0
 	.4byte	0
 	.4byte	.Ldebug_line0
@@ -412,25 +607,114 @@ Lcd_DataWrite:
 	.4byte	0x107
 	.4byte	.LLST1
 	.byte	0
-	.uleb128 0xa
-	.4byte	.LASF9258
+	.uleb128 0xe
+	.4byte	.LASF9259
 	.byte	0x1
-	.byte	0x1e
+	.byte	0x1b
 	.4byte	.LFB2
 	.4byte	.LFE2-.LFB2
 	.uleb128 0x1
 	.byte	0x9c
-	.4byte	0x1b1
-	.uleb128 0xe
-	.ascii	"cmd\000"
-	.byte	0x1
-	.byte	0x1e
-	.4byte	0x107
-	.4byte	.LLST2
+	.4byte	0x20d
+	.uleb128 0xf
+	.4byte	.LVL6
+	.4byte	0x13e
+	.4byte	0x18b
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x30
+	.byte	0
+	.uleb128 0xf
+	.4byte	.LVL7
+	.4byte	0x13e
+	.4byte	0x19e
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x32
+	.byte	0
 	.uleb128 0xf
 	.4byte	.LVL8
 	.4byte	0x13e
-	.4byte	0x19e
+	.4byte	0x1b1
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x32
+	.byte	0
+	.uleb128 0xf
+	.4byte	.LVL9
+	.4byte	0x13e
+	.4byte	0x1c4
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x38
+	.byte	0
+	.uleb128 0xf
+	.4byte	.LVL10
+	.4byte	0x13e
+	.4byte	0x1d7
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x30
+	.byte	0
+	.uleb128 0xf
+	.4byte	.LVL11
+	.4byte	0x13e
+	.4byte	0x1ea
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x3e
+	.byte	0
+	.uleb128 0xf
+	.4byte	.LVL12
+	.4byte	0x13e
+	.4byte	0x1fd
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x30
+	.byte	0
+	.uleb128 0x11
+	.4byte	.LVL13
+	.4byte	0x13e
+	.uleb128 0x10
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x31
+	.byte	0
+	.byte	0
+	.uleb128 0xa
+	.4byte	.LASF9258
+	.byte	0x1
+	.byte	0x5f
+	.4byte	.LFB3
+	.4byte	.LFE3-.LFB3
+	.uleb128 0x1
+	.byte	0x9c
+	.4byte	0x25b
+	.uleb128 0x12
+	.ascii	"cmd\000"
+	.byte	0x1
+	.byte	0x5f
+	.4byte	0x107
+	.4byte	.LLST2
+	.uleb128 0xf
+	.4byte	.LVL16
+	.4byte	0x13e
+	.4byte	0x248
 	.uleb128 0x10
 	.uleb128 0x1
 	.byte	0x50
@@ -442,7 +726,7 @@ Lcd_DataWrite:
 	.byte	0x24
 	.byte	0
 	.uleb128 0x11
-	.4byte	.LVL9
+	.4byte	.LVL17
 	.4byte	0x13e
 	.uleb128 0x10
 	.uleb128 0x1
@@ -454,24 +738,24 @@ Lcd_DataWrite:
 	.byte	0x1a
 	.byte	0
 	.byte	0
-	.uleb128 0x12
-	.4byte	.LASF9262
+	.uleb128 0x13
+	.4byte	.LASF9260
 	.byte	0x1
-	.byte	0x34
-	.4byte	.LFB3
-	.4byte	.LFE3-.LFB3
+	.byte	0x74
+	.4byte	.LFB4
+	.4byte	.LFE4-.LFB4
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0xe
+	.uleb128 0x12
 	.ascii	"dat\000"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x74
 	.4byte	0x107
 	.4byte	.LLST3
 	.uleb128 0xf
-	.4byte	.LVL12
+	.4byte	.LVL20
 	.4byte	0x13e
-	.4byte	0x1e8
+	.4byte	0x292
 	.uleb128 0x10
 	.uleb128 0x1
 	.byte	0x50
@@ -483,7 +767,7 @@ Lcd_DataWrite:
 	.byte	0x24
 	.byte	0
 	.uleb128 0x11
-	.4byte	.LVL13
+	.4byte	.LVL21
 	.4byte	0x13e
 	.uleb128 0x10
 	.uleb128 0x1
@@ -680,18 +964,26 @@ Lcd_DataWrite:
 	.byte	0
 	.byte	0
 	.uleb128 0xe
-	.uleb128 0x5
-	.byte	0
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
 	.uleb128 0x3
-	.uleb128 0x8
+	.uleb128 0xe
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
 	.uleb128 0xb
-	.uleb128 0x49
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.uleb128 0x1
 	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x17
 	.byte	0
 	.byte	0
 	.uleb128 0xf
@@ -724,6 +1016,21 @@ Lcd_DataWrite:
 	.byte	0
 	.byte	0
 	.uleb128 0x12
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x17
+	.byte	0
+	.byte	0
+	.uleb128 0x13
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -776,25 +1083,11 @@ Lcd_DataWrite:
 	.4byte	0
 	.4byte	0
 .LLST2:
-	.4byte	.LVL6
-	.4byte	.LVL7
+	.4byte	.LVL14
+	.4byte	.LVL15
 	.2byte	0x1
 	.byte	0x50
-	.4byte	.LVL7
-	.4byte	.LFE2
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x50
-	.byte	0x9f
-	.4byte	0
-	.4byte	0
-.LLST3:
-	.4byte	.LVL10
-	.4byte	.LVL11
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL11
+	.4byte	.LVL15
 	.4byte	.LFE3
 	.2byte	0x4
 	.byte	0xf3
@@ -803,8 +1096,22 @@ Lcd_DataWrite:
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
+.LLST3:
+	.4byte	.LVL18
+	.4byte	.LVL19
+	.2byte	0x1
+	.byte	0x50
+	.4byte	.LVL19
+	.4byte	.LFE4
+	.2byte	0x4
+	.byte	0xf3
+	.uleb128 0x1
+	.byte	0x50
+	.byte	0x9f
+	.4byte	0
+	.4byte	0
 	.section	.debug_aranges,"",%progbits
-	.4byte	0x34
+	.4byte	0x3c
 	.2byte	0x2
 	.4byte	.Ldebug_info0
 	.byte	0x4
@@ -819,6 +1126,8 @@ Lcd_DataWrite:
 	.4byte	.LFE2-.LFB2
 	.4byte	.LFB3
 	.4byte	.LFE3-.LFB3
+	.4byte	.LFB4
+	.4byte	.LFE4-.LFB4
 	.4byte	0
 	.4byte	0
 	.section	.debug_ranges,"",%progbits
@@ -831,6 +1140,8 @@ Lcd_DataWrite:
 	.4byte	.LFE2
 	.4byte	.LFB3
 	.4byte	.LFE3
+	.4byte	.LFB4
+	.4byte	.LFE4
 	.4byte	0
 	.4byte	0
 	.section	.debug_macro,"",%progbits
@@ -30724,8 +31035,8 @@ Lcd_DataWrite:
 	.ascii	"FLEXIO_TIMCTL_PINCFG(x) (((uint32_t)(((uint32_t)(x)"
 	.ascii	")<<FLEXIO_TIMCTL_PINCFG_SHIFT))&FLEXIO_TIMCTL_PINCF"
 	.ascii	"G_MASK)\000"
-.LASF1681:
-	.ascii	"CMP_C0_COUT_SHIFT 24u\000"
+.LASF9259:
+	.ascii	"LCD_Init\000"
 .LASF1620:
 	.ascii	"CAN_FDCRC_FD_TXCRC_MASK 0x1FFFFFu\000"
 .LASF8875:
@@ -33838,9 +34149,8 @@ Lcd_DataWrite:
 .LASF7271:
 	.ascii	"S32_NVIC_IP_PRI44(x) (((uint8_t)(((uint8_t)(x))<<S3"
 	.ascii	"2_NVIC_IP_PRI44_SHIFT))&S32_NVIC_IP_PRI44_MASK)\000"
-.LASF7203:
-	.ascii	"S32_NVIC_IP_PRI27(x) (((uint8_t)(((uint8_t)(x))<<S3"
-	.ascii	"2_NVIC_IP_PRI27_SHIFT))&S32_NVIC_IP_PRI27_MASK)\000"
+.LASF2609:
+	.ascii	"DMA_TCD_DLASTSGA_DLASTSGA_WIDTH 32u\000"
 .LASF9061:
 	.ascii	"SMC_PMPROT_AVLP_WIDTH 1u\000"
 .LASF579:
@@ -33870,8 +34180,8 @@ Lcd_DataWrite:
 	.ascii	"SCG_SIRCDIV_SIRCDIV1_SHIFT 0u\000"
 .LASF152:
 	.ascii	"__DBL_HAS_INFINITY__ 1\000"
-.LASF1582:
-	.ascii	"CAN_FDCTRL_TDCOFF_WIDTH 5u\000"
+.LASF9258:
+	.ascii	"LCD_Command_Write\000"
 .LASF936:
 	.ascii	"AIPS_OPACR_TP0(x) (((uint32_t)(((uint32_t)(x))<<AIP"
 	.ascii	"S_OPACR_TP0_SHIFT))&AIPS_OPACR_TP0_MASK)\000"
@@ -34362,6 +34672,8 @@ Lcd_DataWrite:
 	.ascii	"N_CTRL1_PSEG1_SHIFT))&CAN_CTRL1_PSEG1_MASK)\000"
 .LASF4702:
 	.ascii	"LPI2C_SCFGR2_DATAVD_WIDTH 6u\000"
+.LASF8848:
+	.ascii	"SIM_LPOCLKS_LPO32KCLKEN_WIDTH 1u\000"
 .LASF1801:
 	.ascii	"CMP_C2_CH6F_SHIFT 22u\000"
 .LASF6239:
@@ -34428,8 +34740,8 @@ Lcd_DataWrite:
 	.ascii	"SIM_SDID_GENERATION(x) (((uint32_t)(((uint32_t)(x))"
 	.ascii	"<<SIM_SDID_GENERATION_SHIFT))&SIM_SDID_GENERATION_M"
 	.ascii	"ASK)\000"
-.LASF2991:
-	.ascii	"FLEXIO_TIMCFG_TIMDIS_MASK 0x7000u\000"
+.LASF5047:
+	.ascii	"LPSPI_CFGR0_RDMO_WIDTH 1u\000"
 .LASF1131:
 	.ascii	"CAN_ECR_TXERRCNT(x) (((uint32_t)(((uint32_t)(x))<<C"
 	.ascii	"AN_ECR_TXERRCNT_SHIFT))&CAN_ECR_TXERRCNT_MASK)\000"
@@ -34452,8 +34764,8 @@ Lcd_DataWrite:
 .LASF5785:
 	.ascii	"MCM_ISCR_FIOCE(x) (((uint32_t)(((uint32_t)(x))<<MCM"
 	.ascii	"_ISCR_FIOCE_SHIFT))&MCM_ISCR_FIOCE_MASK)\000"
-.LASF9255:
-	.ascii	"delay\000"
+.LASF3185:
+	.ascii	"FTM_SC_RF_SHIFT 7u\000"
 .LASF8004:
 	.ascii	"S32_NVIC_IP_PRI228_MASK 0xFFu\000"
 .LASF6257:
@@ -35176,6 +35488,8 @@ Lcd_DataWrite:
 .LASF8580:
 	.ascii	"SCG_VCCR_SCS(x) (((uint32_t)(((uint32_t)(x))<<SCG_V"
 	.ascii	"CCR_SCS_SHIFT))&SCG_VCCR_SCS_MASK)\000"
+.LASF9260:
+	.ascii	"LCD_Data_Write\000"
 .LASF5899:
 	.ascii	"MCM_LMPEIR_ENC_SHIFT 0u\000"
 .LASF6749:
@@ -35302,6 +35616,8 @@ Lcd_DataWrite:
 	.ascii	"FLEXIO_SHIFTBUFBIS_COUNT 4u\000"
 .LASF4232:
 	.ascii	"LMEM_PCCRMR_R3_WIDTH 2u\000"
+.LASF4050:
+	.ascii	"FTM_PAIR3DEADTIME_DTVALEX_WIDTH 4u\000"
 .LASF8799:
 	.ascii	"SIM_CHIPCTL_ADC_SUPPLYEN_SHIFT 19u\000"
 .LASF170:
@@ -36606,10 +36922,6 @@ Lcd_DataWrite:
 	.ascii	"S32_NVIC_IP_PRI191_MASK 0xFFu\000"
 .LASF1126:
 	.ascii	"CAN_RX15MASK_RX15M_WIDTH 32u\000"
-.LASF2562:
-	.ascii	"DMA_TCD_NBYTES_MLOFFYES_NBYTES(x) (((uint32_t)(((ui"
-	.ascii	"nt32_t)(x))<<DMA_TCD_NBYTES_MLOFFYES_NBYTES_SHIFT))"
-	.ascii	"&DMA_TCD_NBYTES_MLOFFYES_NBYTES_MASK)\000"
 .LASF3829:
 	.ascii	"FTM_SYNCONF_SYNCMODE_SHIFT 7u\000"
 .LASF6587:
@@ -36630,8 +36942,6 @@ Lcd_DataWrite:
 .LASF2254:
 	.ascii	"DMA_INT_INT0(x) (((uint32_t)(((uint32_t)(x))<<DMA_I"
 	.ascii	"NT_INT0_SHIFT))&DMA_INT_INT0_MASK)\000"
-.LASF9258:
-	.ascii	"Lcd_CmdWrite\000"
 .LASF5706:
 	.ascii	"MCM_BASE_PTRS { MCM }\000"
 .LASF8423:
@@ -37230,8 +37540,6 @@ Lcd_DataWrite:
 	.ascii	"SCG_SOSCCSR_SOSCSEL_SHIFT 25u\000"
 .LASF2241:
 	.ascii	"DMA_CINT_CINT_WIDTH 4u\000"
-.LASF9262:
-	.ascii	"Lcd_DataWrite\000"
 .LASF3562:
 	.ascii	"FTM_COMBINE_DTEN3_WIDTH 1u\000"
 .LASF4101:
@@ -37275,8 +37583,8 @@ Lcd_DataWrite:
 	.ascii	"CAN_WMBn_D47_Data_byte_7_WIDTH 8u\000"
 .LASF5390:
 	.ascii	"LPUART_STAT_LBKDE_SHIFT 25u\000"
-.LASF2229:
-	.ascii	"DMA_CERR_CERR_WIDTH 4u\000"
+.LASF2001:
+	.ascii	"DMA_ES_DAE_WIDTH 1u\000"
 .LASF2604:
 	.ascii	"DMA_TCD_CITER_ELINKYES_ELINK_SHIFT 15u\000"
 .LASF6461:
@@ -38464,8 +38772,8 @@ Lcd_DataWrite:
 	.ascii	"G_CSR_DIVCORE_SHIFT))&SCG_CSR_DIVCORE_MASK)\000"
 .LASF1512:
 	.ascii	"CAN_PL2_PLMASK_HI_Data_byte_6_MASK 0xFF00u\000"
-.LASF8848:
-	.ascii	"SIM_LPOCLKS_LPO32KCLKEN_WIDTH 1u\000"
+.LASF2427:
+	.ascii	"DMA_HRS_HRS12_MASK 0x1000u\000"
 .LASF8997:
 	.ascii	"SIM_UIDH_UID127_96(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<SIM_UIDH_UID127_96_SHIFT))&SIM_UIDH_UID127_96_MASK"
@@ -38558,10 +38866,8 @@ Lcd_DataWrite:
 	.ascii	"C0SWPRETRG_MASK)\000"
 .LASF2337:
 	.ascii	"DMA_ERR_ERR5_WIDTH 1u\000"
-.LASF8404:
-	.ascii	"S32_SCB_AFSR_AUXFAULT(x) (((uint32_t)(((uint32_t)(x"
-	.ascii	"))<<S32_SCB_AFSR_AUXFAULT_SHIFT))&S32_SCB_AFSR_AUXF"
-	.ascii	"AULT_MASK)\000"
+.LASF2991:
+	.ascii	"FLEXIO_TIMCFG_TIMDIS_MASK 0x7000u\000"
 .LASF3148:
 	.ascii	"FTM_INSTANCE_COUNT (4u)\000"
 .LASF9083:
@@ -39240,7 +39546,7 @@ Lcd_DataWrite:
 .LASF641:
 	.ascii	"ADC_SC2_ACREN(x) (((uint32_t)(((uint32_t)(x))<<ADC_"
 	.ascii	"SC2_ACREN_SHIFT))&ADC_SC2_ACREN_MASK)\000"
-.LASF9259:
+.LASF9261:
 	.ascii	"GNU C 4.9.3 20150529 (release) [ARM/embedded-4_9-br"
 	.ascii	"anch revision 227977] -mcpu=cortex-m4 -mthumb -mflo"
 	.ascii	"at-abi=hard -mfpu=fpv4-sp-d16 -g3 -O1 -std=c99 -fun"
@@ -39553,8 +39859,10 @@ Lcd_DataWrite:
 	.ascii	"PORT_PCR_ISF_MASK 0x1000000u\000"
 .LASF4502:
 	.ascii	"LPI2C_MFSR_RXCOUNT_WIDTH 3u\000"
-.LASF2001:
-	.ascii	"DMA_ES_DAE_WIDTH 1u\000"
+.LASF2562:
+	.ascii	"DMA_TCD_NBYTES_MLOFFYES_NBYTES(x) (((uint32_t)(((ui"
+	.ascii	"nt32_t)(x))<<DMA_TCD_NBYTES_MLOFFYES_NBYTES_SHIFT))"
+	.ascii	"&DMA_TCD_NBYTES_MLOFFYES_NBYTES_MASK)\000"
 .LASF5984:
 	.ascii	"MPU_CESR_SPERR1_WIDTH 1u\000"
 .LASF103:
@@ -39825,8 +40133,8 @@ Lcd_DataWrite:
 .LASF5596:
 	.ascii	"LPUART_MATCH_MA2(x) (((uint32_t)(((uint32_t)(x))<<L"
 	.ascii	"PUART_MATCH_MA2_SHIFT))&LPUART_MATCH_MA2_MASK)\000"
-.LASF5047:
-	.ascii	"LPSPI_CFGR0_RDMO_WIDTH 1u\000"
+.LASF1448:
+	.ascii	"CAN_PL1_LO_Data_byte_3_MASK 0xFFu\000"
 .LASF2903:
 	.ascii	"FLEXIO_SHIFTCTL_PINPOL_MASK 0x80u\000"
 .LASF424:
@@ -39957,8 +40265,8 @@ Lcd_DataWrite:
 	.ascii	"LPIT_BASE_PTRS { LPIT0 }\000"
 .LASF4835:
 	.ascii	"LPIT_SETTEN_SET_T_EN_2_WIDTH 1u\000"
-.LASF7605:
-	.ascii	"S32_NVIC_IP_PRI128_SHIFT 0u\000"
+.LASF2229:
+	.ascii	"DMA_CERR_CERR_WIDTH 4u\000"
 .LASF296:
 	.ascii	"__TA_IBIT__ 64\000"
 .LASF6019:
@@ -39990,10 +40298,6 @@ Lcd_DataWrite:
 .LASF6659:
 	.ascii	"PORT_PCR_DSE(x) (((uint32_t)(((uint32_t)(x))<<PORT_"
 	.ascii	"PCR_DSE_SHIFT))&PORT_PCR_DSE_MASK)\000"
-.LASF2874:
-	.ascii	"FLEXIO_SHIFTSTAT_SSF(x) (((uint32_t)(((uint32_t)(x)"
-	.ascii	")<<FLEXIO_SHIFTSTAT_SSF_SHIFT))&FLEXIO_SHIFTSTAT_SS"
-	.ascii	"F_MASK)\000"
 .LASF3605:
 	.ascii	"FTM_EXTTRIG_CH0TRIG_SHIFT 4u\000"
 .LASF2786:
@@ -40250,6 +40554,8 @@ Lcd_DataWrite:
 	.ascii	"S32_NVIC_IP_PRI134_WIDTH 8u\000"
 .LASF62:
 	.ascii	"__UINT_FAST32_TYPE__ unsigned int\000"
+.LASF1582:
+	.ascii	"CAN_FDCTRL_TDCOFF_WIDTH 5u\000"
 .LASF2081:
 	.ascii	"DMA_ERQ_ERQ13_WIDTH 1u\000"
 .LASF8207:
@@ -41315,9 +41621,9 @@ Lcd_DataWrite:
 	.ascii	"PDB_DLY_DLY_WIDTH 16u\000"
 .LASF5847:
 	.ascii	"MCM_LMDR_LMSZH_SHIFT 28u\000"
-.LASF9062:
-	.ascii	"SMC_PMPROT_AVLP(x) (((uint32_t)(((uint32_t)(x))<<SM"
-	.ascii	"C_PMPROT_AVLP_SHIFT))&SMC_PMPROT_AVLP_MASK)\000"
+.LASF7203:
+	.ascii	"S32_NVIC_IP_PRI27(x) (((uint8_t)(((uint8_t)(x))<<S3"
+	.ascii	"2_NVIC_IP_PRI27_SHIFT))&S32_NVIC_IP_PRI27_MASK)\000"
 .LASF5160:
 	.ascii	"LPSPI_TCR_PCS(x) (((uint32_t)(((uint32_t)(x))<<LPSP"
 	.ascii	"I_TCR_PCS_SHIFT))&LPSPI_TCR_PCS_MASK)\000"
@@ -41336,7 +41642,7 @@ Lcd_DataWrite:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
-.LASF9261:
+.LASF9263:
 	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
 	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF2968:
@@ -41611,7 +41917,7 @@ Lcd_DataWrite:
 .LASF629:
 	.ascii	"ADC_CV_CV(x) (((uint32_t)(((uint32_t)(x))<<ADC_CV_C"
 	.ascii	"V_SHIFT))&ADC_CV_CV_MASK)\000"
-.LASF9260:
+.LASF9262:
 	.ascii	"../Sources/LCD_DOS.c\000"
 .LASF1580:
 	.ascii	"CAN_FDCTRL_TDCOFF_MASK 0x1F00u\000"
@@ -41731,8 +42037,6 @@ Lcd_DataWrite:
 	.ascii	"LPUART_CTRL_SBK_MASK 0x10000u\000"
 .LASF6670:
 	.ascii	"PORT_PCR_IRQC_WIDTH 4u\000"
-.LASF7526:
-	.ascii	"S32_NVIC_IP_PRI108_WIDTH 8u\000"
 .LASF2776:
 	.ascii	"EWM_CTRL_ASSIN_WIDTH 1u\000"
 .LASF347:
@@ -42720,8 +43024,8 @@ Lcd_DataWrite:
 	.ascii	"S32_NVIC_IP_PRI202_WIDTH 8u\000"
 .LASF6131:
 	.ascii	"MPU_RGDAAC_M2UM_SHIFT 12u\000"
-.LASF2427:
-	.ascii	"DMA_HRS_HRS12_MASK 0x1000u\000"
+.LASF1681:
+	.ascii	"CMP_C0_COUT_SHIFT 24u\000"
 .LASF8256:
 	.ascii	"S32_SCB_SHCSR_SYSTICKACT(x) (((uint32_t)(((uint32_t"
 	.ascii	")(x))<<S32_SCB_SHCSR_SYSTICKACT_SHIFT))&S32_SCB_SHC"
@@ -43735,8 +44039,10 @@ Lcd_DataWrite:
 	.ascii	"EIM_BASE (0x40019000u)\000"
 .LASF1478:
 	.ascii	"CAN_PL1_HI_Data_byte_4_WIDTH 8u\000"
-.LASF4050:
-	.ascii	"FTM_PAIR3DEADTIME_DTVALEX_WIDTH 4u\000"
+.LASF2874:
+	.ascii	"FLEXIO_SHIFTSTAT_SSF(x) (((uint32_t)(((uint32_t)(x)"
+	.ascii	")<<FLEXIO_SHIFTSTAT_SSF_SHIFT))&FLEXIO_SHIFTSTAT_SS"
+	.ascii	"F_MASK)\000"
 .LASF9037:
 	.ascii	"SMC_VERID_MINOR_WIDTH 8u\000"
 .LASF6038:
@@ -43892,8 +44198,8 @@ Lcd_DataWrite:
 	.ascii	"_EN_SHIFT))&WDOG_CS_EN_MASK)\000"
 .LASF4666:
 	.ascii	"LPI2C_SCFGR1_ACKSTALL_WIDTH 1u\000"
-.LASF2609:
-	.ascii	"DMA_TCD_DLASTSGA_DLASTSGA_WIDTH 32u\000"
+.LASF9256:
+	.ascii	"LCD_Send_Nibble\000"
 .LASF8088:
 	.ascii	"S32_SCB_CPUID_PARTNO(x) (((uint32_t)(((uint32_t)(x)"
 	.ascii	")<<S32_SCB_CPUID_PARTNO_SHIFT))&S32_SCB_CPUID_PARTN"
@@ -44428,6 +44734,10 @@ Lcd_DataWrite:
 	.ascii	"S32_SCB_SHCSR_MONITORACT_MASK 0x100u\000"
 .LASF5163:
 	.ascii	"LPSPI_TCR_PRESCALE_WIDTH 3u\000"
+.LASF8404:
+	.ascii	"S32_SCB_AFSR_AUXFAULT(x) (((uint32_t)(((uint32_t)(x"
+	.ascii	"))<<S32_SCB_AFSR_AUXFAULT_SHIFT))&S32_SCB_AFSR_AUXF"
+	.ascii	"AULT_MASK)\000"
 .LASF6007:
 	.ascii	"MPU_EDR_EPID_SHIFT 8u\000"
 .LASF9163:
@@ -44461,8 +44771,6 @@ Lcd_DataWrite:
 	.ascii	"LPUART_STAT_TDRE_WIDTH 1u\000"
 .LASF2449:
 	.ascii	"DMA_EARS_EDREQ_1_WIDTH 1u\000"
-.LASF9256:
-	.ascii	"sendNibble\000"
 .LASF2053:
 	.ascii	"DMA_ERQ_ERQ6_WIDTH 1u\000"
 .LASF1436:
@@ -44505,9 +44813,8 @@ Lcd_DataWrite:
 	.ascii	"OL_POL0_SHIFT))&FTM_POL_POL0_MASK)\000"
 .LASF6058:
 	.ascii	"MPU_RGD_WORD2_M3SM_MASK 0x600000u\000"
-.LASF7943:
-	.ascii	"S32_NVIC_IP_PRI212(x) (((uint8_t)(((uint8_t)(x))<<S"
-	.ascii	"32_NVIC_IP_PRI212_SHIFT))&S32_NVIC_IP_PRI212_MASK)\000"
+.LASF9255:
+	.ascii	"LCD_Delay\000"
 .LASF6801:
 	.ascii	"RCM_SRS_LVD_SHIFT 1u\000"
 .LASF1333:
@@ -45307,8 +45614,8 @@ Lcd_DataWrite:
 	.ascii	"ASK)\000"
 .LASF3162:
 	.ascii	"FTM_Overflow_IRQS_CH_COUNT (1u)\000"
-.LASF1448:
-	.ascii	"CAN_PL1_LO_Data_byte_3_MASK 0xFFu\000"
+.LASF166:
+	.ascii	"__LDBL_HAS_INFINITY__ 1\000"
 .LASF2066:
 	.ascii	"DMA_ERQ_ERQ9(x) (((uint32_t)(((uint32_t)(x))<<DMA_E"
 	.ascii	"RQ_ERQ9_SHIFT))&DMA_ERQ_ERQ9_MASK)\000"
@@ -45735,6 +46042,8 @@ Lcd_DataWrite:
 	.ascii	"CMP_C0_DMAEN_WIDTH 1u\000"
 .LASF7918:
 	.ascii	"S32_NVIC_IP_PRI206_WIDTH 8u\000"
+.LASF7605:
+	.ascii	"S32_NVIC_IP_PRI128_SHIFT 0u\000"
 .LASF5077:
 	.ascii	"LPSPI_CFGR1_OUTCFG_MASK 0x4000000u\000"
 .LASF5498:
@@ -45776,8 +46085,6 @@ Lcd_DataWrite:
 .LASF2761:
 	.ascii	"ERM_EARn_EAR_EAR(x) (((uint32_t)(((uint32_t)(x))<<E"
 	.ascii	"RM_EARn_EAR_EAR_SHIFT))&ERM_EARn_EAR_EAR_MASK)\000"
-.LASF3185:
-	.ascii	"FTM_SC_RF_SHIFT 7u\000"
 .LASF1001:
 	.ascii	"CAN_MCR_IRMQ_SHIFT 16u\000"
 .LASF8946:
@@ -46174,8 +46481,8 @@ Lcd_DataWrite:
 .LASF9042:
 	.ascii	"SMC_VERID_MAJOR(x) (((uint32_t)(((uint32_t)(x))<<SM"
 	.ascii	"C_VERID_MAJOR_SHIFT))&SMC_VERID_MAJOR_MASK)\000"
-.LASF166:
-	.ascii	"__LDBL_HAS_INFINITY__ 1\000"
+.LASF7526:
+	.ascii	"S32_NVIC_IP_PRI108_WIDTH 8u\000"
 .LASF8008:
 	.ascii	"S32_NVIC_IP_PRI229_MASK 0xFFu\000"
 .LASF964:
@@ -47806,6 +48113,9 @@ Lcd_DataWrite:
 	.ascii	"M_PCCRMR_R1_SHIFT))&LMEM_PCCRMR_R1_MASK)\000"
 .LASF8153:
 	.ascii	"S32_SCB_AIRCR_PRIGROUP_MASK 0x700u\000"
+.LASF9062:
+	.ascii	"SMC_PMPROT_AVLP(x) (((uint32_t)(((uint32_t)(x))<<SM"
+	.ascii	"C_PMPROT_AVLP_SHIFT))&SMC_PMPROT_AVLP_MASK)\000"
 .LASF16:
 	.ascii	"__SIZEOF_LONG__ 4\000"
 .LASF1443:
@@ -47872,6 +48182,9 @@ Lcd_DataWrite:
 	.ascii	"SCG_SIRCDIV_SIRCDIV2(x) (((uint32_t)(((uint32_t)(x)"
 	.ascii	")<<SCG_SIRCDIV_SIRCDIV2_SHIFT))&SCG_SIRCDIV_SIRCDIV"
 	.ascii	"2_MASK)\000"
+.LASF7943:
+	.ascii	"S32_NVIC_IP_PRI212(x) (((uint8_t)(((uint8_t)(x))<<S"
+	.ascii	"32_NVIC_IP_PRI212_SHIFT))&S32_NVIC_IP_PRI212_MASK)\000"
 .LASF2540:
 	.ascii	"DMA_TCD_ATTR_SMOD_SHIFT 11u\000"
 .LASF3168:

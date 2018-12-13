@@ -11458,13 +11458,15 @@ void GPIO_Clear_Port_Outputs(char port);
 
 #define LCD_DOS_H_ 
 
-void delay(int cnt);
+void LCD_Delay(int cnt);
 
-void sendNibble(char nibble);
+void LCD_Send_Nibble(char nibble);
 
-void Lcd_CmdWrite(char cmd);
+void LCD_Init();
 
-void Lcd_DataWrite(char dat);
+void LCD_Command_Write(char cmd);
+
+void LCD_Data_Write(char dat);
 # 25 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
@@ -11512,13 +11514,8 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
-void CAN_speed(input * info);
-void CAN_odo(input * info);
-void CAN_tnk(input * info);
-void CAN_ind(input * info);
 # 29 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
@@ -11528,13 +11525,15 @@ void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
 
 void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
+void CLUSTER_Display_Velocimeter_Value(uint8_t *ptrSpeedValue);
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
+void CLUSTER_Display_Odometer_Value(int *ptrDistanceValue);
+
+void CLUSTER_Display_Trip_Odometer_Value(int *ptrTripDistanceValue);
 # 9 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/LCD_DOS.h" 2
 # 9 "../Sources/LCD_DOS.c" 2
 
-void delay(int cnt)
+void LCD_Delay(int cnt)
 {
     int i;
     for(i=0;i<cnt;i++);
@@ -11542,7 +11541,7 @@ void delay(int cnt)
 
 
 
-void sendNibble(char nibble)
+void LCD_Send_Nibble(char nibble)
 {
     ((GPIO_Type *)(0x400FF0C0u))->PDOR &=~(((1<<1)|(1<<2)|(1<<8)|(1<<9)));
     ((GPIO_Type *)(0x400FF0C0u))->PDOR |= (((nibble >>0x00) & 0x01) << 1);
@@ -11551,48 +11550,112 @@ void sendNibble(char nibble)
     ((GPIO_Type *)(0x400FF0C0u))->PDOR |= (((nibble >>0x03) & 0x01) << 9);
 }
 
-
-
-
-void Lcd_CmdWrite(char cmd)
+void LCD_Init()
 {
+ ((GPIO_Type *)(0x400FF0C0u))->PDDR |= ((1<<2)|(1<<3)|(1<<4));
+ ((GPIO_Type *)(0x400FF040u))->PDDR |= ((1<<2)|(1<<3)|(1<<4));
 
-    sendNibble((cmd >> 0x04) & 0x0F);
+    LCD_Send_Nibble((0x02 >> 0x04) & 0x0F);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
-    delay(1000);
+    LCD_Delay(1000);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
-
-    delay(10000);
-
-    sendNibble(cmd & 0x0F);
+    LCD_Delay(10000);
+    LCD_Send_Nibble(0x02 & 0x0F);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
-    delay(1000);
+    LCD_Delay(1000);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
 
-    delay(10000);
+    LCD_Send_Nibble((0x28 >> 0x04) & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
+    LCD_Send_Nibble(0x28 & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
+
+    LCD_Send_Nibble((0x0E >> 0x04) & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
+    LCD_Send_Nibble(0x0E & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
+
+    LCD_Send_Nibble((0x01 >> 0x04) & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
+    LCD_Send_Nibble(0x01 & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(1000);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+    LCD_Delay(10000);
 }
 
-void Lcd_DataWrite(char dat)
+
+
+void LCD_Command_Write(char cmd)
 {
-    sendNibble((dat >> 0x04) & 0x0F);
+    LCD_Send_Nibble((cmd >> 0x04) & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(30);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+
+    LCD_Delay(300);
+
+    LCD_Send_Nibble(cmd & 0x0F);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<2);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
+    ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
+    LCD_Delay(30);
+    ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
+
+    LCD_Delay(300);
+}
+
+void LCD_Data_Write(char dat)
+{
+    LCD_Send_Nibble((dat >> 0x04) & 0x0F);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<2);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
-    delay(1000);
+    LCD_Delay(30);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
 
-    delay(10000);
+    LCD_Delay(300);
 
-    sendNibble(dat & 0x0F);
+    LCD_Send_Nibble(dat & 0x0F);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<2);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<3);
     ((GPIO_Type *)(0x400FF040u))->PDOR |= (1<<4);
-    delay(1000);
+    LCD_Delay(30);
     ((GPIO_Type *)(0x400FF040u))->PDOR &= ~(1<<4);
 
-    delay(10000);
+    LCD_Delay(300);
 }

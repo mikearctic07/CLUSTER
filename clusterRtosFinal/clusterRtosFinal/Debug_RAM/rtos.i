@@ -15552,13 +15552,15 @@ void GPIO_Clear_Port_Outputs(char port);
 
 #define LCD_DOS_H_ 
 
-void delay(int cnt);
+void LCD_Delay(int cnt);
 
-void sendNibble(char nibble);
+void LCD_Send_Nibble(char nibble);
 
-void Lcd_CmdWrite(char cmd);
+void LCD_Init();
 
-void Lcd_DataWrite(char dat);
+void LCD_Command_Write(char cmd);
+
+void LCD_Data_Write(char dat);
 # 25 "../Sources/cluster.h" 2
 
 
@@ -15606,13 +15608,8 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
-void CAN_speed(input * info);
-void CAN_odo(input * info);
-void CAN_tnk(input * info);
-void CAN_ind(input * info);
 # 29 "../Sources/cluster.h" 2
 
 
@@ -15622,9 +15619,11 @@ void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
 
 void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
+void CLUSTER_Display_Velocimeter_Value(uint8_t *ptrSpeedValue);
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
+void CLUSTER_Display_Odometer_Value(int *ptrDistanceValue);
+
+void CLUSTER_Display_Trip_Odometer_Value(int *ptrTripDistanceValue);
 # 14 "../Sources/rtos.c" 2
 
 
@@ -15642,15 +15641,15 @@ void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
 #define mainDONT_BLOCK ( 0UL )
 
 
-#define SPD_TIMER_PERIOD_MS (50 / portTICK_PERIOD_MS)
+#define SPD_TIMER_PERIOD_MS (83 / portTICK_PERIOD_MS)
 #define SPD_PRIORITY ( tskIDLE_PRIORITY + 1 )
 
 
-#define TNK_TIMER_PERIOD_MS (100 / portTICK_PERIOD_MS)
+#define TNK_TIMER_PERIOD_MS (166 / portTICK_PERIOD_MS)
 #define TNK_PRIORITY ( tskIDLE_PRIORITY + 1 )
 
 
-#define OD_TIMER_PERIOD_MS (200 / portTICK_PERIOD_MS)
+#define OD_TIMER_PERIOD_MS (332 / portTICK_PERIOD_MS)
 #define OD_PRIORITY ( tskIDLE_PRIORITY + 1 )
 
 
@@ -15668,16 +15667,24 @@ static void prvSetupHardware( void );
 
 
 
-char speedFlag = 1;
-char tnkFlag = 1;
-char odFlag = 1;
-char indFlag = 1;
+uint8_t speedValue = 0;
+uint8_t tankLevel = 0;
+uint16_t odometerValue = 0;
+uint16_t tripOdometerValue = 0;
+uint8_t indFlag = 0;
+
+uint8_t pastSpeedValue = 0;
+uint8_t pastTankLevel = 0;
+uint16_t pastOdometerValue = 0;
+uint16_t pastTripOdometerValue = 0;
+
+
 
 static void canTask( void *pvParameters );
 static void speedTask( void *pvParameters );
 static void tnkTask( void *pvParameters );
 static void odTask( void *pvParameters );
-# 75 "../Sources/rtos.c"
+# 84 "../Sources/rtos.c"
 static QueueHandle_t xQueue = ((void *)0);
 
 
@@ -15704,7 +15711,7 @@ void rtos_start( void )
   xTaskGenericCreate( ( speedTask ), ( "SPD" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
   xTaskGenericCreate( ( tnkTask ), ( "TNK" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
   xTaskGenericCreate( ( odTask ), ( "OD" ), ( ( ( unsigned short ) 90 ) ), ( ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) + 1 ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
-# 114 "../Sources/rtos.c"
+# 122 "../Sources/rtos.c"
   vTaskStartScheduler();
  }
 
@@ -15733,14 +15740,13 @@ static void speedTask( void *pvParameters )
 
 
 
-  vTaskDelayUntil( &xNextWakeTime, (50 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
+  vTaskDelayUntil( &xNextWakeTime, (83 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
-  if(speedFlag == 1){
-   ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<15;
-  }else{
-   ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<15;
+  if(speedValue != pastSpeedValue)
+  {
+   CLUSTER_Display_Velocimeter_Value(&speedValue);
+   pastSpeedValue = speedValue;
   }
-
  }
 }
 
@@ -15759,9 +15765,9 @@ static void tnkTask( void *pvParameters )
 
 
 
-  vTaskDelayUntil( &xNextWakeTime, (100 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
+  vTaskDelayUntil( &xNextWakeTime, (166 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
-  if(tnkFlag == 1){
+  if(tankLevel == 1){
    ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<0;
   }else{
    ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<0;
@@ -15785,9 +15791,9 @@ static void odTask( void *pvParameters )
 
 
 
-  vTaskDelayUntil( &xNextWakeTime, (200 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
+  vTaskDelayUntil( &xNextWakeTime, (332 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
-  if(odFlag == 1){
+  if(odometerValue == 1){
    ((GPIO_Type *)(0x400FF0C0u))-> PSOR |= 1<<16;
   }else{
    ((GPIO_Type *)(0x400FF0C0u))-> PCOR |= 1<<16;
@@ -15813,13 +15819,13 @@ static void canTask( void *pvParameters )
 
   vTaskDelayUntil( &xNextWakeTime, (3 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) )) );
 
-  CAN_receive(&speedFlag,&tnkFlag, &odFlag, &indFlag);
+  CAN_receive(&speedValue, &tankLevel, &odometerValue, &tripOdometerValue, &indFlag);
  }
 }
-# 237 "../Sources/rtos.c"
+# 245 "../Sources/rtos.c"
 static void prvSetupHardware( void )
 {
-# 267 "../Sources/rtos.c"
+# 275 "../Sources/rtos.c"
 }
 
 

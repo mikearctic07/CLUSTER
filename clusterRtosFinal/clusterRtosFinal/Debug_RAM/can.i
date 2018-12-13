@@ -11303,13 +11303,8 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
-void CAN_speed(input * info);
-void CAN_odo(input * info);
-void CAN_tnk(input * info);
-void CAN_ind(input * info);
 # 2 "../Sources/can.c" 2
 
 uint32_t RxCODE;
@@ -11366,7 +11361,7 @@ uint32_t CAN_id2Val(uint16_t id) {
  return((id*4) << 16 );
 }
 
-void CAN_receive(char * speed,char * tnk,char * od,char * ind){
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind){
 
 
  uint32_t dummy;
@@ -11389,7 +11384,26 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
   dummy = ((CAN_Type *)(0x40024000u))->TIMER;
   ((CAN_Type *)(0x40024000u))->IFLAG1 = 0x00000010;
 
-  CAN_tarea(&info,speed,tnk,od,ind);
+  switch(info.idCommand){
+  case 1:
+
+   *speed = info.param0;
+   break;
+  case 2:
+
+   *od ^= 1;
+   break;
+  case 3:
+
+   *tnk ^= 1;
+   break;
+  case 4:
+
+   *ind ^= 1;
+   break;
+  default:
+   break;
+  }
  }
 
  if(((CAN_Type *)(0x40024000u))->IFLAG1 & 1<<3){
@@ -11399,7 +11413,7 @@ void CAN_receive(char * speed,char * tnk,char * od,char * ind){
 
 
 }
-# 123 "../Sources/can.c"
+# 142 "../Sources/can.c"
 void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind){
  switch(info->idCommand){
  case 1:

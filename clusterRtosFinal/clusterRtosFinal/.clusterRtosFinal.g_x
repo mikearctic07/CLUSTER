@@ -49,7 +49,7 @@
       <File Name="SDK/platform/devices/S32K144/include/S32K144.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/timers.c" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/platform/devices/startup.c" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
-      <File Name="Sources/main.c" FileDate="2018-12-12, 10:52:55" FileAge="1544633575718" FileType="128" />
+      <File Name="Sources/main.c" FileDate="2018-12-12, 17:21:00" FileAge="1544656860987" FileType="128" />
       <File Name="Generated_Code/FreeRTOS.c" FileDate="1969-12-31, 17:59:59" FileAge="-1" FileType="45637" CompNumb="24" />
       <File Name="Documentation/clusterRtosFinal.txt" FileDate="2018-12-12, 10:39:04" FileAge="1544632744535" FileType="3072" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/mpu_wrappers.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
@@ -57,21 +57,21 @@
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/queue.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/platform/drivers/inc/clock_manager.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="Generated_Code/clockMan1.h" FileDate="2018-12-12, 10:39:04" FileAge="1544632744546" FileType="45637" CompNumb="15" />
-      <File Name="Generated_Code/clockMan1.c" FileDate="2018-12-12, 10:39:04" FileAge="1544632744545" FileType="45637" CompNumb="15" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/timers.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
-      <File Name="Generated_Code/Cpu.h" FileDate="2018-12-12, 10:39:04" FileAge="1544632744541" FileType="45637" CompNumb="23" />
+      <File Name="Generated_Code/clockMan1.c" FileDate="2018-12-12, 10:39:04" FileAge="1544632744545" FileType="45637" CompNumb="15" />
       <File Name="SDK/platform/drivers/src/pins/pins_gpio_hw_access.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2018-12-12, 10:39:04" FileAge="1544632744541" FileType="45637" CompNumb="23" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/event_groups.c" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/platform/drivers/src/clock/S32K1xx/scg_hw_access.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
-      <File Name="Generated_Code/Cpu.c" FileDate="2018-12-12, 10:39:04" FileAge="1544632744540" FileType="45637" CompNumb="23" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2018-12-12, 10:39:04" FileAge="1544632744540" FileType="45637" CompNumb="23" />
       <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/projdefs.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/platform/drivers/src/pins/pins_port_hw_access.c" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/platform/devices/callbacks.h" FileDate="2018-03-26, 04:12:00" FileAge="1522059120000" FileType="262144" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/event_groups.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/list.c" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
-      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
+      <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h" FileDate="2018-12-13, 12:12:14" FileAge="1544724734262" FileType="262144" />
       <File Name="SDK/platform/drivers/src/pins/pins_driver.c" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_2.c" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/platform/devices/S32K144/include/S32K144_features.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
@@ -80,9 +80,9 @@
       <File Name="SDK/rtos/FreeRTOS_S32K/Source/include/list.h" FileDate="2018-03-26, 04:12:04" FileAge="1522059124000" FileType="262144" />
       <File Name="SDK/platform/devices/S32K144/startup/system_S32K144.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
       <File Name="SDK/platform/drivers/inc/interrupt_manager.h" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
-      <File Name="SDK/platform/devices/devassert.h" FileDate="2018-03-26, 04:12:00" FileAge="1522059120000" FileType="262144" />
       <File Name="SDK/platform/devices/S32K144/startup/system_S32K144.c" FileDate="2018-03-26, 04:12:02" FileAge="1522059122000" FileType="262144" />
+      <File Name="SDK/platform/devices/devassert.h" FileDate="2018-03-26, 04:12:00" FileAge="1522059120000" FileType="262144" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>3</CodeGenReference>
+  <CodeGenReference>4</CodeGenReference>
 </CodeGenerationInfo>

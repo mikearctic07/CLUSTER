@@ -11450,13 +11450,15 @@ void GPIO_Clear_Port_Outputs(char port);
 
 #define LCD_DOS_H_ 
 
-void delay(int cnt);
+void LCD_Delay(int cnt);
 
-void sendNibble(char nibble);
+void LCD_Send_Nibble(char nibble);
 
-void Lcd_CmdWrite(char cmd);
+void LCD_Init();
 
-void Lcd_DataWrite(char dat);
+void LCD_Command_Write(char cmd);
+
+void LCD_Data_Write(char dat);
 # 25 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
@@ -11504,13 +11506,8 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
-void CAN_speed(input * info);
-void CAN_odo(input * info);
-void CAN_tnk(input * info);
-void CAN_ind(input * info);
 # 29 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/cluster.h" 2
 
 
@@ -11520,9 +11517,11 @@ void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
 
 void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
+void CLUSTER_Display_Velocimeter_Value(uint8_t *ptrSpeedValue);
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
+void CLUSTER_Display_Odometer_Value(int *ptrDistanceValue);
+
+void CLUSTER_Display_Trip_Odometer_Value(int *ptrTripDistanceValue);
 # 9 "../Sources/cluster.c" 2
 
 void CLUSTER_Initialize(void)
@@ -11579,7 +11578,12 @@ void CLUSTER_Initialize(void)
 
   GPIO_Init_As_Output(33);
 
+  LCD_Init();
+
   CAN_Init();
+
+  uint8_t initialization = 10;
+  CLUSTER_Display_Velocimeter_Value(&initialization);
 }
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue)
@@ -11705,9 +11709,9 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount)
  }
 }
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue)
+void CLUSTER_Display_Velocimeter_Value(uint8_t *ptrSpeedValue)
 {
- int velocimeterValue;
+ uint8_t velocimeterValue;
  if(GPIO_Read_Input(34))
  {
   velocimeterValue = ((*ptrSpeedValue)*6213)/10000;
@@ -11716,12 +11720,12 @@ void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue)
  {
   velocimeterValue = *ptrSpeedValue;
  }
- int hundreds = (velocimeterValue/100)*100;
- int tens = ((velocimeterValue-hundreds)/10)*10;
+ uint8_t hundreds = (velocimeterValue/100)*100;
+ uint8_t tens = ((velocimeterValue-hundreds)/10)*10;
 
- int unitsValue = velocimeterValue - hundreds - tens;
- int tensValue = tens/10;
- int hundredsValue = hundreds/100;
+ uint8_t unitsValue = velocimeterValue - hundreds - tens;
+ uint8_t tensValue = tens/10;
+ uint8_t hundredsValue = hundreds/100;
 
  switch(unitsValue)
  {
@@ -11952,59 +11956,54 @@ void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue)
  }
 }
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance)
+void CLUSTER_Display_Odometer_Value(int *ptrDistanceValue)
 {
- int distanceValue = *ptrDistance;
- int tripDistanceValue = *ptrTripDistance;
+ LCD_Command_Write(0x80);
 
- ((GPIO_Type *)(0x400FF0C0u))->PDDR |= ((1<<2)|(1<<3)|(1<<4));
- ((GPIO_Type *)(0x400FF040u))->PDDR |= ((1<<2)|(1<<3)|(1<<4));
-
- Lcd_CmdWrite(0x02);
- Lcd_CmdWrite(0x28);
- Lcd_CmdWrite(0x0E);
- Lcd_CmdWrite(0x01);
- Lcd_CmdWrite(0x80);
-
- Lcd_DataWrite((char)(32));
- Lcd_DataWrite((char)(32));
- Lcd_DataWrite((char)(32));
+ LCD_Data_Write((char)(32));
+ LCD_Data_Write((char)(32));
+ LCD_Data_Write((char)(32));
 
  int i = 0;
  int div = 1000000;
  for(i = 0; i < 7; i++)
  {
-  Lcd_DataWrite((char)(48+distanceValue/div));
-  distanceValue = distanceValue % div;
+  LCD_Data_Write((char)(48+*ptrDistanceValue/div));
+  *ptrDistanceValue = *ptrDistanceValue % div;
   div = div/10;
   if(i == 5)
   {
-   Lcd_DataWrite((char)(46));
+   LCD_Data_Write((char)(46));
   }
  }
 
- Lcd_DataWrite((char)(75));
- Lcd_DataWrite((char)(109));
+ LCD_Data_Write((char)(75));
+ LCD_Data_Write((char)(109));
+}
 
- Lcd_CmdWrite(0xc0);
+void CLUSTER_Display_Trip_Odometer_Value(int *ptrTripDistanceValue)
+{
+ LCD_Command_Write(0x80);
+ LCD_Command_Write(0xc0);
 
- Lcd_DataWrite((char)(32));
- Lcd_DataWrite((char)(32));
- Lcd_DataWrite((char)(32));
+ LCD_Data_Write((char)(32));
+ LCD_Data_Write((char)(32));
+ LCD_Data_Write((char)(32));
 
- div = 1000000;
+ int i = 0;
+ int div = 1000000;
 
  for(i = 0; i < 7; i++)
  {
-  Lcd_DataWrite((char)(48+tripDistanceValue/div));
-  tripDistanceValue = tripDistanceValue % div;
+  LCD_Data_Write((char)(48+*ptrTripDistanceValue/div));
+  *ptrTripDistanceValue = *ptrTripDistanceValue % div;
   div = div/10;
   if(i == 5)
   {
-   Lcd_DataWrite((char)(46));
+   LCD_Data_Write((char)(46));
   }
  }
 
- Lcd_DataWrite(75);
- Lcd_DataWrite(109);
+ LCD_Data_Write(75);
+ LCD_Data_Write(109);
 }

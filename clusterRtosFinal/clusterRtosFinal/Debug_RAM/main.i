@@ -14918,13 +14918,15 @@ void GPIO_Clear_Port_Outputs(char port);
 
 #define LCD_DOS_H_ 
 
-void delay(int cnt);
+void LCD_Delay(int cnt);
 
-void sendNibble(char nibble);
+void LCD_Send_Nibble(char nibble);
 
-void Lcd_CmdWrite(char cmd);
+void LCD_Init();
 
-void Lcd_DataWrite(char dat);
+void LCD_Command_Write(char cmd);
+
+void LCD_Data_Write(char dat);
 # 25 "../Sources/cluster.h" 2
 
 
@@ -14972,13 +14974,8 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(char * speed,char * tnk,char * od,char * ind);
+void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
 uint32_t CAN_id2Val(uint16_t id);
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
-void CAN_speed(input * info);
-void CAN_odo(input * info);
-void CAN_tnk(input * info);
-void CAN_ind(input * info);
 # 29 "../Sources/cluster.h" 2
 
 
@@ -14988,9 +14985,11 @@ void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
 
 void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
+void CLUSTER_Display_Velocimeter_Value(uint8_t *ptrSpeedValue);
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
+void CLUSTER_Display_Odometer_Value(int *ptrDistanceValue);
+
+void CLUSTER_Display_Trip_Odometer_Value(int *ptrTripDistanceValue);
 # 54 "../Sources/main.c" 2
 
 
@@ -15011,8 +15010,20 @@ int main(void)
 
 
   CLUSTER_Initialize();
-# 95 "../Sources/main.c"
-    rtos_start();
+
+  uint8_t speedValue = 0;
+  uint8_t tankLevel = 0;
+  uint16_t odometerValue = 0;
+  uint16_t tripOdometerValue = 0;
+  uint8_t indFlag = 0;
+
+  for(;;){
+   CAN_receive(&speedValue, &tankLevel, &odometerValue, &tripOdometerValue, &indFlag);
+  }
+
+  while(GPIO_Read_Input(31) == 0);
+# 106 "../Sources/main.c"
+ rtos_start();
 
 
 
