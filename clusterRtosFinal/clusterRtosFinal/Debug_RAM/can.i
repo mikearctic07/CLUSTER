@@ -1,5 +1,5 @@
 # 1 "../Sources/can.c"
-# 1 "C:\\Users\\rbn\\workspaceS32DS.ARM.2018.R1\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
+# 1 "C:\\NXP\\Workspace\\CLUSTER\\clusterRtosFinal\\clusterRtosFinal\\Debug_RAM//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -11303,18 +11303,13 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-<<<<<<< HEAD
-void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind);
-uint32_t CAN_id2Val(uint16_t id);
-=======
-void CAN_receive(int * speed,int * tnk,char * od,char * ind);
+void CAN_receive(int * speed,char * ind);
 uint32_t CAN_id2Val(uint16_t id);
 
 void CAN_speed(input * info);
 void CAN_odo(input * info);
 void CAN_tnk(input * info);
 void CAN_ind(input * info);
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 # 2 "../Sources/can.c" 2
 # 1 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 1 3
 # 27 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdio.h" 3
@@ -13022,12 +13017,8 @@ uint32_t CAN_id2Val(uint16_t id) {
  return((id*4) << 16 );
 }
 
-<<<<<<< HEAD
-void CAN_receive(uint8_t * speed, uint8_t * tnk, uint16_t * od, uint16_t * trOd, uint8_t * ind){
-=======
-void CAN_receive(int * speed,int * tnk,char * od,char * ind){
+void CAN_receive(int * speed,char * ind){
 
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 
 
 
@@ -13049,38 +13040,20 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 
   ((CAN_Type *)(0x40024000u))->IFLAG1 = 0x00000010;
 
-<<<<<<< HEAD
-  switch(info.idCommand){
-  case 1:
-
-   *speed = info.param0;
-=======
 
   switch(info.idCommand){
   printf("%d\n",info.idCommand);
   case 1:
 
    *speed = (info.param0 << 8)+info.param1;
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
    break;
   case 2:
 
-   *od ^= 1;
+   ;
    break;
   case 3:
 
-<<<<<<< HEAD
-   *tnk ^= 1;
-   break;
-  case 4:
-
-   *ind ^= 1;
-   break;
-  default:
-   break;
-=======
    EEEPROM_Write_Data(((info.param0 << 8)+info.param1), 3);
-   *tnk = EEEPROM_Read_Data(3);
    break;
   case 4:
    if(info.param0 == 1 && info.param1 == 1){
@@ -13101,7 +13074,6 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
    break;
   default:
     break;
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
   }
  }
 
@@ -13112,29 +13084,3 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 
 
 }
-<<<<<<< HEAD
-# 142 "../Sources/can.c"
-void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind){
- switch(info->idCommand){
- case 1:
-
-  *speed ^= 1;
-  break;
- case 2:
-
-  *od ^= 1;
-  break;
- case 3:
-
-  *tnk ^= 1;
-  break;
- case 4:
-
-  *ind ^= 1;
-  break;
- default:
-  break;
- }
-}
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba

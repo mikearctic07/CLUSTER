@@ -42993,6 +42993,8 @@ g_pin_mux_InitConfigArr:
 	.ascii	"LPUART_BAUD_M10_WIDTH 1u\000"
 .LASF4397:
 	.ascii	"LPI2C_MCCR0_CLKLO_WIDTH 6u\000"
+.LASF9572:
+	.ascii	"__wchar_t__ \000"
 .LASF7413:
 	.ascii	"S32_NVIC_IP_PRI95_WIDTH 8u\000"
 .LASF6639:
@@ -44207,8 +44209,9 @@ g_pin_mux_InitConfigArr:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
-.LASF9572:
-	.ascii	"__wchar_t__ \000"
+.LASF9675:
+	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
+	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF2907:
 	.ascii	"FLEXIO_TIMCTL_TRGSRC_SHIFT 22u\000"
 .LASF9463:
@@ -48482,9 +48485,6 @@ g_pin_mux_InitConfigArr:
 	.ascii	"RCM_SRS_POR_MASK 0x80u\000"
 .LASF5533:
 	.ascii	"LPUART_MATCH_MA2_SHIFT 16u\000"
-.LASF9675:
-	.ascii	"C:\\\\Users\\\\rbn\\\\workspaceS32DS.ARM.2018.R1\\\\"
-	.ascii	"clusterRtosFinal\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF8598:
 	.ascii	"SCG_SIRCCSR_SIRCLPEN_WIDTH 1u\000"
 .LASF8295:

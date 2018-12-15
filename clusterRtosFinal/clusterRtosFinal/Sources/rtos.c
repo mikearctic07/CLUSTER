@@ -27,15 +27,15 @@ the queue empty. */
 #define mainDONT_BLOCK						( 0UL )
 
 /*Speed display shall refresh every 50ms */
-#define SPD_TIMER_PERIOD_MS	(50 / portTICK_PERIOD_MS)
+#define SPD_TIMER_PERIOD_MS	(83 / portTICK_PERIOD_MS)
 #define	SPD_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 /*Tank display shall refresh every 100ms */
-#define TNK_TIMER_PERIOD_MS	(100 / portTICK_PERIOD_MS)
+#define TNK_TIMER_PERIOD_MS	(166 / portTICK_PERIOD_MS)
 #define	TNK_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 /*Odometer display shall refresh every 200ms */
-#define OD_TIMER_PERIOD_MS	(200 / portTICK_PERIOD_MS)
+#define OD_TIMER_PERIOD_MS	(4 / portTICK_PERIOD_MS)
 #define	OD_PRIORITY		( tskIDLE_PRIORITY + 1 )
 
 /*can messages shall refresh every 200ms */
@@ -54,10 +54,9 @@ static void prvSetupHardware( void );
  */
 
 int speedFlag = 0;
-int tnkFlag = 500;//EEEPROM_Read_Data(TANK_LEVEL);
-char odFlag = 1;
 char indFlag = 1;
 int tnkCounter = 1;
+int lcdCharBox = 1;
 
 static void canTask( void *pvParameters );
 static void speedTask( void *pvParameters );
@@ -141,8 +140,6 @@ static void speedTask( void *pvParameters )
 		to ms.  While in the Blocked state this task will not consume any CPU
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, SPD_TIMER_PERIOD_MS );
-		//		Red led toogle
-
 		CLUSTER_Display_Velocimeter_Value( &speedFlag);
 
 	}
@@ -164,7 +161,7 @@ static void tnkTask( void *pvParameters )
 		to ms.  While in the Blocked state this task will not consume any CPU
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, TNK_TIMER_PERIOD_MS );
-		//		blue led toogle
+		int tnkFlag = EEEPROM_Read_Data(TANK_LEVEL);
 		CLUSTER_Display_Gas_Tank_Level(&tnkFlag, &tnkCounter);
 
 	}
@@ -186,12 +183,13 @@ static void odTask( void *pvParameters )
 		to ms.  While in the Blocked state this task will not consume any CPU
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, OD_TIMER_PERIOD_MS );
-		//		Green led toggle
-		if(odFlag == 1){
-			PTD-> PSOR |= 1<<16;
-		}else{
-			PTD-> PCOR |= 1<<16;
+		int odometerValue = EEEPROM_Read_Data(ODOMETER);
+		if(GPIO_Read_Input(RESET_TRIP_ODOMETER))
+		{
+			EEEPROM_Write_Data(0, TRIP_ODOMETER);
 		}
+		int tripOdometerValue = EEEPROM_Read_Data(TRIP_ODOMETER);
+		CLUSTER_Display_Odometer_Value(odometerValue, tripOdometerValue, &lcdCharBox);
 	}
 }
 
@@ -213,7 +211,7 @@ static void canTask( void *pvParameters )
 		time. */
 		vTaskDelayUntil( &xNextWakeTime, CAN_TIMER_PERIOD_MS );
 		//		Red led toogle
-		CAN_receive(&speedFlag,&tnkFlag, &odFlag, &indFlag);
+		CAN_receive(&speedFlag, &indFlag);
 	}
 }
 /*-----------------------------------------------------------*/

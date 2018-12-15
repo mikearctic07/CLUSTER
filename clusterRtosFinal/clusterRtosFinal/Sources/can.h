@@ -24,7 +24,7 @@ typedef struct {
 
 void CAN_Init(void);
 void CAN_transmit(int id,int dlc, int word1, int word2);
-void CAN_receive(int * speed,int * tnk,char * od,char * ind);
+void CAN_receive(int * speed,char * ind);
 uint32_t CAN_id2Val(uint16_t id);
 //void CAN_tarea(input * info,char * speed,char * tnk,char * od,char * ind);
 void CAN_speed(input * info);

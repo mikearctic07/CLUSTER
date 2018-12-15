@@ -210,398 +210,197 @@ CAN_id2Val:
 	.type	CAN_receive, %function
 CAN_receive:
 .LFB3:
-<<<<<<< HEAD
-	.loc 1 74 0
-	.cfi_startproc
-	@ args = 4, pretend = 0, frame = 0
-=======
 	.loc 1 76 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	@ frame_needed = 0, uses_anonymous_args = 0
 .LVL14:
-	push	{r3, r4, r5, r6, r7, lr}
-	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
-	.cfi_offset 4, -20
-	.cfi_offset 5, -16
-	.cfi_offset 6, -12
-	.cfi_offset 7, -8
+	push	{r4, r5, r6, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset 4, -16
+	.cfi_offset 5, -12
+	.cfi_offset 6, -8
 	.cfi_offset 14, -4
-<<<<<<< HEAD
-	.loc 1 81 0
-	ldr	r3, .L24
-=======
 	.loc 1 83 0
-	ldr	r3, .L29
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-.LVL15:
+	ldr	r3, .L27
 	ldr	r3, [r3, #48]
 	tst	r3, #16
 	beq	.L16
-<<<<<<< HEAD
-	.loc 1 82 0
-	ldr	r3, .L24
-	ldr	r4, [r3, #192]
-	ubfx	r4, r4, #24, #3
-	ldr	r5, .L24+4
-	str	r4, [r5]
-	.loc 1 83 0
-	ldr	r4, [r3, #196]
-	bic	r4, r4, #-536870912
-	ldr	r5, .L24+8
-	str	r4, [r5]
 	.loc 1 84 0
-	ldr	r4, [r3, #192]
-	ubfx	r4, r4, #16, #4
-	ldr	r5, .L24+12
-	str	r4, [r5]
-	.loc 1 87 0
-	ldr	r4, [r3, #200]
-.LVL16:
-	.loc 1 88 0
-	ldr	r5, [r3, #200]
-.LVL17:
-	.loc 1 89 0
-	ldr	r7, [r3, #200]
-.LVL18:
-	.loc 1 90 0
-	ldr	r5, [r3, #200]
-	.loc 1 93 0
-	ldr	r5, [r3, #128]
-	uxth	r5, r5
-	ldr	r6, .L24+16
-	str	r5, [r6]
-	.loc 1 94 0
-	ldr	r5, [r3, #8]
-	.loc 1 95 0
-	movs	r5, #16
-	str	r5, [r3, #48]
-.LVL19:
-	.loc 1 97 0
-	lsrs	r3, r4, #24
-=======
-	mov	r6, r1
-	.loc 1 84 0
-	ldr	r3, .L29
-	ldr	r1, [r3, #192]
-.LVL16:
-	ubfx	r1, r1, #24, #3
-	ldr	r4, .L29+4
-	str	r1, [r4]
+	ldr	r3, .L27
+	ldr	r2, [r3, #192]
+	ubfx	r2, r2, #24, #3
+	ldr	r1, .L27+4
+.LVL15:
+	str	r2, [r1]
 	.loc 1 85 0
-	ldr	r1, [r3, #196]
-	bic	r1, r1, #-536870912
-	ldr	r4, .L29+8
-	str	r1, [r4]
+	ldr	r2, [r3, #196]
+	bic	r2, r2, #-536870912
+	ldr	r1, .L27+8
+	str	r2, [r1]
 	.loc 1 86 0
-	ldr	r1, [r3, #192]
-	ubfx	r1, r1, #16, #4
-	ldr	r4, .L29+12
-	str	r1, [r4]
+	ldr	r2, [r3, #192]
+	ubfx	r2, r2, #16, #4
+	ldr	r1, .L27+12
+	str	r2, [r1]
 	.loc 1 89 0
+	ldr	r2, [r3, #200]
+.LVL16:
+	.loc 1 90 0
 	ldr	r1, [r3, #200]
 .LVL17:
-	.loc 1 90 0
-	ldr	r4, [r3, #200]
+	.loc 1 91 0
+	ldr	r1, [r3, #200]
+	ubfx	r1, r1, #8, #8
 .LVL18:
-	.loc 1 91 0
-	ldr	r4, [r3, #200]
-	ubfx	r4, r4, #8, #8
+	.loc 1 92 0
+	ldr	r5, [r3, #200]
 .LVL19:
-	.loc 1 92 0
-	ldr	r7, [r3, #200]
-.LVL20:
 	.loc 1 95 0
-	ldr	r5, [r3, #128]
-	uxth	r5, r5
-	ldr	lr, .L29+20
-	str	r5, [lr]
+	ldr	r4, [r3, #128]
+	uxth	r4, r4
+	ldr	r6, .L27+16
+	str	r4, [r6]
 	.loc 1 97 0
-	movs	r5, #16
-	str	r5, [r3, #48]
+	movs	r4, #16
+	str	r4, [r3, #48]
 	.loc 1 100 0
-	lsrs	r3, r1, #24
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	cmp	r3, #2
-	beq	.L17
-	bhi	.L18
-	cmp	r3, #1
-	beq	.L19
-	b	.L16
-.L18:
+	lsrs	r3, r2, #24
 	cmp	r3, #3
-	beq	.L20
+	beq	.L17
 	cmp	r3, #4
-	beq	.L21
-	b	.L16
-.L19:
-<<<<<<< HEAD
-	.loc 1 89 0
-	ubfx	r7, r7, #8, #8
+	beq	.L18
+	cmp	r3, #1
+	bne	.L16
+	uxtb	r5, r5
+	.loc 1 104 0
+	add	r1, r5, r1, lsl #8
 .LVL20:
-	strb	r7, [r0]
-	.loc 1 101 0
+	str	r1, [r0]
+	.loc 1 105 0
 	b	.L16
 .LVL21:
 .L17:
-	.loc 1 104 0
-	ldrh	r3, [r2]
-	eor	r3, r3, #1
-	strh	r3, [r2]	@ movhi
-	.loc 1 105 0
-	b	.L16
-.L20:
-	.loc 1 108 0
-	ldrb	r3, [r1]	@ zero_extendqisi2
-	eor	r3, r3, #1
-	strb	r3, [r1]
-	.loc 1 109 0
-	b	.L16
-.L21:
-	.loc 1 112 0
-	ldr	r3, [sp, #24]
-	ldrb	r3, [r3]	@ zero_extendqisi2
-	eor	r3, r3, #1
-	ldr	r2, [sp, #24]
+	uxtb	r0, r5
 .LVL22:
-	strb	r3, [r2]
-.LVL23:
-.L16:
-	.loc 1 119 0
-	ldr	r3, .L24
-	ldr	r3, [r3, #48]
-	tst	r3, #8
-	beq	.L15
-	.loc 1 120 0
-	movs	r1, #8
-.LVL24:
-	ldr	r3, .L24
-	str	r1, [r3, #48]
-	.loc 1 121 0
-=======
-	uxtb	r7, r7
-	.loc 1 104 0
-	add	r4, r7, r4, lsl #8
-.LVL21:
-	str	r4, [r0]
-	.loc 1 105 0
-	b	.L16
-.LVL22:
-.L17:
-	.loc 1 108 0
-	ldrb	r3, [r2]	@ zero_extendqisi2
-	eor	r3, r3, #1
-	strb	r3, [r2]
-	.loc 1 109 0
-	b	.L16
-.L20:
-	uxtb	r0, r7
-.LVL23:
 	.loc 1 112 0
-	add	r0, r0, r4, lsl #8
+	add	r0, r0, r1, lsl #8
 	movs	r1, #3
-.LVL24:
+.LVL23:
 	bl	EEEPROM_Write_Data
-.LVL25:
+.LVL24:
 	.loc 1 113 0
-	movs	r0, #3
-	bl	EEEPROM_Read_Data
-.LVL26:
-	str	r0, [r6]
-	.loc 1 114 0
 	b	.L16
-.LVL27:
-.L21:
+.LVL25:
+.L18:
 	.loc 1 91 0
-	uxtb	r4, r4
+	uxtb	r1, r1
 	.loc 1 92 0
-	uxtb	r7, r7
-	.loc 1 116 0
-	cmp	r4, #1
-	bne	.L22
-	.loc 1 116 0 is_stmt 0 discriminator 1
-	cmp	r7, #1
-	bne	.L23
-	.loc 1 117 0 is_stmt 1
-	ldr	r2, .L29+16
-.LVL28:
+	uxtb	r5, r5
+	.loc 1 115 0
+	cmp	r1, #1
+	bne	.L20
+	.loc 1 115 0 is_stmt 0 discriminator 1
+	cmp	r5, #1
+	bne	.L21
+	.loc 1 116 0 is_stmt 1
+	ldr	r2, .L27+20
+.LVL26:
 	ldr	r3, [r2, #8]
 	orr	r3, r3, #1
+	str	r3, [r2, #8]
+	b	.L22
+.LVL27:
+.L20:
+	.loc 1 118 0
+	ldr	r2, .L27+20
+.LVL28:
+	ldr	r3, [r2, #4]
+	orr	r3, r3, #1
+	str	r3, [r2, #4]
+	.loc 1 120 0
+	cmp	r1, #2
+	bne	.L23
+	.loc 1 120 0 is_stmt 0 discriminator 1
+	cmp	r5, #1
+	bne	.L22
+	.loc 1 121 0 is_stmt 1
+	ldr	r3, [r2, #8]
+	orr	r3, r3, #32768
 	str	r3, [r2, #8]
 	b	.L24
-.LVL29:
-.L22:
-	.loc 1 119 0
-	ldr	r2, .L29+16
-.LVL30:
+.L23:
+	.loc 1 123 0
+	ldr	r2, .L27+20
 	ldr	r3, [r2, #4]
-	orr	r3, r3, #1
+	orr	r3, r3, #32768
 	str	r3, [r2, #4]
-	.loc 1 121 0
-	cmp	r4, #2
-	bne	.L25
-	.loc 1 121 0 is_stmt 0 discriminator 1
-	cmp	r7, #1
+	.loc 1 125 0
+	cmp	r1, #3
 	bne	.L24
-	.loc 1 122 0 is_stmt 1
-	ldr	r3, [r2, #8]
-	orr	r3, r3, #32768
-	str	r3, [r2, #8]
-	b	.L26
-.L25:
-	.loc 1 124 0
-	ldr	r2, .L29+16
-	ldr	r3, [r2, #4]
-	orr	r3, r3, #32768
-	str	r3, [r2, #4]
-	.loc 1 126 0
-	cmp	r4, #3
-	bne	.L26
-	.loc 1 126 0 is_stmt 0 discriminator 1
-	cmp	r7, #1
-	bne	.L26
-	.loc 1 127 0 is_stmt 1
+	.loc 1 125 0 is_stmt 0 discriminator 1
+	cmp	r5, #1
+	bne	.L24
+	.loc 1 126 0 is_stmt 1
 	ldr	r3, [r2, #8]
 	orr	r3, r3, #65536
 	str	r3, [r2, #8]
 	b	.L16
-.L26:
-	.loc 1 129 0
-	ldr	r2, .L29+16
+.L24:
+	.loc 1 128 0
+	ldr	r2, .L27+20
 	ldr	r3, [r2, #4]
 	orr	r3, r3, #65536
 	str	r3, [r2, #4]
-.LVL31:
+.LVL29:
 .L16:
-	.loc 1 137 0
-	ldr	r3, .L29
+	.loc 1 136 0
+	ldr	r3, .L27
 	ldr	r3, [r3, #48]
 	tst	r3, #8
 	beq	.L15
-	.loc 1 138 0
+	.loc 1 137 0
 	movs	r1, #8
-	ldr	r3, .L29
+	ldr	r3, .L27
 	str	r1, [r3, #48]
-	.loc 1 139 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 138 0
 	movw	r0, #1365
-.LVL25:
 	mov	r2, #-1
 	mov	r3, r2
 	bl	CAN_transmit
-<<<<<<< HEAD
-.LVL26:
-.L15:
-	pop	{r3, r4, r5, r6, r7, pc}
-.L25:
-	.align	2
-.L24:
-=======
+.LVL30:
+	pop	{r4, r5, r6, pc}
+.LVL31:
+.L21:
+	.loc 1 118 0
+	ldr	r2, .L27+20
 .LVL32:
-	pop	{r3, r4, r5, r6, r7, pc}
-.LVL33:
-.L23:
-	.loc 1 119 0
-	ldr	r2, .L29+16
-.LVL34:
 	ldr	r3, [r2, #4]
 	orr	r3, r3, #1
 	str	r3, [r2, #4]
-	b	.L25
-.L24:
-	.loc 1 124 0
-	ldr	r2, .L29+16
+	b	.L23
+.L22:
+	.loc 1 123 0
+	ldr	r2, .L27+20
 	ldr	r3, [r2, #4]
 	orr	r3, r3, #32768
 	str	r3, [r2, #4]
-	b	.L26
-.LVL35:
+	b	.L24
+.LVL33:
 .L15:
-	pop	{r3, r4, r5, r6, r7, pc}
-.L30:
+	pop	{r4, r5, r6, pc}
+.L28:
 	.align	2
-.L29:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.L27:
 	.word	1073889280
 	.word	RxCODE
 	.word	RxID
 	.word	RxLENGTH
-	.word	1074786496
 	.word	RxTIMESTAMP
+	.word	1074786496
 	.cfi_endproc
 .LFE3:
 	.size	CAN_receive, .-CAN_receive
-	.section	.text.CAN_tarea,"ax",%progbits
-	.align	2
-	.global	CAN_tarea
-	.thumb
-	.thumb_func
-	.type	CAN_tarea, %function
-CAN_tarea:
-.LFB4:
-	.loc 1 142 0
-	.cfi_startproc
-	@ args = 4, pretend = 0, frame = 0
-	@ frame_needed = 0, uses_anonymous_args = 0
-	@ link register save eliminated.
-.LVL27:
-	.loc 1 143 0
-	ldrb	r0, [r0]	@ zero_extendqisi2
-.LVL28:
-	cmp	r0, #2
-	beq	.L28
-	bhi	.L29
-	cmp	r0, #1
-	beq	.L30
-	bx	lr
-.L29:
-	cmp	r0, #3
-	beq	.L31
-	cmp	r0, #4
-	beq	.L32
-	bx	lr
-.L30:
-	.loc 1 146 0
-	ldrb	r3, [r1]	@ zero_extendqisi2
-.LVL29:
-	eor	r3, r3, #1
-	strb	r3, [r1]
-	.loc 1 147 0
-	bx	lr
-.LVL30:
-.L28:
-	.loc 1 150 0
-	ldrb	r2, [r3]	@ zero_extendqisi2
-.LVL31:
-	eor	r2, r2, #1
-	strb	r2, [r3]
-	.loc 1 151 0
-	bx	lr
-.LVL32:
-.L31:
-	.loc 1 154 0
-	ldrb	r3, [r2]	@ zero_extendqisi2
-.LVL33:
-	eor	r3, r3, #1
-	strb	r3, [r2]
-	.loc 1 155 0
-	bx	lr
-.LVL34:
-.L32:
-	.loc 1 158 0
-	ldr	r3, [sp]
-.LVL35:
-	ldrb	r3, [r3]	@ zero_extendqisi2
-	eor	r3, r3, #1
-	ldr	r2, [sp]
-.LVL36:
-	strb	r3, [r2]
-	bx	lr
-	.cfi_endproc
-.LFE4:
-	.size	CAN_tarea, .-CAN_tarea
 	.comm	RxTIMESTAMP,4,4
 	.comm	RxLENGTH,4,4
 	.comm	RxID,4,4
@@ -615,26 +414,15 @@ CAN_tarea:
 	.file 6 "../Sources/eeeprom.h"
 	.section	.debug_info,"",%progbits
 .Ldebug_info0:
-<<<<<<< HEAD
-	.4byte	0x684
-=======
-	.4byte	0x6cf
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x67c
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-<<<<<<< HEAD
-	.4byte	.LASF9233
+	.4byte	.LASF9621
 	.byte	0x1
-	.4byte	.LASF9234
-	.4byte	.LASF9235
-=======
+	.4byte	.LASF9622
 	.4byte	.LASF9623
-	.byte	0x1
-	.4byte	.LASF9624
-	.4byte	.LASF9625
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.Ldebug_ranges0+0
 	.4byte	0
 	.4byte	.Ldebug_line0
@@ -1215,13 +1003,8 @@ CAN_tarea:
 	.4byte	0xa6
 	.4byte	.LLST0
 	.byte	0
-<<<<<<< HEAD
-	.uleb128 0x15
-	.4byte	.LASF9236
-=======
 	.uleb128 0x16
-	.4byte	.LASF9621
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	.LASF9624
 	.byte	0x1
 	.byte	0x48
 	.4byte	0xa6
@@ -1293,132 +1076,43 @@ CAN_tarea:
 	.uleb128 0x14
 	.4byte	.LASF9614
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x4a
-=======
 	.byte	0x4c
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.LFB3
 	.4byte	.LFE3-.LFB3
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x5c7
-	.uleb128 0x1c
-	.4byte	.LASF9224
-	.byte	0x1
-	.byte	0x4a
-	.4byte	0x5c7
-	.4byte	.LLST5
-	.uleb128 0x17
-	.ascii	"tnk\000"
-	.byte	0x1
-	.byte	0x4a
-	.4byte	0x5c7
-=======
-	.4byte	0x65d
+	.4byte	0x61f
 	.uleb128 0x1d
 	.4byte	.LASF9615
 	.byte	0x1
 	.byte	0x4c
-	.4byte	0x65d
+	.4byte	0x61f
 	.4byte	.LLST5
 	.uleb128 0x18
-	.ascii	"tnk\000"
+	.ascii	"ind\000"
 	.byte	0x1
 	.byte	0x4c
-	.4byte	0x65d
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x4d9
 	.4byte	.LLST6
-	.uleb128 0x18
-	.ascii	"od\000"
-	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x4a
-	.4byte	0x5cd
-	.4byte	.LLST7
-	.uleb128 0x1c
-	.4byte	.LASF9225
-	.byte	0x1
-	.byte	0x4a
-	.4byte	0x5cd
-	.4byte	.LLST8
-	.uleb128 0x17
-	.ascii	"ind\000"
-	.byte	0x1
-	.byte	0x4a
-	.4byte	0x5c7
-	.4byte	.LLST9
-	.uleb128 0x1d
-	.4byte	.LASF9226
-	.byte	0x1
-	.byte	0x4d
-	.4byte	0xa6
-	.uleb128 0x1
-	.byte	0x55
-	.uleb128 0x1e
-	.4byte	.LASF9227
-	.byte	0x1
-	.byte	0x4f
-	.4byte	0x45d
-	.4byte	.LLST10
-	.uleb128 0x1f
-	.4byte	.LVL26
-	.4byte	0x4a6
-=======
-	.byte	0x4c
-	.4byte	0x4d9
-	.4byte	.LLST7
-	.uleb128 0x18
-	.ascii	"ind\000"
-	.byte	0x1
-	.byte	0x4c
-	.4byte	0x4d9
-	.4byte	.LLST8
 	.uleb128 0x1e
 	.4byte	.LASF9616
 	.byte	0x1
 	.byte	0x51
 	.4byte	0x4ce
-	.4byte	.LLST9
+	.4byte	.LLST7
 	.uleb128 0x1f
-	.4byte	.LVL25
-	.4byte	0x6a7
-	.4byte	0x627
+	.4byte	.LVL24
+	.4byte	0x669
+	.4byte	0x5fc
 	.uleb128 0x20
 	.uleb128 0x1
 	.byte	0x51
 	.uleb128 0x1
 	.byte	0x33
-	.uleb128 0x20
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0xa
-	.byte	0x74
-	.sleb128 0
-	.byte	0x38
-	.byte	0x24
-	.byte	0x77
-	.sleb128 0
-	.byte	0x8
-	.byte	0xff
-	.byte	0x1a
-	.byte	0x22
-	.byte	0
-	.uleb128 0x1f
-	.4byte	.LVL26
-	.4byte	0x6c1
-	.4byte	0x63a
-	.uleb128 0x20
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0x1
-	.byte	0x33
 	.byte	0
 	.uleb128 0x21
-	.4byte	.LVL32
+	.4byte	.LVL30
 	.4byte	0x524
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x20
 	.uleb128 0x1
 	.byte	0x53
@@ -1444,71 +1138,6 @@ CAN_tarea:
 	.2byte	0x555
 	.byte	0
 	.byte	0
-<<<<<<< HEAD
-	.uleb128 0x21
-	.byte	0x4
-	.4byte	0x90
-	.uleb128 0x21
-	.byte	0x4
-	.4byte	0x9b
-	.uleb128 0x13
-	.4byte	.LASF9228
-	.byte	0x1
-	.byte	0x8e
-	.4byte	.LFB4
-	.4byte	.LFE4-.LFB4
-	.uleb128 0x1
-	.byte	0x9c
-	.4byte	0x630
-	.uleb128 0x1c
-	.4byte	.LASF9227
-	.byte	0x1
-	.byte	0x8e
-	.4byte	0x630
-	.4byte	.LLST11
-	.uleb128 0x18
-	.4byte	.LASF9224
-	.byte	0x1
-	.byte	0x8e
-	.4byte	0x636
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x17
-	.ascii	"tnk\000"
-	.byte	0x1
-	.byte	0x8e
-	.4byte	0x636
-	.4byte	.LLST12
-	.uleb128 0x17
-	.ascii	"od\000"
-	.byte	0x1
-	.byte	0x8e
-	.4byte	0x636
-	.4byte	.LLST13
-	.uleb128 0x22
-	.ascii	"ind\000"
-	.byte	0x1
-	.byte	0x8e
-	.4byte	0x636
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 0
-	.byte	0
-	.uleb128 0x21
-	.byte	0x4
-	.4byte	0x45d
-	.uleb128 0x21
-	.byte	0x4
-	.4byte	0x63c
-	.uleb128 0x2
-	.byte	0x1
-	.byte	0x6
-	.4byte	.LASF388
-	.uleb128 0x23
-	.4byte	.LASF9229
-	.byte	0x1
-	.byte	0x3
-=======
 	.uleb128 0x13
 	.byte	0x4
 	.4byte	0x82
@@ -1516,44 +1145,28 @@ CAN_tarea:
 	.4byte	.LASF9617
 	.byte	0x1
 	.byte	0x5
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	0xa6
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	RxCODE
-<<<<<<< HEAD
-	.uleb128 0x23
-	.4byte	.LASF9230
-=======
 	.uleb128 0x22
 	.4byte	.LASF9618
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x1
 	.byte	0x6
 	.4byte	0xa6
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	RxID
-<<<<<<< HEAD
-	.uleb128 0x23
-	.4byte	.LASF9231
-=======
 	.uleb128 0x22
 	.4byte	.LASF9619
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x1
 	.byte	0x7
 	.4byte	0xa6
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	RxLENGTH
-<<<<<<< HEAD
-	.uleb128 0x23
-	.4byte	.LASF9232
-=======
 	.uleb128 0x22
 	.4byte	.LASF9620
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x1
 	.byte	0x8
 	.4byte	0xa6
@@ -1561,20 +1174,11 @@ CAN_tarea:
 	.byte	0x3
 	.4byte	RxTIMESTAMP
 	.uleb128 0x23
-	.4byte	.LASF9622
+	.4byte	.LASF9625
 	.byte	0x6
 	.byte	0x18
 	.4byte	0x82
-	.4byte	0x6c1
 	.uleb128 0x24
-	.4byte	0x82
-	.uleb128 0x24
-	.4byte	0x82
-	.byte	0
-	.uleb128 0x25
-	.4byte	.LASF9626
-	.byte	0x6
-	.byte	0x19
 	.4byte	0x82
 	.uleb128 0x24
 	.4byte	0x82
@@ -1975,24 +1579,6 @@ CAN_tarea:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-<<<<<<< HEAD
-	.uleb128 0x1d
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x1e
 	.uleb128 0x34
 	.byte	0
@@ -2015,6 +1601,8 @@ CAN_tarea:
 	.uleb128 0x1
 	.uleb128 0x31
 	.uleb128 0x13
+	.uleb128 0x1
+	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x20
@@ -2027,35 +1615,12 @@ CAN_tarea:
 	.byte	0
 	.byte	0
 	.uleb128 0x21
-<<<<<<< HEAD
-	.uleb128 0xf
-	.byte	0
-	.uleb128 0xb
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x22
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x49
-=======
 	.uleb128 0x4109
 	.byte	0x1
 	.uleb128 0x11
 	.uleb128 0x1
 	.uleb128 0x31
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
 	.byte	0
 	.byte	0
 	.uleb128 0x22
@@ -2092,8 +1657,6 @@ CAN_tarea:
 	.uleb128 0x13
 	.uleb128 0x3c
 	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x24
@@ -2101,25 +1664,6 @@ CAN_tarea:
 	.byte	0
 	.uleb128 0x49
 	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x25
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x3c
-	.uleb128 0x19
 	.byte	0
 	.byte	0
 	.byte	0
@@ -2211,33 +1755,46 @@ CAN_tarea:
 	.4byte	0
 .LLST5:
 	.4byte	.LVL14
-<<<<<<< HEAD
-	.4byte	.LVL25
+	.4byte	.LVL22
 	.2byte	0x1
 	.byte	0x50
+	.4byte	.LVL22
 	.4byte	.LVL25
-	.4byte	.LFE3
-=======
-	.4byte	.LVL23
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL23
-	.4byte	.LVL27
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.2byte	0x4
 	.byte	0xf3
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0x9f
-<<<<<<< HEAD
+	.4byte	.LVL25
+	.4byte	.LVL29
+	.2byte	0x1
+	.byte	0x50
+	.4byte	.LVL29
+	.4byte	.LVL31
+	.2byte	0x4
+	.byte	0xf3
+	.uleb128 0x1
+	.byte	0x50
+	.byte	0x9f
+	.4byte	.LVL31
+	.4byte	.LVL33
+	.2byte	0x1
+	.byte	0x50
+	.4byte	.LVL33
+	.4byte	.LFE3
+	.2byte	0x4
+	.byte	0xf3
+	.uleb128 0x1
+	.byte	0x50
+	.byte	0x9f
 	.4byte	0
 	.4byte	0
 .LLST6:
 	.4byte	.LVL14
-	.4byte	.LVL24
+	.4byte	.LVL15
 	.2byte	0x1
 	.byte	0x51
-	.4byte	.LVL24
+	.4byte	.LVL15
 	.4byte	.LFE3
 	.2byte	0x4
 	.byte	0xf3
@@ -2247,79 +1804,10 @@ CAN_tarea:
 	.4byte	0
 	.4byte	0
 .LLST7:
-	.4byte	.LVL14
-	.4byte	.LVL22
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL22
-=======
-	.4byte	.LVL27
-	.4byte	.LVL31
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL31
-	.4byte	.LVL33
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x50
-	.byte	0x9f
-	.4byte	.LVL33
-	.4byte	.LVL35
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL35
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.4byte	.LFE3
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x50
-	.byte	0x9f
-	.4byte	0
-	.4byte	0
-<<<<<<< HEAD
-.LLST8:
-=======
-.LLST6:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.4byte	.LVL14
-	.4byte	.LVL15
-	.2byte	0x1
-<<<<<<< HEAD
-	.byte	0x53
-	.4byte	.LVL15
-	.4byte	.LFE3
-=======
-	.byte	0x51
-	.4byte	.LVL16
-	.4byte	.LVL31
-	.2byte	0x1
-	.byte	0x56
-	.4byte	.LVL31
-	.4byte	.LVL33
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x9f
-<<<<<<< HEAD
-	.4byte	0
-	.4byte	0
-.LLST9:
-	.4byte	.LVL14
-	.4byte	.LVL19
-	.2byte	0x2
-	.byte	0x91
-	.sleb128 0
-	.4byte	0
-	.4byte	0
-.LLST10:
 	.4byte	.LVL16
 	.4byte	.LVL17
 	.2byte	0x9
-	.byte	0x74
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2331,223 +1819,7 @@ CAN_tarea:
 	.4byte	.LVL17
 	.4byte	.LVL18
 	.2byte	0x9
-	.byte	0x74
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x3
-	.4byte	.LVL18
-	.4byte	.LVL20
-	.2byte	0x16
-	.byte	0x74
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x77
-	.sleb128 0
-	.byte	0xa
-	.2byte	0xff00
-	.byte	0x1a
-	.byte	0x38
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.4byte	.LVL20
-	.4byte	.LVL21
-	.2byte	0x9
-	.byte	0x74
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x3
-	.4byte	.LVL21
-	.4byte	.LVL23
-	.2byte	0x16
-	.byte	0x74
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x77
-	.sleb128 0
-	.byte	0xa
-	.2byte	0xff00
-	.byte	0x1a
-	.byte	0x38
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.4byte	0
-	.4byte	0
-.LLST11:
-	.4byte	.LVL27
-	.4byte	.LVL28
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL28
-	.4byte	.LFE4
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x50
-	.byte	0x9f
-	.4byte	0
-	.4byte	0
-.LLST12:
-	.4byte	.LVL27
-	.4byte	.LVL31
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL31
-	.4byte	.LVL32
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x9f
-	.4byte	.LVL32
-	.4byte	.LVL36
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL36
-	.4byte	.LFE4
-=======
-	.4byte	.LVL33
-	.4byte	.LVL35
-	.2byte	0x1
-	.byte	0x56
-	.4byte	.LVL35
-	.4byte	.LFE3
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x9f
-	.4byte	0
-	.4byte	0
-.LLST7:
-	.4byte	.LVL14
-	.4byte	.LVL25-1
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL25-1
-	.4byte	.LVL27
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x9f
-	.4byte	.LVL27
-	.4byte	.LVL28
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL28
-	.4byte	.LVL29
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x9f
-<<<<<<< HEAD
-	.4byte	0
-	.4byte	0
-.LLST13:
-	.4byte	.LVL27
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.4byte	.LVL29
-	.4byte	.LVL30
-	.2byte	0x1
-<<<<<<< HEAD
-	.byte	0x53
-	.4byte	.LVL29
-	.4byte	.LVL30
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x53
-	.byte	0x9f
-	.4byte	.LVL30
-	.4byte	.LVL33
-	.2byte	0x1
-	.byte	0x53
-	.4byte	.LVL33
-	.4byte	.LVL34
-=======
-	.byte	0x52
-	.4byte	.LVL30
-	.4byte	.LVL33
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x9f
-	.4byte	.LVL33
-	.4byte	.LVL34
-	.2byte	0x1
-	.byte	0x52
-	.4byte	.LVL34
-	.4byte	.LFE3
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x53
-	.byte	0x9f
-<<<<<<< HEAD
-	.4byte	.LVL34
-	.4byte	.LVL35
-	.2byte	0x1
-	.byte	0x53
-	.4byte	.LVL35
-	.4byte	.LFE4
-=======
-	.4byte	0
-	.4byte	0
-.LLST8:
-	.4byte	.LVL14
-	.4byte	.LVL15
-	.2byte	0x1
-	.byte	0x53
-	.4byte	.LVL15
-	.4byte	.LFE3
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.2byte	0x4
-	.byte	0xf3
-	.uleb128 0x1
-	.byte	0x53
-	.byte	0x9f
-	.4byte	0
-	.4byte	0
-.LLST9:
-	.4byte	.LVL17
-	.4byte	.LVL18
-	.2byte	0x9
-	.byte	0x71
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2558,20 +1830,8 @@ CAN_tarea:
 	.uleb128 0x3
 	.4byte	.LVL18
 	.4byte	.LVL19
-	.2byte	0x9
-	.byte	0x71
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x3
-	.4byte	.LVL19
-	.4byte	.LVL20
 	.2byte	0xe
-	.byte	0x71
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2580,33 +1840,33 @@ CAN_tarea:
 	.uleb128 0x1
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x54
+	.byte	0x51
 	.byte	0x93
 	.uleb128 0x1
+	.byte	0x93
+	.uleb128 0x1
+	.4byte	.LVL19
+	.4byte	.LVL20
+	.2byte	0xf
+	.byte	0x72
+	.sleb128 0
+	.byte	0x48
+	.byte	0x25
+	.byte	0x9f
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x51
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
 	.4byte	.LVL20
 	.4byte	.LVL21
-	.2byte	0xf
-	.byte	0x71
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x57
-	.byte	0x93
-	.uleb128 0x1
-	.4byte	.LVL21
-	.4byte	.LVL22
 	.2byte	0xc
-	.byte	0x71
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2615,13 +1875,13 @@ CAN_tarea:
 	.uleb128 0x1
 	.byte	0x93
 	.uleb128 0x2
-	.byte	0x57
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
-	.4byte	.LVL22
-	.4byte	.LVL24
+	.4byte	.LVL21
+	.4byte	.LVL23
 	.2byte	0xf
-	.byte	0x71
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2630,27 +1890,97 @@ CAN_tarea:
 	.uleb128 0x1
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x54
+	.byte	0x51
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x57
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
-	.4byte	.LVL24
+	.4byte	.LVL23
+	.4byte	.LVL24-1
+	.2byte	0xc
+	.byte	0x72
+	.sleb128 0
+	.byte	0x48
+	.byte	0x25
+	.byte	0x9f
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x93
+	.uleb128 0x2
+	.byte	0x55
+	.byte	0x93
+	.uleb128 0x1
+	.4byte	.LVL24-1
+	.4byte	.LVL25
+	.2byte	0x5
+	.byte	0x93
+	.uleb128 0x3
+	.byte	0x55
+	.byte	0x93
+	.uleb128 0x1
+	.4byte	.LVL25
+	.4byte	.LVL26
+	.2byte	0xf
+	.byte	0x72
+	.sleb128 0
+	.byte	0x48
+	.byte	0x25
+	.byte	0x9f
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x51
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x93
+	.uleb128 0x1
+	.4byte	.LVL26
 	.4byte	.LVL27
 	.2byte	0x8
 	.byte	0x93
 	.uleb128 0x2
-	.byte	0x54
+	.byte	0x51
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x57
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
 	.4byte	.LVL27
+	.4byte	.LVL28
+	.2byte	0xf
+	.byte	0x72
+	.sleb128 0
+	.byte	0x48
+	.byte	0x25
+	.byte	0x9f
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x51
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x93
+	.uleb128 0x1
+	.4byte	.LVL28
+	.4byte	.LVL29
+	.2byte	0x8
+	.byte	0x93
+	.uleb128 0x2
+	.byte	0x51
+	.byte	0x93
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x93
+	.uleb128 0x1
 	.4byte	.LVL31
+	.4byte	.LVL32
 	.2byte	0xf
-	.byte	0x71
+	.byte	0x72
 	.sleb128 0
 	.byte	0x48
 	.byte	0x25
@@ -2659,28 +1989,21 @@ CAN_tarea:
 	.uleb128 0x1
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x54
+	.byte	0x51
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x57
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
+	.4byte	.LVL32
 	.4byte	.LVL33
-	.4byte	.LVL35
-	.2byte	0xf
-	.byte	0x71
-	.sleb128 0
-	.byte	0x48
-	.byte	0x25
-	.byte	0x9f
+	.2byte	0x8
+	.byte	0x93
+	.uleb128 0x2
+	.byte	0x51
 	.byte	0x93
 	.uleb128 0x1
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x93
-	.uleb128 0x1
-	.byte	0x57
+	.byte	0x55
 	.byte	0x93
 	.uleb128 0x1
 	.4byte	0
@@ -2701,8 +2024,6 @@ CAN_tarea:
 	.4byte	.LFE2-.LFB2
 	.4byte	.LFB3
 	.4byte	.LFE3-.LFB3
-	.4byte	.LFB4
-	.4byte	.LFE4-.LFB4
 	.4byte	0
 	.4byte	0
 	.section	.debug_ranges,"",%progbits
@@ -2715,8 +2036,6 @@ CAN_tarea:
 	.4byte	.LFE2
 	.4byte	.LFB3
 	.4byte	.LFE3
-	.4byte	.LFB4
-	.4byte	.LFE4
 	.4byte	0
 	.4byte	0
 	.section	.debug_macro,"",%progbits
@@ -36089,11 +35408,7 @@ CAN_tarea:
 	.ascii	"FTM_COMBINE_DTEN3_MASK 0x10000000u\000"
 .LASF4453:
 	.ascii	"LPI2C_SCR_FILTDZ_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF9232:
-=======
 .LASF9620:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RxTIMESTAMP\000"
 .LASF5987:
 	.ascii	"MPU_RGD_WORD2_M4RE_WIDTH 1u\000"
@@ -36416,8 +35731,6 @@ CAN_tarea:
 .LASF3282:
 	.ascii	"FTM_SYNC_REINIT(x) (((uint32_t)(((uint32_t)(x))<<FT"
 	.ascii	"M_SYNC_REINIT_SHIFT))&FTM_SYNC_REINIT_MASK)\000"
-.LASF9225:
-	.ascii	"trOd\000"
 .LASF5315:
 	.ascii	"LPUART_STAT_BRK13(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"LPUART_STAT_BRK13_SHIFT))&LPUART_STAT_BRK13_MASK)\000"
@@ -36610,11 +35923,7 @@ CAN_tarea:
 .LASF7690:
 	.ascii	"S32_NVIC_IP_PRI169(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI169_SHIFT))&S32_NVIC_IP_PRI169_MASK)\000"
-<<<<<<< HEAD
-.LASF9229:
-=======
 .LASF9617:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RxCODE\000"
 .LASF8123:
 	.ascii	"S32_SCB_SHPR1_PRI_4(x) (((uint32_t)(((uint32_t)(x))"
@@ -38644,11 +37953,7 @@ CAN_tarea:
 	.ascii	"A_TCD_CSR_ESG_SHIFT))&DMA_TCD_CSR_ESG_MASK)\000"
 .LASF9006:
 	.ascii	"TRGMUX_TRGMUXn_COUNT 26u\000"
-<<<<<<< HEAD
-.LASF9231:
-=======
 .LASF9619:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RxLENGTH\000"
 .LASF2083:
 	.ascii	"DMA_CEEI_NOP_SHIFT 7u\000"
@@ -39050,11 +38355,7 @@ CAN_tarea:
 	.ascii	"ADC_SC2_ADACT_SHIFT 7u\000"
 .LASF869:
 	.ascii	"CAN0 ((CAN_Type *)CAN0_BASE)\000"
-<<<<<<< HEAD
-.LASF9236:
-=======
-.LASF9621:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF9624:
 	.ascii	"CAN_id2Val\000"
 .LASF4101:
 	.ascii	"LMEM_PCCRMR_R15_MASK 0x3u\000"
@@ -39665,11 +38966,6 @@ CAN_tarea:
 	.ascii	"ADC_CLP2_CLP2_WIDTH 10u\000"
 .LASF2646:
 	.ascii	"ERM_CR0_ENCIE1_SHIFT 26u\000"
-<<<<<<< HEAD
-.LASF9226:
-	.ascii	"dummy\000"
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF3301:
 	.ascii	"FTM_SYNC_SWSYNC_WIDTH 1u\000"
 .LASF6324:
@@ -40978,11 +40274,6 @@ CAN_tarea:
 	.ascii	"AIPS_OPACR_TP5_WIDTH 1u\000"
 .LASF8064:
 	.ascii	"S32_SCB_AIRCR_VECTCLRACTIVE_MASK 0x2u\000"
-<<<<<<< HEAD
-.LASF9228:
-	.ascii	"CAN_tarea\000"
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF5297:
 	.ascii	"LPUART_STAT_TC_SHIFT 22u\000"
 .LASF6332:
@@ -41954,7 +41245,7 @@ CAN_tarea:
 	.ascii	"LPI2C_SSR_SARF_WIDTH 1u\000"
 .LASF6152:
 	.ascii	"MSCM_CPxCFG2_TMLSZ_SHIFT 24u\000"
-.LASF9622:
+.LASF9625:
 	.ascii	"EEEPROM_Write_Data\000"
 .LASF1845:
 	.ascii	"CSE_PRAM_RAMn_ACCESS8BIT_DATA_8LU_RAM_LU(x) (((uint"
@@ -42708,11 +41999,7 @@ CAN_tarea:
 .LASF560:
 	.ascii	"ADC_SC2_ACREN(x) (((uint32_t)(((uint32_t)(x))<<ADC_"
 	.ascii	"SC2_ACREN_SHIFT))&ADC_SC2_ACREN_MASK)\000"
-<<<<<<< HEAD
-.LASF9233:
-=======
-.LASF9623:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF9621:
 	.ascii	"GNU C 4.9.3 20150529 (release) [ARM/embedded-4_9-br"
 	.ascii	"anch revision 227977] -mcpu=cortex-m4 -mthumb -mflo"
 	.ascii	"at-abi=hard -mfpu=fpv4-sp-d16 -g3 -O1 -std=c99 -fun"
@@ -43018,11 +42305,7 @@ CAN_tarea:
 	.ascii	"FTM_SYNCONF_HWWRBUF(x) (((uint32_t)(((uint32_t)(x))"
 	.ascii	"<<FTM_SYNCONF_HWWRBUF_SHIFT))&FTM_SYNCONF_HWWRBUF_M"
 	.ascii	"ASK)\000"
-<<<<<<< HEAD
-.LASF9227:
-=======
 .LASF9616:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"info\000"
 .LASF6726:
 	.ascii	"RCM_SRS_LOC(x) (((uint32_t)(((uint32_t)(x))<<RCM_SR"
@@ -43278,12 +42561,6 @@ CAN_tarea:
 	.ascii	"S32_NVIC_IP_PRI21_SHIFT 0u\000"
 .LASF8835:
 	.ascii	"SIM_FTMOPT1_FTM0_OUTSEL_WIDTH 8u\000"
-<<<<<<< HEAD
-.LASF9156:
-=======
-.LASF9539:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.ascii	"short int\000"
 .LASF4865:
 	.ascii	"LPSPI_CR_RTF_SHIFT 8u\000"
 .LASF7359:
@@ -43358,11 +42635,7 @@ CAN_tarea:
 	.ascii	"PORT_ISFR_ISF_MASK 0xFFFFFFFFu\000"
 .LASF5771:
 	.ascii	"MCM_LMDR_V_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF9223:
-=======
 .LASF9614:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"CAN_receive\000"
 .LASF3865:
 	.ascii	"FTM_SWOCTRL_CH6OCV_WIDTH 1u\000"
@@ -43671,6 +42944,8 @@ CAN_tarea:
 	.ascii	"LPUART_BAUD_M10_WIDTH 1u\000"
 .LASF4377:
 	.ascii	"LPI2C_MCCR0_CLKLO_WIDTH 6u\000"
+.LASF9339:
+	.ascii	"__wchar_t__ \000"
 .LASF7393:
 	.ascii	"S32_NVIC_IP_PRI95_WIDTH 8u\000"
 .LASF6619:
@@ -44627,11 +43902,7 @@ CAN_tarea:
 	.ascii	"FTM_PAIR2DEADTIME_DTVAL_MASK 0x3Fu\000"
 .LASF2439:
 	.ascii	"DMA_TCD_SADDR_SADDR_SHIFT 0u\000"
-<<<<<<< HEAD
-.LASF9230:
-=======
 .LASF9618:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"RxID\000"
 .LASF2520:
 	.ascii	"DMA_TCD_CITER_ELINKYES_LINKCH_WIDTH 4u\000"
@@ -44893,14 +44164,9 @@ CAN_tarea:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
-<<<<<<< HEAD
-.LASF9235:
+.LASF9623:
 	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
 	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
-=======
-.LASF9339:
-	.ascii	"__wchar_t__ \000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF2887:
 	.ascii	"FLEXIO_TIMCTL_TRGSRC_SHIFT 22u\000"
 .LASF9477:
@@ -45039,6 +44305,8 @@ CAN_tarea:
 	.ascii	"DMAMUX_CHCFG_SOURCE(x) (((uint8_t)(((uint8_t)(x))<<"
 	.ascii	"DMAMUX_CHCFG_SOURCE_SHIFT))&DMAMUX_CHCFG_SOURCE_MAS"
 	.ascii	"K)\000"
+.LASF2597:
+	.ascii	"DMAMUX_CHCFG_SOURCE_SHIFT 0u\000"
 .LASF9041:
 	.ascii	"TRGMUX_TRGMUXn_SEL2_SHIFT 16u\000"
 .LASF342:
@@ -45060,11 +44328,7 @@ CAN_tarea:
 	.ascii	"PCC_PCCn_FRAC_SHIFT 3u\000"
 .LASF95:
 	.ascii	"__INT8_C(c) c\000"
-<<<<<<< HEAD
-.LASF9224:
-=======
 .LASF9615:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"speed\000"
 .LASF5672:
 	.ascii	"MCM_CPCR_SRAMLAP(x) (((uint32_t)(((uint32_t)(x))<<M"
@@ -45403,8 +44667,8 @@ CAN_tarea:
 	.ascii	"S32_NVIC_IP_PRI90_WIDTH 8u\000"
 .LASF168:
 	.ascii	"__DEC32_MANT_DIG__ 7\000"
-.LASF3007:
-	.ascii	"FTFC_FCCOB_CCOBn_SHIFT 0u\000"
+.LASF9589:
+	.ascii	"RESERVED_7\000"
 .LASF9083:
 	.ascii	"WDOG_CS_INT(x) (((uint32_t)(((uint32_t)(x))<<WDOG_C"
 	.ascii	"S_INT_SHIFT))&WDOG_CS_INT_MASK)\000"
@@ -45585,8 +44849,8 @@ CAN_tarea:
 	.ascii	"RESERVED_5\000"
 .LASF9578:
 	.ascii	"RESERVED_6\000"
-.LASF9589:
-	.ascii	"RESERVED_7\000"
+.LASF6045:
+	.ascii	"MPU_RGDAAC_M1PE_MASK 0x800u\000"
 .LASF9590:
 	.ascii	"RESERVED_8\000"
 .LASF6561:
@@ -46401,8 +45665,8 @@ CAN_tarea:
 	.ascii	"AIPS_BASE_ADDRS { AIPS_BASE }\000"
 .LASF6955:
 	.ascii	"RTC_LR_LRL_WIDTH 1u\000"
-.LASF2898:
-	.ascii	"FLEXIO_TIMCFG_TSTART_MASK 0x2u\000"
+.LASF4976:
+	.ascii	"LPSPI_CFGR1_AUTOPCS_MASK 0x4u\000"
 .LASF1799:
 	.ascii	"CRC_CTRL_TCRC(x) (((uint32_t)(((uint32_t)(x))<<CRC_"
 	.ascii	"CTRL_TCRC_SHIFT))&CRC_CTRL_TCRC_MASK)\000"
@@ -47978,8 +47242,8 @@ CAN_tarea:
 	.ascii	"_CR_RRF_SHIFT))&LPSPI_CR_RRF_MASK)\000"
 .LASF690:
 	.ascii	"AIPS_OPACR_COUNT 12u\000"
-.LASF9626:
-	.ascii	"EEEPROM_Read_Data\000"
+.LASF8253:
+	.ascii	"S32_SCB_CFSR_BFARVALID_SHIFT 15u\000"
 .LASF7217:
 	.ascii	"S32_NVIC_IP_PRI51_WIDTH 8u\000"
 .LASF4750:
@@ -48066,8 +47330,6 @@ CAN_tarea:
 	.ascii	"FTM_OUTMASK_CH0OM_MASK 0x1u\000"
 .LASF3632:
 	.ascii	"FTM_FLTCTRL_FAULT2EN_SHIFT 2u\000"
-.LASF4976:
-	.ascii	"LPSPI_CFGR1_AUTOPCS_MASK 0x4u\000"
 .LASF7266:
 	.ascii	"S32_NVIC_IP_PRI63(x) (((uint8_t)(((uint8_t)(x))<<S3"
 	.ascii	"2_NVIC_IP_PRI63_SHIFT))&S32_NVIC_IP_PRI63_MASK)\000"
@@ -49118,9 +48380,6 @@ CAN_tarea:
 	.ascii	"RCM_SRS_POR_MASK 0x80u\000"
 .LASF5513:
 	.ascii	"LPUART_MATCH_MA2_SHIFT 16u\000"
-.LASF9625:
-	.ascii	"C:\\\\Users\\\\rbn\\\\workspaceS32DS.ARM.2018.R1\\\\"
-	.ascii	"clusterRtosFinal\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF8578:
 	.ascii	"SCG_SIRCCSR_SIRCLPEN_WIDTH 1u\000"
 .LASF8275:
@@ -49288,13 +48547,10 @@ CAN_tarea:
 	.ascii	"S32_NVIC_IP_PRI231_SHIFT 0u\000"
 .LASF1836:
 	.ascii	"CSE_PRAM_RAMn_DATA_32_BYTE_0_WIDTH 8u\000"
-.LASF2597:
-	.ascii	"DMAMUX_CHCFG_SOURCE_SHIFT 0u\000"
-<<<<<<< HEAD
-=======
+.LASF9539:
+	.ascii	"short int\000"
 .LASF9493:
 	.ascii	"_IONBF 2\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF6868:
 	.ascii	"RTC_IRQS_ARR_COUNT (2u)\000"
 .LASF1559:
@@ -50544,11 +49800,7 @@ CAN_tarea:
 	.ascii	"SCG_SPLLCFG_MULT_SHIFT 16u\000"
 .LASF4805:
 	.ascii	"LPIT_TMR_TCTRL_TROT_SHIFT 18u\000"
-<<<<<<< HEAD
-.LASF9234:
-=======
-.LASF9624:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF9622:
 	.ascii	"../Sources/can.c\000"
 .LASF2163:
 	.ascii	"DMA_CINT_CAIR_SHIFT 6u\000"
@@ -53160,8 +52412,6 @@ CAN_tarea:
 	.ascii	"LPI2C_MSR_ALF_WIDTH 1u\000"
 .LASF5665:
 	.ascii	"MCM_CPCR_SRAMUWP_MASK 0x4000000u\000"
-.LASF8253:
-	.ascii	"S32_SCB_CFSR_BFARVALID_SHIFT 15u\000"
 .LASF915:
 	.ascii	"CAN_MCR_DMA_MASK 0x8000u\000"
 .LASF5191:
@@ -53222,8 +52472,6 @@ CAN_tarea:
 	.ascii	"ISCR_FIDC_SHIFT))&MCM_ISCR_FIDC_MASK)\000"
 .LASF496:
 	.ascii	"ADC_SC1_COUNT 16u\000"
-.LASF6045:
-	.ascii	"MPU_RGDAAC_M1PE_MASK 0x800u\000"
 .LASF4041:
 	.ascii	"LMEM_PCCCR_PUSHW1_MASK 0x8000000u\000"
 .LASF5556:
@@ -53263,6 +52511,8 @@ CAN_tarea:
 	.ascii	"__FLT_MAX__ 3.4028234663852886e+38F\000"
 .LASF6428:
 	.ascii	"PDB_SC_LDMOD_WIDTH 2u\000"
+.LASF2898:
+	.ascii	"FLEXIO_TIMCFG_TSTART_MASK 0x2u\000"
 .LASF2220:
 	.ascii	"DMA_INT_INT12_WIDTH 1u\000"
 .LASF7645:
@@ -53783,6 +53033,8 @@ CAN_tarea:
 	.ascii	"EIM_EICHEN_EICH1EN_SHIFT 30u\000"
 .LASF245:
 	.ascii	"__UACCUM_IBIT__ 16\000"
+.LASF3007:
+	.ascii	"FTFC_FCCOB_CCOBn_SHIFT 0u\000"
 .LASF9302:
 	.ascii	"__rangeof(type,start,end) (__offsetof(type, end) - "
 	.ascii	"__offsetof(type, start))\000"

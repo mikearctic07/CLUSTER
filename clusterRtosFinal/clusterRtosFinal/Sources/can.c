@@ -1,6 +1,7 @@
 #include "can.h"
 #include "stdio.h"
 #include "eeeprom.h"
+#include "definitions.h"
 
 uint32_t  RxCODE;              /* Received message buffer code */
 uint32_t  RxID;                /* Received message ID */
@@ -73,7 +74,7 @@ uint32_t CAN_id2Val(uint16_t id) {
 	return((id*MSG_BUF_SIZE) << ID_POSITION );
 }
 
-void CAN_receive(int * speed,int * tnk,char * od,char * ind){
+void CAN_receive(int * speed,char * ind){
 	//	uint8_t tarea=0;
 	//	uint8_t j;
 //	uint32_t dummy;
@@ -105,32 +106,79 @@ void CAN_receive(int * speed,int * tnk,char * od,char * ind){
 			break;
 		case 2:
 			//		CAN_odo(info);
-			*od ^= 1;
+			if(info.param0 == 1)
+			{
+			EEEPROM_Write_Data(EEEPROM_Read_Data(ODOMETER) + 1, ODOMETER);
+			EEEPROM_Write_Data(EEEPROM_Read_Data(TRIP_ODOMETER) + 1, TRIP_ODOMETER);
+			}
 			break;
 		case 3:
 			//		CAN_tnk(info);
 			EEEPROM_Write_Data(((info.param0 << 8)+info.param1), TANK_LEVEL);
-			*tnk = EEEPROM_Read_Data(TANK_LEVEL);
 			break;
 		case 4:
-			if(info.param0 == 1 && info.param1 == 1){
-				PTD-> PCOR |= 1<<0;
-			}else{
-				PTD-> PSOR |= 1<<0;
+			if(info.param0 == 1)
+			{
+				if(info.param1)
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_DOOR, ON);
+				}
+				else
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_DOOR, OFF);
+				}
 			}
-			if(info.param0 == 2 && info.param1 == 1){
-							PTD-> PCOR |= 1<<15;
-						}else{
-							PTD-> PSOR |= 1<<15;
-						}
-			if(info.param0 == 3 && info.param1 == 1){
-							PTD-> PCOR |= 1<<16;
-						}else{
-							PTD-> PSOR |= 1<<16;
-						}
+			else if(info.param0 == 2)
+			{
+				if(info.param1)
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_SEAT_BELT, ON);
+				}
+				else
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_SEAT_BELT, OFF);
+				}
+			}
+			else if(info.param0 == 3)
+			{
+				if(info.param1)
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_GAS, ON);
+				}
+				else
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_GAS, OFF);
+				}
+			}
+			else if(info.param0 == 4)
+			{
+				if(info.param1)
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_HIGH_BEAMS, ON);
+				}
+				else
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_HIGH_BEAMS, OFF);
+				}
+			}
+			else if(info.param0 == 5)
+			{
+				if(info.param1)
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_BREAK, ON);
+				}
+				else
+				{
+					CLUSTER_Display_Indicator_State(INDICATOR_BREAK, OFF);
+				}
+			}
+			else
+			{
+				CLUSTER_Display_Indicator_State(INDICATOR_DOOR, ON);
+			}
 			break;
 		default:
-				break;
+			break;
 		}
 	}
 

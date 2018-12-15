@@ -51,6 +51,7 @@
 #include "pin_mux.h"
 #include "FreeRTOS.h"
 #include "cluster.h"
+#include "LCD_DOS.h"
 
 #if CPU_INIT_CONFIG
   #include "Init_Config.h"
@@ -80,7 +81,6 @@ int main(void)
   /* Write your local variable definition here */
 
   CLUSTER_Initialize();
-
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   #ifdef PEX_RTOS_INIT

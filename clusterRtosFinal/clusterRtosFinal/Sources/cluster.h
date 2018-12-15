@@ -40,6 +40,6 @@ void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
 
 void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
 
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance);
+void CLUSTER_Display_Odometer_Value(int distanceValue, int tripDistanceValue, int *ptrLcdCharBox);
 
 #endif /* CLUSTER_H_ */

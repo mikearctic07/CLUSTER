@@ -61,8 +61,20 @@ void CLUSTER_Initialize(void)
 
   GPIO_Init_As_Output(IGNITION_STATE);
 
+  LCD_Delay(100000);
+
+  LCD_Init();
+
   CAN_Init();
+
   EEEPROM_Init();
+
+  if((GPIO_Read_Input(IGNITION_BUTTON)) && (GPIO_Read_Input(RESET_TRIP_ODOMETER)))
+  {
+	  EEEPROM_Write_Data(300, TANK_LEVEL);
+	  EEEPROM_Write_Data(1000,ODOMETER);
+	  EEEPROM_Write_Data(23,TRIP_ODOMETER);
+  }
 }
 
 void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue)
@@ -440,60 +452,132 @@ void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue)
 			break;
 	}
 }
-
-void CLUSTER_Display_Odometer_Value(int *ptrDistance, int *ptrTripDistance)
+void CLUSTER_Display_Odometer_Value(int distanceValue, int tripDistanceValue, int *ptrLcdCharBox)
 {
-	int distanceValue = *ptrDistance;
-	int tripDistanceValue = *ptrTripDistance;
-
-	LCD_DATA_BUS_DIRN_REG |= LCD_CTRL_BUS_MASK;
-	LCD_CTRL_BUS_DIRN_REG |= LCD_CTRL_BUS_MASK;
-
-	Lcd_CmdWrite(0x02);
-	Lcd_CmdWrite(0x28);
-	Lcd_CmdWrite(0x0E);
-	Lcd_CmdWrite(0x01);
-	Lcd_CmdWrite(0x80);
-
-	Lcd_DataWrite((char)(32));
-	Lcd_DataWrite((char)(32));
-	Lcd_DataWrite((char)(32));
-
-	int i = 0;
-	int div = 1000000;
-	for(i = 0; i < 7; i++)
+	switch(*ptrLcdCharBox)
 	{
-		Lcd_DataWrite((char)(48+distanceValue/div));
-		distanceValue = distanceValue % div;
-		div = div/10;
-		if(i == 5)
-		{
-			Lcd_DataWrite((char)(46));
-		}
+	case 1:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 2;
+		break;
+	case 2:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 3;
+		break;
+	case 3:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 4;
+		break;
+	case 4:
+		LCD_Data_Write((char)(48+distanceValue/1000000));
+		*ptrLcdCharBox = 5;
+		break;
+	case 5:
+		distanceValue = distanceValue % 1000000;
+		LCD_Data_Write((char)(48+distanceValue/100000));
+		*ptrLcdCharBox = 6;
+		break;
+	case 6:
+		distanceValue = distanceValue % 100000;
+		LCD_Data_Write((char)(48+distanceValue/10000));
+		*ptrLcdCharBox = 7;
+		break;
+	case 7:
+		distanceValue = distanceValue % 10000;
+		LCD_Data_Write((char)(48+distanceValue/1000));
+		*ptrLcdCharBox = 8;
+		break;
+	case 8:
+		distanceValue = distanceValue % 1000;
+		LCD_Data_Write((char)(48+distanceValue/100));
+		*ptrLcdCharBox = 9;
+		break;
+	case 9:
+		distanceValue = distanceValue % 100;
+		LCD_Data_Write((char)(48+distanceValue/10));
+		*ptrLcdCharBox = 10;
+		break;
+	case 10:
+		LCD_Data_Write((char)(46));
+		*ptrLcdCharBox = 11;
+		break;
+	case 11:
+		distanceValue = distanceValue % 10;
+		LCD_Data_Write((char)(48+distanceValue));
+		*ptrLcdCharBox = 12;
+		break;
+	case 12:
+		LCD_Data_Write((char)(75));
+		*ptrLcdCharBox = 13;
+		break;
+	case 13:
+		LCD_Data_Write((char)(109));
+		*ptrLcdCharBox = 14;
+		break;
+	case 41:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 42;
+		break;
+	case 42:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 43;
+		break;
+	case 43:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = 44;
+		break;
+	case 44:
+		LCD_Data_Write((char)(48+tripDistanceValue/1000000));
+		*ptrLcdCharBox = 45;
+		break;
+	case 45:
+		tripDistanceValue = tripDistanceValue % 1000000;
+		LCD_Data_Write((char)(48+tripDistanceValue/100000));
+		*ptrLcdCharBox = 46;
+		break;
+	case 46:
+		tripDistanceValue = tripDistanceValue % 100000;
+		LCD_Data_Write((char)(48+tripDistanceValue/10000));
+		*ptrLcdCharBox = 47;
+		break;
+	case 47:
+		tripDistanceValue = tripDistanceValue % 10000;
+		LCD_Data_Write((char)(48+tripDistanceValue/1000));
+		*ptrLcdCharBox = 48;
+		break;
+	case 48:
+		tripDistanceValue = tripDistanceValue % 1000;
+		LCD_Data_Write((char)(48+tripDistanceValue/100));
+		*ptrLcdCharBox = 49;
+		break;
+	case 49:
+		tripDistanceValue = tripDistanceValue % 100;
+		LCD_Data_Write((char)(48+tripDistanceValue/10));
+		*ptrLcdCharBox = 50;
+		break;
+	case 50:
+		LCD_Data_Write((char)(46));
+		*ptrLcdCharBox = 51;
+		break;
+	case 51:
+		tripDistanceValue = tripDistanceValue % 10;
+		LCD_Data_Write((char)(48+tripDistanceValue));
+		*ptrLcdCharBox = 52;
+		break;
+	case 52:
+		LCD_Data_Write((char)(75));
+		*ptrLcdCharBox = 53;
+		break;
+	case 53:
+		LCD_Data_Write((char)(109));
+		*ptrLcdCharBox = 54;
+		break;
+	case 81:
+		*ptrLcdCharBox = 1;
+		break;
+	default:
+		LCD_Data_Write((char)(32));
+		*ptrLcdCharBox = *ptrLcdCharBox + 1;
+		break;
 	}
-
-	Lcd_DataWrite((char)(75));
-	Lcd_DataWrite((char)(109));
-
-	Lcd_CmdWrite(0xc0);
-
-	Lcd_DataWrite((char)(32));
-	Lcd_DataWrite((char)(32));
-	Lcd_DataWrite((char)(32));
-
-	div = 1000000;
-
-	for(i = 0; i < 7; i++)
-	{
-		Lcd_DataWrite((char)(48+tripDistanceValue/div));
-		tripDistanceValue = tripDistanceValue % div;
-		div = div/10;
-		if(i == 5)
-		{
-			Lcd_DataWrite((char)(46));
-		}
-	}
-
-	Lcd_DataWrite(75);
-	Lcd_DataWrite(109);
 }

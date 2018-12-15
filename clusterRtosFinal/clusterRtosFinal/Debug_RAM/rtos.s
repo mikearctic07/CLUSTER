@@ -25,83 +25,33 @@
 odTask:
 .LFB8:
 	.file 1 "../Sources/rtos.c"
-<<<<<<< HEAD
-	.loc 1 187 0
-=======
 	.loc 1 174 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
 .LVL0:
-	push	{r4, r5, r6, lr}
-	.cfi_def_cfa_offset 16
-	.cfi_offset 4, -16
-	.cfi_offset 5, -12
-	.cfi_offset 6, -8
+	push	{r4, r5, lr}
+	.cfi_def_cfa_offset 12
+	.cfi_offset 4, -12
+	.cfi_offset 5, -8
 	.cfi_offset 14, -4
-	sub	sp, sp, #8
+	sub	sp, sp, #12
 	.cfi_def_cfa_offset 24
-<<<<<<< HEAD
-	.loc 1 193 0
-=======
 	.loc 1 180 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	bl	xTaskGetTickCount
 .LVL1:
-	add	r5, sp, #8
-	str	r0, [r5, #-4]!
-<<<<<<< HEAD
-	.loc 1 203 0
-	ldr	r6, .L6
-	.loc 1 206 0
-	ldr	r4, .L6+4
-.L2:
-	.loc 1 201 0
-=======
-	.loc 1 190 0
-	ldr	r6, .L6
-	.loc 1 193 0
-	ldr	r4, .L6+4
-.L2:
+	add	r4, sp, #8
+	str	r0, [r4, #-4]!
 	.loc 1 188 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	mov	r0, r5
-	mov	r1, #332
+	movs	r5, #200
+.L2:
+	.loc 1 188 0 is_stmt 0 discriminator 1
+	mov	r0, r4
+	mov	r1, r5
 	bl	vTaskDelayUntil
 .LVL2:
-<<<<<<< HEAD
-	.loc 1 203 0
-	ldrh	r3, [r6]
-	cmp	r3, #1
-	bne	.L3
-	.loc 1 204 0
-=======
-	.loc 1 190 0
-	ldrsb	r3, [r6]
-	cmp	r3, #1
-	bne	.L3
-	.loc 1 191 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	ldr	r3, [r4, #4]
-	orr	r3, r3, #65536
-	str	r3, [r4, #4]
+	.loc 1 192 0 is_stmt 1 discriminator 1
 	b	.L2
-.L3:
-<<<<<<< HEAD
-	.loc 1 206 0
-=======
-	.loc 1 193 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	ldr	r3, [r4, #8]
-	orr	r3, r3, #65536
-	str	r3, [r4, #8]
-	b	.L2
-.L7:
-	.align	2
-.L6:
-	.word	.LANCHOR0
-	.word	1074786496
 	.cfi_endproc
 .LFE8:
 	.size	odTask, .-odTask
@@ -112,11 +62,7 @@ odTask:
 	.type	tnkTask, %function
 tnkTask:
 .LFB7:
-<<<<<<< HEAD
-	.loc 1 161 0
-=======
-	.loc 1 152 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 150 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -129,64 +75,45 @@ tnkTask:
 	.cfi_offset 14, -4
 	sub	sp, sp, #8
 	.cfi_def_cfa_offset 24
-<<<<<<< HEAD
-	.loc 1 167 0
+	.loc 1 156 0
 	bl	xTaskGetTickCount
 .LVL4:
 	add	r5, sp, #8
 	str	r0, [r5, #-4]!
-	.loc 1 177 0
-	ldr	r6, .L13
-	.loc 1 180 0
-	ldr	r4, .L13+4
-.L9:
-	.loc 1 175 0
-	mov	r0, r5
-	movs	r1, #166
-	bl	vTaskDelayUntil
-.LVL5:
-	.loc 1 177 0
-	ldrb	r3, [r6]	@ zero_extendqisi2
-	cmp	r3, #1
-	bne	.L10
-	.loc 1 178 0
-	ldr	r3, [r4, #4]
-	orr	r3, r3, #1
-	str	r3, [r4, #4]
-	b	.L9
-.L10:
-	.loc 1 180 0
-	ldr	r3, [r4, #8]
-	orr	r3, r3, #1
-	str	r3, [r4, #8]
-=======
-	.loc 1 158 0
-	bl	xTaskGetTickCount
-.LVL4:
-	add	r4, sp, #8
-	str	r0, [r4, #-4]!
+.LBB6:
+	.loc 1 166 0
+	ldr	r4, .L7
 	.loc 1 168 0
-	ldr	r6, .L11
-	ldr	r5, .L11+4
-.L9:
-	.loc 1 166 0 discriminator 1
-	mov	r0, r4
+	ldr	r6, .L7+4
+.L5:
+	.loc 1 164 0 discriminator 1
+	mov	r0, r5
 	movs	r1, #100
 	bl	vTaskDelayUntil
 .LVL5:
-	.loc 1 168 0 discriminator 1
-	mov	r0, r6
-	mov	r1, r5
-	bl	CLUSTER_Display_Gas_Tank_Level
+	.loc 1 166 0 discriminator 1
+	ldr	r3, [r4, #12]
+	orr	r3, r3, #1
+	str	r3, [r4, #12]
+	.loc 1 167 0 discriminator 1
+	movs	r0, #3
+	bl	EEEPROM_Read_Data
 .LVL6:
+	add	r3, sp, #8
+	str	r0, [r3, #-8]!
+	.loc 1 168 0 discriminator 1
+	mov	r0, r3
+	mov	r1, r6
+	bl	CLUSTER_Display_Gas_Tank_Level
+.LVL7:
+.LBE6:
 	.loc 1 170 0 discriminator 1
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	b	.L9
-.L12:
+	b	.L5
+.L8:
 	.align	2
-.L11:
-	.word	.LANCHOR1
-	.word	.LANCHOR2
+.L7:
+	.word	1074786496
+	.word	.LANCHOR0
 	.cfi_endproc
 .LFE7:
 	.size	tnkTask, .-tnkTask
@@ -197,15 +124,11 @@ tnkTask:
 	.type	speedTask, %function
 speedTask:
 .LFB6:
-<<<<<<< HEAD
-	.loc 1 136 0
-=======
-	.loc 1 129 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 127 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
-.LVL7:
+.LVL8:
 	push	{r4, r5, r6, lr}
 	.cfi_def_cfa_offset 16
 	.cfi_offset 4, -16
@@ -214,65 +137,36 @@ speedTask:
 	.cfi_offset 14, -4
 	sub	sp, sp, #8
 	.cfi_def_cfa_offset 24
-<<<<<<< HEAD
-	.loc 1 142 0
+	.loc 1 133 0
 	bl	xTaskGetTickCount
-.LVL7:
-	str	r0, [sp, #4]
-	.loc 1 152 0
-	ldr	r4, .L20
-	ldr	r5, .L20+4
-	mov	r6, r4
-.L16:
-	.loc 1 150 0
-	add	r0, sp, #4
-	movs	r1, #83
+.LVL9:
+	add	r5, sp, #8
+	str	r0, [r5, #-4]!
+	.loc 1 143 0
+	ldr	r4, .L12
+	.loc 1 144 0
+	ldr	r6, .L12+4
+.L10:
+	.loc 1 141 0 discriminator 1
+	mov	r0, r5
+	movs	r1, #50
 	bl	vTaskDelayUntil
-.LVL8:
-	.loc 1 152 0
-	ldrb	r2, [r4]	@ zero_extendqisi2
-	ldrb	r3, [r5]	@ zero_extendqisi2
-	cmp	r2, r3
-	beq	.L16
-	.loc 1 154 0
+.LVL10:
+	.loc 1 143 0 discriminator 1
+	ldr	r3, [r4, #12]
+	orr	r3, r3, #32768
+	str	r3, [r4, #12]
+	.loc 1 144 0 discriminator 1
 	mov	r0, r6
 	bl	CLUSTER_Display_Velocimeter_Value
-.LVL9:
-	.loc 1 155 0
-	ldrb	r3, [r4]	@ zero_extendqisi2
-	strb	r3, [r5]
-	b	.L16
-.L21:
-	.align	2
-.L20:
-	.word	.LANCHOR2
-=======
-	.loc 1 135 0
-	bl	xTaskGetTickCount
-.LVL8:
-	add	r4, sp, #8
-	str	r0, [r4, #-4]!
-	.loc 1 143 0
-	movs	r6, #50
-	.loc 1 146 0
-	ldr	r5, .L16
-.L14:
-	.loc 1 143 0 discriminator 1
-	mov	r0, r4
-	mov	r1, r6
-	bl	vTaskDelayUntil
-.LVL9:
+.LVL11:
 	.loc 1 146 0 discriminator 1
-	mov	r0, r5
-	bl	CLUSTER_Display_Velocimeter_Value
-.LVL10:
-	.loc 1 148 0 discriminator 1
-	b	.L14
-.L17:
+	b	.L10
+.L13:
 	.align	2
-.L16:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.word	.LANCHOR3
+.L12:
+	.word	1074786496
+	.word	.LANCHOR1
 	.cfi_endproc
 .LFE6:
 	.size	speedTask, .-speedTask
@@ -283,92 +177,45 @@ speedTask:
 	.type	canTask, %function
 canTask:
 .LFB9:
-<<<<<<< HEAD
-	.loc 1 213 0
+	.loc 1 197 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
-.LVL10:
-=======
-	.loc 1 200 0
-	.cfi_startproc
-	@ args = 0, pretend = 0, frame = 8
-	@ frame_needed = 0, uses_anonymous_args = 0
-.LVL11:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL12:
 	push	{r4, r5, r6, lr}
 	.cfi_def_cfa_offset 16
 	.cfi_offset 4, -16
 	.cfi_offset 5, -12
 	.cfi_offset 6, -8
 	.cfi_offset 14, -4
-<<<<<<< HEAD
-	sub	sp, sp, #16
-	.cfi_def_cfa_offset 32
-	.loc 1 219 0
-	bl	xTaskGetTickCount
-.LVL11:
-	str	r0, [sp, #12]
-	.loc 1 229 0
-	ldr	r6, .L25
-	ldr	r5, .L25+4
-	ldr	r4, .L25+8
-.L23:
-	.loc 1 227 0 discriminator 1
-	add	r0, sp, #12
-	movs	r1, #3
-	bl	vTaskDelayUntil
-.LVL12:
-	.loc 1 229 0 discriminator 1
-	ldr	r3, .L25+12
-	str	r3, [sp]
-	mov	r0, r6
-	mov	r1, r5
-	mov	r2, r4
-	ldr	r3, .L25+16
-	bl	CAN_receive
-.LVL13:
-	.loc 1 230 0 discriminator 1
-	b	.L23
-.L26:
-=======
 	sub	sp, sp, #8
 	.cfi_def_cfa_offset 24
-	.loc 1 206 0
+	.loc 1 203 0
 	bl	xTaskGetTickCount
-.LVL12:
-	str	r0, [sp, #4]
-	.loc 1 216 0
-	ldr	r6, .L21
-	ldr	r5, .L21+4
-	ldr	r4, .L21+8
-.L19:
-	.loc 1 214 0 discriminator 1
-	add	r0, sp, #4
+.LVL13:
+	add	r4, sp, #8
+	str	r0, [r4, #-4]!
+	.loc 1 213 0
+	ldr	r6, .L17
+	ldr	r5, .L17+4
+.L15:
+	.loc 1 211 0 discriminator 1
+	mov	r0, r4
 	movs	r1, #3
 	bl	vTaskDelayUntil
-.LVL13:
-	.loc 1 216 0 discriminator 1
+.LVL14:
+	.loc 1 213 0 discriminator 1
 	mov	r0, r6
 	mov	r1, r5
-	mov	r2, r4
-	ldr	r3, .L21+12
 	bl	CAN_receive
-.LVL14:
-	.loc 1 217 0 discriminator 1
-	b	.L19
-.L22:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL15:
+	.loc 1 214 0 discriminator 1
+	b	.L15
+.L18:
 	.align	2
-.L21:
-	.word	.LANCHOR3
+.L17:
 	.word	.LANCHOR1
-	.word	.LANCHOR0
-<<<<<<< HEAD
-	.word	.LANCHOR5
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.word	.LANCHOR4
+	.word	.LANCHOR2
 	.cfi_endproc
 .LFE9:
 	.size	canTask, .-canTask
@@ -380,11 +227,7 @@ canTask:
 	.type	rtos_start, %function
 rtos_start:
 .LFB5:
-<<<<<<< HEAD
-	.loc 1 91 0
-=======
-	.loc 1 83 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 81 0
 	.cfi_startproc
 	@ Volatile: function does not return.
 	@ args = 0, pretend = 0, frame = 0
@@ -394,119 +237,75 @@ rtos_start:
 	.cfi_offset 14, -4
 	sub	sp, sp, #20
 	.cfi_def_cfa_offset 24
-<<<<<<< HEAD
-	.loc 1 96 0
-=======
-	.loc 1 88 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 86 0
 	movs	r0, #1
 	movs	r1, #4
 	movs	r2, #0
 	bl	xQueueGenericCreate
-<<<<<<< HEAD
-.LVL14:
-	ldr	r3, .L31
+.LVL16:
+	ldr	r3, .L23
 	str	r0, [r3]
-	.loc 1 98 0
+	.loc 1 88 0
 	cmp	r0, #0
-	beq	.L28
-	.loc 1 106 0
-=======
-.LVL15:
-	ldr	r3, .L27
-	str	r0, [r3]
-	.loc 1 90 0
-	cmp	r0, #0
-	beq	.L24
-	.loc 1 98 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	beq	.L20
+	.loc 1 96 0
 	movs	r3, #2
 	str	r3, [sp]
 	movs	r4, #0
 	str	r4, [sp, #4]
 	str	r4, [sp, #8]
 	str	r4, [sp, #12]
-	ldr	r0, .L27+4
-	ldr	r1, .L27+8
+	ldr	r0, .L23+4
+	ldr	r1, .L23+8
 	movs	r2, #90
 	mov	r3, r4
 	bl	xTaskGenericCreate
-<<<<<<< HEAD
-.LVL15:
-	.loc 1 107 0
-=======
-.LVL16:
-	.loc 1 99 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL17:
+	.loc 1 97 0
 	movs	r5, #1
 	str	r5, [sp]
 	str	r4, [sp, #4]
 	str	r4, [sp, #8]
 	str	r4, [sp, #12]
-	ldr	r0, .L27+12
-	ldr	r1, .L27+16
+	ldr	r0, .L23+12
+	ldr	r1, .L23+16
 	movs	r2, #90
 	mov	r3, r4
 	bl	xTaskGenericCreate
-<<<<<<< HEAD
-.LVL16:
-	.loc 1 108 0
-=======
-.LVL17:
-	.loc 1 100 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL18:
+	.loc 1 98 0
 	str	r5, [sp]
 	str	r4, [sp, #4]
 	str	r4, [sp, #8]
 	str	r4, [sp, #12]
-	ldr	r0, .L27+20
-	ldr	r1, .L27+24
+	ldr	r0, .L23+20
+	ldr	r1, .L23+24
 	movs	r2, #90
 	mov	r3, r4
 	bl	xTaskGenericCreate
-<<<<<<< HEAD
-.LVL17:
-	.loc 1 109 0
-=======
-.LVL18:
-	.loc 1 101 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL19:
+	.loc 1 99 0
 	str	r5, [sp]
 	str	r4, [sp, #4]
 	str	r4, [sp, #8]
 	str	r4, [sp, #12]
-	ldr	r0, .L27+28
-	ldr	r1, .L27+32
+	ldr	r0, .L23+28
+	ldr	r1, .L23+32
 	movs	r2, #90
 	mov	r3, r4
 	bl	xTaskGenericCreate
-<<<<<<< HEAD
-.LVL18:
-	.loc 1 122 0
-	bl	vTaskStartScheduler
-.LVL19:
-.L28:
-.L29:
-	.loc 1 130 0 discriminator 1
-	b	.L29
-.L32:
-	.align	2
-.L31:
-	.word	.LANCHOR6
-=======
-.LVL19:
-	.loc 1 115 0
-	bl	vTaskStartScheduler
 .LVL20:
+	.loc 1 113 0
+	bl	vTaskStartScheduler
+.LVL21:
+.L20:
+.L21:
+	.loc 1 121 0 discriminator 1
+	b	.L21
 .L24:
-.L25:
-	.loc 1 123 0 discriminator 1
-	b	.L25
-.L28:
 	.align	2
-.L27:
-	.word	.LANCHOR5
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.L23:
+	.word	.LANCHOR3
 	.word	canTask
 	.word	.LC0
 	.word	speedTask
@@ -526,18 +325,14 @@ rtos_start:
 	.type	vApplicationMallocFailedHook, %function
 vApplicationMallocFailedHook:
 .LFB11:
-<<<<<<< HEAD
-	.loc 1 279 0
-=======
-	.loc 1 265 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 262 0
 	.cfi_startproc
 	@ Volatile: function does not return.
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
-.LBB6:
 .LBB7:
+.LBB8:
 	.file 2 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h"
 	.loc 2 215 0
 @ 215 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h" 1
@@ -547,22 +342,13 @@ vApplicationMallocFailedHook:
 	dsb														
 
 @ 0 "" 2
-<<<<<<< HEAD
-.LVL20:
-=======
-.LVL21:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL22:
 	.thumb
-.L30:
+.L26:
+.LBE8:
 .LBE7:
-.LBE6:
-<<<<<<< HEAD
-	.loc 1 286 0 discriminator 1
-	b	.L34
-=======
-	.loc 1 272 0 discriminator 1
-	b	.L30
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 269 0 discriminator 1
+	b	.L26
 	.cfi_endproc
 .LFE11:
 	.size	vApplicationMallocFailedHook, .-vApplicationMallocFailedHook
@@ -574,23 +360,15 @@ vApplicationMallocFailedHook:
 	.type	vApplicationStackOverflowHook, %function
 vApplicationStackOverflowHook:
 .LFB12:
-<<<<<<< HEAD
-	.loc 1 291 0
-=======
-	.loc 1 277 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 274 0
 	.cfi_startproc
 	@ Volatile: function does not return.
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
-<<<<<<< HEAD
-.LVL21:
-=======
-.LVL22:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-.LBB8:
+.LVL23:
 .LBB9:
+.LBB10:
 	.loc 2 215 0
 @ 215 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/portmacro.h" 1
 		mov r3, #16												
@@ -599,22 +377,13 @@ vApplicationStackOverflowHook:
 	dsb														
 
 @ 0 "" 2
-<<<<<<< HEAD
-.LVL22:
-=======
-.LVL23:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LVL24:
 	.thumb
-.L32:
+.L28:
+.LBE10:
 .LBE9:
-.LBE8:
-<<<<<<< HEAD
-	.loc 1 299 0 discriminator 1
-	b	.L36
-=======
-	.loc 1 285 0 discriminator 1
-	b	.L32
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 282 0 discriminator 1
+	b	.L28
 	.cfi_endproc
 .LFE12:
 	.size	vApplicationStackOverflowHook, .-vApplicationStackOverflowHook
@@ -626,11 +395,7 @@ vApplicationStackOverflowHook:
 	.type	vApplicationIdleHook, %function
 vApplicationIdleHook:
 .LFB13:
-<<<<<<< HEAD
-	.loc 1 304 0
-=======
-	.loc 1 290 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 287 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -639,23 +404,13 @@ vApplicationIdleHook:
 	.cfi_offset 14, -4
 	sub	sp, sp, #12
 	.cfi_def_cfa_offset 16
-<<<<<<< HEAD
-	.loc 1 310 0
+	.loc 1 293 0
 	bl	xPortGetFreeHeapSize
-.LVL23:
+.LVL25:
 	str	r0, [sp, #4]
-	.loc 1 312 0
+	.loc 1 295 0
 	ldr	r3, [sp, #4]
-	.loc 1 320 0
-=======
-	.loc 1 296 0
-	bl	xPortGetFreeHeapSize
-.LVL24:
-	str	r0, [sp, #4]
-	.loc 1 298 0
-	ldr	r3, [sp, #4]
-	.loc 1 306 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 303 0
 	add	sp, sp, #12
 	.cfi_def_cfa_offset 4
 	@ sp needed
@@ -671,11 +426,7 @@ vApplicationIdleHook:
 	.type	vMainConfigureTimerForRunTimeStats, %function
 vMainConfigureTimerForRunTimeStats:
 .LFB14:
-<<<<<<< HEAD
-	.loc 1 327 0
-=======
-	.loc 1 313 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 310 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -692,20 +443,12 @@ vMainConfigureTimerForRunTimeStats:
 	.type	ulMainGetRunTimeCounterValue, %function
 ulMainGetRunTimeCounterValue:
 .LFB15:
-<<<<<<< HEAD
-	.loc 1 328 0
-=======
-	.loc 1 314 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 311 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
-<<<<<<< HEAD
-	.loc 1 328 0
-=======
-	.loc 1 314 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 311 0
 	movs	r0, #0
 	bx	lr
 	.cfi_endproc
@@ -719,11 +462,7 @@ ulMainGetRunTimeCounterValue:
 	.type	vApplicationTickHook, %function
 vApplicationTickHook:
 .LFB16:
-<<<<<<< HEAD
-	.loc 1 334 0
-=======
-	.loc 1 320 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.loc 1 317 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -732,82 +471,30 @@ vApplicationTickHook:
 	.cfi_endproc
 .LFE16:
 	.size	vApplicationTickHook, .-vApplicationTickHook
-<<<<<<< HEAD
-	.global	pastTripOdometerValue
-	.global	pastOdometerValue
-	.global	pastTankLevel
-	.global	pastSpeedValue
-	.global	indFlag
-	.global	tripOdometerValue
-	.global	odometerValue
-	.global	tankLevel
-	.global	speedValue
-	.section	.bss.tankLevel,"aw",%nobits
-	.set	.LANCHOR1,. + 0
-	.type	tankLevel, %object
-	.size	tankLevel, 1
-tankLevel:
-	.space	1
-	.section	.bss.odometerValue,"aw",%nobits
-	.align	1
-	.set	.LANCHOR0,. + 0
-	.type	odometerValue, %object
-	.size	odometerValue, 2
-odometerValue:
-	.space	2
-	.section	.bss.xQueue,"aw",%nobits
-	.align	2
-	.set	.LANCHOR6,. + 0
-=======
 	.global	tnkCounter
 	.global	indFlag
-	.global	odFlag
-	.global	tnkFlag
 	.global	speedFlag
 	.section	.bss.xQueue,"aw",%nobits
 	.align	2
-	.set	.LANCHOR5,. + 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.set	.LANCHOR3,. + 0
 	.type	xQueue, %object
 	.size	xQueue, 4
 xQueue:
 	.space	4
-<<<<<<< HEAD
-	.section	.bss.tripOdometerValue,"aw",%nobits
-	.align	1
-	.set	.LANCHOR4,. + 0
-	.type	tripOdometerValue, %object
-	.size	tripOdometerValue, 2
-tripOdometerValue:
-	.space	2
-	.section	.bss.pastTankLevel,"aw",%nobits
-	.type	pastTankLevel, %object
-	.size	pastTankLevel, 1
-pastTankLevel:
-	.space	1
-=======
 	.section	.bss.speedFlag,"aw",%nobits
 	.align	2
-	.set	.LANCHOR3,. + 0
+	.set	.LANCHOR1,. + 0
 	.type	speedFlag, %object
 	.size	speedFlag, 4
 speedFlag:
 	.space	4
-	.section	.data.tnkFlag,"aw",%progbits
-	.align	2
-	.set	.LANCHOR1,. + 0
-	.type	tnkFlag, %object
-	.size	tnkFlag, 4
-tnkFlag:
-	.word	500
 	.section	.data.tnkCounter,"aw",%progbits
 	.align	2
-	.set	.LANCHOR2,. + 0
+	.set	.LANCHOR0,. + 0
 	.type	tnkCounter, %object
 	.size	tnkCounter, 4
 tnkCounter:
 	.word	1
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.section	.rodata.str1.4,"aMS",%progbits,1
 	.align	2
 .LC0:
@@ -818,47 +505,12 @@ tnkCounter:
 	.ascii	"TNK\000"
 .LC3:
 	.ascii	"OD\000"
-<<<<<<< HEAD
-	.section	.bss.indFlag,"aw",%nobits
-	.set	.LANCHOR5,. + 0
-=======
-	.section	.data.odFlag,"aw",%progbits
-	.set	.LANCHOR0,. + 0
-	.type	odFlag, %object
-	.size	odFlag, 1
-odFlag:
-	.byte	1
 	.section	.data.indFlag,"aw",%progbits
-	.set	.LANCHOR4,. + 0
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.set	.LANCHOR2,. + 0
 	.type	indFlag, %object
 	.size	indFlag, 1
 indFlag:
-	.space	1
-	.section	.bss.pastTripOdometerValue,"aw",%nobits
-	.align	1
-	.type	pastTripOdometerValue, %object
-	.size	pastTripOdometerValue, 2
-pastTripOdometerValue:
-	.space	2
-	.section	.bss.pastOdometerValue,"aw",%nobits
-	.align	1
-	.type	pastOdometerValue, %object
-	.size	pastOdometerValue, 2
-pastOdometerValue:
-	.space	2
-	.section	.bss.pastSpeedValue,"aw",%nobits
-	.set	.LANCHOR3,. + 0
-	.type	pastSpeedValue, %object
-	.size	pastSpeedValue, 1
-pastSpeedValue:
-	.space	1
-	.section	.bss.speedValue,"aw",%nobits
-	.set	.LANCHOR2,. + 0
-	.type	speedValue, %object
-	.size	speedValue, 1
-speedValue:
-	.space	1
+	.byte	1
 	.text
 .Letext0:
 	.file 3 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stddef.h"
@@ -870,30 +522,20 @@ speedValue:
 	.file 9 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144.h"
 	.file 10 "../Sources/cluster.h"
 	.file 11 "../Sources/can.h"
-	.file 12 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/portable.h"
-	.file 13 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144_features.h"
+	.file 12 "../Sources/eeeprom.h"
+	.file 13 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/portable.h"
+	.file 14 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/include/S32K144_features.h"
 	.section	.debug_info,"",%progbits
 .Ldebug_info0:
-<<<<<<< HEAD
-	.4byte	0x990
-=======
-	.4byte	0x966
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x96f
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-<<<<<<< HEAD
-	.4byte	.LASF10239
-	.byte	0x1
-	.4byte	.LASF10240
-	.4byte	.LASF10241
-=======
 	.4byte	.LASF10243
 	.byte	0x1
 	.4byte	.LASF10244
 	.4byte	.LASF10245
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.Ldebug_ranges0+0
 	.4byte	0
 	.4byte	.Ldebug_line0
@@ -1008,24 +650,17 @@ speedValue:
 	.byte	0x2
 	.byte	0x69
 	.4byte	0xb1
-	.uleb128 0x5
-	.byte	0x4
-	.4byte	0x9b
 	.uleb128 0x3
 	.4byte	.LASF10124
 	.byte	0x7
 	.byte	0x67
 	.4byte	0xd8
 	.uleb128 0x9
-<<<<<<< HEAD
-	.4byte	.LASF10242
-=======
 	.4byte	.LASF10246
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0xc
 	.byte	0x7
 	.byte	0x8f
-	.4byte	0x148
+	.4byte	0x142
 	.uleb128 0xa
 	.4byte	.LASF10125
 	.byte	0x7
@@ -1049,14 +684,14 @@ speedValue:
 	.4byte	.LASF10128
 	.byte	0x7
 	.byte	0x94
-	.4byte	0x117
+	.4byte	0x111
 	.uleb128 0xb
-	.4byte	0x158
+	.4byte	0x152
 	.uleb128 0x5
 	.byte	0x4
-	.4byte	0x15e
+	.4byte	0x158
 	.uleb128 0xb
-	.4byte	0x163
+	.4byte	0x15d
 	.uleb128 0x4
 	.byte	0x1
 	.byte	0x6
@@ -1076,65 +711,65 @@ speedValue:
 	.uleb128 0xc
 	.4byte	0xb1
 	.uleb128 0xb
-	.4byte	0x182
+	.4byte	0x17c
 	.uleb128 0xd
 	.byte	0x1c
 	.byte	0x9
 	.2byte	0x139a
-	.4byte	0x1f1
+	.4byte	0x1eb
 	.uleb128 0xe
 	.4byte	.LASF10131
 	.byte	0x9
 	.2byte	0x139b
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0
 	.uleb128 0xe
 	.4byte	.LASF10132
 	.byte	0x9
 	.2byte	0x139c
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0x4
 	.uleb128 0xe
 	.4byte	.LASF10133
 	.byte	0x9
 	.2byte	0x139d
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0x8
 	.uleb128 0xe
 	.4byte	.LASF10134
 	.byte	0x9
 	.2byte	0x139e
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0xc
 	.uleb128 0xe
 	.4byte	.LASF10135
 	.byte	0x9
 	.2byte	0x139f
-	.4byte	0x187
+	.4byte	0x181
 	.byte	0x10
 	.uleb128 0xe
 	.4byte	.LASF10136
 	.byte	0x9
 	.2byte	0x13a0
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0x14
 	.uleb128 0xe
 	.4byte	.LASF10137
 	.byte	0x9
 	.2byte	0x13a1
-	.4byte	0x182
+	.4byte	0x17c
 	.byte	0x18
 	.byte	0
 	.uleb128 0xf
 	.4byte	.LASF10138
 	.byte	0x9
 	.2byte	0x13a2
-	.4byte	0x18c
+	.4byte	0x186
 	.uleb128 0x10
 	.byte	0x1
-	.byte	0xd
+	.byte	0xe
 	.2byte	0x2f1
-	.4byte	0x3d3
+	.4byte	0x3cd
 	.uleb128 0x11
 	.4byte	.LASF10139
 	.sleb128 0
@@ -1363,21 +998,13 @@ speedValue:
 	.byte	0x2
 	.4byte	.LASF10213
 	.uleb128 0x12
-<<<<<<< HEAD
-	.4byte	.LASF10243
-=======
 	.4byte	.LASF10247
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x2
 	.byte	0xd3
 	.byte	0x3
-	.4byte	0x3f2
+	.4byte	0x3ec
 	.uleb128 0x13
-<<<<<<< HEAD
-	.4byte	.LASF10244
-=======
 	.4byte	.LASF10248
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x2
 	.byte	0xd5
 	.4byte	0xb1
@@ -1385,297 +1012,213 @@ speedValue:
 	.uleb128 0x14
 	.4byte	.LASF10214
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xba
-=======
 	.byte	0xad
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	.LFB8
 	.4byte	.LFE8-.LFB8
 	.uleb128 0x1
 	.byte	0x9c
-	.4byte	0x445
+	.4byte	0x43e
 	.uleb128 0x15
 	.4byte	.LASF10216
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xba
-=======
 	.byte	0xad
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	0xd8
 	.4byte	.LLST0
 	.uleb128 0x16
 	.4byte	.LASF10217
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xbc
-=======
 	.byte	0xaf
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.4byte	0xfb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
 	.uleb128 0x17
 	.4byte	.LVL1
-<<<<<<< HEAD
-	.4byte	0x884
+	.4byte	0x847
 	.uleb128 0x18
 	.4byte	.LVL2
-	.4byte	0x890
-=======
-	.4byte	0x849
-	.uleb128 0x18
-	.4byte	.LVL2
-	.4byte	0x855
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x853
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
-	.uleb128 0x3
-	.byte	0xa
-	.2byte	0x14c
+	.uleb128 0x2
+	.byte	0x75
+	.sleb128 0
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x50
 	.uleb128 0x2
-	.byte	0x75
+	.byte	0x74
 	.sleb128 0
 	.byte	0
 	.byte	0
 	.uleb128 0x14
 	.4byte	.LASF10215
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xa0
-=======
-	.byte	0x97
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x95
 	.4byte	.LFB7
 	.4byte	.LFE7-.LFB7
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x497
-=======
-	.4byte	0x4aa
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x4d9
 	.uleb128 0x15
 	.4byte	.LASF10216
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xa0
-=======
-	.byte	0x97
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x95
 	.4byte	0xd8
 	.4byte	.LLST1
 	.uleb128 0x16
 	.4byte	.LASF10217
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xa2
-=======
-	.byte	0x99
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x97
 	.4byte	0xfb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
-	.uleb128 0x17
-	.4byte	.LVL4
-<<<<<<< HEAD
-	.4byte	0x884
-	.uleb128 0x18
-	.4byte	.LVL5
-	.4byte	0x890
-=======
-	.4byte	0x849
 	.uleb128 0x1a
+	.4byte	.LBB6
+	.4byte	.LBE6-.LBB6
+	.4byte	0x4cf
+	.uleb128 0x16
+	.4byte	.LASF10218
+	.byte	0x1
+	.byte	0xa7
+	.4byte	0x29
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.uleb128 0x1b
 	.4byte	.LVL5
-	.4byte	0x855
-	.4byte	0x493
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x853
+	.4byte	0x4a5
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
 	.uleb128 0x2
 	.byte	0x8
-	.byte	0xa6
+	.byte	0x64
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x50
 	.uleb128 0x2
-	.byte	0x74
+	.byte	0x75
 	.sleb128 0
 	.byte	0
-	.uleb128 0x18
+	.uleb128 0x1b
 	.4byte	.LVL6
-	.4byte	0x87c
+	.4byte	0x87a
+	.4byte	0x4b8
+	.uleb128 0x19
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x1
+	.byte	0x33
+	.byte	0
+	.uleb128 0x18
+	.4byte	.LVL7
+	.4byte	0x88f
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
 	.uleb128 0x2
-	.byte	0x75
+	.byte	0x76
 	.sleb128 0
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x50
 	.uleb128 0x2
-	.byte	0x76
-	.sleb128 0
+	.byte	0x75
+	.sleb128 -4
 	.byte	0
+	.byte	0
+	.uleb128 0x17
+	.4byte	.LVL4
+	.4byte	0x847
 	.byte	0
 	.uleb128 0x14
-	.4byte	.LASF10218
+	.4byte	.LASF10219
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x87
-=======
-	.byte	0x80
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x7e
 	.4byte	.LFB6
 	.4byte	.LFE6-.LFB6
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x4fd
-=======
-	.4byte	0x510
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x53f
 	.uleb128 0x15
 	.4byte	.LASF10216
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x87
-=======
-	.byte	0x80
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x7e
 	.4byte	0xd8
 	.4byte	.LLST2
 	.uleb128 0x16
 	.4byte	.LASF10217
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x89
-=======
-	.byte	0x82
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x80
 	.4byte	0xfb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
 	.uleb128 0x17
-<<<<<<< HEAD
-	.4byte	.LVL7
-	.4byte	0x884
-	.uleb128 0x1a
-	.4byte	.LVL8
-	.4byte	0x890
-	.4byte	0x4ec
-=======
-	.4byte	.LVL8
-	.4byte	0x849
-	.uleb128 0x1a
 	.4byte	.LVL9
-	.4byte	0x855
-	.4byte	0x4ff
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x847
+	.uleb128 0x1b
+	.4byte	.LVL10
+	.4byte	0x853
+	.4byte	0x52e
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
 	.uleb128 0x2
-<<<<<<< HEAD
 	.byte	0x8
-	.byte	0x53
-=======
+	.byte	0x32
+	.uleb128 0x19
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x2
+	.byte	0x75
+	.sleb128 0
+	.byte	0
+	.uleb128 0x18
+	.4byte	.LVL11
+	.4byte	0x8ab
+	.uleb128 0x19
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x2
 	.byte	0x76
-	.sleb128 0
-	.uleb128 0x19
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0x2
-	.byte	0x74
-	.sleb128 0
-	.byte	0
-	.uleb128 0x18
-	.4byte	.LVL10
-	.4byte	0x898
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x19
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -20
-	.byte	0
-	.uleb128 0x18
-	.4byte	.LVL9
-	.4byte	0x8b7
-	.uleb128 0x19
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0x2
-	.byte	0x74
 	.sleb128 0
 	.byte	0
 	.byte	0
 	.uleb128 0x14
-	.4byte	.LASF10219
+	.4byte	.LASF10220
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xd4
-=======
-	.byte	0xc7
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0xc4
 	.4byte	.LFB9
 	.4byte	.LFE9-.LFB9
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x581
-=======
-	.4byte	0x58a
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x5aa
 	.uleb128 0x15
 	.4byte	.LASF10216
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xd4
-=======
-	.byte	0xc7
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0xc4
 	.4byte	0xd8
 	.4byte	.LLST3
 	.uleb128 0x16
 	.4byte	.LASF10217
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0xd6
-=======
-	.byte	0xc9
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0xc6
 	.4byte	0xfb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
 	.uleb128 0x17
-<<<<<<< HEAD
-	.4byte	.LVL11
-	.4byte	0x884
-	.uleb128 0x1a
-	.4byte	.LVL12
-	.4byte	0x890
-	.4byte	0x551
-=======
-	.4byte	.LVL12
-	.4byte	0x849
-	.uleb128 0x1a
 	.4byte	.LVL13
-	.4byte	0x855
-	.4byte	0x564
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x847
+	.uleb128 0x1b
+	.4byte	.LVL14
+	.4byte	0x853
+	.4byte	0x593
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
@@ -1685,29 +1228,12 @@ speedValue:
 	.uleb128 0x1
 	.byte	0x50
 	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -20
-	.byte	0
-	.uleb128 0x18
-<<<<<<< HEAD
-	.4byte	.LVL13
-	.4byte	0x8c8
-=======
-	.4byte	.LVL14
-	.4byte	0x8a9
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x19
-	.uleb128 0x1
-	.byte	0x53
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	.LANCHOR4
-	.uleb128 0x19
-	.uleb128 0x1
-	.byte	0x52
-	.uleb128 0x2
 	.byte	0x74
 	.sleb128 0
+	.byte	0
+	.uleb128 0x18
+	.4byte	.LVL15
+	.4byte	0x8bc
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x51
@@ -1720,40 +1246,21 @@ speedValue:
 	.uleb128 0x2
 	.byte	0x76
 	.sleb128 0
-	.uleb128 0x19
-	.uleb128 0x2
-	.byte	0x7d
-	.sleb128 0
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	.LANCHOR5
 	.byte	0
 	.byte	0
-	.uleb128 0x1b
-	.4byte	.LASF10220
+	.uleb128 0x1c
+	.4byte	.LASF10221
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x5a
-=======
-	.byte	0x52
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.byte	0x50
 	.4byte	.LFB5
 	.4byte	.LFE5-.LFB5
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x6dc
-	.uleb128 0x1a
-	.4byte	.LVL14
-	.4byte	0x8f3
-	.4byte	0x5b3
-=======
-	.4byte	0x6e5
-	.uleb128 0x1a
-	.4byte	.LVL15
-	.4byte	0x8c9
-	.4byte	0x5bc
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x705
+	.uleb128 0x1b
+	.4byte	.LVL16
+	.4byte	0x8d2
+	.4byte	0x5dc
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x52
@@ -1770,16 +1277,10 @@ speedValue:
 	.uleb128 0x1
 	.byte	0x31
 	.byte	0
-	.uleb128 0x1a
-<<<<<<< HEAD
-	.4byte	.LVL15
-	.4byte	0x91d
-	.4byte	0x5fa
-=======
-	.4byte	.LVL16
-	.4byte	0x8f3
-	.4byte	0x603
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.uleb128 0x1b
+	.4byte	.LVL17
+	.4byte	0x8fc
+	.4byte	0x623
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x53
@@ -1832,16 +1333,10 @@ speedValue:
 	.uleb128 0x1
 	.byte	0x32
 	.byte	0
-	.uleb128 0x1a
-<<<<<<< HEAD
-	.4byte	.LVL16
-	.4byte	0x91d
-	.4byte	0x642
-=======
-	.4byte	.LVL17
-	.4byte	0x8f3
-	.4byte	0x64b
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.uleb128 0x1b
+	.4byte	.LVL18
+	.4byte	0x8fc
+	.4byte	0x66b
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x53
@@ -1895,16 +1390,10 @@ speedValue:
 	.byte	0x75
 	.sleb128 0
 	.byte	0
-	.uleb128 0x1a
-<<<<<<< HEAD
-	.4byte	.LVL17
-	.4byte	0x91d
-	.4byte	0x68a
-=======
-	.4byte	.LVL18
-	.4byte	0x8f3
-	.4byte	0x693
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.uleb128 0x1b
+	.4byte	.LVL19
+	.4byte	0x8fc
+	.4byte	0x6b3
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x53
@@ -1958,16 +1447,10 @@ speedValue:
 	.byte	0x75
 	.sleb128 0
 	.byte	0
-	.uleb128 0x1a
-<<<<<<< HEAD
-	.4byte	.LVL18
-	.4byte	0x91d
-	.4byte	0x6d2
-=======
-	.4byte	.LVL19
-	.4byte	0x8f3
-	.4byte	0x6db
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.uleb128 0x1b
+	.4byte	.LVL20
+	.4byte	0x8fc
+	.4byte	0x6fb
 	.uleb128 0x19
 	.uleb128 0x1
 	.byte	0x53
@@ -2022,515 +1505,279 @@ speedValue:
 	.sleb128 0
 	.byte	0
 	.uleb128 0x17
-<<<<<<< HEAD
-	.4byte	.LVL19
-	.4byte	0x980
-=======
-	.4byte	.LVL20
-	.4byte	0x956
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	.LVL21
+	.4byte	0x95f
 	.byte	0
-	.uleb128 0x1c
-	.4byte	.LASF10221
+	.uleb128 0x1d
+	.4byte	.LASF10222
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x116
-=======
-	.2byte	0x108
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x105
 	.4byte	.LFB11
 	.4byte	.LFE11-.LFB11
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x713
-=======
-	.4byte	0x71c
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x1d
-	.4byte	0x3da
-	.4byte	.LBB6
-	.4byte	.LBE6-.LBB6
-	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x11d
-=======
-	.2byte	0x10f
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x73c
 	.uleb128 0x1e
+	.4byte	0x3d4
 	.4byte	.LBB7
 	.4byte	.LBE7-.LBB7
-	.uleb128 0x1f
-	.4byte	0x3e6
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0x1c
-	.4byte	.LASF10222
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x122
-=======
-	.2byte	0x114
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x10c
+	.uleb128 0x1f
+	.4byte	.LBB8
+	.4byte	.LBE8-.LBB8
+	.uleb128 0x20
+	.4byte	0x3e0
+	.byte	0
+	.byte	0
+	.byte	0
+	.uleb128 0x1d
+	.4byte	.LASF10223
+	.byte	0x1
+	.2byte	0x111
 	.4byte	.LFB12
 	.4byte	.LFE12-.LFB12
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x766
-=======
-	.4byte	0x76f
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x20
-	.4byte	.LASF10223
-	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x122
-	.4byte	0x10c
-=======
-	.2byte	0x114
-	.4byte	0x106
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x1
-	.byte	0x50
-	.uleb128 0x20
+	.4byte	0x78f
+	.uleb128 0x21
 	.4byte	.LASF10224
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x122
-	.4byte	0x766
-=======
-	.2byte	0x114
-	.4byte	0x76f
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x111
+	.4byte	0x106
+	.uleb128 0x1
+	.byte	0x50
+	.uleb128 0x21
+	.4byte	.LASF10225
+	.byte	0x1
+	.2byte	0x111
+	.4byte	0x78f
 	.uleb128 0x1
 	.byte	0x51
-	.uleb128 0x1d
-	.4byte	0x3da
-	.4byte	.LBB8
-	.4byte	.LBE8-.LBB8
-	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x12a
-=======
-	.2byte	0x11c
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x1e
+	.4byte	0x3d4
 	.4byte	.LBB9
 	.4byte	.LBE9-.LBB9
+	.byte	0x1
+	.2byte	0x119
 	.uleb128 0x1f
-	.4byte	0x3e6
+	.4byte	.LBB10
+	.4byte	.LBE10-.LBB10
+	.uleb128 0x20
+	.4byte	0x3e0
 	.byte	0
 	.byte	0
 	.byte	0
 	.uleb128 0x5
 	.byte	0x4
-	.4byte	0x163
-	.uleb128 0x1c
-	.4byte	.LASF10225
+	.4byte	0x15d
+	.uleb128 0x1d
+	.4byte	.LASF10226
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x12f
-=======
-	.2byte	0x121
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x11e
 	.4byte	.LFB13
 	.4byte	.LFE13-.LFB13
 	.uleb128 0x1
 	.byte	0x9c
-<<<<<<< HEAD
-	.4byte	0x79b
-=======
-	.4byte	0x7a4
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x21
-	.4byte	.LASF10226
+	.4byte	0x7c4
+	.uleb128 0x22
+	.4byte	.LASF10227
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x131
-	.4byte	0x79b
-=======
-	.2byte	0x123
-	.4byte	0x7a4
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x120
+	.4byte	0x7c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -12
 	.uleb128 0x17
-<<<<<<< HEAD
-	.4byte	.LVL23
-	.4byte	0x988
-=======
-	.4byte	.LVL24
-	.4byte	0x95e
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	.LVL25
+	.4byte	0x967
 	.byte	0
 	.uleb128 0xc
 	.4byte	0x30
-	.uleb128 0x22
-	.4byte	.LASF10227
+	.uleb128 0x23
+	.4byte	.LASF10228
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x147
-=======
-	.2byte	0x139
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x136
 	.4byte	.LFB14
 	.4byte	.LFE14-.LFB14
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0x23
-<<<<<<< HEAD
-	.4byte	.LASF10245
-	.byte	0x1
-	.2byte	0x148
-=======
+	.uleb128 0x24
 	.4byte	.LASF10249
 	.byte	0x1
-	.2byte	0x13a
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x137
 	.4byte	0x86
 	.4byte	.LFB15
 	.4byte	.LFE15-.LFB15
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0x22
-	.4byte	.LASF10228
+	.uleb128 0x23
+	.4byte	.LASF10229
 	.byte	0x1
-<<<<<<< HEAD
-	.2byte	0x14e
-=======
-	.2byte	0x140
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.2byte	0x13d
 	.4byte	.LFB16
 	.4byte	.LFE16-.LFB16
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0x16
-	.4byte	.LASF10229
+	.4byte	.LASF10230
 	.byte	0x1
-<<<<<<< HEAD
-	.byte	0x54
-	.4byte	0x177
-=======
-	.byte	0x4c
+	.byte	0x4a
 	.4byte	0x171
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	xQueue
-	.uleb128 0x24
-	.4byte	.LASF10230
-	.byte	0x1
-	.byte	0x38
-<<<<<<< HEAD
-	.4byte	0x9b
-=======
-	.4byte	0x29
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	speedValue
-	.uleb128 0x24
+	.uleb128 0x25
 	.4byte	.LASF10231
 	.byte	0x1
-	.byte	0x39
-<<<<<<< HEAD
-	.4byte	0x9b
-=======
+	.byte	0x38
 	.4byte	0x29
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.uleb128 0x5
 	.byte	0x3
-	.4byte	tankLevel
-	.uleb128 0x24
+	.4byte	speedFlag
+	.uleb128 0x25
 	.4byte	.LASF10232
 	.byte	0x1
-	.byte	0x3a
-	.4byte	0xa6
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	odometerValue
-	.uleb128 0x24
-	.4byte	.LASF10233
-	.byte	0x1
-	.byte	0x3b
-	.4byte	0xa6
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	tripOdometerValue
-	.uleb128 0x24
-	.4byte	.LASF10227
-	.byte	0x1
-	.byte	0x3c
-	.4byte	0x9b
+	.byte	0x39
+	.4byte	0x15d
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	indFlag
-	.uleb128 0x24
-<<<<<<< HEAD
-	.4byte	.LASF10228
-	.byte	0x1
-	.byte	0x3e
-	.4byte	0x9b
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	pastSpeedValue
-	.uleb128 0x24
-	.4byte	.LASF10229
-	.byte	0x1
-	.byte	0x3f
-	.4byte	0x9b
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	pastTankLevel
-	.uleb128 0x24
-	.4byte	.LASF10230
-	.byte	0x1
-	.byte	0x40
-	.4byte	0xa6
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	pastOdometerValue
-	.uleb128 0x24
-	.4byte	.LASF10231
-	.byte	0x1
-	.byte	0x41
-	.4byte	0xa6
-	.uleb128 0x5
-	.byte	0x3
-	.4byte	pastTripOdometerValue
 	.uleb128 0x25
-	.4byte	.LASF10237
-=======
-	.4byte	.LASF10234
+	.4byte	.LASF10233
 	.byte	0x1
-	.byte	0x3c
+	.byte	0x3a
 	.4byte	0x29
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	tnkCounter
-	.uleb128 0x25
+	.uleb128 0x26
 	.4byte	.LASF10241
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.byte	0x7
 	.2byte	0x42b
 	.4byte	0xfb
-	.uleb128 0x26
-<<<<<<< HEAD
-	.4byte	.LASF10232
+	.uleb128 0x27
+	.4byte	.LASF10234
 	.byte	0x7
 	.2byte	0x266
-	.4byte	0x8a7
+	.4byte	0x86a
 	.uleb128 0x7
-	.4byte	0x8a7
+	.4byte	0x86a
 	.uleb128 0x7
-	.4byte	0x8b2
+	.4byte	0x875
 	.byte	0
 	.uleb128 0xb
-	.4byte	0x8ac
-=======
-	.4byte	.LASF10235
-	.byte	0x7
-	.2byte	0x266
-	.4byte	0x86c
-	.uleb128 0x7
-	.4byte	0x86c
-	.uleb128 0x7
-	.4byte	0x877
-	.byte	0
-	.uleb128 0xb
-	.4byte	0x871
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x86f
 	.uleb128 0x5
 	.byte	0x4
 	.4byte	0xfb
 	.uleb128 0xb
 	.4byte	0xfb
-	.uleb128 0x27
-<<<<<<< HEAD
-	.4byte	.LASF10233
-	.byte	0xa
-	.byte	0x25
-	.4byte	0x8c8
+	.uleb128 0x28
+	.4byte	.LASF10238
+	.byte	0xc
+	.byte	0x19
+	.4byte	0x29
+	.4byte	0x88f
 	.uleb128 0x7
-	.4byte	0x106
+	.4byte	0x29
 	.byte	0
-	.uleb128 0x27
-	.4byte	.LASF10234
-	.byte	0xb
-	.byte	0x1b
-	.4byte	0x8ed
-	.uleb128 0x7
-	.4byte	0x106
-	.uleb128 0x7
-	.4byte	0x106
-	.uleb128 0x7
-	.4byte	0x8ed
-	.uleb128 0x7
-	.4byte	0x8ed
-	.uleb128 0x7
-	.4byte	0x106
-=======
-	.4byte	.LASF10236
+	.uleb128 0x29
+	.4byte	.LASF10235
 	.byte	0xa
 	.byte	0x27
-	.4byte	0x892
+	.4byte	0x8a5
 	.uleb128 0x7
-	.4byte	0x892
+	.4byte	0x8a5
 	.uleb128 0x7
-	.4byte	0x892
+	.4byte	0x8a5
 	.byte	0
 	.uleb128 0x5
 	.byte	0x4
 	.4byte	0x29
-	.uleb128 0x27
-	.4byte	.LASF10237
+	.uleb128 0x29
+	.4byte	.LASF10236
 	.byte	0xa
 	.byte	0x29
-	.4byte	0x8a9
+	.4byte	0x8bc
 	.uleb128 0x7
-	.4byte	0x892
+	.4byte	0x8a5
 	.byte	0
-	.uleb128 0x27
-	.4byte	.LASF10238
+	.uleb128 0x29
+	.4byte	.LASF10237
 	.byte	0xb
 	.byte	0x1b
-	.4byte	0x8c9
+	.4byte	0x8d2
 	.uleb128 0x7
-	.4byte	0x892
+	.4byte	0x8a5
 	.uleb128 0x7
-	.4byte	0x892
-	.uleb128 0x7
-	.4byte	0x76f
-	.uleb128 0x7
-	.4byte	0x76f
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x78f
 	.byte	0
-	.uleb128 0x5
-	.byte	0x4
-	.4byte	0xa6
-	.uleb128 0x28
-<<<<<<< HEAD
-	.4byte	.LASF10235
-	.byte	0x8
-	.2byte	0x606
-	.4byte	0x177
-	.4byte	0x913
-	.uleb128 0x7
-	.4byte	0x913
-	.uleb128 0x7
-	.4byte	0x913
-	.uleb128 0x7
-	.4byte	0x918
-=======
+	.uleb128 0x2a
 	.4byte	.LASF10239
 	.byte	0x8
 	.2byte	0x606
 	.4byte	0x171
-	.4byte	0x8e9
+	.4byte	0x8f2
 	.uleb128 0x7
-	.4byte	0x8e9
+	.4byte	0x8f2
 	.uleb128 0x7
-	.4byte	0x8e9
+	.4byte	0x8f2
 	.uleb128 0x7
-	.4byte	0x8ee
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x8f7
 	.byte	0
 	.uleb128 0xb
 	.4byte	0xf0
 	.uleb128 0xb
 	.4byte	0x9b
-	.uleb128 0x28
-<<<<<<< HEAD
-	.4byte	.LASF10236
-	.byte	0x7
-	.2byte	0x7b0
-	.4byte	0xe5
-	.4byte	0x956
-=======
+	.uleb128 0x2a
 	.4byte	.LASF10240
 	.byte	0x7
 	.2byte	0x7b0
 	.4byte	0xe5
-	.4byte	0x92c
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x935
 	.uleb128 0x7
 	.4byte	0xbc
 	.uleb128 0x7
-	.4byte	0x153
+	.4byte	0x14d
 	.uleb128 0x7
-<<<<<<< HEAD
-	.4byte	0x956
+	.4byte	0x935
 	.uleb128 0x7
-	.4byte	0x95b
-	.uleb128 0x7
-	.4byte	0xf0
-	.uleb128 0x7
-	.4byte	0x960
-	.uleb128 0x7
-	.4byte	0x96b
-	.uleb128 0x7
-	.4byte	0x970
-=======
-	.4byte	0x92c
-	.uleb128 0x7
-	.4byte	0x931
+	.4byte	0x93a
 	.uleb128 0x7
 	.4byte	0xf0
 	.uleb128 0x7
-	.4byte	0x936
+	.4byte	0x93f
 	.uleb128 0x7
-	.4byte	0x941
+	.4byte	0x94a
 	.uleb128 0x7
-	.4byte	0x946
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x94f
 	.byte	0
 	.uleb128 0xb
 	.4byte	0xa6
 	.uleb128 0xb
 	.4byte	0xd8
 	.uleb128 0xb
-<<<<<<< HEAD
-	.4byte	0x965
-=======
-	.4byte	0x93b
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x944
 	.uleb128 0x5
 	.byte	0x4
-	.4byte	0x10c
+	.4byte	0x106
 	.uleb128 0xb
-	.4byte	0x16a
+	.4byte	0x164
 	.uleb128 0xb
-<<<<<<< HEAD
-	.4byte	0x975
+	.4byte	0x954
 	.uleb128 0x5
 	.byte	0x4
-	.4byte	0x97b
-=======
-	.4byte	0x94b
-	.uleb128 0x5
-	.byte	0x4
-	.4byte	0x951
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	0x95a
 	.uleb128 0xb
-	.4byte	0x148
-	.uleb128 0x29
-<<<<<<< HEAD
-	.4byte	.LASF10246
-	.byte	0x7
-	.2byte	0x37b
-	.uleb128 0x2a
-	.4byte	.LASF10238
-=======
+	.4byte	0x142
+	.uleb128 0x2b
 	.4byte	.LASF10250
 	.byte	0x7
 	.2byte	0x37b
-	.uleb128 0x2a
+	.uleb128 0x2c
 	.4byte	.LASF10242
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
-	.byte	0xc
+	.byte	0xd
 	.byte	0xae
 	.4byte	0x30
 	.byte	0
@@ -2842,37 +2089,23 @@ speedValue:
 	.byte	0
 	.byte	0
 	.uleb128 0x1a
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1b
 	.uleb128 0x4109
 	.byte	0x1
 	.uleb128 0x11
 	.uleb128 0x1
 	.uleb128 0x31
 	.uleb128 0x13
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x1b
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x6
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2117
-	.uleb128 0x19
 	.uleb128 0x1
 	.uleb128 0x13
 	.byte	0
@@ -2887,7 +2120,7 @@ speedValue:
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
-	.uleb128 0x5
+	.uleb128 0xb
 	.uleb128 0x27
 	.uleb128 0x19
 	.uleb128 0x11
@@ -2903,69 +2136,8 @@ speedValue:
 	.byte	0
 	.byte	0
 	.uleb128 0x1d
-	.uleb128 0x1d
-	.byte	0x1
-	.uleb128 0x31
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x6
-	.uleb128 0x58
-	.uleb128 0xb
-	.uleb128 0x59
-	.uleb128 0x5
-	.byte	0
-	.byte	0
-	.uleb128 0x1e
-	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x6
-	.byte	0
-	.byte	0
-	.uleb128 0x1f
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x31
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x20
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x21
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x22
 	.uleb128 0x2e
-	.byte	0
+	.byte	0x1
 	.uleb128 0x3f
 	.uleb128 0x19
 	.uleb128 0x3
@@ -2984,6 +2156,69 @@ speedValue:
 	.uleb128 0x18
 	.uleb128 0x2117
 	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1e
+	.uleb128 0x1d
+	.byte	0x1
+	.uleb128 0x31
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x58
+	.uleb128 0xb
+	.uleb128 0x59
+	.uleb128 0x5
+	.byte	0
+	.byte	0
+	.uleb128 0x1f
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.byte	0
+	.byte	0
+	.uleb128 0x20
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x31
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x21
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x22
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
 	.byte	0
 	.byte	0
 	.uleb128 0x23
@@ -2999,6 +2234,29 @@ speedValue:
 	.uleb128 0x5
 	.uleb128 0x27
 	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.byte	0
+	.byte	0
+	.uleb128 0x24
+	.uleb128 0x2e
+	.byte	0
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x27
+	.uleb128 0x19
 	.uleb128 0x49
 	.uleb128 0x13
 	.uleb128 0x11
@@ -3011,7 +2269,7 @@ speedValue:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x24
+	.uleb128 0x25
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -3028,7 +2286,7 @@ speedValue:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x25
+	.uleb128 0x26
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -3047,7 +2305,7 @@ speedValue:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x26
+	.uleb128 0x27
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -3058,25 +2316,6 @@ speedValue:
 	.uleb128 0xb
 	.uleb128 0x3b
 	.uleb128 0x5
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x3c
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x27
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
 	.uleb128 0x27
 	.uleb128 0x19
 	.uleb128 0x3c
@@ -3095,7 +2334,7 @@ speedValue:
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
-	.uleb128 0x5
+	.uleb128 0xb
 	.uleb128 0x27
 	.uleb128 0x19
 	.uleb128 0x49
@@ -3107,6 +2346,46 @@ speedValue:
 	.byte	0
 	.byte	0
 	.uleb128 0x29
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x2a
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x2b
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -3123,7 +2402,7 @@ speedValue:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x2c
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -3174,11 +2453,11 @@ speedValue:
 	.4byte	0
 	.4byte	0
 .LLST2:
-	.4byte	.LVL7
-	.4byte	.LVL8-1
+	.4byte	.LVL8
+	.4byte	.LVL9-1
 	.2byte	0x1
 	.byte	0x50
-	.4byte	.LVL8-1
+	.4byte	.LVL9-1
 	.4byte	.LFE6
 	.2byte	0x4
 	.byte	0xf3
@@ -3188,19 +2467,11 @@ speedValue:
 	.4byte	0
 	.4byte	0
 .LLST3:
-<<<<<<< HEAD
-	.4byte	.LVL10
-	.4byte	.LVL11-1
+	.4byte	.LVL12
+	.4byte	.LVL13-1
 	.2byte	0x1
 	.byte	0x50
-	.4byte	.LVL11-1
-=======
-	.4byte	.LVL11
-	.4byte	.LVL12-1
-	.2byte	0x1
-	.byte	0x50
-	.4byte	.LVL12-1
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.4byte	.LVL13-1
 	.4byte	.LFE9
 	.2byte	0x4
 	.byte	0xf3
@@ -4361,10 +3632,10 @@ speedValue:
 	.byte	0x5
 	.uleb128 0x4
 	.4byte	.LASF361
-	.file 14 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h"
+	.file 15 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/FreeRTOS.h"
 	.byte	0x3
 	.uleb128 0x3
-	.uleb128 0xe
+	.uleb128 0xf
 	.byte	0x5
 	.uleb128 0x47
 	.4byte	.LASF362
@@ -4374,14 +3645,14 @@ speedValue:
 	.byte	0x7
 	.4byte	.Ldebug_macro1
 	.byte	0x4
-	.file 15 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdint.h"
+	.file 16 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdint.h"
 	.byte	0x3
 	.uleb128 0x5b
-	.uleb128 0xf
-	.file 16 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdint.h"
+	.uleb128 0x10
+	.file 17 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\stdint.h"
 	.byte	0x3
 	.uleb128 0x9
-	.uleb128 0x10
+	.uleb128 0x11
 	.byte	0x5
 	.uleb128 0xa
 	.4byte	.LASF414
@@ -4391,20 +3662,20 @@ speedValue:
 	.byte	0x5
 	.uleb128 0x6
 	.4byte	.LASF415
-	.file 17 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\features.h"
+	.file 18 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\features.h"
 	.byte	0x3
 	.uleb128 0x8
-	.uleb128 0x11
+	.uleb128 0x12
 	.byte	0x7
 	.4byte	.Ldebug_macro2
 	.byte	0x4
 	.byte	0x7
 	.4byte	.Ldebug_macro3
 	.byte	0x4
-	.file 18 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_intsup.h"
+	.file 19 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\arm-none-eabi\\include\\sys\\_intsup.h"
 	.byte	0x3
 	.uleb128 0xd
-	.uleb128 0x12
+	.uleb128 0x13
 	.byte	0x7
 	.4byte	.Ldebug_macro4
 	.byte	0x4
@@ -4421,14 +3692,10 @@ speedValue:
 	.uleb128 0xd
 	.4byte	.LASF533
 	.byte	0x4
-<<<<<<< HEAD
-	.file 19 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
-=======
-	.file 19 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.file 20 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/FreeRTOSConfig.h"
 	.byte	0x3
 	.uleb128 0x62
-	.uleb128 0x13
+	.uleb128 0x14
 	.byte	0x7
 	.4byte	.Ldebug_macro7
 	.byte	0x4
@@ -4440,14 +3707,14 @@ speedValue:
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0x68
-	.uleb128 0xc
+	.uleb128 0xd
 	.byte	0x5
 	.uleb128 0x4b
 	.4byte	.LASF643
-	.file 20 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/deprecated_definitions.h"
+	.file 21 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/deprecated_definitions.h"
 	.byte	0x3
 	.uleb128 0x57
-	.uleb128 0x14
+	.uleb128 0x15
 	.byte	0x5
 	.uleb128 0x47
 	.4byte	.LASF644
@@ -4460,10 +3727,10 @@ speedValue:
 	.byte	0x4
 	.byte	0x7
 	.4byte	.Ldebug_macro10
-	.file 21 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/mpu_wrappers.h"
+	.file 22 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/mpu_wrappers.h"
 	.byte	0x3
 	.uleb128 0x85
-	.uleb128 0x15
+	.uleb128 0x16
 	.byte	0x7
 	.4byte	.Ldebug_macro11
 	.byte	0x4
@@ -4477,10 +3744,10 @@ speedValue:
 	.byte	0x5
 	.uleb128 0x48
 	.4byte	.LASF802
-	.file 22 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/list.h"
+	.file 23 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/list.h"
 	.byte	0x3
 	.uleb128 0x4e
-	.uleb128 0x16
+	.uleb128 0x17
 	.byte	0x7
 	.4byte	.Ldebug_macro13
 	.byte	0x4
@@ -4493,10 +3760,10 @@ speedValue:
 	.byte	0x7
 	.4byte	.Ldebug_macro15
 	.byte	0x4
-	.file 23 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/timers.h"
+	.file 24 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/rtos/FreeRTOS_S32K/Source/include/timers.h"
 	.byte	0x3
 	.uleb128 0x6
-	.uleb128 0x17
+	.uleb128 0x18
 	.byte	0x5
 	.uleb128 0x48
 	.4byte	.LASF876
@@ -4507,23 +3774,23 @@ speedValue:
 	.byte	0x7
 	.4byte	.Ldebug_macro16
 	.byte	0x4
-	.file 24 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/interrupt_manager.h"
+	.file 25 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/interrupt_manager.h"
 	.byte	0x3
 	.uleb128 0x9
-	.uleb128 0x18
+	.uleb128 0x19
 	.byte	0x5
 	.uleb128 0x13
 	.4byte	.LASF899
-	.file 25 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/device_registers.h"
+	.file 26 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/device_registers.h"
 	.byte	0x3
 	.uleb128 0x15
-	.uleb128 0x19
+	.uleb128 0x1a
 	.byte	0x7
 	.4byte	.Ldebug_macro17
-	.file 26 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/common/s32_core_cm4.h"
+	.file 27 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/common/s32_core_cm4.h"
 	.byte	0x3
 	.uleb128 0x33
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.byte	0x7
 	.4byte	.Ldebug_macro18
 	.byte	0x4
@@ -4538,21 +3805,21 @@ speedValue:
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0x4e
-	.uleb128 0xd
+	.uleb128 0xe
 	.byte	0x7
 	.4byte	.Ldebug_macro20
 	.byte	0x4
-	.file 27 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/devassert.h"
+	.file 28 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/devassert.h"
 	.byte	0x3
 	.uleb128 0xb2
-	.uleb128 0x1b
+	.uleb128 0x1c
 	.byte	0x5
 	.uleb128 0x14
 	.4byte	.LASF9951
-	.file 28 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdbool.h"
+	.file 29 "c:\\nxp\\s32ds_arm_v2018.r1\\cross_tools\\gcc-arm-none-eabi-4_9\\lib\\gcc\\arm-none-eabi\\4.9.3\\include\\stdbool.h"
 	.byte	0x3
 	.uleb128 0x16
-	.uleb128 0x1c
+	.uleb128 0x1d
 	.byte	0x7
 	.4byte	.Ldebug_macro21
 	.byte	0x4
@@ -4562,77 +3829,65 @@ speedValue:
 	.byte	0x4
 	.byte	0x4
 	.byte	0x4
-	.file 29 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h"
+	.file 30 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h"
 	.byte	0x3
 	.uleb128 0xa
-	.uleb128 0x1d
+	.uleb128 0x1e
 	.byte	0x5
 	.uleb128 0x14
 	.4byte	.LASF9958
-	.file 30 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/status.h"
+	.file 31 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/status.h"
 	.byte	0x3
 	.uleb128 0x17
-	.uleb128 0x1e
+	.uleb128 0x1f
 	.byte	0x5
 	.uleb128 0x14
 	.4byte	.LASF9959
 	.byte	0x4
-	.file 31 "c:\\nxp\\s32ds_arm_v2018.r1\\s32ds\\s32sdk_s32k14x_ear_0.8.6\\platform\\drivers\\src\\clock\\s32k1xx\\clock_s32k1xx.h"
+	.file 32 "c:\\nxp\\s32ds_arm_v2018.r1\\s32ds\\s32sdk_s32k14x_ear_0.8.6\\platform\\drivers\\src\\clock\\s32k1xx\\clock_s32k1xx.h"
 	.byte	0x3
 	.uleb128 0x1e
-	.uleb128 0x1f
+	.uleb128 0x20
 	.byte	0x7
 	.4byte	.Ldebug_macro22
 	.byte	0x4
 	.byte	0x4
-<<<<<<< HEAD
-	.file 32 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
-=======
-	.file 32 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.file 33 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/clockMan1.h"
 	.byte	0x3
 	.uleb128 0xb
-	.uleb128 0x20
+	.uleb128 0x21
 	.byte	0x5
 	.uleb128 0x36
 	.4byte	.LASF9976
-<<<<<<< HEAD
-	.file 33 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
-=======
-	.file 33 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.file 34 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/Cpu.h"
 	.byte	0x3
 	.uleb128 0x3d
-	.uleb128 0x21
+	.uleb128 0x22
 	.byte	0x5
 	.uleb128 0x33
 	.4byte	.LASF9977
-	.file 34 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h"
+	.file 35 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h"
 	.byte	0x3
 	.uleb128 0x3e
-	.uleb128 0x22
+	.uleb128 0x23
 	.byte	0x7
 	.4byte	.Ldebug_macro23
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0x41
-	.uleb128 0x20
+	.uleb128 0x21
 	.byte	0x4
-<<<<<<< HEAD
-	.file 35 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
-=======
-	.file 35 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+	.file 36 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Generated_Code/pin_mux.h"
 	.byte	0x3
 	.uleb128 0x42
-	.uleb128 0x23
+	.uleb128 0x24
 	.byte	0x5
 	.uleb128 0x61f
 	.4byte	.LASF9984
-	.file 36 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h"
+	.file 37 "C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h"
 	.byte	0x3
 	.uleb128 0x622
-	.uleb128 0x24
+	.uleb128 0x25
 	.byte	0x5
 	.uleb128 0x14
 	.4byte	.LASF9985
@@ -4651,7 +3906,7 @@ speedValue:
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0xc
-	.uleb128 0x23
+	.uleb128 0x24
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0xd
@@ -4659,42 +3914,42 @@ speedValue:
 	.byte	0x5
 	.uleb128 0x9
 	.4byte	.LASF9990
-	.file 37 "../Sources/definitions.h"
+	.file 38 "../Sources/definitions.h"
 	.byte	0x3
 	.uleb128 0xc
-	.uleb128 0x25
+	.uleb128 0x26
 	.byte	0x7
 	.4byte	.Ldebug_macro25
 	.byte	0x4
-	.file 38 "../Sources/clock.h"
+	.file 39 "../Sources/clock.h"
 	.byte	0x3
 	.uleb128 0x10
-	.uleb128 0x26
+	.uleb128 0x27
 	.byte	0x5
 	.uleb128 0x9
 	.4byte	.LASF10069
 	.byte	0x4
-	.file 39 "../Sources/gpio.h"
+	.file 40 "../Sources/gpio.h"
 	.byte	0x3
 	.uleb128 0x14
-	.uleb128 0x27
+	.uleb128 0x28
 	.byte	0x5
 	.uleb128 0x9
 	.4byte	.LASF10070
-	.file 40 "C:/Users/rbn/workspaceS32DS.ARM.2018.R1/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
+	.file 41 "C:/NXP/Workspace/CLUSTER/clusterRtosFinal/clusterRtosFinal/Sources/definitions.h"
 	.byte	0x3
 	.uleb128 0xc
-	.uleb128 0x28
+	.uleb128 0x29
 	.byte	0x4
 	.byte	0x3
 	.uleb128 0xd
 	.uleb128 0x9
 	.byte	0x4
 	.byte	0x4
-	.file 41 "../Sources/LCD_DOS.h"
+	.file 42 "../Sources/LCD_DOS.h"
 	.byte	0x3
 	.uleb128 0x18
-	.uleb128 0x29
+	.uleb128 0x2a
 	.byte	0x3
 	.uleb128 0x8
 	.uleb128 0xa
@@ -4710,20 +3965,19 @@ speedValue:
 	.uleb128 0x1
 	.uleb128 0x9
 	.byte	0x4
-	.file 42 "../Sources/FlexCAN.h"
+	.file 43 "../Sources/FlexCAN.h"
 	.byte	0x3
 	.uleb128 0x2
-	.uleb128 0x2a
+	.uleb128 0x2b
 	.byte	0x7
 	.4byte	.Ldebug_macro26
 	.byte	0x4
 	.byte	0x7
 	.4byte	.Ldebug_macro27
 	.byte	0x4
-	.file 43 "../Sources/eeeprom.h"
 	.byte	0x3
 	.uleb128 0x20
-	.uleb128 0x2b
+	.uleb128 0xc
 	.byte	0x3
 	.uleb128 0x8
 	.uleb128 0x9
@@ -34195,11 +33449,7 @@ speedValue:
 .LASF1756:
 	.ascii	"CAN_CTRL1_PN_PLFS(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"CAN_CTRL1_PN_PLFS_SHIFT))&CAN_CTRL1_PN_PLFS_MASK)\000"
-<<<<<<< HEAD
-.LASF10227:
-=======
-.LASF10233:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF10232:
 	.ascii	"indFlag\000"
 .LASF5844:
 	.ascii	"LPUART_CTRL_RIE_WIDTH 1u\000"
@@ -34728,6 +33978,9 @@ speedValue:
 	.ascii	"DMA_EARS_EDREQ_2_SHIFT 2u\000"
 .LASF4295:
 	.ascii	"FTM_SWOCTRL_CH4OCV_WIDTH 1u\000"
+.LASF4558:
+	.ascii	"LMEM_PCCRMR_R11(x) (((uint32_t)(((uint32_t)(x))<<LM"
+	.ascii	"EM_PCCRMR_R11_SHIFT))&LMEM_PCCRMR_R11_MASK)\000"
 .LASF9331:
 	.ascii	"SIM_PLATCGC_CGCDMA_MASK 0x4u\000"
 .LASF7568:
@@ -35018,11 +34271,7 @@ speedValue:
 	.ascii	"LPUART_PINCFG_TRGSEL_WIDTH 2u\000"
 .LASF6058:
 	.ascii	"MCM_LMDR_COUNT 2u\000"
-<<<<<<< HEAD
-.LASF10242:
-=======
 .LASF10246:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"xMEMORY_REGION\000"
 .LASF70:
 	.ascii	"__SHRT_MAX__ 32767\000"
@@ -35185,11 +34434,7 @@ speedValue:
 .LASF5525:
 	.ascii	"LPSPI_TCR_CPHA(x) (((uint32_t)(((uint32_t)(x))<<LPS"
 	.ascii	"PI_TCR_CPHA_SHIFT))&LPSPI_TCR_CPHA_MASK)\000"
-<<<<<<< HEAD
-.LASF10240:
-=======
 .LASF10244:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"../Sources/rtos.c\000"
 .LASF6361:
 	.ascii	"MPU_EDR_EMN_WIDTH 4u\000"
@@ -35234,6 +34479,8 @@ speedValue:
 	.ascii	"DMA_ERQ_ERQ7_SHIFT 7u\000"
 .LASF5886:
 	.ascii	"LPUART_DATA_R0T0_MASK 0x1u\000"
+.LASF8778:
+	.ascii	"S32_SCB_FPCCR_THREAD_MASK 0x8u\000"
 .LASF4492:
 	.ascii	"LMEM_PCCLCR_CACHEADDR_SHIFT 2u\000"
 .LASF2750:
@@ -35326,7 +34573,7 @@ speedValue:
 .LASF1948:
 	.ascii	"CAN_FDCTRL_TDCEN(x) (((uint32_t)(((uint32_t)(x))<<C"
 	.ascii	"AN_FDCTRL_TDCEN_SHIFT))&CAN_FDCTRL_TDCEN_MASK)\000"
-.LASF10223:
+.LASF10224:
 	.ascii	"pxTask\000"
 .LASF5940:
 	.ascii	"LPUART_DATA_PARITYE_WIDTH 1u\000"
@@ -36669,6 +35916,8 @@ speedValue:
 	.ascii	"SMC_PMPROT_AHSRUN_SHIFT))&SMC_PMPROT_AHSRUN_MASK)\000"
 .LASF569:
 	.ascii	"INCLUDE_xQueueGetMutexHolder 1\000"
+.LASF7453:
+	.ascii	"S32_NVIC_IP_PRI1_MASK 0xFFu\000"
 .LASF1139:
 	.ascii	"AIPS_MPRA_MTW2_SHIFT 21u\000"
 .LASF2231:
@@ -37161,8 +36410,8 @@ speedValue:
 	.ascii	"DMA_EARS_EDREQ_13_SHIFT 13u\000"
 .LASF8870:
 	.ascii	"SCG_INSTANCE_COUNT (1u)\000"
-.LASF355:
-	.ascii	"__ARM_ARCH_EXT_IDIV__ 1\000"
+.LASF2918:
+	.ascii	"DMA_TCD_NBYTES_MLOFFYES_NBYTES_WIDTH 10u\000"
 .LASF9840:
 	.ascii	"HAS_DIVIDER (1U << 2U)\000"
 .LASF7141:
@@ -37260,8 +36509,6 @@ speedValue:
 	.ascii	"SIM_MISCTRL0_FTM3_OBE_CTRL(x) (((uint32_t)(((uint32"
 	.ascii	"_t)(x))<<SIM_MISCTRL0_FTM3_OBE_CTRL_SHIFT))&SIM_MIS"
 	.ascii	"CTRL0_FTM3_OBE_CTRL_MASK)\000"
-.LASF2918:
-	.ascii	"DMA_TCD_NBYTES_MLOFFYES_NBYTES_WIDTH 10u\000"
 .LASF2113:
 	.ascii	"CMP_C1_INNSEL_MASK 0x3000000u\000"
 .LASF3034:
@@ -37382,6 +36629,8 @@ speedValue:
 	.ascii	"pdFREERTOS_ERRNO_EOPNOTSUPP 95\000"
 .LASF7138:
 	.ascii	"RCM_PARAM_ESW_SHIFT 10u\000"
+.LASF9023:
+	.ascii	"SCG_SIRCCSR_SIRCVLD_SHIFT 24u\000"
 .LASF610:
 	.ascii	"pdFREERTOS_ERRNO_EACCES 13\000"
 .LASF7617:
@@ -37761,7 +37010,7 @@ speedValue:
 	.ascii	"_NVIC_IP_PRI9_SHIFT))&S32_NVIC_IP_PRI9_MASK)\000"
 .LASF7519:
 	.ascii	"S32_NVIC_IP_PRI17_WIDTH 8u\000"
-.LASF10224:
+.LASF10225:
 	.ascii	"pcTaskName\000"
 .LASF5186:
 	.ascii	"LPIT_SETTEN_SET_T_EN_1_MASK 0x2u\000"
@@ -38746,8 +37995,9 @@ speedValue:
 	.ascii	"pdFREERTOS_ERRNO_EEXIST 17\000"
 .LASF4559:
 	.ascii	"LMEM_PCCRMR_R10_MASK 0xC00u\000"
-.LASF2432:
-	.ascii	"DMA_ERQ_ERQ12_MASK 0x1000u\000"
+.LASF9001:
+	.ascii	"SCG_SOSCCFG_HGO(x) (((uint32_t)(((uint32_t)(x))<<SC"
+	.ascii	"G_SOSCCFG_HGO_SHIFT))&SCG_SOSCCFG_HGO_MASK)\000"
 .LASF939:
 	.ascii	"ADC0 ((ADC_Type *)ADC0_BASE)\000"
 .LASF5339:
@@ -39165,7 +38415,7 @@ speedValue:
 	.ascii	"S32_SCB_CFSR_STKERR_WIDTH 1u\000"
 .LASF7054:
 	.ascii	"PORT_GICLR_GIWD_SHIFT 16u\000"
-.LASF10236:
+.LASF10235:
 	.ascii	"CLUSTER_Display_Gas_Tank_Level\000"
 .LASF9597:
 	.ascii	"FEATURE_PORT_HAS_PASSIVE_FILTER (1)\000"
@@ -39193,8 +38443,6 @@ speedValue:
 	.ascii	"EWM_BASE (0x40061000u)\000"
 .LASF9879:
 	.ascii	"SCG_CLKOUT_CLOCK SCG_CLKOUT_CLK\000"
-.LASF10090:
-	.ascii	"TNK_TIMER_PERIOD_MS (166 / portTICK_PERIOD_MS)\000"
 .LASF6933:
 	.ascii	"PMC_LVDSC1_LVDRE_SHIFT 4u\000"
 .LASF4834:
@@ -39415,8 +38663,6 @@ speedValue:
 	.ascii	"MCM_LMFATR_OVR_MASK 0x80000000u\000"
 .LASF1583:
 	.ascii	"CAN_ESR1_STFERR_FAST_WIDTH 1u\000"
-.LASF10224:
-	.ascii	"tankLevel\000"
 .LASF9839:
 	.ascii	"HAS_MULTIPLIER (1U << 1U)\000"
 .LASF3412:
@@ -39554,6 +38800,9 @@ speedValue:
 .LASF5481:
 	.ascii	"LPSPI_FSR_RXCOUNT(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"LPSPI_FSR_RXCOUNT_SHIFT))&LPSPI_FSR_RXCOUNT_MASK)\000"
+.LASF3387:
+	.ascii	"FTFC_FSTAT_FPVIOL(x) (((uint8_t)(((uint8_t)(x))<<FT"
+	.ascii	"FC_FSTAT_FPVIOL_SHIFT))&FTFC_FSTAT_FPVIOL_MASK)\000"
 .LASF6015:
 	.ascii	"LPUART_FIFO_RXIDEN_SHIFT 10u\000"
 .LASF3989:
@@ -39851,8 +39100,6 @@ speedValue:
 	.ascii	"unsigned char\000"
 .LASF2380:
 	.ascii	"DMA_ES_VLD_MASK 0x80000000u\000"
-.LASF10088:
-	.ascii	"SPD_TIMER_PERIOD_MS (83 / portTICK_PERIOD_MS)\000"
 .LASF2944:
 	.ascii	"DMA_TCD_CITER_ELINKNO_CITER_MASK 0x7FFFu\000"
 .LASF10126:
@@ -40159,8 +39406,6 @@ speedValue:
 	.ascii	"RCM_SRIE_DELAY_WIDTH 2u\000"
 .LASF1662:
 	.ascii	"CAN_CTRL2_RFFN_SHIFT 24u\000"
-.LASF7491:
-	.ascii	"S32_NVIC_IP_PRI10_WIDTH 8u\000"
 .LASF7195:
 	.ascii	"RCM_SRS_MDM_AP_WIDTH 1u\000"
 .LASF4200:
@@ -40207,9 +39452,6 @@ speedValue:
 	.ascii	"32_NVIC_IP_PRI219_SHIFT))&S32_NVIC_IP_PRI219_MASK)\000"
 .LASF4154:
 	.ascii	"FTM_FLTPOL_FLT0POL_SHIFT 0u\000"
-.LASF9509:
-	.ascii	"WDOG_CS_DBG(x) (((uint32_t)(((uint32_t)(x))<<WDOG_C"
-	.ascii	"S_DBG_SHIFT))&WDOG_CS_DBG_MASK)\000"
 .LASF7241:
 	.ascii	"RCM_SSRS_SLOCKUP_MASK 0x200u\000"
 .LASF8005:
@@ -40457,8 +39699,8 @@ speedValue:
 	.ascii	"B_SHIFT))&PDB_C1_BB_MASK)\000"
 .LASF8562:
 	.ascii	"S32_SCB_SHPR1_PRI_5_MASK 0xFF00u\000"
-.LASF7453:
-	.ascii	"S32_NVIC_IP_PRI1_MASK 0xFFu\000"
+.LASF383:
+	.ascii	"_BSD_SIZE_T_ \000"
 .LASF5899:
 	.ascii	"LPUART_DATA_R3T3_SHIFT 3u\000"
 .LASF6040:
@@ -40564,11 +39806,8 @@ speedValue:
 	.ascii	"portBASE_TYPE long\000"
 .LASF8150:
 	.ascii	"S32_NVIC_IP_PRI175_SHIFT 0u\000"
-<<<<<<< HEAD
-=======
 .LASF10095:
 	.ascii	"SPD_TIMER_PERIOD_MS (50 / portTICK_PERIOD_MS)\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF5888:
 	.ascii	"LPUART_DATA_R0T0_WIDTH 1u\000"
 .LASF2759:
@@ -40739,11 +39978,7 @@ speedValue:
 	.ascii	"FLEXIO_TIMCTL_PINSEL_MASK 0x700u\000"
 .LASF5556:
 	.ascii	"LPTMR_CSR_TEN_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF10246:
-=======
 .LASF10250:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"vTaskStartScheduler\000"
 .LASF7874:
 	.ascii	"S32_NVIC_IP_PRI106_SHIFT 0u\000"
@@ -40790,9 +40025,8 @@ speedValue:
 	.ascii	"S32_NVIC_IP_PRI35_SHIFT 0u\000"
 .LASF1727:
 	.ascii	"CAN_RAMn_DATA_BYTE_3_WIDTH 8u\000"
-.LASF1269:
-	.ascii	"AIPS_OPACR_TP2(x) (((uint32_t)(((uint32_t)(x))<<AIP"
-	.ascii	"S_OPACR_TP2_SHIFT))&AIPS_OPACR_TP2_MASK)\000"
+.LASF7107:
+	.ascii	"RCM_PARAM_ELVD_WIDTH 1u\000"
 .LASF1001:
 	.ascii	"ADC_SC2_ACFGT_WIDTH 1u\000"
 .LASF4448:
@@ -40801,7 +40035,7 @@ speedValue:
 	.ascii	"SIM_SDID_SUBSERIES(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<SIM_SDID_SUBSERIES_SHIFT))&SIM_SDID_SUBSERIES_MASK"
 	.ascii	")\000"
-.LASF10220:
+.LASF10221:
 	.ascii	"rtos_start\000"
 .LASF564:
 	.ascii	"INCLUDE_vTaskDelayUntil 1\000"
@@ -41037,8 +40271,8 @@ speedValue:
 	.ascii	"LPUART_STAT_RXINV_SHIFT))&LPUART_STAT_RXINV_MASK)\000"
 .LASF4257:
 	.ascii	"FTM_SWOCTRL_CH3OC_MASK 0x8u\000"
-.LASF106:
-	.ascii	"__UINT_LEAST32_MAX__ 4294967295UL\000"
+.LASF8334:
+	.ascii	"S32_NVIC_IP_PRI221_SHIFT 0u\000"
 .LASF8461:
 	.ascii	"S32_SCB_ICSR_RETTOBASE(x) (((uint32_t)(((uint32_t)("
 	.ascii	"x))<<S32_SCB_ICSR_RETTOBASE_SHIFT))&S32_SCB_ICSR_RE"
@@ -41124,8 +40358,8 @@ speedValue:
 	.ascii	"LR_DISDEFWBUF_MASK)\000"
 .LASF7615:
 	.ascii	"S32_NVIC_IP_PRI41_WIDTH 8u\000"
-.LASF1295:
-	.ascii	"AIPS_OPACR_WP0_SHIFT 29u\000"
+.LASF3666:
+	.ascii	"FTM_STATUS_CH4F_SHIFT 4u\000"
 .LASF8098:
 	.ascii	"S32_NVIC_IP_PRI162_SHIFT 0u\000"
 .LASF8453:
@@ -41254,8 +40488,6 @@ speedValue:
 	.ascii	"SCG_HCCR_SCS_MASK 0xF000000u\000"
 .LASF8285:
 	.ascii	"S32_NVIC_IP_PRI209_MASK 0xFFu\000"
-.LASF8739:
-	.ascii	"S32_SCB_DFSR_DWTTRAP_SHIFT 2u\000"
 .LASF4894:
 	.ascii	"LPI2C_SSR_TDF_SHIFT 0u\000"
 .LASF8004:
@@ -41280,8 +40512,9 @@ speedValue:
 	.ascii	"AIPS_OPACR_TP0_MASK 0x10000000u\000"
 .LASF3346:
 	.ascii	"FLEXIO_TIMCFG_TIMENA_WIDTH 3u\000"
-.LASF4141:
-	.ascii	"FTM_CONF_GTBEEN_MASK 0x200u\000"
+.LASF2751:
+	.ascii	"DMA_HRS_HRS3(x) (((uint32_t)(((uint32_t)(x))<<DMA_H"
+	.ascii	"RS_HRS3_SHIFT))&DMA_HRS_HRS3_MASK)\000"
 .LASF7674:
 	.ascii	"S32_NVIC_IP_PRI56_SHIFT 0u\000"
 .LASF346:
@@ -41338,7 +40571,7 @@ speedValue:
 	.ascii	"LPSPI_IRQS_ARR_COUNT (1u)\000"
 .LASF9066:
 	.ascii	"SCG_FIRCDIV_FIRCDIV1_MASK 0x7u\000"
-.LASF10228:
+.LASF10229:
 	.ascii	"vApplicationTickHook\000"
 .LASF6011:
 	.ascii	"LPUART_FIFO_TXOFE_SHIFT 9u\000"
@@ -41495,7 +40728,7 @@ speedValue:
 	.ascii	"PCC_LPIT0_CLOCK LPIT0_CLK\000"
 .LASF6213:
 	.ascii	"MCM_LMDR2_CF1_WIDTH 4u\000"
-.LASF10227:
+.LASF10228:
 	.ascii	"vMainConfigureTimerForRunTimeStats\000"
 .LASF533:
 	.ascii	"_GCC_WRAP_STDINT_H \000"
@@ -43074,7 +42307,7 @@ speedValue:
 	.ascii	"DMA_CR_HALT_MASK 0x20u\000"
 .LASF7946:
 	.ascii	"S32_NVIC_IP_PRI124_SHIFT 0u\000"
-.LASF10226:
+.LASF10227:
 	.ascii	"xFreeHeapSpace\000"
 .LASF9668:
 	.ascii	"FEATURE_FLS_DF_CHECK_CMD_ADDRESS_ALIGMENT (4u)\000"
@@ -43108,19 +42341,10 @@ speedValue:
 	.ascii	"S32_SCB_CFSR_DACCVIOL_MASK 0x2u\000"
 .LASF6284:
 	.ascii	"MCM_LMFATR_PEFSIZE_SHIFT 4u\000"
-<<<<<<< HEAD
-.LASF10223:
-	.ascii	"speedValue\000"
-.LASF8625:
-	.ascii	"S32_SCB_SHCSR_BUSFAULTPENDED(x) (((uint32_t)(((uint"
-	.ascii	"32_t)(x))<<S32_SCB_SHCSR_BUSFAULTPENDED_SHIFT))&S32"
-	.ascii	"_SCB_SHCSR_BUSFAULTPENDED_MASK)\000"
-=======
 .LASF8739:
 	.ascii	"S32_SCB_DFSR_DWTTRAP_SHIFT 2u\000"
-.LASF10230:
+.LASF10231:
 	.ascii	"speedFlag\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF4887:
 	.ascii	"LPI2C_SCR_FILTEN_WIDTH 1u\000"
 .LASF3848:
@@ -43231,11 +42455,7 @@ speedValue:
 	.ascii	"RCM_PARAM_EMDM_AP_WIDTH 1u\000"
 .LASF8815:
 	.ascii	"S32_SCB_FPDSCR_FZ_SHIFT 24u\000"
-<<<<<<< HEAD
-.LASF10236:
-=======
 .LASF10240:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"xTaskGenericCreate\000"
 .LASF7599:
 	.ascii	"S32_NVIC_IP_PRI37_WIDTH 8u\000"
@@ -43319,8 +42539,8 @@ speedValue:
 	.ascii	"32_NVIC_IP_PRI152_SHIFT))&S32_NVIC_IP_PRI152_MASK)\000"
 .LASF10056:
 	.ascii	"LCD_DATA_BUS_PORT PTD->PDOR\000"
-.LASF9659:
-	.ascii	"FEATURE_FLS_PF_SECTOR_CMD_ADDRESS_ALIGMENT (16u)\000"
+.LASF4141:
+	.ascii	"FTM_CONF_GTBEEN_MASK 0x200u\000"
 .LASF3669:
 	.ascii	"FTM_STATUS_CH5F_MASK 0x20u\000"
 .LASF2680:
@@ -43355,7 +42575,7 @@ speedValue:
 	.ascii	"CAN_CTRL2_MRP_WIDTH 1u\000"
 .LASF5356:
 	.ascii	"LPSPI_IER_WCIE_WIDTH 1u\000"
-.LASF10222:
+.LASF10223:
 	.ascii	"vApplicationStackOverflowHook\000"
 .LASF2908:
 	.ascii	"DMA_TCD_NBYTES_MLOFFNO_DMLOE_MASK 0x40000000u\000"
@@ -43620,11 +42840,8 @@ speedValue:
 .LASF5289:
 	.ascii	"LPSPI_CR_MEN(x) (((uint32_t)(((uint32_t)(x))<<LPSPI"
 	.ascii	"_CR_MEN_SHIFT))&LPSPI_CR_MEN_MASK)\000"
-<<<<<<< HEAD
-=======
 .LASF10099:
 	.ascii	"OD_TIMER_PERIOD_MS (200 / portTICK_PERIOD_MS)\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF1568:
 	.ascii	"CAN_ESR1_SYNCH(x) (((uint32_t)(((uint32_t)(x))<<CAN"
 	.ascii	"_ESR1_SYNCH_SHIFT))&CAN_ESR1_SYNCH_MASK)\000"
@@ -43859,6 +43076,9 @@ speedValue:
 	.ascii	"DMA_TCD_NBYTES_MLOFFNO_NBYTES(x) (((uint32_t)(((uin"
 	.ascii	"t32_t)(x))<<DMA_TCD_NBYTES_MLOFFNO_NBYTES_SHIFT))&D"
 	.ascii	"MA_TCD_NBYTES_MLOFFNO_NBYTES_MASK)\000"
+.LASF5557:
+	.ascii	"LPTMR_CSR_TEN(x) (((uint32_t)(((uint32_t)(x))<<LPTM"
+	.ascii	"R_CSR_TEN_SHIFT))&LPTMR_CSR_TEN_MASK)\000"
 .LASF6700:
 	.ascii	"MSCM_CP0CFG3_CMP(x) (((uint32_t)(((uint32_t)(x))<<M"
 	.ascii	"SCM_CP0CFG3_CMP_SHIFT))&MSCM_CP0CFG3_CMP_MASK)\000"
@@ -44021,8 +43241,8 @@ speedValue:
 	.ascii	"PMC_LVDSC2_LVWF_WIDTH 1u\000"
 .LASF5636:
 	.ascii	"LPUART_PARAM_RXFIFO_WIDTH 8u\000"
-.LASF10229:
-	.ascii	"pastTankLevel\000"
+.LASF229:
+	.ascii	"__SACCUM_FBIT__ 7\000"
 .LASF5703:
 	.ascii	"LPUART_STAT_MA2F_SHIFT 14u\000"
 .LASF400:
@@ -44194,9 +43414,6 @@ speedValue:
 	.ascii	"S32_NVIC_IP_PRI154_SHIFT 0u\000"
 .LASF9719:
 	.ascii	"FEATURE_CAN_HAS_MBDSR2 (0)\000"
-.LASF2751:
-	.ascii	"DMA_HRS_HRS3(x) (((uint32_t)(((uint32_t)(x))<<DMA_H"
-	.ascii	"RS_HRS3_SHIFT))&DMA_HRS_HRS3_MASK)\000"
 .LASF707:
 	.ascii	"traceMOVED_TASK_TO_READY_STATE(pxTCB) \000"
 .LASF3760:
@@ -44567,11 +43784,7 @@ speedValue:
 	.ascii	"FTM_FLTCTRL_FFVAL_MASK 0xF00u\000"
 .LASF9980:
 	.ascii	"ICACHE_ENABLE 0\000"
-<<<<<<< HEAD
-.LASF10238:
-=======
 .LASF10242:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"xPortGetFreeHeapSize\000"
 .LASF8854:
 	.ascii	"S32_SysTick_CVR_CURRENT_MASK 0xFFFFFFu\000"
@@ -44807,11 +44020,7 @@ speedValue:
 	.ascii	"DMA_EARS_EDREQ_11_SHIFT 11u\000"
 .LASF3674:
 	.ascii	"FTM_STATUS_CH6F_SHIFT 6u\000"
-<<<<<<< HEAD
-.LASF10244:
-=======
 .LASF10248:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"ulNewBASEPRI\000"
 .LASF6:
 	.ascii	"__VERSION__ \"4.9.3 20150529 (release) [ARM/embedde"
@@ -45669,6 +44878,9 @@ speedValue:
 	.ascii	"DMA_EEI_EEI0_WIDTH 1u\000"
 .LASF6050:
 	.ascii	"LPUART_WATER_RXWATER_MASK 0x30000u\000"
+.LASF4180:
+	.ascii	"FTM_SYNCONF_INVC(x) (((uint32_t)(((uint32_t)(x))<<F"
+	.ascii	"TM_SYNCONF_INVC_SHIFT))&FTM_SYNCONF_INVC_MASK)\000"
 .LASF7663:
 	.ascii	"S32_NVIC_IP_PRI53_WIDTH 8u\000"
 .LASF1292:
@@ -45739,7 +44951,7 @@ speedValue:
 .LASF3668:
 	.ascii	"FTM_STATUS_CH4F(x) (((uint32_t)(((uint32_t)(x))<<FT"
 	.ascii	"M_STATUS_CH4F_SHIFT))&FTM_STATUS_CH4F_MASK)\000"
-.LASF10218:
+.LASF10219:
 	.ascii	"speedTask\000"
 .LASF3824:
 	.ascii	"FTM_COMBINE_DTEN0(x) (((uint32_t)(((uint32_t)(x))<<"
@@ -45855,8 +45067,6 @@ speedValue:
 	.ascii	"TM_CONF_BDMMODE_SHIFT))&FTM_CONF_BDMMODE_MASK)\000"
 .LASF3024:
 	.ascii	"DMA_TCD_BITER_ELINKYES_ELINK_MASK 0x8000u\000"
-.LASF10226:
-	.ascii	"tripOdometerValue\000"
 .LASF2968:
 	.ascii	"DMA_TCD_CSR_START_MASK 0x1u\000"
 .LASF345:
@@ -45875,11 +45085,7 @@ speedValue:
 .LASF998:
 	.ascii	"ADC_SC2_ACREN(x) (((uint32_t)(((uint32_t)(x))<<ADC_"
 	.ascii	"SC2_ACREN_SHIFT))&ADC_SC2_ACREN_MASK)\000"
-<<<<<<< HEAD
-.LASF10239:
-=======
 .LASF10243:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"GNU C 4.9.3 20150529 (release) [ARM/embedded-4_9-br"
 	.ascii	"anch revision 227977] -mcpu=cortex-m4 -mthumb -mflo"
 	.ascii	"at-abi=hard -mfpu=fpv4-sp-d16 -g3 -O1 -std=c99 -fun"
@@ -46238,11 +45444,7 @@ speedValue:
 	.ascii	"S32_NVIC_IP_PRI120_SHIFT 0u\000"
 .LASF1276:
 	.ascii	"AIPS_OPACR_SP2_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF10243:
-=======
 .LASF10247:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"vPortRaiseBASEPRI\000"
 .LASF7821:
 	.ascii	"S32_NVIC_IP_PRI93_MASK 0xFFu\000"
@@ -46275,9 +45477,8 @@ speedValue:
 	.ascii	"MAX_NO_SYS_CLOCK_DIVS 7\000"
 .LASF438:
 	.ascii	"short\000"
-.LASF5557:
-	.ascii	"LPTMR_CSR_TEN(x) (((uint32_t)(((uint32_t)(x))<<LPTM"
-	.ascii	"R_CSR_TEN_SHIFT))&LPTMR_CSR_TEN_MASK)\000"
+.LASF106:
+	.ascii	"__UINT_LEAST32_MAX__ 4294967295UL\000"
 .LASF821:
 	.ascii	"listGET_NEXT(pxListItem) ( ( pxListItem )->pxNext )"
 	.ascii	"\000"
@@ -46346,7 +45547,7 @@ speedValue:
 	.ascii	"S32_SCB_FPCCR_LSPEN(x) (((uint32_t)(((uint32_t)(x))"
 	.ascii	"<<S32_SCB_FPCCR_LSPEN_SHIFT))&S32_SCB_FPCCR_LSPEN_M"
 	.ascii	"ASK)\000"
-.LASF10221:
+.LASF10222:
 	.ascii	"vApplicationMallocFailedHook\000"
 .LASF8537:
 	.ascii	"S32_SCB_CCR_NONBASETHRDENA(x) (((uint32_t)(((uint32"
@@ -46494,11 +45695,7 @@ speedValue:
 	.ascii	"DMA_TCD_CSR_MAJORLINKCH_MASK 0xF00u\000"
 .LASF9907:
 	.ascii	"PCC_FTM1_CLOCK FTM1_CLK\000"
-<<<<<<< HEAD
-.LASF10232:
-=======
-.LASF10235:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF10234:
 	.ascii	"vTaskDelayUntil\000"
 .LASF6564:
 	.ascii	"MSCM_CPxCFG0_DCWY(x) (((uint32_t)(((uint32_t)(x))<<"
@@ -46556,11 +45753,7 @@ speedValue:
 	.ascii	"PORT_ISFR_ISF_MASK 0xFFFFFFFFu\000"
 .LASF6209:
 	.ascii	"MCM_LMDR_V_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF10234:
-=======
-.LASF10238:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF10237:
 	.ascii	"CAN_receive\000"
 .LASF4303:
 	.ascii	"FTM_SWOCTRL_CH6OCV_WIDTH 1u\000"
@@ -46855,9 +46048,8 @@ speedValue:
 	.ascii	"LPUART_BAUD_M10_SHIFT 29u\000"
 .LASF639:
 	.ascii	"pdFREERTOS_ERRNO_EILSEQ 138\000"
-.LASF4180:
-	.ascii	"FTM_SYNCONF_INVC(x) (((uint32_t)(((uint32_t)(x))<<F"
-	.ascii	"TM_SYNCONF_INVC_SHIFT))&FTM_SYNCONF_INVC_MASK)\000"
+.LASF4435:
+	.ascii	"GPIO_PTOR_PTTO_SHIFT 0u\000"
 .LASF1980:
 	.ascii	"CAN_FDCRC_FD_TXCRC(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<CAN_FDCRC_FD_TXCRC_SHIFT))&CAN_FDCRC_FD_TXCRC_MASK"
@@ -46975,6 +46167,9 @@ speedValue:
 	.ascii	"DMA_HRS_HRS4_MASK 0x10u\000"
 .LASF7542:
 	.ascii	"S32_NVIC_IP_PRI23_SHIFT 0u\000"
+.LASF7112:
+	.ascii	"RCM_PARAM_ELOC(x) (((uint32_t)(((uint32_t)(x))<<RCM"
+	.ascii	"_PARAM_ELOC_SHIFT))&RCM_PARAM_ELOC_MASK)\000"
 .LASF3512:
 	.ascii	"FTM3_BASE (0x40026000u)\000"
 .LASF8507:
@@ -47213,11 +46408,8 @@ speedValue:
 .LASF8356:
 	.ascii	"S32_NVIC_IP_PRI226(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI226_SHIFT))&S32_NVIC_IP_PRI226_MASK)\000"
-<<<<<<< HEAD
-=======
 .LASF10097:
 	.ascii	"TNK_TIMER_PERIOD_MS (100 / portTICK_PERIOD_MS)\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF8511:
 	.ascii	"S32_SCB_AIRCR_PRIGROUP_SHIFT 8u\000"
 .LASF46:
@@ -47238,6 +46430,8 @@ speedValue:
 .LASF4420:
 	.ascii	"GPIO_BASE_ADDRS { PTA_BASE, PTB_BASE, PTC_BASE, PTD"
 	.ascii	"_BASE, PTE_BASE }\000"
+.LASF9659:
+	.ascii	"FEATURE_FLS_PF_SECTOR_CMD_ADDRESS_ALIGMENT (16u)\000"
 .LASF3840:
 	.ascii	"FTM_COMBINE_COMBINE1(x) (((uint32_t)(((uint32_t)(x)"
 	.ascii	")<<FTM_COMBINE_COMBINE1_SHIFT))&FTM_COMBINE_COMBINE"
@@ -47385,8 +46579,6 @@ speedValue:
 .LASF8240:
 	.ascii	"S32_NVIC_IP_PRI197(x) (((uint8_t)(((uint8_t)(x))<<S"
 	.ascii	"32_NVIC_IP_PRI197_SHIFT))&S32_NVIC_IP_PRI197_MASK)\000"
-.LASF229:
-	.ascii	"__SACCUM_FBIT__ 7\000"
 .LASF2562:
 	.ascii	"DMA_CDNE_CDNE_WIDTH 4u\000"
 .LASF3550:
@@ -47506,7 +46698,7 @@ speedValue:
 .LASF6859:
 	.ascii	"PDB_SC_SWTRIG(x) (((uint32_t)(((uint32_t)(x))<<PDB_"
 	.ascii	"SC_SWTRIG_SHIFT))&PDB_SC_SWTRIG_MASK)\000"
-.LASF10219:
+.LASF10220:
 	.ascii	"canTask\000"
 .LASF2110:
 	.ascii	"CMP_C1_CHN7_SHIFT 23u\000"
@@ -47801,8 +46993,8 @@ speedValue:
 	.ascii	"_SSRS_SJTAG_SHIFT))&RCM_SSRS_SJTAG_MASK)\000"
 .LASF2640:
 	.ascii	"DMA_INT_INT8_MASK 0x100u\000"
-.LASF3044:
-	.ascii	"DMAMUX_CHCFG_ENBL_WIDTH 1u\000"
+.LASF3126:
+	.ascii	"EWM_IRQS { WDOG_EWM_IRQn }\000"
 .LASF2270:
 	.ascii	"CSE_PRAM_RAMn_DATA_32_BYTE_1_WIDTH 8u\000"
 .LASF6926:
@@ -48155,12 +47347,9 @@ speedValue:
 	.ascii	"FTM_COMBINE_DTEN2_SHIFT))&FTM_COMBINE_DTEN2_MASK)\000"
 .LASF38:
 	.ascii	"__CHAR32_TYPE__ long unsigned int\000"
-<<<<<<< HEAD
-.LASF10241:
+.LASF10245:
 	.ascii	"C:\\\\NXP\\\\Workspace\\\\CLUSTER\\\\clusterRtosFin"
 	.ascii	"al\\\\clusterRtosFinal\\\\Debug_RAM\000"
-=======
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF3325:
 	.ascii	"FLEXIO_TIMCTL_TRGSRC_SHIFT 22u\000"
 .LASF9881:
@@ -48309,7 +47498,7 @@ speedValue:
 	.ascii	"__thumb__ 1\000"
 .LASF8422:
 	.ascii	"S32_SCB_ACTLR_DISDEFWBUF_MASK 0x2u\000"
-.LASF10229:
+.LASF10230:
 	.ascii	"xQueue\000"
 .LASF4376:
 	.ascii	"FTM_PAIR1DEADTIME_DTVAL(x) (((uint32_t)(((uint32_t)"
@@ -48605,9 +47794,6 @@ speedValue:
 	.ascii	"32_NVIC_IP_PRI193_SHIFT))&S32_NVIC_IP_PRI193_MASK)\000"
 .LASF9510:
 	.ascii	"WDOG_CS_TST_MASK 0x18u\000"
-.LASF9001:
-	.ascii	"SCG_SOSCCFG_HGO(x) (((uint32_t)(((uint32_t)(x))<<SC"
-	.ascii	"G_SOSCCFG_HGO_SHIFT))&SCG_SOSCCFG_HGO_MASK)\000"
 .LASF3133:
 	.ascii	"EWM_CTRL_ASSIN_WIDTH 1u\000"
 .LASF347:
@@ -49492,8 +48678,8 @@ speedValue:
 	.ascii	"LRL_SHIFT))&RTC_LR_LRL_MASK)\000"
 .LASF2381:
 	.ascii	"DMA_ES_VLD_SHIFT 31u\000"
-.LASF8334:
-	.ascii	"S32_NVIC_IP_PRI221_SHIFT 0u\000"
+.LASF9758:
+	.ascii	"FEATURE_SMC_HAS_STOPO (1)\000"
 .LASF7753:
 	.ascii	"S32_NVIC_IP_PRI76_MASK 0xFFu\000"
 .LASF761:
@@ -49790,7 +48976,7 @@ speedValue:
 .LASF2237:
 	.ascii	"CRC_CTRL_TCRC(x) (((uint32_t)(((uint32_t)(x))<<CRC_"
 	.ascii	"CTRL_TCRC_SHIFT))&CRC_CTRL_TCRC_MASK)\000"
-.LASF10234:
+.LASF10233:
 	.ascii	"tnkCounter\000"
 .LASF2960:
 	.ascii	"DMA_TCD_CITER_ELINKYES_ELINK_MASK 0x8000u\000"
@@ -49962,8 +49148,8 @@ speedValue:
 	.ascii	"2_NVIC_IP_PRI11_SHIFT))&S32_NVIC_IP_PRI11_MASK)\000"
 .LASF6860:
 	.ascii	"PDB_SC_PDBEIE_MASK 0x20000u\000"
-.LASF9023:
-	.ascii	"SCG_SIRCCSR_SIRCVLD_SHIFT 24u\000"
+.LASF1295:
+	.ascii	"AIPS_OPACR_WP0_SHIFT 29u\000"
 .LASF6454:
 	.ascii	"MPU_RGD_WORD3_VLD(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"MPU_RGD_WORD3_VLD_SHIFT))&MPU_RGD_WORD3_VLD_MASK)\000"
@@ -50261,8 +49447,8 @@ speedValue:
 	.ascii	"MSCM_CP0CFG3_JAZ_SHIFT 2u\000"
 .LASF5628:
 	.ascii	"LPUART_VERID_MAJOR_WIDTH 8u\000"
-.LASF4435:
-	.ascii	"GPIO_PTOR_PTTO_SHIFT 0u\000"
+.LASF7426:
+	.ascii	"S32_NVIC_IRQS_ARR_COUNT (1u)\000"
 .LASF4844:
 	.ascii	"LPI2C_MCCR1_DATAVD(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<LPI2C_MCCR1_DATAVD_SHIFT))&LPI2C_MCCR1_DATAVD_MASK"
@@ -50317,11 +49503,7 @@ speedValue:
 	.ascii	"MSCM_CPxCFG3_MMU_MASK 0x8u\000"
 .LASF3513:
 	.ascii	"FTM3 ((FTM_Type *)FTM3_BASE)\000"
-<<<<<<< HEAD
-.LASF10233:
-=======
-.LASF10237:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
+.LASF10236:
 	.ascii	"CLUSTER_Display_Velocimeter_Value\000"
 .LASF6042:
 	.ascii	"LPUART_WATER_TXWATER_MASK 0x3u\000"
@@ -50428,9 +49610,8 @@ speedValue:
 	.ascii	"__WCHAR_TYPE__ unsigned int\000"
 .LASF7639:
 	.ascii	"S32_NVIC_IP_PRI47_WIDTH 8u\000"
-.LASF3387:
-	.ascii	"FTFC_FSTAT_FPVIOL(x) (((uint8_t)(((uint8_t)(x))<<FT"
-	.ascii	"FC_FSTAT_FPVIOL_SHIFT))&FTFC_FSTAT_FPVIOL_MASK)\000"
+.LASF5975:
+	.ascii	"LPUART_MODIR_TXCTSSRC_SHIFT 5u\000"
 .LASF4386:
 	.ascii	"FTM_PAIR2DEADTIME_DTVAL_SHIFT 0u\000"
 .LASF3456:
@@ -50466,8 +49647,9 @@ speedValue:
 	.ascii	"__GCC_ATOMIC_BOOL_LOCK_FREE 2\000"
 .LASF2488:
 	.ascii	"DMA_EEI_EEI10_MASK 0x400u\000"
-.LASF5975:
-	.ascii	"LPUART_MODIR_TXCTSSRC_SHIFT 5u\000"
+.LASF9509:
+	.ascii	"WDOG_CS_DBG(x) (((uint32_t)(((uint32_t)(x))<<WDOG_C"
+	.ascii	"S_DBG_SHIFT))&WDOG_CS_DBG_MASK)\000"
 .LASF7517:
 	.ascii	"S32_NVIC_IP_PRI17_MASK 0xFFu\000"
 .LASF1617:
@@ -50498,8 +49680,6 @@ speedValue:
 	.ascii	"S32_NVIC_IP_PRI219_WIDTH 8u\000"
 .LASF7934:
 	.ascii	"S32_NVIC_IP_PRI121_SHIFT 0u\000"
-.LASF7426:
-	.ascii	"S32_NVIC_IRQS_ARR_COUNT (1u)\000"
 .LASF6806:
 	.ascii	"PCC_PCCn_PR(x) (((uint32_t)(((uint32_t)(x))<<PCC_PC"
 	.ascii	"Cn_PR_SHIFT))&PCC_PCCn_PR_MASK)\000"
@@ -50993,11 +50173,6 @@ speedValue:
 	.ascii	"S32_NVIC_IP_PRI135_MASK 0xFFu\000"
 .LASF9932:
 	.ascii	"FEATURE_CSEC_PAGE_1_OFFSET (0x10U)\000"
-<<<<<<< HEAD
-=======
-.LASF10232:
-	.ascii	"odFlag\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF1351:
 	.ascii	"CAN_MCR_PNET_EN_WIDTH 1u\000"
 .LASF8216:
@@ -51159,8 +50334,8 @@ speedValue:
 	.ascii	"CRC_DATAu_DATA_8_HL_DATAHL_WIDTH 8u\000"
 .LASF6505:
 	.ascii	"MPU_RGDAAC_M4WE_WIDTH 1u\000"
-.LASF10225:
-	.ascii	"odometerValue\000"
+.LASF7491:
+	.ascii	"S32_NVIC_IP_PRI10_WIDTH 8u\000"
 .LASF2789:
 	.ascii	"DMA_HRS_HRS13_SHIFT 13u\000"
 .LASF5868:
@@ -51355,8 +50530,6 @@ speedValue:
 	.ascii	"FTM_COMBINE_SYNCEN2(x) (((uint32_t)(((uint32_t)(x))"
 	.ascii	"<<FTM_COMBINE_SYNCEN2_SHIFT))&FTM_COMBINE_SYNCEN2_M"
 	.ascii	"ASK)\000"
-.LASF9758:
-	.ascii	"FEATURE_SMC_HAS_STOPO (1)\000"
 .LASF4356:
 	.ascii	"FTM_PWMLOAD_GLDOK(x) (((uint32_t)(((uint32_t)(x))<<"
 	.ascii	"FTM_PWMLOAD_GLDOK_SHIFT))&FTM_PWMLOAD_GLDOK_MASK)\000"
@@ -51469,8 +50642,9 @@ speedValue:
 	.ascii	"2_NVIC_IP_PRI76_SHIFT))&S32_NVIC_IP_PRI76_MASK)\000"
 .LASF3085:
 	.ascii	"ERM_CR0_ENCIE1_WIDTH 1u\000"
-.LASF10190:
-	.ascii	"PCC_END_OF_ASYNCH_DIV1_CLOCKS\000"
+.LASF1269:
+	.ascii	"AIPS_OPACR_TP2(x) (((uint32_t)(((uint32_t)(x))<<AIP"
+	.ascii	"S_OPACR_TP2_SHIFT))&AIPS_OPACR_TP2_MASK)\000"
 .LASF4001:
 	.ascii	"FTM_POL_POL4_MASK 0x10u\000"
 .LASF5141:
@@ -51490,8 +50664,8 @@ speedValue:
 	.ascii	"_CR_RRF_SHIFT))&LPSPI_CR_RRF_MASK)\000"
 .LASF1128:
 	.ascii	"AIPS_OPACR_COUNT 12u\000"
-.LASF8691:
-	.ascii	"S32_SCB_CFSR_BFARVALID_SHIFT 15u\000"
+.LASF10238:
+	.ascii	"EEEPROM_Read_Data\000"
 .LASF817:
 	.ascii	"listSET_LIST_ITEM_VALUE(pxListItem,xValue) ( ( pxLi"
 	.ascii	"stItem )->xItemValue = ( xValue ) )\000"
@@ -51920,8 +51094,8 @@ speedValue:
 	.ascii	"DMA_CR_CLM_WIDTH 1u\000"
 .LASF2854:
 	.ascii	"DMA_EARS_EDREQ_13_WIDTH 1u\000"
-.LASF3666:
-	.ascii	"FTM_STATUS_CH4F_SHIFT 4u\000"
+.LASF3044:
+	.ascii	"DMAMUX_CHCFG_ENBL_WIDTH 1u\000"
 .LASF1319:
 	.ascii	"CAN_Bus_Off_IRQS_CH_COUNT (1u)\000"
 .LASF5308:
@@ -52022,8 +51196,8 @@ speedValue:
 .LASF7576:
 	.ascii	"S32_NVIC_IP_PRI31(x) (((uint8_t)(((uint8_t)(x))<<S3"
 	.ascii	"2_NVIC_IP_PRI31_SHIFT))&S32_NVIC_IP_PRI31_MASK)\000"
-.LASF7107:
-	.ascii	"RCM_PARAM_ELVD_WIDTH 1u\000"
+.LASF8085:
+	.ascii	"S32_NVIC_IP_PRI159_MASK 0xFFu\000"
 .LASF5580:
 	.ascii	"LPTMR_CSR_TCF_WIDTH 1u\000"
 .LASF8119:
@@ -52153,8 +51327,6 @@ speedValue:
 	.ascii	"LPUART_DATA_R1T1_SHIFT 1u\000"
 .LASF3954:
 	.ascii	"FTM_EXTTRIG_CH4TRIG_SHIFT 2u\000"
-.LASF10231:
-	.ascii	"pastTripOdometerValue\000"
 .LASF5728:
 	.ascii	"LPUART_STAT_IDLE_WIDTH 1u\000"
 .LASF5318:
@@ -52497,8 +51669,10 @@ speedValue:
 .LASF6616:
 	.ascii	"MSCM_CPxCFG3_CMP(x) (((uint32_t)(((uint32_t)(x))<<M"
 	.ascii	"SCM_CPxCFG3_CMP_SHIFT))&MSCM_CPxCFG3_CMP_MASK)\000"
-.LASF8778:
-	.ascii	"S32_SCB_FPCCR_THREAD_MASK 0x8u\000"
+.LASF8625:
+	.ascii	"S32_SCB_SHCSR_BUSFAULTPENDED(x) (((uint32_t)(((uint"
+	.ascii	"32_t)(x))<<S32_SCB_SHCSR_BUSFAULTPENDED_SHIFT))&S32"
+	.ascii	"_SCB_SHCSR_BUSFAULTPENDED_MASK)\000"
 .LASF2160:
 	.ascii	"CMP_C2_CH6F(x) (((uint32_t)(((uint32_t)(x))<<CMP_C2"
 	.ascii	"_CH6F_SHIFT))&CMP_C2_CH6F_MASK)\000"
@@ -52662,8 +51836,6 @@ speedValue:
 	.ascii	"E_MASK)\000"
 .LASF7606:
 	.ascii	"S32_NVIC_IP_PRI39_SHIFT 0u\000"
-.LASF8085:
-	.ascii	"S32_NVIC_IP_PRI159_MASK 0xFFu\000"
 .LASF6402:
 	.ascii	"MPU_RGD_WORD2_M1PE(x) (((uint32_t)(((uint32_t)(x))<"
 	.ascii	"<MPU_RGD_WORD2_M1PE_SHIFT))&MPU_RGD_WORD2_M1PE_MASK"
@@ -52687,9 +51859,6 @@ speedValue:
 	.ascii	"RCM_SRS_POR_MASK 0x80u\000"
 .LASF5951:
 	.ascii	"LPUART_MATCH_MA2_SHIFT 16u\000"
-.LASF10245:
-	.ascii	"C:\\\\Users\\\\rbn\\\\workspaceS32DS.ARM.2018.R1\\\\"
-	.ascii	"clusterRtosFinal\\\\clusterRtosFinal\\\\Debug_RAM\000"
 .LASF9016:
 	.ascii	"SCG_SIRCCSR_SIRCLPEN_WIDTH 1u\000"
 .LASF8713:
@@ -53036,8 +52205,6 @@ speedValue:
 	.ascii	"CMP_C0_DMAEN_WIDTH 1u\000"
 .LASF8275:
 	.ascii	"S32_NVIC_IP_PRI206_WIDTH 8u\000"
-.LASF10092:
-	.ascii	"OD_TIMER_PERIOD_MS (332 / portTICK_PERIOD_MS)\000"
 .LASF7962:
 	.ascii	"S32_NVIC_IP_PRI128_SHIFT 0u\000"
 .LASF5434:
@@ -53175,8 +52342,8 @@ speedValue:
 	.ascii	"S32_SCB_ICSR_PENDSVSET_MASK 0x10000000u\000"
 .LASF4335:
 	.ascii	"FTM_PWMLOAD_CH6SEL_WIDTH 1u\000"
-.LASF3126:
-	.ascii	"EWM_IRQS { WDOG_EWM_IRQn }\000"
+.LASF9585:
+	.ascii	"NUMBER_OF_CORES (1u)\000"
 .LASF2526:
 	.ascii	"DMA_SEEI_SEEI_WIDTH 4u\000"
 .LASF2152:
@@ -53673,7 +52840,7 @@ speedValue:
 	.ascii	"PI_IER_WCIE_SHIFT))&LPSPI_IER_WCIE_MASK)\000"
 .LASF7514:
 	.ascii	"S32_NVIC_IP_PRI16_SHIFT 0u\000"
-.LASF10225:
+.LASF10226:
 	.ascii	"vApplicationIdleHook\000"
 .LASF9922:
 	.ascii	"FEATURE_CSEC_PAGE_LENGTH_OFFSET (0xEU)\000"
@@ -53795,13 +52962,8 @@ speedValue:
 	.ascii	")\000"
 .LASF1104:
 	.ascii	"ADC_CLP3_OFS_CLP3_OFS_SHIFT 0u\000"
-<<<<<<< HEAD
-.LASF6308:
-	.ascii	"MPU_RGD_COUNT 8u\000"
-=======
 .LASF10197:
 	.ascii	"PCC_END_OF_ASYNCH_DIV1_CLOCKS\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF6449:
 	.ascii	"MPU_RGD_WORD2_M7RE_WIDTH 1u\000"
 .LASF2445:
@@ -54845,11 +54007,7 @@ speedValue:
 	.ascii	"S32_SCB_CCR_UNALIGN_TRP_WIDTH 1u\000"
 .LASF9024:
 	.ascii	"SCG_SIRCCSR_SIRCVLD_WIDTH 1u\000"
-<<<<<<< HEAD
-.LASF10237:
-=======
 .LASF10241:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"xTaskGetTickCount\000"
 .LASF5128:
 	.ascii	"LPIT_PARAM_CHANNEL_WIDTH 8u\000"
@@ -54917,8 +54075,8 @@ speedValue:
 	.ascii	"FEATURE_FLS_HAS_PROGRAM_LONGWORD_CMD (0u)\000"
 .LASF5215:
 	.ascii	"LPIT_TMR_TVAL_TMR_VAL_SHIFT 0u\000"
-.LASF10228:
-	.ascii	"pastSpeedValue\000"
+.LASF2432:
+	.ascii	"DMA_ERQ_ERQ12_MASK 0x1000u\000"
 .LASF5741:
 	.ascii	"LPUART_STAT_TDRE(x) (((uint32_t)(((uint32_t)(x))<<L"
 	.ascii	"PUART_STAT_TDRE_SHIFT))&LPUART_STAT_TDRE_MASK)\000"
@@ -55209,11 +54367,7 @@ speedValue:
 .LASF5261:
 	.ascii	"LPSPI_BASE_ADDRS { LPSPI0_BASE, LPSPI1_BASE, LPSPI2"
 	.ascii	"_BASE }\000"
-<<<<<<< HEAD
-.LASF10245:
-=======
 .LASF10249:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"ulMainGetRunTimeCounterValue\000"
 .LASF3913:
 	.ascii	"FTM_COMBINE_DECAP3_MASK 0x8000000u\000"
@@ -55741,13 +54895,8 @@ speedValue:
 .LASF3130:
 	.ascii	"EWM_CTRL_EWMEN(x) (((uint8_t)(((uint8_t)(x))<<EWM_C"
 	.ascii	"TRL_EWMEN_SHIFT))&EWM_CTRL_EWMEN_MASK)\000"
-<<<<<<< HEAD
-.LASF383:
-	.ascii	"_BSD_SIZE_T_ \000"
-=======
-.LASF10231:
+.LASF10218:
 	.ascii	"tnkFlag\000"
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 .LASF5391:
 	.ascii	"LPSPI_CFGR0_HRPOL_SHIFT 1u\000"
 .LASF3964:
@@ -55899,9 +55048,8 @@ speedValue:
 	.ascii	"DMA_INT_INT10_MASK 0x400u\000"
 .LASF8722:
 	.ascii	"S32_SCB_HFSR_FORCED_MASK 0x40000000u\000"
-.LASF7112:
-	.ascii	"RCM_PARAM_ELOC(x) (((uint32_t)(((uint32_t)(x))<<RCM"
-	.ascii	"_PARAM_ELOC_SHIFT))&RCM_PARAM_ELOC_MASK)\000"
+.LASF6308:
+	.ascii	"MPU_RGD_COUNT 8u\000"
 .LASF250:
 	.ascii	"__LACCUM_IBIT__ 32\000"
 .LASF368:
@@ -56039,11 +55187,7 @@ speedValue:
 	.ascii	"FTM_SYNC_SYNCHOM_SHIFT 3u\000"
 .LASF4511:
 	.ascii	"LMEM_PCCLCR_LCWAY_MASK 0x400000u\000"
-<<<<<<< HEAD
-.LASF10235:
-=======
 .LASF10239:
->>>>>>> e54aaff7c556ee941ac4c8dbd65cad74745c6bba
 	.ascii	"xQueueGenericCreate\000"
 .LASF979:
 	.ascii	"ADC_R_D_MASK 0xFFFu\000"
@@ -56515,8 +55659,6 @@ speedValue:
 	.ascii	"FEATURE_SCG_FIRC_FREQ2 (56000000U)\000"
 .LASF5474:
 	.ascii	"LPSPI_FSR_TXCOUNT_MASK 0x7u\000"
-.LASF9585:
-	.ascii	"NUMBER_OF_CORES (1u)\000"
 .LASF2106:
 	.ascii	"CMP_C1_CHN6_SHIFT 22u\000"
 .LASF5878:
@@ -56715,8 +55857,6 @@ speedValue:
 	.ascii	"PSPI_CCR_PCSSCK_SHIFT))&LPSPI_CCR_PCSSCK_MASK)\000"
 .LASF5027:
 	.ascii	"LPI2C_SCFGR1_GCEN_WIDTH 1u\000"
-.LASF10230:
-	.ascii	"pastOdometerValue\000"
 .LASF7011:
 	.ascii	"PORT_PCR_PFE_WIDTH 1u\000"
 .LASF4724:
@@ -56945,6 +56085,8 @@ speedValue:
 	.ascii	"MCM_LMPECR_ER1BR_WIDTH 1u\000"
 .LASF6103:
 	.ascii	"MCM_CPCR_SRAMUWP_MASK 0x4000000u\000"
+.LASF8691:
+	.ascii	"S32_SCB_CFSR_BFARVALID_SHIFT 15u\000"
 .LASF9611:
 	.ascii	"FEATURE_CMP_HAS_INIT_DELAY (1)\000"
 .LASF8335:
@@ -57173,9 +56315,8 @@ speedValue:
 	.ascii	"__LFRACT_MAX__ 0X7FFFFFFFP-31LR\000"
 .LASF5655:
 	.ascii	"LPUART_BAUD_RXEDGIE_SHIFT 14u\000"
-.LASF4558:
-	.ascii	"LMEM_PCCRMR_R11(x) (((uint32_t)(((uint32_t)(x))<<LM"
-	.ascii	"EM_PCCRMR_R11_SHIFT))&LMEM_PCCRMR_R11_MASK)\000"
+.LASF355:
+	.ascii	"__ARM_ARCH_EXT_IDIV__ 1\000"
 .LASF4823:
 	.ascii	"LPI2C_MCCR0_SETHOLD_WIDTH 6u\000"
 .LASF2568:
