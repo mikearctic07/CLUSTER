@@ -8,9 +8,14 @@
 #ifndef CLUSTER_H_
 #define CLUSTER_H_
 
-#ifndef DEFINITIONS_H_
+#include "S32K144.h"
+#include "Cpu.h"
+#include "clockMan1.h"
+#include "pin_mux.h"
+#include "FreeRTOS.h"
+#include "stdint.h"
+#include "stdbool.h"
 #include "definitions.h"
-#endif
 
 #ifndef CLOCK_H_
 #include "clock.h"
@@ -34,12 +39,14 @@
 
 void CLUSTER_Initialize(void);
 
-void CLUSTER_Display_Indicator_State(int indicator, int indicatorValue);
+void CLUSTER_Display_Indicator_State(uint8_t indicator, uint8_t indicatorValue);
 
-void CLUSTER_Display_Gas_Tank_Level(int *ptrTankLevelValue, int *ptrCount);
+void CLUSTER_Display_Gas_Tank_Level(uint16_t tankLevelValue, uint8_t *ptrCount);
 
-void CLUSTER_Display_Velocimeter_Value(int *ptrSpeedValue);
+void CLUSTER_Display_Velocimeter_Value(uint16_t velocimeterValue);
 
-void CLUSTER_Display_Odometer_Value(int distanceValue, int tripDistanceValue, int *ptrLcdCharBox);
+void CLUSTER_Display_Odometer_Value(uint32_t distanceValue, uint32_t tripDistanceValue, uint8_t *ptrLcdCharBox);
+
+void CLUSTER_Display_Odometer_Value_Error(uint8_t *ptrLcdCharBox);
 
 #endif /* CLUSTER_H_ */

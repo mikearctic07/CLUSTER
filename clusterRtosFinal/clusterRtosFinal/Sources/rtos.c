@@ -1,4 +1,3 @@
-
 /* Kernel includes. */
 #include "FreeRTOS.h"
 #include "task.h"
@@ -11,8 +10,8 @@
 #include "clockMan1.h"
 #include "pin_mux.h"
 #include "cluster.h"
-
-
+#include "stdint.h"
+#include "stdbool.h"
 
 /* The number of items the queue can hold.  This is 1 as the receive task
 will remove items as they are added, meaning the send task should always find
@@ -42,222 +41,144 @@ the queue empty. */
 #define CAN_TIMER_PERIOD_MS	(3 / portTICK_PERIOD_MS)
 #define	CAN_PRIORITY		( tskIDLE_PRIORITY + 2 )
 
-/*-----------------------------------------------------------*/
+uint16_t speedValue = 0;
+uint16_t tankLevel = 0;
+uint8_t tankCounter = 1;
+uint32_t odometerValue = 0;
+uint32_t tripOdometerValue = 0;
+uint8_t lcdCharBox = 1;
 
-/*
- * Setup the NVIC, LED outputs, and button inputs.
- */
-static void prvSetupHardware( void );
+uint16_t pastTankLevel = 600;
+uint32_t pastOdometerValue = 0;
+uint32_t pastTripOdometerValue = 0;
 
-/*
- * The tasks as described in the comments at the top of this file.
- */
-
-int speedFlag = 0;
-char indFlag = 1;
-int tnkCounter = 1;
-int lcdCharBox = 1;
-
-static void canTask( void *pvParameters );
-static void speedTask( void *pvParameters );
-static void tnkTask( void *pvParameters );
-static void odTask( void *pvParameters );
-
-/*
- * The LED timer callback function.  This does nothing but switch off the
- * LED defined by the mainTIMER_CONTROLLED_LED constant.
- */
-
-
-/*-----------------------------------------------------------*/
+static void RTOS_Can_Task( void *pvParameters );
+static void RTOS_Velocimeter_Task( void *pvParameters );
+static void RTOS_Gas_Tank_Task( void *pvParameters );
+static void RTOS_Odometer_Task( void *pvParameters );
 
 /* The queue used by both tasks. */
 static QueueHandle_t xQueue = NULL;
 
-
-
-/*-----------------------------------------------------------*/
-
-void rtos_start( void )
+void RTOS_Start( void )
 {
-	/* Configure the NVIC, LED outputs and button inputs. */
-//	prvSetupHardware();
+  xQueue = xQueueCreate( mainQUEUE_LENGTH, sizeof( unsigned long ) );                     /* Create the queue. */
 
-	/* Create the queue. */
-	xQueue = xQueueCreate( mainQUEUE_LENGTH, sizeof( unsigned long ) );
+  if( xQueue != NULL )
+  {
+    xTaskCreate( RTOS_Can_Task, "CAN", configMINIMAL_STACK_SIZE, NULL, CAN_PRIORITY, NULL );
+    xTaskCreate( RTOS_Velocimeter_Task, "VELOCIMETER", configMINIMAL_STACK_SIZE, NULL, SPD_PRIORITY, NULL );
+    xTaskCreate( RTOS_Gas_Tank_Task, "GAS_TANK", configMINIMAL_STACK_SIZE, NULL, TNK_PRIORITY, NULL );
+    xTaskCreate( RTOS_Odometer_Task, "ODOMETER", configMINIMAL_STACK_SIZE, NULL, OD_PRIORITY, NULL );
 
-	if( xQueue != NULL )
-	{
-		/* Start the two tasks as described in the comments at the top of this
-		file. */
+    vTaskStartScheduler();                                                                /* Start the tasks and timer running. */
+  }
 
-		//		xTaskCreate( prvQueueReceiveTask, "RX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY, NULL );
-		//		xTaskCreate( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL );
-
-		xTaskCreate( canTask, "CAN", configMINIMAL_STACK_SIZE, NULL, CAN_PRIORITY, NULL );
-		xTaskCreate( speedTask, "SPD", configMINIMAL_STACK_SIZE, NULL, SPD_PRIORITY, NULL );
-		xTaskCreate( tnkTask, "TNK", configMINIMAL_STACK_SIZE, NULL, TNK_PRIORITY, NULL );
-		xTaskCreate( odTask, "OD", configMINIMAL_STACK_SIZE, NULL, OD_PRIORITY, NULL );
-
-
-		/* Create the software timer that is responsible for turning off the LED
-		if the button is not pushed within 5000ms, as described at the top of
-		this file. */
-		//		xButtonLEDTimer = xTimerCreate( "ButtonLEDTimer", 			/* A text name, purely to help debugging. */
-		//									mainBUTTON_LED_TIMER_PERIOD_MS,	/* The timer period, in this case 5000ms (5s). */
-		//									pdFALSE,						/* This is a one shot timer, so xAutoReload is set to pdFALSE. */
-		//									( void * ) 0,					/* The ID is not used, so can be set to anything. */
-		//									prvButtonLEDTimerCallback		/* The callback function that switches the LED off. */
-		//								);
-
-		/* Start the tasks and timer running. */
-		vTaskStartScheduler();
-	}
-
-	/* If all is well, the scheduler will now be running, and the following line
-	will never be reached.  If the following line does execute, then there was
-	insufficient FreeRTOS heap memory available for the idle and/or timer tasks
-	to be created.  See the memory management section on the FreeRTOS web site
-	for more details. */
-	for( ;; );
+  for( ; ; );
 }
 
-/*-----------------------------------------------------------*/
-
-static void speedTask( void *pvParameters )
+static void RTOS_Velocimeter_Task( void *pvParameters )
 {
-	TickType_t xNextWakeTime;
-	/* Casting pvParameters to void because it is unused */
-	(void)pvParameters;
+  TickType_t xNextWakeTime;
+  (void)pvParameters;                                                                     /* Casting pvParameters to void because it is unused */
+  xNextWakeTime = xTaskGetTickCount();                                                    /* Initialize xNextWakeTime - this only needs to be done once. */
 
-	/* Initialise xNextWakeTime - this only needs to be done once. */
-	xNextWakeTime = xTaskGetTickCount();
+  for( ;; )
+  {
+    vTaskDelayUntil( &xNextWakeTime, SPD_TIMER_PERIOD_MS );
 
-	for( ;; )
-	{
-		/* Place this task in the blocked state until it is time to run again.
-		The block time is specified in ticks, the constant used converts ticks
-		to ms.  While in the Blocked state this task will not consume any CPU
-		time. */
-		vTaskDelayUntil( &xNextWakeTime, SPD_TIMER_PERIOD_MS );
-		CLUSTER_Display_Velocimeter_Value( &speedFlag);
-
-	}
+    uint16_t velocimeterValue;
+    if(speedValue > 399)
+    {
+      speedValue = 399;
+    }
+    if(GPIO_Read_Input(MILLES_OR_KILOMETERS))
+    {
+      velocimeterValue = ((speedValue)*6213)/10000;
+    }
+    else
+    {
+      velocimeterValue = speedValue;
+    }
+    CLUSTER_Display_Velocimeter_Value(velocimeterValue);
+  }
 }
 
-static void tnkTask( void *pvParameters )
+static void RTOS_Gas_Tank_Task( void *pvParameters )
 {
-	TickType_t xNextWakeTime;
-	/* Casting pvParameters to void because it is unused */
-	(void)pvParameters;
+  TickType_t xNextWakeTime;
+  (void)pvParameters;                                                                     /* Casting pvParameters to void because it is unused */
+  xNextWakeTime = xTaskGetTickCount();                                                    /* Initialize xNextWakeTime - this only needs to be done once. */
 
-	/* Initialise xNextWakeTime - this only needs to be done once. */
-	xNextWakeTime = xTaskGetTickCount();
+  for( ;; )
+  {
+    vTaskDelayUntil( &xNextWakeTime, TNK_TIMER_PERIOD_MS );
 
-	for( ;; )
-	{
-		/* Place this task in the blocked state until it is time to run again.
-		The block time is specified in ticks, the constant used converts ticks
-		to ms.  While in the Blocked state this task will not consume any CPU
-		time. */
-		vTaskDelayUntil( &xNextWakeTime, TNK_TIMER_PERIOD_MS );
-		int tnkFlag = EEEPROM_Read_Data(TANK_LEVEL);
-		CLUSTER_Display_Gas_Tank_Level(&tnkFlag, &tnkCounter);
-
-	}
+    tankLevel = EEEPROM_Read_Data(TANK_LEVEL);
+    if(tankLevel != pastTankLevel)
+    {
+      CLUSTER_Display_Gas_Tank_Level(tankLevel, &tankCounter);
+      if((tankCounter == 40) || (tankCounter == 0))
+      pastTankLevel = tankLevel;
+    }
+  }
 }
 
-static void odTask( void *pvParameters )
+static void RTOS_Odometer_Task( void *pvParameters )
 {
-	TickType_t xNextWakeTime;
-	/* Casting pvParameters to void because it is unused */
-	(void)pvParameters;
+  TickType_t xNextWakeTime;
+  (void)pvParameters;                                                                     /* Casting pvParameters to void because it is unused */
+  xNextWakeTime = xTaskGetTickCount();                                                    /* Initialize xNextWakeTime - this only needs to be done once. */
 
-	/* Initialise xNextWakeTime - this only needs to be done once. */
-	xNextWakeTime = xTaskGetTickCount();
+  for( ;; )
+  {
+    vTaskDelayUntil( &xNextWakeTime, OD_TIMER_PERIOD_MS );
 
-	for( ;; )
-	{
-		/* Place this task in the blocked state until it is time to run again.
-		The block time is specified in ticks, the constant used converts ticks
-		to ms.  While in the Blocked state this task will not consume any CPU
-		time. */
-		vTaskDelayUntil( &xNextWakeTime, OD_TIMER_PERIOD_MS );
-		int odometerValue = EEEPROM_Read_Data(ODOMETER);
-		if(GPIO_Read_Input(RESET_TRIP_ODOMETER))
-		{
-			EEEPROM_Write_Data(0, TRIP_ODOMETER);
-		}
-		int tripOdometerValue = EEEPROM_Read_Data(TRIP_ODOMETER);
-		CLUSTER_Display_Odometer_Value(odometerValue, tripOdometerValue, &lcdCharBox);
-	}
+    if(lcdCharBox == 1)
+    {
+      if(GPIO_Read_Input(RESET_TRIP_ODOMETER))
+      {
+        EEEPROM_Write_Data(0, TRIP_ODOMETER);
+      }
+      if(GPIO_Read_Input(MILLES_OR_KILOMETERS))
+      {
+        odometerValue = (EEEPROM_Read_Data(ODOMETER)*6213)/10000;
+        tripOdometerValue = (EEEPROM_Read_Data(TRIP_ODOMETER)*6213)/10000;
+      }
+      else
+      {
+        odometerValue = EEEPROM_Read_Data(ODOMETER);
+        tripOdometerValue = EEEPROM_Read_Data(TRIP_ODOMETER);
+      }
+    }
+    if(odometerValue > pastOdometerValue)
+    {
+      CLUSTER_Display_Odometer_Value(odometerValue, tripOdometerValue, &lcdCharBox);
+    }
+    else if(odometerValue < pastOdometerValue)
+    {
+      CLUSTER_Display_Odometer_Value_Error(&lcdCharBox);
+    }
+    else
+    {
+      ;
+    }
+  }
 }
 
-/*-----------------------------------------------------------*/
-static void canTask( void *pvParameters )
+static void RTOS_Can_Task( void *pvParameters )
 {
-	TickType_t xNextWakeTime;
-	/* Casting pvParameters to void because it is unused */
-	(void)pvParameters;
+  TickType_t xNextWakeTime;
+  (void)pvParameters;                                                                     /* Casting pvParameters to void because it is unused */
+  xNextWakeTime = xTaskGetTickCount();                                                    /* Initialize xNextWakeTime - this only needs to be done once. */
 
-	/* Initialise xNextWakeTime - this only needs to be done once. */
-	xNextWakeTime = xTaskGetTickCount();
+  for( ;; )
+  {
+    vTaskDelayUntil( &xNextWakeTime, CAN_TIMER_PERIOD_MS );
 
-	for( ;; )
-	{
-		/* Place this task in the blocked state until it is time to run again.
-		The block time is specified in ticks, the constant used converts ticks
-		to ms.  While in the Blocked state this task will not consume any CPU
-		time. */
-		vTaskDelayUntil( &xNextWakeTime, CAN_TIMER_PERIOD_MS );
-		//		Red led toogle
-		CAN_receive(&speedFlag, &indFlag);
-	}
+    CAN_receive(&speedValue);
+  }
 }
-/*-----------------------------------------------------------*/
-
-
-/*-----------------------------------------------------------*/
-
-/*-----------------------------------------------------------*/
-
-/*-----------------------------------------------------------*/
-
-
-/*-----------------------------------------------------------*/
-
-static void prvSetupHardware( void )
-{
-
-	/* Initialize and configure clocks
-	 *  -   Setup system clocks, dividers
-	 *  -   see clock manager component for more details
-	 */
-	//    CLOCK_SYS_Init(g_clockManConfigsArr, CLOCK_MANAGER_CONFIG_CNT,
-	//                   g_clockManCallbacksArr, CLOCK_MANAGER_CALLBACK_CNT);
-	//    CLOCK_SYS_UpdateConfiguration(0U, CLOCK_MANAGER_POLICY_AGREEMENT);
-
-//	WDOG_disable();
-//	SOSC_init_8MHz();       /* Initialize system oscillator for 8 MHz xtal */
-//	SPLL_init_160MHz();     /* Initialize SPLL to 160 MHz with 8 MHz SOSC */
-//	NormalRUNmode_80MHz();
-//
-//	PINS_DRV_SetMuxModeSel(LED_PORT, LED1,      PORT_MUX_AS_GPIO);
-//	PINS_DRV_SetMuxModeSel(LED_PORT, LED2,      PORT_MUX_AS_GPIO);
-//	PINS_DRV_SetMuxModeSel(LED_PORT, LED0,      PORT_MUX_AS_GPIO);
-//
-//	PCC->PCCn[PCC_PORTE_INDEX] |= PCC_PCCn_CGC_MASK; /* Enable clock for PORTE */
-//	PORTE->PCR[4] |= PORT_PCR_MUX(5); /* Port E4: MUX = ALT5, CAN0_RX */
-//	PORTE->PCR[5] |= PORT_PCR_MUX(5); /* Port E5: MUX = ALT5, CAN0_TX */
-//
-//	/* Change LED1, LED2 to outputs. */
-//	PINS_DRV_SetPinsDirection(LED_GPIO,  (1 << LED1) | (1 << LED2) | (1 << LED0));
-//
-//	/* Start with LEDs off. */
-//	PINS_DRV_SetPins(LED_GPIO, (1 << LED1) | (1 << LED2) | (1 << LED0));
-//	CAN_init();
-}
-/*-----------------------------------------------------------*/
 
 void vApplicationMallocFailedHook( void )
 {
@@ -269,7 +190,6 @@ void vApplicationMallocFailedHook( void )
 	taskDISABLE_INTERRUPTS();
 	for( ;; );
 }
-/*-----------------------------------------------------------*/
 
 void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 {

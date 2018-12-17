@@ -8,6 +8,8 @@
 #ifndef DEFINITIONS_H_
 #define DEFINITIONS_H_
 
+typedef char char_t;
+
 /* Ports */
 #define PRT_A                      'A'
 #define PRT_B                      'B'
@@ -48,18 +50,18 @@
 #define GAS_TANK_LVL_3              9
 #define GAS_TANK_LVL_4             10
 
-#define VELOCIMETER_TENS_D0    11
-#define VELOCIMETER_TENS_D1    12
-#define VELOCIMETER_TENS_D2    13
-#define VELOCIMETER_TENS_D3    14
+#define VELOCIMETER_TENS_D0        11
+#define VELOCIMETER_TENS_D1        12
+#define VELOCIMETER_TENS_D2        13
+#define VELOCIMETER_TENS_D3        14
 #define VELOCIMETER_UNITS_D0       15
 #define VELOCIMETER_UNITS_D1       16
 #define VELOCIMETER_UNITS_D2       17
 #define VELOCIMETER_UNITS_D3       18
-#define VELOCIMETER_HUNDREDS_D0        19
-#define VELOCIMETER_HUNDREDS_D1        20
-#define VELOCIMETER_HUNDREDS_D2        21
-#define VELOCIMETER_HUNDREDS_D3        22
+#define VELOCIMETER_HUNDREDS_D0    19
+#define VELOCIMETER_HUNDREDS_D1    20
+#define VELOCIMETER_HUNDREDS_D2    21
+#define VELOCIMETER_HUNDREDS_D3    22
 
 #define ODOMETER_LCD_RS            23
 #define ODOMETER_LCD_RW            24
@@ -75,7 +77,6 @@
 #define MILLES_OR_KILOMETERS       34
 
 #define IGNITION_STATE             33
-
 
 /* Indicator States */
 #define ON                          0
@@ -108,5 +109,27 @@
 #define LCD_CTRL_BUS_MASK   ((1<<LCD_RS)|(1<<LCD_RW)|(1<<LCD_EN))
 #define LCD_DATA_BUS_MASK   ((1<<LCD_D4)|(1<<LCD_D5)|(1<<LCD_D6)|(1<<LCD_D7))
 
+/* CAN */
+#define ID_POSITION        16
+#define MB_ID_RECEIVE      0x14440000 //0X511     Multiply by four desired id in hexadecimal
+#define MB_ID_STATUS       0x95C0000 //0x257
+#define ID_SEND            0x555
+#define MB_RECEPTION_EN	   0x04000000
+#define NO_FLXCAN          0x0000001F     /* Negate FlexCAN 1 halt state for 32 MBs */
+#define BYTE0              24
+#define BYTE1              16
+#define BYTE2              8
+#define BYTE               0XFF
+
+/* EEEPROM */
+#define EEE_SUCCESS              0
+#define EEE_ALREADY_ENABLED     -1
+
+#define USER_DATA_SIZE         32u
+#define DISABLE_INTERRUPTS()   __asm volatile ("cpsid i" : : : "memory");
+
+#define ODOMETER                1
+#define TRIP_ODOMETER           2
+#define TANK_LEVEL              3
 
 #endif /* DEFINITIONS_H_ */

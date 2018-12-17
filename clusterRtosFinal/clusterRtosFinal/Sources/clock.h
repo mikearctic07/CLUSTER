@@ -8,6 +8,12 @@
 #ifndef CLOCK_H_
 #define CLOCK_H_
 
+#include "S32K144.h"
+#include "Cpu.h"
+#include "FreeRTOS.h"
+#include "stdint.h"
+#include "definitions.h"
+
 void CLOCK_SOSC_Init_8MHz(void);
 
 void CLOCK_SPLL_Init_160MHz(void);

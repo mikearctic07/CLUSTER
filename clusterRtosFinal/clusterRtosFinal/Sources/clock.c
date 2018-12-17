@@ -5,8 +5,7 @@
  *      Author: azpei
  */
 
-#include <clock.h>
-#include "S32K144.h"
+#include "clock.h"
 
 void CLOCK_SOSC_Init_8MHz(void)
 {
